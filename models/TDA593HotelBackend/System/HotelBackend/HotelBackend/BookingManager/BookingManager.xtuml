@@ -56,34 +56,34 @@ INSERT INTO O_TPARM
 	VALUES ("48c45986-c362-49cb-9c10-e52e6933ab70",
 	"0f3b87e6-2532-4def-859a-27de17cdc422",
 	'info',
-	"88c69b50-d0d7-4d82-a258-3483bce1fd0e",
+	"f055cc32-7fa6-4cbd-949e-0cbdc50ee8b2",
 	0,
 	'',
 	"80301ddb-a34d-4574-b574-29ac0080dde6",
 	'');
 INSERT INTO S_DT_PROXY
-	VALUES ("88c69b50-d0d7-4d82-a258-3483bce1fd0e",
-	"02903c54-443d-4a88-aa81-181997e1d9f4",
-	'personalinfo',
+	VALUES ("f055cc32-7fa6-4cbd-949e-0cbdc50ee8b2",
+	"00000000-0000-0000-0000-000000000000",
+	'PersonalInfo',
 	'',
 	'',
-	'../../Datatypes/Datatypes.xtuml');
+	'../../../../BackendDatatypes/BackendDatatypes.xtuml');
 INSERT INTO O_TPARM
 	VALUES ("71eb88a9-1580-449b-ac1e-bf3da018b44e",
 	"0f3b87e6-2532-4def-859a-27de17cdc422",
 	'creditcard',
-	"821694fc-e948-488e-b4f9-9ae1dd286cf4",
+	"16664b58-a6dc-4ac7-9499-ba089cf98eaa",
 	0,
 	'',
 	"48c45986-c362-49cb-9c10-e52e6933ab70",
 	'');
 INSERT INTO S_DT_PROXY
-	VALUES ("821694fc-e948-488e-b4f9-9ae1dd286cf4",
-	"02903c54-443d-4a88-aa81-181997e1d9f4",
-	'creditcardinfo',
+	VALUES ("16664b58-a6dc-4ac7-9499-ba089cf98eaa",
+	"00000000-0000-0000-0000-000000000000",
+	'CreditCard',
 	'',
 	'',
-	'../../Datatypes/Datatypes.xtuml');
+	'../../../../BackendDatatypes/BackendDatatypes.xtuml');
 INSERT INTO S_DT_PROXY
 	VALUES ("233e7f8d-a875-4812-a4c3-4ced8b823e83",
 	"00000000-0000-0000-0000-000000000000",
