@@ -1,0 +1,17 @@
+-- BP 7.1 content: Interface syschar: 3 persistence-version: 7.1.5
+
+INSERT INTO C_I
+	VALUES ("55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",
+	"2c4b14cf-263e-4680-a6e2-ea8ecc8c143c",
+	'SystemInterface',
+	'');
+INSERT INTO IP_IP_PROXY
+	VALUES ("2c4b14cf-263e-4680-a6e2-ea8ecc8c143c",
+	"00000000-0000-0000-0000-000000000000",
+	"6e2c4488-fb8a-40a5-b159-2b8df9e0cfd7",
+	"6e2c4488-fb8a-40a5-b159-2b8df9e0cfd7",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	'SystemInterfaces',
+	'',
+	'../SystemInterfaces.xtuml');
