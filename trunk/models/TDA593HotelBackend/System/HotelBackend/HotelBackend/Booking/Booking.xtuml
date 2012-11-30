@@ -123,36 +123,50 @@ INSERT INTO O_TPARM
 	VALUES ("c9696d34-7b51-44ae-9fcc-b454e0bdcda3",
 	"6dcdbea3-8afd-40c8-b840-1a3c4cade28b",
 	'timespan',
-	"43da936d-0ca4-4827-bad2-c20101462d57",
+	"29455544-5da7-4d59-89a1-9d1261bd2be6",
 	0,
 	'',
 	"f137c785-75d1-4366-880e-abfc2023812d",
 	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("29455544-5da7-4d59-89a1-9d1261bd2be6",
+	"00000000-0000-0000-0000-000000000000",
+	'TimeSpan',
+	'',
+	'',
+	'../../../../BackendDatatypes/BackendDatatypes.xtuml');
 INSERT INTO O_TPARM
 	VALUES ("af894641-d2cb-4fe1-8fb3-c4dba295145a",
 	"6dcdbea3-8afd-40c8-b840-1a3c4cade28b",
 	'personalInfo',
-	"88c69b50-d0d7-4d82-a258-3483bce1fd0e",
+	"f055cc32-7fa6-4cbd-949e-0cbdc50ee8b2",
 	0,
 	'',
 	"c9696d34-7b51-44ae-9fcc-b454e0bdcda3",
 	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("f055cc32-7fa6-4cbd-949e-0cbdc50ee8b2",
+	"00000000-0000-0000-0000-000000000000",
+	'PersonalInfo',
+	'',
+	'',
+	'../../../../BackendDatatypes/BackendDatatypes.xtuml');
 INSERT INTO O_TPARM
 	VALUES ("e7c7efa8-1265-45aa-8f1c-2f9e7f776b4b",
 	"6dcdbea3-8afd-40c8-b840-1a3c4cade28b",
 	'creditcard',
-	"821694fc-e948-488e-b4f9-9ae1dd286cf4",
+	"16664b58-a6dc-4ac7-9499-ba089cf98eaa",
 	0,
 	'',
 	"af894641-d2cb-4fe1-8fb3-c4dba295145a",
 	'');
 INSERT INTO S_DT_PROXY
-	VALUES ("821694fc-e948-488e-b4f9-9ae1dd286cf4",
-	"02903c54-443d-4a88-aa81-181997e1d9f4",
-	'creditcardinfo',
+	VALUES ("16664b58-a6dc-4ac7-9499-ba089cf98eaa",
+	"00000000-0000-0000-0000-000000000000",
+	'CreditCard',
 	'',
 	'',
-	'../../Datatypes/Datatypes.xtuml');
+	'../../../../BackendDatatypes/BackendDatatypes.xtuml');
 INSERT INTO O_NBATTR
 	VALUES ("0f7eb0bf-7cc7-4e0d-a57b-04508d82887f",
 	"c6ad6108-ec30-407d-b887-1a06eb50ee03");
@@ -186,7 +200,7 @@ INSERT INTO O_ATTR
 	'',
 	'creditcard',
 	0,
-	"821694fc-e948-488e-b4f9-9ae1dd286cf4",
+	"16664b58-a6dc-4ac7-9499-ba089cf98eaa",
 	'',
 	'');
 INSERT INTO O_NBATTR
@@ -204,7 +218,7 @@ INSERT INTO O_ATTR
 	'',
 	'timespan',
 	0,
-	"43da936d-0ca4-4827-bad2-c20101462d57",
+	"29455544-5da7-4d59-89a1-9d1261bd2be6",
 	'',
 	'');
 INSERT INTO O_NBATTR
@@ -222,7 +236,7 @@ INSERT INTO O_ATTR
 	'',
 	'personalInfo',
 	0,
-	"88c69b50-d0d7-4d82-a258-3483bce1fd0e",
+	"f055cc32-7fa6-4cbd-949e-0cbdc50ee8b2",
 	'',
 	'');
 INSERT INTO O_ID

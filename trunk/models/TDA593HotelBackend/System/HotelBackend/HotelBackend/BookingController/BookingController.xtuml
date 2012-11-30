@@ -38,34 +38,34 @@ INSERT INTO O_TPARM
 	VALUES ("d14f4740-4d93-49ff-ac40-4f440afd34e8",
 	"b453b0ff-bb71-4812-876f-301e670ea6d3",
 	'persionalInfo',
-	"88c69b50-d0d7-4d82-a258-3483bce1fd0e",
+	"f055cc32-7fa6-4cbd-949e-0cbdc50ee8b2",
 	0,
 	'',
 	"8b6225ad-916e-49ca-9933-b9d0263fe2b4",
 	'');
 INSERT INTO S_DT_PROXY
-	VALUES ("88c69b50-d0d7-4d82-a258-3483bce1fd0e",
-	"02903c54-443d-4a88-aa81-181997e1d9f4",
-	'personalinfo',
+	VALUES ("f055cc32-7fa6-4cbd-949e-0cbdc50ee8b2",
+	"00000000-0000-0000-0000-000000000000",
+	'PersonalInfo',
 	'',
 	'',
-	'../../Datatypes/Datatypes.xtuml');
+	'../../../../BackendDatatypes/BackendDatatypes.xtuml');
 INSERT INTO O_TPARM
 	VALUES ("6ecae063-609d-4ccf-86b6-b29ad8229c89",
 	"b453b0ff-bb71-4812-876f-301e670ea6d3",
 	'creditcard',
-	"821694fc-e948-488e-b4f9-9ae1dd286cf4",
+	"16664b58-a6dc-4ac7-9499-ba089cf98eaa",
 	0,
 	'',
 	"d14f4740-4d93-49ff-ac40-4f440afd34e8",
 	'');
 INSERT INTO S_DT_PROXY
-	VALUES ("821694fc-e948-488e-b4f9-9ae1dd286cf4",
-	"02903c54-443d-4a88-aa81-181997e1d9f4",
-	'creditcardinfo',
+	VALUES ("16664b58-a6dc-4ac7-9499-ba089cf98eaa",
+	"00000000-0000-0000-0000-000000000000",
+	'CreditCard',
 	'',
 	'',
-	'../../Datatypes/Datatypes.xtuml');
+	'../../../../BackendDatatypes/BackendDatatypes.xtuml');
 INSERT INTO O_TFR
 	VALUES ("ee81073d-99f1-449d-b38c-c48345ab68a5",
 	"e5a9ffd7-615e-4d8a-9836-61d1236abc56",
@@ -81,18 +81,18 @@ INSERT INTO O_TPARM
 	VALUES ("8fca3c26-51af-4768-8fa0-ef05242edded",
 	"ee81073d-99f1-449d-b38c-c48345ab68a5",
 	'timespan',
-	"43da936d-0ca4-4827-bad2-c20101462d57",
+	"29455544-5da7-4d59-89a1-9d1261bd2be6",
 	0,
 	'',
 	"00000000-0000-0000-0000-000000000000",
 	'');
 INSERT INTO S_DT_PROXY
-	VALUES ("43da936d-0ca4-4827-bad2-c20101462d57",
-	"02903c54-443d-4a88-aa81-181997e1d9f4",
-	'timespan',
+	VALUES ("29455544-5da7-4d59-89a1-9d1261bd2be6",
+	"00000000-0000-0000-0000-000000000000",
+	'TimeSpan',
 	'',
 	'',
-	'../../Datatypes/Datatypes.xtuml');
+	'../../../../BackendDatatypes/BackendDatatypes.xtuml');
 INSERT INTO O_TPARM
 	VALUES ("9215c343-ac90-40b5-a71b-c58680293ae9",
 	"ee81073d-99f1-449d-b38c-c48345ab68a5",

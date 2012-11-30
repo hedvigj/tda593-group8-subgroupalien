@@ -101,9 +101,16 @@ INSERT INTO O_ATTR
 	'',
 	'timespan',
 	0,
-	"43da936d-0ca4-4827-bad2-c20101462d57",
+	"29455544-5da7-4d59-89a1-9d1261bd2be6",
 	'',
 	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("29455544-5da7-4d59-89a1-9d1261bd2be6",
+	"00000000-0000-0000-0000-000000000000",
+	'TimeSpan',
+	'',
+	'',
+	'../../../../BackendDatatypes/BackendDatatypes.xtuml');
 INSERT INTO O_ID
 	VALUES (0,
 	"c11fb1b9-5131-4ead-8cc9-acd6be94da8e");

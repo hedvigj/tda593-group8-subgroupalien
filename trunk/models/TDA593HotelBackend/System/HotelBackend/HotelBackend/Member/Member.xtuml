@@ -105,9 +105,16 @@ INSERT INTO O_ATTR
 	'',
 	'memberId',
 	0,
-	"5f77c811-d46b-4197-a574-4b3505e92410",
+	"ae256fd3-70b0-403f-8139-fd377a5896f0",
 	'',
 	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("ae256fd3-70b0-403f-8139-fd377a5896f0",
+	"00000000-0000-0000-0000-000000000000",
+	'unique_id',
+	'',
+	'',
+	'../../../../Datatypes/Datatypes.xtuml');
 INSERT INTO O_ID
 	VALUES (0,
 	"97d118ed-9f50-44d6-a688-645181f64c31");
