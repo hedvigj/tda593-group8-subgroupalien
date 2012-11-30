@@ -1,0 +1,45 @@
+-- BP 7.1 content: ModelClass syschar: 3 persistence-version: 7.1.5
+
+INSERT INTO O_OBJ
+	VALUES ("b1404731-4bdc-477f-ab49-48cf034fe57f",
+	'RoomManager',
+	18,
+	'RoomManager',
+	'',
+	"f56566de-5321-4b5f-b659-95d5c01e1baa");
+INSERT INTO O_TFR
+	VALUES ("aceb78d7-9a1f-46e7-a99a-85fcba249fdc",
+	"b1404731-4bdc-477f-ab49-48cf034fe57f",
+	'getRoomCount',
+	'',
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	1,
+	'',
+	3,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO S_DT_PROXY
+	VALUES ("5f77c811-d46b-4197-a574-4b3505e92410",
+	"00000000-0000-0000-0000-000000000000",
+	'integer',
+	'',
+	'',
+	'../../../../Datatypes/Datatypes.xtuml');
+INSERT INTO O_ID
+	VALUES (0,
+	"b1404731-4bdc-477f-ab49-48cf034fe57f");
+INSERT INTO O_ID
+	VALUES (1,
+	"b1404731-4bdc-477f-ab49-48cf034fe57f");
+INSERT INTO O_ID
+	VALUES (2,
+	"b1404731-4bdc-477f-ab49-48cf034fe57f");
+INSERT INTO S_SS_PROXY
+	VALUES ("f56566de-5321-4b5f-b659-95d5c01e1baa",
+	'HotelBackend',
+	'',
+	'',
+	0,
+	"02903c54-443d-4a88-aa81-181997e1d9f4",
+	"00000000-0000-0000-0000-000000000000",
+	'../HotelBackend.xtuml');

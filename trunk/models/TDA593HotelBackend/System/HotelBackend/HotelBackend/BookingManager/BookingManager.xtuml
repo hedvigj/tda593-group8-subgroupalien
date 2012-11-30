@@ -1,0 +1,111 @@
+-- BP 7.1 content: ModelClass syschar: 3 persistence-version: 7.1.5
+
+INSERT INTO O_OBJ
+	VALUES ("9626466d-b088-4240-9b9e-cc44069b9de5",
+	'BookingManager',
+	9,
+	'BookingManager',
+	'',
+	"f56566de-5321-4b5f-b659-95d5c01e1baa");
+INSERT INTO O_TFR
+	VALUES ("a6c5dd67-f29f-4568-b043-9919e6bdf115",
+	"9626466d-b088-4240-9b9e-cc44069b9de5",
+	'getBookedRoomCount',
+	'',
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	1,
+	'',
+	3,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO S_DT_PROXY
+	VALUES ("5f77c811-d46b-4197-a574-4b3505e92410",
+	"00000000-0000-0000-0000-000000000000",
+	'integer',
+	'',
+	'',
+	'../../../../Datatypes/Datatypes.xtuml');
+INSERT INTO O_TFR
+	VALUES ("0f3b87e6-2532-4def-859a-27de17cdc422",
+	"9626466d-b088-4240-9b9e-cc44069b9de5",
+	'book',
+	'',
+	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
+	1,
+	'',
+	3,
+	'',
+	"a6c5dd67-f29f-4568-b043-9919e6bdf115");
+INSERT INTO O_TPARM
+	VALUES ("80301ddb-a34d-4574-b574-29ac0080dde6",
+	"0f3b87e6-2532-4def-859a-27de17cdc422",
+	'lock',
+	"ae256fd3-70b0-403f-8139-fd377a5896f0",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("ae256fd3-70b0-403f-8139-fd377a5896f0",
+	"00000000-0000-0000-0000-000000000000",
+	'unique_id',
+	'',
+	'',
+	'../../../../Datatypes/Datatypes.xtuml');
+INSERT INTO O_TPARM
+	VALUES ("48c45986-c362-49cb-9c10-e52e6933ab70",
+	"0f3b87e6-2532-4def-859a-27de17cdc422",
+	'info',
+	"88c69b50-d0d7-4d82-a258-3483bce1fd0e",
+	0,
+	'',
+	"80301ddb-a34d-4574-b574-29ac0080dde6",
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("88c69b50-d0d7-4d82-a258-3483bce1fd0e",
+	"02903c54-443d-4a88-aa81-181997e1d9f4",
+	'personalinfo',
+	'',
+	'',
+	'../../Datatypes/Datatypes.xtuml');
+INSERT INTO O_TPARM
+	VALUES ("71eb88a9-1580-449b-ac1e-bf3da018b44e",
+	"0f3b87e6-2532-4def-859a-27de17cdc422",
+	'creditcard',
+	"821694fc-e948-488e-b4f9-9ae1dd286cf4",
+	0,
+	'',
+	"48c45986-c362-49cb-9c10-e52e6933ab70",
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("821694fc-e948-488e-b4f9-9ae1dd286cf4",
+	"02903c54-443d-4a88-aa81-181997e1d9f4",
+	'creditcardinfo',
+	'',
+	'',
+	'../../Datatypes/Datatypes.xtuml');
+INSERT INTO S_DT_PROXY
+	VALUES ("233e7f8d-a875-4812-a4c3-4ced8b823e83",
+	"00000000-0000-0000-0000-000000000000",
+	'void',
+	'',
+	'',
+	'../../../../Datatypes/Datatypes.xtuml');
+INSERT INTO O_ID
+	VALUES (0,
+	"9626466d-b088-4240-9b9e-cc44069b9de5");
+INSERT INTO O_ID
+	VALUES (1,
+	"9626466d-b088-4240-9b9e-cc44069b9de5");
+INSERT INTO O_ID
+	VALUES (2,
+	"9626466d-b088-4240-9b9e-cc44069b9de5");
+INSERT INTO S_SS_PROXY
+	VALUES ("f56566de-5321-4b5f-b659-95d5c01e1baa",
+	'HotelBackend',
+	'',
+	'',
+	0,
+	"02903c54-443d-4a88-aa81-181997e1d9f4",
+	"00000000-0000-0000-0000-000000000000",
+	'../HotelBackend.xtuml');

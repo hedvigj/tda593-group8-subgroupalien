@@ -1,0 +1,95 @@
+-- BP 7.1 content: ModelClass syschar: 3 persistence-version: 7.1.5
+
+INSERT INTO O_OBJ
+	VALUES ("1ced216c-5635-4104-9924-ab770db05882",
+	'Extra',
+	17,
+	'Extra',
+	'',
+	"f56566de-5321-4b5f-b659-95d5c01e1baa");
+INSERT INTO O_NBATTR
+	VALUES ("7e359222-d512-4717-bd25-070daefa0180",
+	"1ced216c-5635-4104-9924-ab770db05882");
+INSERT INTO O_BATTR
+	VALUES ("7e359222-d512-4717-bd25-070daefa0180",
+	"1ced216c-5635-4104-9924-ab770db05882");
+INSERT INTO O_ATTR
+	VALUES ("7e359222-d512-4717-bd25-070daefa0180",
+	"1ced216c-5635-4104-9924-ab770db05882",
+	"00000000-0000-0000-0000-000000000000",
+	'price',
+	'',
+	'',
+	'price',
+	0,
+	"374fad22-0fdd-499d-9f5f-89e6ccd6c3a7",
+	'',
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("374fad22-0fdd-499d-9f5f-89e6ccd6c3a7",
+	"00000000-0000-0000-0000-000000000000",
+	'real',
+	'',
+	'',
+	'../../../../Datatypes/Datatypes.xtuml');
+INSERT INTO O_NBATTR
+	VALUES ("d953be57-e756-4fc3-bc4c-c9bfb7d20522",
+	"1ced216c-5635-4104-9924-ab770db05882");
+INSERT INTO O_BATTR
+	VALUES ("d953be57-e756-4fc3-bc4c-c9bfb7d20522",
+	"1ced216c-5635-4104-9924-ab770db05882");
+INSERT INTO O_ATTR
+	VALUES ("d953be57-e756-4fc3-bc4c-c9bfb7d20522",
+	"1ced216c-5635-4104-9924-ab770db05882",
+	"7e359222-d512-4717-bd25-070daefa0180",
+	'description',
+	'',
+	'',
+	'description',
+	0,
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	'',
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	"00000000-0000-0000-0000-000000000000",
+	'string',
+	'',
+	'',
+	'../../../../Datatypes/Datatypes.xtuml');
+INSERT INTO O_NBATTR
+	VALUES ("4e04854a-e50a-46f3-875c-314148b70aee",
+	"1ced216c-5635-4104-9924-ab770db05882");
+INSERT INTO O_BATTR
+	VALUES ("4e04854a-e50a-46f3-875c-314148b70aee",
+	"1ced216c-5635-4104-9924-ab770db05882");
+INSERT INTO O_ATTR
+	VALUES ("4e04854a-e50a-46f3-875c-314148b70aee",
+	"1ced216c-5635-4104-9924-ab770db05882",
+	"d953be57-e756-4fc3-bc4c-c9bfb7d20522",
+	'name',
+	'',
+	'',
+	'name',
+	0,
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	'',
+	'');
+INSERT INTO O_ID
+	VALUES (0,
+	"1ced216c-5635-4104-9924-ab770db05882");
+INSERT INTO O_ID
+	VALUES (1,
+	"1ced216c-5635-4104-9924-ab770db05882");
+INSERT INTO O_ID
+	VALUES (2,
+	"1ced216c-5635-4104-9924-ab770db05882");
+INSERT INTO S_SS_PROXY
+	VALUES ("f56566de-5321-4b5f-b659-95d5c01e1baa",
+	'HotelBackend',
+	'',
+	'',
+	0,
+	"02903c54-443d-4a88-aa81-181997e1d9f4",
+	"00000000-0000-0000-0000-000000000000",
+	'../HotelBackend.xtuml');
