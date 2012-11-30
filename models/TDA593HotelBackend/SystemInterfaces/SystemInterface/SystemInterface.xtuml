@@ -5,6 +5,17 @@ INSERT INTO C_I
 	"2c4b14cf-263e-4680-a6e2-ea8ecc8c143c",
 	'SystemInterface',
 	'');
+INSERT INTO C_EP
+	VALUES ("d8cc25a4-40a5-4a0a-ab4c-51b46d7dffc9",
+	"55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",
+	-1,
+	'book');
+INSERT INTO C_AS
+	VALUES ("d8cc25a4-40a5-4a0a-ab4c-51b46d7dffc9",
+	'book',
+	'',
+	0,
+	"00000000-0000-0000-0000-000000000000");
 INSERT INTO IP_IP_PROXY
 	VALUES ("2c4b14cf-263e-4680-a6e2-ea8ecc8c143c",
 	"00000000-0000-0000-0000-000000000000",
