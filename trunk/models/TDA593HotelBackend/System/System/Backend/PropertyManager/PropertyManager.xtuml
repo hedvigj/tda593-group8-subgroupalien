@@ -1,0 +1,27 @@
+-- BP 7.1 content: ModelClass syschar: 3 persistence-version: 7.1.5
+
+INSERT INTO O_OBJ
+	VALUES ("1e085b31-7efa-4895-82a9-6d3947857c51",
+	'PropertyManager',
+	21,
+	'PropertyManager',
+	'',
+	"f56566de-5321-4b5f-b659-95d5c01e1baa");
+INSERT INTO O_ID
+	VALUES (0,
+	"1e085b31-7efa-4895-82a9-6d3947857c51");
+INSERT INTO O_ID
+	VALUES (1,
+	"1e085b31-7efa-4895-82a9-6d3947857c51");
+INSERT INTO O_ID
+	VALUES (2,
+	"1e085b31-7efa-4895-82a9-6d3947857c51");
+INSERT INTO S_SS_PROXY
+	VALUES ("f56566de-5321-4b5f-b659-95d5c01e1baa",
+	'Backend',
+	'',
+	'',
+	0,
+	"02903c54-443d-4a88-aa81-181997e1d9f4",
+	"00000000-0000-0000-0000-000000000000",
+	'../Backend.xtuml');
