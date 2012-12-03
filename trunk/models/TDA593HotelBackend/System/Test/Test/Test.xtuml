@@ -1,0 +1,46 @@
+-- BP 7.1 content: Subsystem syschar: 3 persistence-version: 7.1.5
+
+INSERT INTO S_SS
+	VALUES ("ff112ef2-353e-4e94-95ed-276a966b11a3",
+	'Test',
+	'',
+	'',
+	0,
+	"44fbb79c-2243-41c0-b500-e1a8c72e3dd6",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO S_SID
+	VALUES ("44fbb79c-2243-41c0-b500-e1a8c72e3dd6",
+	"ff112ef2-353e-4e94-95ed-276a966b11a3");
+INSERT INTO S_DOM_PROXY
+	VALUES ("44fbb79c-2243-41c0-b500-e1a8c72e3dd6",
+	'Test',
+	'',
+	0,
+	"00000000-0000-0000-0000-000000000002",
+	"00000000-0000-0000-0000-000000000000",
+	'../Test.xtuml');
+INSERT INTO GD_MD
+	VALUES ("cc804e14-1b71-402c-8976-f4ec8a83d006",
+	5,
+	"ff112ef2-353e-4e94-95ed-276a966b11a3",
+	11,
+	0,
+	0,
+	1,
+	1,
+	1,
+	12,
+	1,
+	0,
+	0,
+	0,
+	0,
+	0,
+	'');
+INSERT INTO DIM_DIA
+	VALUES ("cc804e14-1b71-402c-8976-f4ec8a83d006",
+	'',
+	1.000000,
+	4000.000000,
+	3000.000000,
+	"00000000-0000-0000-0000-000000000000");
