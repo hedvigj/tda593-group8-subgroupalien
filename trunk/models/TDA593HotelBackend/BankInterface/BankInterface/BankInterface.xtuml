@@ -1,0 +1,17 @@
+-- BP 7.1 content: Interface syschar: 3 persistence-version: 7.1.5
+
+INSERT INTO C_I
+	VALUES ("1ebfed2c-970c-4c21-b2be-5a1975cbb06e",
+	"d15e23e3-8a03-46d2-be05-51155db01efc",
+	'BankInterface',
+	'');
+INSERT INTO IP_IP_PROXY
+	VALUES ("d15e23e3-8a03-46d2-be05-51155db01efc",
+	"00000000-0000-0000-0000-000000000000",
+	"6e2c4488-fb8a-40a5-b159-2b8df9e0cfd7",
+	"6e2c4488-fb8a-40a5-b159-2b8df9e0cfd7",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	'BankInterface',
+	'',
+	'../BankInterface.xtuml');
