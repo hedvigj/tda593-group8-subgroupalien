@@ -16,6 +16,39 @@ INSERT INTO C_AS
 	'',
 	0,
 	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_EP
+	VALUES ("a2a50216-289f-429e-b536-a4c863c67927",
+	"55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",
+	-1,
+	'lock');
+INSERT INTO C_AS
+	VALUES ("a2a50216-289f-429e-b536-a4c863c67927",
+	'lock',
+	'',
+	0,
+	"d8cc25a4-40a5-4a0a-ab4c-51b46d7dffc9");
+INSERT INTO C_EP
+	VALUES ("160942f5-e2e0-4a06-8e0b-f36339e70c19",
+	"55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",
+	-1,
+	'checkin');
+INSERT INTO C_AS
+	VALUES ("160942f5-e2e0-4a06-8e0b-f36339e70c19",
+	'checkin',
+	'',
+	0,
+	"a2a50216-289f-429e-b536-a4c863c67927");
+INSERT INTO C_EP
+	VALUES ("c2cf2589-8d02-40f0-8bc1-eed3d8e39b66",
+	"55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",
+	-1,
+	'checkout');
+INSERT INTO C_AS
+	VALUES ("c2cf2589-8d02-40f0-8bc1-eed3d8e39b66",
+	'checkout',
+	'',
+	0,
+	"160942f5-e2e0-4a06-8e0b-f36339e70c19");
 INSERT INTO IP_IP_PROXY
 	VALUES ("2c4b14cf-263e-4680-a6e2-ea8ecc8c143c",
 	"00000000-0000-0000-0000-000000000000",
