@@ -289,8 +289,12 @@ INSERT INTO SPR_PO
 	'addRoomType',
 	'',
 	'select any roomController from instances of RoomController;
+
+
 if (empty roomController)
-  create object instance roomController of RoomController;
+	LOG::LogInfo(message: "In here");
+	create object instance roomController of RoomController;
+	LOG::LogInfo(message: "Created a RoomController");
 end if;
 
 return roomController.addRoomType(name: param.name); ',
@@ -310,7 +314,7 @@ INSERT INTO SPR_PO
 	'deleteRoomType',
 	'',
 	'',
-	3);
+	1);
 INSERT INTO C_EP_PROXY
 	VALUES ("f8bd5495-bb85-4443-89dc-823585448966",
 	"55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",
@@ -326,7 +330,7 @@ INSERT INTO SPR_PO
 	'bookRoomConfiguration',
 	'',
 	'',
-	3);
+	1);
 INSERT INTO C_EP_PROXY
 	VALUES ("c45a051e-0996-458e-9a49-01b2ad225044",
 	"55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",
@@ -342,7 +346,7 @@ INSERT INTO SPR_PO
 	'lockRoomConfiguration',
 	'',
 	'',
-	3);
+	1);
 INSERT INTO C_EP_PROXY
 	VALUES ("ea394f09-f307-4a14-b4ef-6e4e54041c33",
 	"55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",

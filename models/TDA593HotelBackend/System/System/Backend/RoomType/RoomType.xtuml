@@ -28,7 +28,7 @@ INSERT INTO S_DT_PROXY
 INSERT INTO O_TFR
 	VALUES ("c2d65c8b-8891-40cb-8161-0d6040eef8c4",
 	"fa8a6ec5-bb0f-46de-b502-65628b69c7c1",
-	'isEnabled()',
+	'isEnabled',
 	'',
 	"28114c36-aaba-4a92-b7c3-08f06e41c6a4",
 	1,
@@ -51,9 +51,36 @@ INSERT INTO O_TFR
 	"28114c36-aaba-4a92-b7c3-08f06e41c6a4",
 	1,
 	'',
-	3,
+	1,
 	'',
 	"c2d65c8b-8891-40cb-8161-0d6040eef8c4");
+INSERT INTO O_TFR
+	VALUES ("ff177d96-d105-4550-92d7-54bbc2d7a88f",
+	"fa8a6ec5-bb0f-46de-b502-65628b69c7c1",
+	'setName',
+	'',
+	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
+	1,
+	'self.name = param.name;',
+	1,
+	'',
+	"53e2fa3f-6b3a-4ed8-be45-7db6b7f34066");
+INSERT INTO O_TPARM
+	VALUES ("ce43ec64-9594-4452-9f9a-f93bf30ddae0",
+	"ff177d96-d105-4550-92d7-54bbc2d7a88f",
+	'name',
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("233e7f8d-a875-4812-a4c3-4ced8b823e83",
+	"00000000-0000-0000-0000-000000000000",
+	'void',
+	'',
+	'',
+	'../../../../Datatypes/Datatypes.xtuml');
 INSERT INTO O_NBATTR
 	VALUES ("25fac7ca-d417-4845-9a81-64e25edc309b",
 	"fa8a6ec5-bb0f-46de-b502-65628b69c7c1");
