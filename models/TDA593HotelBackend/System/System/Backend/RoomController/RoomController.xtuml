@@ -20,6 +20,8 @@ if(empty roomManager)
 	relate roomManager to self across R11;
 	LOG::LogInfo(message: "Created a RoomManager");
 end if;
+LOG::LogInfo(message: "It exists a RoomManager");
+
 
 return roomManager.addRoomType(name: param.name);
 ',
@@ -69,6 +71,24 @@ INSERT INTO O_TPARM
 	'',
 	"00000000-0000-0000-0000-000000000000",
 	'');
+INSERT INTO O_TFR
+	VALUES ("296de235-cbba-46be-b50b-32f058baf43a",
+	"b6f096b2-e562-4c26-8fa6-be81a5215695",
+	'addRoomConfiguration',
+	'',
+	"ae256fd3-70b0-403f-8139-fd377a5896f0",
+	1,
+	'',
+	3,
+	'',
+	"124285c8-cc75-47e0-9675-cf662a752779");
+INSERT INTO S_DT_PROXY
+	VALUES ("ae256fd3-70b0-403f-8139-fd377a5896f0",
+	"00000000-0000-0000-0000-000000000000",
+	'unique_id',
+	'',
+	'',
+	'../../../../Datatypes/Datatypes.xtuml');
 INSERT INTO O_ID
 	VALUES (0,
 	"b6f096b2-e562-4c26-8fa6-be81a5215695");

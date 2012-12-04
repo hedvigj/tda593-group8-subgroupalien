@@ -96,6 +96,53 @@ INSERT INTO C_IO
 	0,
 	'',
 	"c45a051e-0996-458e-9a49-01b2ad225044");
+INSERT INTO C_EP
+	VALUES ("69b35a40-57c3-48d6-9eca-ea427b00186c",
+	"55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",
+	-1,
+	'addRoomConfiguration');
+INSERT INTO C_IO
+	VALUES ("69b35a40-57c3-48d6-9eca-ea427b00186c",
+	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
+	'addRoomConfiguration',
+	'',
+	0,
+	'',
+	"ea394f09-f307-4a14-b4ef-6e4e54041c33");
+INSERT INTO C_PP
+	VALUES ("7231fc81-7509-4486-a1d0-e037f8ee147c",
+	"69b35a40-57c3-48d6-9eca-ea427b00186c",
+	"374fad22-0fdd-499d-9f5f-89e6ccd6c3a7",
+	'price',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO S_DT_PROXY
+	VALUES ("374fad22-0fdd-499d-9f5f-89e6ccd6c3a7",
+	"00000000-0000-0000-0000-000000000000",
+	'real',
+	'',
+	'',
+	'../../Datatypes/Datatypes.xtuml');
+INSERT INTO C_PP
+	VALUES ("e1f5bb14-9ef3-476d-9206-7a60c93446c0",
+	"69b35a40-57c3-48d6-9eca-ea427b00186c",
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	'description',
+	'',
+	0,
+	'',
+	"7231fc81-7509-4486-a1d0-e037f8ee147c");
+INSERT INTO C_PP
+	VALUES ("d46edb81-996d-466e-9b47-143732fce087",
+	"69b35a40-57c3-48d6-9eca-ea427b00186c",
+	"28114c36-aaba-4a92-b7c3-08f06e41c6a4",
+	'enabled',
+	'',
+	0,
+	'',
+	"e1f5bb14-9ef3-476d-9206-7a60c93446c0");
 INSERT INTO IP_IP_PROXY
 	VALUES ("2c4b14cf-263e-4680-a6e2-ea8ecc8c143c",
 	"00000000-0000-0000-0000-000000000000",
