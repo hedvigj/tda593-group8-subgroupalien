@@ -32,7 +32,7 @@ INSERT INTO O_TFR
 	'',
 	"28114c36-aaba-4a92-b7c3-08f06e41c6a4",
 	1,
-	'select any roomType from instances of RoomType where selected.getName() == param.name;
+	'select any roomType from instances of RoomType where selected.name == param.name;
 if(empty roomType)
 	create object instance roomType of RoomType;
 	relate roomType to self across R42;
@@ -40,10 +40,10 @@ if(empty roomType)
 	LOG::LogInfo(message: "Room was added: " + param.name);
 	return true;
 end if;
+
 LOG::LogInfo(message: "Room was not added");
 
 return false;
-
 ',
 	1,
 	'',
