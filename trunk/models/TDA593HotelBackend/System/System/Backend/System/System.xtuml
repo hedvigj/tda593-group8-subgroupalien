@@ -109,6 +109,28 @@ INSERT INTO O_TPARM
 	'',
 	"c3729df9-7a31-4c88-990c-6aaec87269fb",
 	'');
+INSERT INTO O_TFR
+	VALUES ("208a9c3c-b34b-4bbd-8c93-589ce0711d9f",
+	"5136502b-99fd-4438-9e87-6e1402eab385",
+	'addRoomType',
+	'',
+	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
+	1,
+	'',
+	3,
+	'',
+	"ba9abc2b-cc8d-4bba-9a58-042f92752cd1");
+INSERT INTO O_TFR
+	VALUES ("d1c1e5eb-afa9-4a67-86bc-cb072219ef1f",
+	"5136502b-99fd-4438-9e87-6e1402eab385",
+	'deleteRoomType',
+	'',
+	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
+	1,
+	'',
+	3,
+	'',
+	"208a9c3c-b34b-4bbd-8c93-589ce0711d9f");
 INSERT INTO O_ID
 	VALUES (0,
 	"5136502b-99fd-4438-9e87-6e1402eab385");

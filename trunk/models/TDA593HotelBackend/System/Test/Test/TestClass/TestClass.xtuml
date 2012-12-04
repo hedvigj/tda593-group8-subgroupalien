@@ -1,0 +1,45 @@
+-- BP 7.1 content: ModelClass syschar: 3 persistence-version: 7.1.5
+
+INSERT INTO O_OBJ
+	VALUES ("32458e6c-09c1-479e-9d59-28cc2362f085",
+	'TestClass',
+	1,
+	'KEY',
+	'',
+	"ff112ef2-353e-4e94-95ed-276a966b11a3");
+INSERT INTO O_TFR
+	VALUES ("7559b420-0172-4838-9572-814c324b8f4a",
+	"32458e6c-09c1-479e-9d59-28cc2362f085",
+	'run',
+	'',
+	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
+	1,
+	'',
+	3,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO S_DT_PROXY
+	VALUES ("233e7f8d-a875-4812-a4c3-4ced8b823e83",
+	"00000000-0000-0000-0000-000000000000",
+	'void',
+	'',
+	'',
+	'../../../../Datatypes/Datatypes.xtuml');
+INSERT INTO O_ID
+	VALUES (0,
+	"32458e6c-09c1-479e-9d59-28cc2362f085");
+INSERT INTO O_ID
+	VALUES (1,
+	"32458e6c-09c1-479e-9d59-28cc2362f085");
+INSERT INTO O_ID
+	VALUES (2,
+	"32458e6c-09c1-479e-9d59-28cc2362f085");
+INSERT INTO S_SS_PROXY
+	VALUES ("ff112ef2-353e-4e94-95ed-276a966b11a3",
+	'Test',
+	'',
+	'',
+	0,
+	"44fbb79c-2243-41c0-b500-e1a8c72e3dd6",
+	"00000000-0000-0000-0000-000000000000",
+	'../Test.xtuml');
