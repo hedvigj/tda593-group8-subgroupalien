@@ -288,8 +288,13 @@ INSERT INTO SPR_PO
 	VALUES ("b2f5c740-bbaa-419b-bd63-32a40cde029d",
 	'addRoomType',
 	'',
-	'',
-	3);
+	'select any roomController from instances of RoomController;
+if (empty roomController)
+  create object instance roomController of RoomController;
+end if;
+
+return roomController.addRoomType(name: param.name); ',
+	1);
 INSERT INTO C_EP_PROXY
 	VALUES ("2d73d615-117c-4150-81bb-791ad817d8ff",
 	"55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",
