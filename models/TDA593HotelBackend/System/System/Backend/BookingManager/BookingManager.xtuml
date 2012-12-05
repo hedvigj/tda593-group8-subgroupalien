@@ -14,10 +14,38 @@ INSERT INTO O_TFR
 	'',
 	"5f77c811-d46b-4197-a574-4b3505e92410",
 	1,
-	'',
-	3,
+	'select many bookings from instances of Booking where 
+(selected.timespan.startDate <= param.timespan.endDate) and 
+(selected.timespan.endDate >= param.timespan.startDate);
+
+assign count = 0;
+if(not_empty bookings)
+	for each booking in bookings
+		count = count+1;
+	end for;
+		
+end if;
+
+return count;',
+	1,
 	'',
 	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TPARM
+	VALUES ("39e1dd8a-b67e-41ee-8f40-5b1e00b26638",
+	"a6c5dd67-f29f-4568-b043-9919e6bdf115",
+	'timespan',
+	"29455544-5da7-4d59-89a1-9d1261bd2be6",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("29455544-5da7-4d59-89a1-9d1261bd2be6",
+	"00000000-0000-0000-0000-000000000000",
+	'TimeSpan',
+	'',
+	'',
+	'../../../../BackendDatatypes/BackendDatatypes.xtuml');
 INSERT INTO S_DT_PROXY
 	VALUES ("5f77c811-d46b-4197-a574-4b3505e92410",
 	"00000000-0000-0000-0000-000000000000",
@@ -33,7 +61,7 @@ INSERT INTO O_TFR
 	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
 	1,
 	'',
-	3,
+	1,
 	'',
 	"a6c5dd67-f29f-4568-b043-9919e6bdf115");
 INSERT INTO O_TPARM
