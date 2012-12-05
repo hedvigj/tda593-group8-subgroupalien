@@ -71,6 +71,31 @@ INSERT INTO S_DT_PROXY
 	'',
 	'',
 	'../../../../Datatypes/Datatypes.xtuml');
+INSERT INTO O_NBATTR
+	VALUES ("1051e230-8dda-4370-b6d3-252916c053c2",
+	"b1404731-4bdc-477f-ab49-48cf034fe57f");
+INSERT INTO O_BATTR
+	VALUES ("1051e230-8dda-4370-b6d3-252916c053c2",
+	"b1404731-4bdc-477f-ab49-48cf034fe57f");
+INSERT INTO O_ATTR
+	VALUES ("1051e230-8dda-4370-b6d3-252916c053c2",
+	"b1404731-4bdc-477f-ab49-48cf034fe57f",
+	"00000000-0000-0000-0000-000000000000",
+	'current_state',
+	'',
+	'',
+	'current_state',
+	0,
+	"4e33731b-7545-47b2-bf5b-70c967e5b9be",
+	'',
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("4e33731b-7545-47b2-bf5b-70c967e5b9be",
+	"00000000-0000-0000-0000-000000000000",
+	'state<State_Model>',
+	'',
+	'',
+	'../../../../Datatypes/Datatypes.xtuml');
 INSERT INTO O_ID
 	VALUES (0,
 	"b1404731-4bdc-477f-ab49-48cf034fe57f");

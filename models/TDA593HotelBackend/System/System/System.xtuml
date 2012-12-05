@@ -281,25 +281,31 @@ INSERT INTO C_P
 	'Unnamed Interface',
 	'');
 INSERT INTO SPR_PEP
-	VALUES ("f6fca9c7-2269-4a9d-8834-0c18eb89353c",
+	VALUES ("efcd3981-4279-4dc0-af1a-aecfe043d277",
+	"418b4d9f-ac17-49f9-aff4-cc4e4cb0532a",
+	"516cd7f9-a598-4910-b592-2e48439135e0");
+INSERT INTO SPR_PS
+	VALUES ("efcd3981-4279-4dc0-af1a-aecfe043d277",
+	'addRoomType',
+	'',
+	'',
+	1);
+INSERT INTO C_EP_PROXY
+	VALUES ("418b4d9f-ac17-49f9-aff4-cc4e4cb0532a",
+	"55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",
+	-1,
+	'addRoomType',
+	'../../SystemInterfaces/SystemInterface/SystemInterface.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("29f20545-462d-4305-b5e8-a4c21238a3dd",
 	"2d73d615-117c-4150-81bb-791ad817d8ff",
 	"516cd7f9-a598-4910-b592-2e48439135e0");
 INSERT INTO SPR_PO
-	VALUES ("f6fca9c7-2269-4a9d-8834-0c18eb89353c",
+	VALUES ("29f20545-462d-4305-b5e8-a4c21238a3dd",
 	'addRoomType',
 	'',
-	'select any roomController from instances of RoomController;
-if (empty roomController)
-	LOG::LogInfo(message: "In here");
-	create object instance roomController of RoomController;
-	LOG::LogInfo(message: "Created a RoomController");
-	
-end if;
-
-	LOG::LogInfo(message: "it exist");
-
-return roomController.addRoomType(name: param.name);',
-	1);
+	'',
+	3);
 INSERT INTO C_EP_PROXY
 	VALUES ("2d73d615-117c-4150-81bb-791ad817d8ff",
 	"55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",
@@ -307,11 +313,11 @@ INSERT INTO C_EP_PROXY
 	'addRoomType',
 	'../../SystemInterfaces/SystemInterface/SystemInterface.xtuml');
 INSERT INTO SPR_PEP
-	VALUES ("504adf95-6855-4894-b054-f6708f241677",
+	VALUES ("f06a854d-f03c-494d-b593-69add6ebd087",
 	"f8bd5495-bb85-4443-89dc-823585448966",
 	"516cd7f9-a598-4910-b592-2e48439135e0");
 INSERT INTO SPR_PO
-	VALUES ("504adf95-6855-4894-b054-f6708f241677",
+	VALUES ("f06a854d-f03c-494d-b593-69add6ebd087",
 	'deleteRoomType',
 	'',
 	'',
@@ -323,11 +329,11 @@ INSERT INTO C_EP_PROXY
 	'deleteRoomType',
 	'../../SystemInterfaces/SystemInterface/SystemInterface.xtuml');
 INSERT INTO SPR_PEP
-	VALUES ("d085a889-713a-4cf7-8869-33e72d182836",
+	VALUES ("1c3d28ff-8f86-4a7e-85b2-ae96a5b9f295",
 	"c45a051e-0996-458e-9a49-01b2ad225044",
 	"516cd7f9-a598-4910-b592-2e48439135e0");
 INSERT INTO SPR_PO
-	VALUES ("d085a889-713a-4cf7-8869-33e72d182836",
+	VALUES ("1c3d28ff-8f86-4a7e-85b2-ae96a5b9f295",
 	'bookRoomConfiguration',
 	'',
 	'',
@@ -339,11 +345,11 @@ INSERT INTO C_EP_PROXY
 	'bookRoomConfiguration',
 	'../../SystemInterfaces/SystemInterface/SystemInterface.xtuml');
 INSERT INTO SPR_PEP
-	VALUES ("28caf68e-3d10-41b1-ac90-786583db9f67",
+	VALUES ("44d40cd3-2410-42d6-92d4-8f546358b7a8",
 	"ea394f09-f307-4a14-b4ef-6e4e54041c33",
 	"516cd7f9-a598-4910-b592-2e48439135e0");
 INSERT INTO SPR_PO
-	VALUES ("28caf68e-3d10-41b1-ac90-786583db9f67",
+	VALUES ("44d40cd3-2410-42d6-92d4-8f546358b7a8",
 	'lockRoomConfiguration',
 	'',
 	'',
@@ -355,11 +361,11 @@ INSERT INTO C_EP_PROXY
 	'lockRoomConfiguration',
 	'../../SystemInterfaces/SystemInterface/SystemInterface.xtuml');
 INSERT INTO SPR_PEP
-	VALUES ("7c42ef57-07ff-4b19-9397-616184378944",
+	VALUES ("9514033a-c1de-442d-b9b1-f47545138d5f",
 	"69b35a40-57c3-48d6-9eca-ea427b00186c",
 	"516cd7f9-a598-4910-b592-2e48439135e0");
 INSERT INTO SPR_PO
-	VALUES ("7c42ef57-07ff-4b19-9397-616184378944",
+	VALUES ("9514033a-c1de-442d-b9b1-f47545138d5f",
 	'addRoomConfiguration',
 	'',
 	'',
