@@ -32,6 +32,35 @@ INSERT INTO S_DT_PROXY
 	'',
 	'',
 	'../../Datatypes/Datatypes.xtuml');
+INSERT INTO C_EP
+	VALUES ("4157c1f4-3f7b-4c8b-ba22-40b5c5008208",
+	"55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",
+	-1,
+	'addProperty');
+INSERT INTO C_AS
+	VALUES ("4157c1f4-3f7b-4c8b-ba22-40b5c5008208",
+	'addProperty',
+	'',
+	0,
+	"418b4d9f-ac17-49f9-aff4-cc4e4cb0532a");
+INSERT INTO C_PP
+	VALUES ("7a2ee627-6fe6-4063-bef0-5793d61fb0d7",
+	"4157c1f4-3f7b-4c8b-ba22-40b5c5008208",
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	'name',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("96612615-6b59-4ce3-a71a-451a37be3077",
+	"4157c1f4-3f7b-4c8b-ba22-40b5c5008208",
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	'description',
+	'',
+	0,
+	'',
+	"7a2ee627-6fe6-4063-bef0-5793d61fb0d7");
 INSERT INTO IP_IP_PROXY
 	VALUES ("2c4b14cf-263e-4680-a6e2-ea8ecc8c143c",
 	"00000000-0000-0000-0000-000000000000",

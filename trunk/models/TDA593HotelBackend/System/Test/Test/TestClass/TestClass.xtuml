@@ -10,7 +10,7 @@ INSERT INTO O_OBJ
 INSERT INTO O_TFR
 	VALUES ("7559b420-0172-4838-9572-814c324b8f4a",
 	"32458e6c-09c1-479e-9d59-28cc2362f085",
-	'run',
+	'addRoomType',
 	'',
 	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
 	0,
@@ -25,6 +25,17 @@ INSERT INTO S_DT_PROXY
 	'',
 	'',
 	'../../../../Datatypes/Datatypes.xtuml');
+INSERT INTO O_TFR
+	VALUES ("d8ce0a38-a16d-49f1-b4a5-c6425597c078",
+	"32458e6c-09c1-479e-9d59-28cc2362f085",
+	'addProperty',
+	'',
+	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
+	0,
+	'send Port1::addProperty(name: "Bathroom", description: "Standard bathroom model x2012");',
+	1,
+	'',
+	"7559b420-0172-4838-9572-814c324b8f4a");
 INSERT INTO O_ID
 	VALUES (0,
 	"32458e6c-09c1-479e-9d59-28cc2362f085");
