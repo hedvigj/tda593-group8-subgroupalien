@@ -177,11 +177,11 @@ INSERT INTO C_R
 	'',
 	'Unnamed Interface');
 INSERT INTO SPR_REP
-	VALUES ("b4c32031-4943-4b07-8ae6-4bc49b7a23d1",
+	VALUES ("d7cd1ec4-6793-4551-beb2-767316bcdf80",
 	"418b4d9f-ac17-49f9-aff4-cc4e4cb0532a",
 	"0de41345-3261-4020-b786-e4f65025f308");
 INSERT INTO SPR_RS
-	VALUES ("b4c32031-4943-4b07-8ae6-4bc49b7a23d1",
+	VALUES ("d7cd1ec4-6793-4551-beb2-767316bcdf80",
 	'addRoomType',
 	'',
 	'',
@@ -193,11 +193,11 @@ INSERT INTO C_EP_PROXY
 	'addRoomType',
 	'../../SystemInterfaces/SystemInterface/SystemInterface.xtuml');
 INSERT INTO SPR_REP
-	VALUES ("bdc78e08-ec12-4e38-b302-0f60b3098c95",
+	VALUES ("ef12f791-2b9b-49ab-86d3-7d86994779be",
 	"4157c1f4-3f7b-4c8b-ba22-40b5c5008208",
 	"0de41345-3261-4020-b786-e4f65025f308");
 INSERT INTO SPR_RS
-	VALUES ("bdc78e08-ec12-4e38-b302-0f60b3098c95",
+	VALUES ("ef12f791-2b9b-49ab-86d3-7d86994779be",
 	'addProperty',
 	'',
 	'',
@@ -207,6 +207,22 @@ INSERT INTO C_EP_PROXY
 	"55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",
 	-1,
 	'addProperty',
+	'../../SystemInterfaces/SystemInterface/SystemInterface.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("bb3fc919-54bf-48d7-869d-cedad6d8d168",
+	"1369d25e-4e1a-4676-93d8-ba7e46d55e3a",
+	"0de41345-3261-4020-b786-e4f65025f308");
+INSERT INTO SPR_RS
+	VALUES ("bb3fc919-54bf-48d7-869d-cedad6d8d168",
+	'book',
+	'',
+	'',
+	3);
+INSERT INTO C_EP_PROXY
+	VALUES ("1369d25e-4e1a-4676-93d8-ba7e46d55e3a",
+	"55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",
+	-1,
+	'book',
 	'../../SystemInterfaces/SystemInterface/SystemInterface.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",
