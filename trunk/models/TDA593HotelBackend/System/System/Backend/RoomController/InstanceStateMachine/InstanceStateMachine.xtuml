@@ -319,7 +319,6 @@ if(empty roomManager)
 	relate roomManager to self across R11;
 	LOG::LogInfo(message: "Created a RoomManager");
 end if;
-LOG::LogInfo(message: "It exists a RoomManager");
 	
 generate RoomManager1:addingManager(name: param.name)to roomManager;
 generate RoomController3: finishedRoomType to self;',
@@ -381,7 +380,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("63ff2508-5d52-4192-8fe1-604aaa7eaa94",
 	"d225bf50-1890-4d55-b411-40233d169e0c",
-	3,
+	1,
 	'',
 	'');
 INSERT INTO SM_TAH
@@ -394,7 +393,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("e82b7091-8e0d-4c0a-9c4f-8d6d943b054a",
 	"d225bf50-1890-4d55-b411-40233d169e0c",
-	3,
+	1,
 	'',
 	'');
 INSERT INTO GD_MD
