@@ -61,6 +61,90 @@ INSERT INTO C_PP
 	0,
 	'',
 	"7a2ee627-6fe6-4063-bef0-5793d61fb0d7");
+INSERT INTO C_EP
+	VALUES ("1369d25e-4e1a-4676-93d8-ba7e46d55e3a",
+	"55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",
+	-1,
+	'book');
+INSERT INTO C_AS
+	VALUES ("1369d25e-4e1a-4676-93d8-ba7e46d55e3a",
+	'book',
+	'',
+	0,
+	"4157c1f4-3f7b-4c8b-ba22-40b5c5008208");
+INSERT INTO C_PP
+	VALUES ("ed74c294-a804-4e35-bda0-a5672dfd7a9c",
+	"1369d25e-4e1a-4676-93d8-ba7e46d55e3a",
+	"ae256fd3-70b0-403f-8139-fd377a5896f0",
+	'lock',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO S_DT_PROXY
+	VALUES ("ae256fd3-70b0-403f-8139-fd377a5896f0",
+	"00000000-0000-0000-0000-000000000000",
+	'unique_id',
+	'',
+	'',
+	'../../Datatypes/Datatypes.xtuml');
+INSERT INTO C_PP
+	VALUES ("b854cdcf-e5c0-4648-b420-df06d5dd1a63",
+	"1369d25e-4e1a-4676-93d8-ba7e46d55e3a",
+	"f055cc32-7fa6-4cbd-949e-0cbdc50ee8b2",
+	'personalInfo',
+	'',
+	0,
+	'',
+	"ed74c294-a804-4e35-bda0-a5672dfd7a9c");
+INSERT INTO S_DT_PROXY
+	VALUES ("f055cc32-7fa6-4cbd-949e-0cbdc50ee8b2",
+	"00000000-0000-0000-0000-000000000000",
+	'PersonalInfo',
+	'',
+	'',
+	'../../BackendDatatypes/BackendDatatypes.xtuml');
+INSERT INTO C_PP
+	VALUES ("9822c854-258e-4b6a-ab5d-ccf2cb96ed79",
+	"1369d25e-4e1a-4676-93d8-ba7e46d55e3a",
+	"16664b58-a6dc-4ac7-9499-ba089cf98eaa",
+	'creditcard',
+	'',
+	0,
+	'',
+	"b854cdcf-e5c0-4648-b420-df06d5dd1a63");
+INSERT INTO S_DT_PROXY
+	VALUES ("16664b58-a6dc-4ac7-9499-ba089cf98eaa",
+	"00000000-0000-0000-0000-000000000000",
+	'CreditCard',
+	'',
+	'',
+	'../../BackendDatatypes/BackendDatatypes.xtuml');
+INSERT INTO C_PP
+	VALUES ("ca065851-64bd-4892-b72c-412e8edbdb93",
+	"1369d25e-4e1a-4676-93d8-ba7e46d55e3a",
+	"29455544-5da7-4d59-89a1-9d1261bd2be6",
+	'timespan',
+	'',
+	0,
+	'',
+	"9822c854-258e-4b6a-ab5d-ccf2cb96ed79");
+INSERT INTO S_DT_PROXY
+	VALUES ("29455544-5da7-4d59-89a1-9d1261bd2be6",
+	"00000000-0000-0000-0000-000000000000",
+	'TimeSpan',
+	'',
+	'',
+	'../../BackendDatatypes/BackendDatatypes.xtuml');
+INSERT INTO C_PP
+	VALUES ("f363ee3a-c0c4-4919-9574-a40b0f365403",
+	"1369d25e-4e1a-4676-93d8-ba7e46d55e3a",
+	"ae256fd3-70b0-403f-8139-fd377a5896f0",
+	'roomConfigurationAmountTuples',
+	'',
+	0,
+	'',
+	"ca065851-64bd-4892-b72c-412e8edbdb93");
 INSERT INTO IP_IP_PROXY
 	VALUES ("2c4b14cf-263e-4680-a6e2-ea8ecc8c143c",
 	"00000000-0000-0000-0000-000000000000",
