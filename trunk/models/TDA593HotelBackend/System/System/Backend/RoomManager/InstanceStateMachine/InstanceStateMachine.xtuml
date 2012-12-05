@@ -158,10 +158,10 @@ if(empty roomType)
 	create object instance roomType of RoomType;
 	relate roomType to self across R42;
 	roomType.setName(name: param.name);
-	LOG::LogInfo(message: "Room was added: " + param.name);
+	LOG::LogInfo(message: "RoomType was added: " + param.name);
 	generate RoomManager2: finished to self;
 else
-	LOG::LogInfo(message: "Room was not added");
+	LOG::LogInfo(message: "RoomType was not added, existing type with same name exists: " + param.name);
 	generate RoomManager2: finished to self;
 end if;',
 	'');
