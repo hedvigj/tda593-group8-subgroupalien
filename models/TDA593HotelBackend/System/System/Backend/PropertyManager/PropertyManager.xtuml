@@ -7,6 +7,74 @@ INSERT INTO O_OBJ
 	'PropertyManager',
 	'',
 	"f56566de-5321-4b5f-b659-95d5c01e1baa");
+INSERT INTO O_TFR
+	VALUES ("ad6a1727-4487-4bf6-921b-92d40cf07d56",
+	"1e085b31-7efa-4895-82a9-6d3947857c51",
+	'addProperty',
+	'',
+	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
+	1,
+	'',
+	3,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TPARM
+	VALUES ("c4fc71d7-0d29-40b9-bd78-e0f086f54540",
+	"ad6a1727-4487-4bf6-921b-92d40cf07d56",
+	'name',
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	"00000000-0000-0000-0000-000000000000",
+	'string',
+	'',
+	'',
+	'../../../../Datatypes/Datatypes.xtuml');
+INSERT INTO O_TPARM
+	VALUES ("7fd56d54-2345-465f-a738-7c3fd6199642",
+	"ad6a1727-4487-4bf6-921b-92d40cf07d56",
+	'description',
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	0,
+	'',
+	"c4fc71d7-0d29-40b9-bd78-e0f086f54540",
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("233e7f8d-a875-4812-a4c3-4ced8b823e83",
+	"00000000-0000-0000-0000-000000000000",
+	'void',
+	'',
+	'',
+	'../../../../Datatypes/Datatypes.xtuml');
+INSERT INTO O_NBATTR
+	VALUES ("dc786dd3-c7f0-42ae-972f-677dad57e210",
+	"1e085b31-7efa-4895-82a9-6d3947857c51");
+INSERT INTO O_BATTR
+	VALUES ("dc786dd3-c7f0-42ae-972f-677dad57e210",
+	"1e085b31-7efa-4895-82a9-6d3947857c51");
+INSERT INTO O_ATTR
+	VALUES ("dc786dd3-c7f0-42ae-972f-677dad57e210",
+	"1e085b31-7efa-4895-82a9-6d3947857c51",
+	"00000000-0000-0000-0000-000000000000",
+	'current_state',
+	'',
+	'',
+	'current_state',
+	0,
+	"4e33731b-7545-47b2-bf5b-70c967e5b9be",
+	'',
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("4e33731b-7545-47b2-bf5b-70c967e5b9be",
+	"00000000-0000-0000-0000-000000000000",
+	'state<State_Model>',
+	'',
+	'',
+	'../../../../Datatypes/Datatypes.xtuml');
 INSERT INTO O_ID
 	VALUES (0,
 	"1e085b31-7efa-4895-82a9-6d3947857c51");
