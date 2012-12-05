@@ -1,0 +1,63 @@
+-- BP 7.1 content: FunctionPackage syschar: 3 persistence-version: 7.1.5
+
+INSERT INTO S_FPK
+	VALUES ("00ea2887-e9c6-4656-a9aa-aa1c83bcdfb2",
+	'SuiteFunctions',
+	"44fbb79c-2243-41c0-b500-e1a8c72e3dd6",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO GD_MD
+	VALUES ("a2385dbd-8756-4c0e-ad2a-942d24706ec1",
+	101,
+	"00ea2887-e9c6-4656-a9aa-aa1c83bcdfb2",
+	54,
+	0,
+	0,
+	1,
+	1,
+	1,
+	12,
+	1,
+	0,
+	0,
+	0,
+	0,
+	0,
+	'3.5.2');
+INSERT INTO DIM_DIA
+	VALUES ("a2385dbd-8756-4c0e-ad2a-942d24706ec1",
+	'',
+	1.000000,
+	4000.000000,
+	3000.000000,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO PL_FPID
+	VALUES ("00ea2887-e9c6-4656-a9aa-aa1c83bcdfb2",
+	"44fbb79c-2243-41c0-b500-e1a8c72e3dd6");
+INSERT INTO S_DOM_PROXY
+	VALUES ("44fbb79c-2243-41c0-b500-e1a8c72e3dd6",
+	'Test',
+	'',
+	0,
+	"00000000-0000-0000-0000-000000000002",
+	"00000000-0000-0000-0000-000000000000",
+	'../Test.xtuml');
+INSERT INTO S_FIP
+	VALUES ("00ea2887-e9c6-4656-a9aa-aa1c83bcdfb2",
+	"fbd0584c-fe78-4fe7-a600-11e56578df12");
+INSERT INTO S_SYNC
+	VALUES ("fbd0584c-fe78-4fe7-a600-11e56578df12",
+	"44fbb79c-2243-41c0-b500-e1a8c72e3dd6",
+	'RunTests',
+	'',
+	'TestClass::initializeRoomTypes();
+TestClass::initializeProperties();',
+	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
+	1,
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("233e7f8d-a875-4812-a4c3-4ced8b823e83",
+	"00000000-0000-0000-0000-000000000000",
+	'void',
+	'',
+	'',
+	'../../../Datatypes/Datatypes.xtuml');
