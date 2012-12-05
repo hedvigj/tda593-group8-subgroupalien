@@ -14,7 +14,11 @@ INSERT INTO O_TFR
 	'',
 	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
 	0,
-	'send Port1::addRoomType(name: "Single room");',
+	'send Port1::addRoomType(name: "Single room");
+send Port1::addRoomType(name: "Double room");
+send Port1::addRoomType(name: "Family room");
+send Port1::addRoomType(name: "Suite");
+',
 	1,
 	'',
 	"00000000-0000-0000-0000-000000000000");
