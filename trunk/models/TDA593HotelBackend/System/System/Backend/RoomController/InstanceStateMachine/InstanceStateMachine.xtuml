@@ -367,7 +367,8 @@ if(empty propertyManager)
 	LOG::LogInfo(message: "Created a PropertyManager");
 end if;
 	
-generate PropertyManager1:addProperty(name: param.name, description: param.description)to propertyManager;
+assign test = propertyManager.addProperty(name: param.name, description: param.description);
+// kolla om test == true, och skicka signal till test
 generate RoomController5: finishedAddProperty to self;',
 	'');
 INSERT INTO SM_TAH
