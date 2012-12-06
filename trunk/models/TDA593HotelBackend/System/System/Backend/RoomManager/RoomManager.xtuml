@@ -14,7 +14,16 @@ INSERT INTO O_TFR
 	'',
 	"5f77c811-d46b-4197-a574-4b3505e92410",
 	1,
-	'',
+	'select many rooms from instances of RoomInstance;
+
+assign count = 0;
+if(not_empty rooms)
+	for each room in rooms
+		count = count+1;
+	end for;
+end if;
+
+return count;',
 	1,
 	'',
 	"00000000-0000-0000-0000-000000000000");
@@ -32,18 +41,17 @@ INSERT INTO O_TFR
 	'',
 	"28114c36-aaba-4a92-b7c3-08f06e41c6a4",
 	1,
-	'select any roomType from instances of RoomType where selected.name == param.name;
+	'select any roomType related by self->RoomType[R42] where selected.name == param.name;
 if(empty roomType)
 	create object instance roomType of RoomType;
 	relate roomType to self across R42;
 	roomType.setName(name: param.name);
-	LOG::LogInfo(message: "Room was added: " + param.name);
+	LOG::LogInfo(message: "RoomType was added: " + param.name);
 	return true;
+else
+	LOG::LogInfo(message: "RoomType was not added, existing type with same name exists: " + param.name);
+	return false;
 end if;
-
-LOG::LogInfo(message: "Room was not added");
-
-return false;
 ',
 	1,
 	'',
@@ -71,6 +79,56 @@ INSERT INTO S_DT_PROXY
 	'',
 	'',
 	'../../../../Datatypes/Datatypes.xtuml');
+INSERT INTO O_TFR
+	VALUES ("74ed0fe1-90ac-4d4b-b8c1-5acb96fadb27",
+	"b1404731-4bdc-477f-ab49-48cf034fe57f",
+	'addRoomConfiguration',
+	'',
+	"28114c36-aaba-4a92-b7c3-08f06e41c6a4",
+	1,
+	'select any roomType related by self->RoomType[R42] where selected.name == param.roomType;
+if(empty roomType)
+	LOG::LogInfo(message: "Configuration not added, RoomType does not exist. Description: " + param.description);
+	return false;
+else
+	create object instance config of RoomConfiguration;
+	config.setDescription(description: param.description);
+	config.setPrice(price: param.price);
+	config.setEnabled(enabled: false);	// Default is disabled
+	relate config to self across R10;
+	LOG::LogInfo(message: "Configuration was added. Description: " + config.getDescription());
+	return true;
+end if;',
+	1,
+	'',
+	"535ae405-a4b3-43a3-8e6b-75d556299473");
+INSERT INTO O_TPARM
+	VALUES ("41e014f7-d82a-4c90-b9e6-5c633e328fea",
+	"74ed0fe1-90ac-4d4b-b8c1-5acb96fadb27",
+	'description',
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("5eba0bf6-3bd2-47d0-9ade-e3f9074fc08b",
+	"74ed0fe1-90ac-4d4b-b8c1-5acb96fadb27",
+	'price',
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	0,
+	'',
+	"41e014f7-d82a-4c90-b9e6-5c633e328fea",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("6328adc8-37eb-470c-8134-d402564946da",
+	"74ed0fe1-90ac-4d4b-b8c1-5acb96fadb27",
+	'roomType',
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	0,
+	'',
+	"5eba0bf6-3bd2-47d0-9ade-e3f9074fc08b",
+	'');
 INSERT INTO O_NBATTR
 	VALUES ("1051e230-8dda-4370-b6d3-252916c053c2",
 	"b1404731-4bdc-477f-ab49-48cf034fe57f");
@@ -81,10 +139,10 @@ INSERT INTO O_ATTR
 	VALUES ("1051e230-8dda-4370-b6d3-252916c053c2",
 	"b1404731-4bdc-477f-ab49-48cf034fe57f",
 	"00000000-0000-0000-0000-000000000000",
-	'current_state',
+	'currentState',
 	'',
 	'',
-	'current_state',
+	'currentState',
 	0,
 	"4e33731b-7545-47b2-bf5b-70c967e5b9be",
 	'',
