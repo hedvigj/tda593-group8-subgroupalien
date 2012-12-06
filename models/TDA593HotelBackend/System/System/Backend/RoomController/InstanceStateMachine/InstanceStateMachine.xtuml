@@ -12,7 +12,7 @@ INSERT INTO SM_MOORE
 INSERT INTO SM_EVTDI
 	VALUES ("dc4e2c41-19a9-431c-9d15-fc2a62f3984d",
 	"d225bf50-1890-4d55-b411-40233d169e0c",
-	'name',
+	'uniqueName',
 	'',
 	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
 	'',
@@ -28,7 +28,7 @@ INSERT INTO S_DT_PROXY
 INSERT INTO SM_EVTDI
 	VALUES ("8df94fe0-d4c1-43bc-93e2-42b6b2bb879e",
 	"d225bf50-1890-4d55-b411-40233d169e0c",
-	'name',
+	'uniqueName',
 	'',
 	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
 	'',
@@ -77,6 +77,15 @@ INSERT INTO SM_EVTDI
 	'',
 	"3a150e7d-b83c-4f4b-aa3c-3856bf135d3e",
 	"76ff2e62-299c-4422-8449-1a3e25db78bf");
+INSERT INTO SM_EVTDI
+	VALUES ("b859c425-58a7-4745-abaf-25686f823300",
+	"d225bf50-1890-4d55-b411-40233d169e0c",
+	'uniqueName',
+	'',
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	'',
+	"3a150e7d-b83c-4f4b-aa3c-3856bf135d3e",
+	"ea75ca3d-8933-43c9-8062-4504582bece7");
 INSERT INTO SM_LEVT
 	VALUES ("c2f659fd-197f-48c2-9e97-3d0dadfb4483",
 	"d225bf50-1890-4d55-b411-40233d169e0c",
@@ -538,7 +547,7 @@ if(empty roomManager)
 	relate roomManager to self across R11;
 	LOG::LogInfo(message: "Created a RoomManager");
 end if;
-assign ret = roomManager.addRoomType(name: param.name);
+assign ret = roomManager.addRoomType(uniqueName: param.uniqueName);
 generate RoomController3: finishedRoomType to self;',
 	'');
 INSERT INTO SM_TAH
@@ -585,7 +594,7 @@ if(empty propertyManager)
 	LOG::LogInfo(message: "Created a PropertyManager");
 end if;
 	
-assign test = propertyManager.addProperty(name: param.name, description: param.description);
+assign test = propertyManager.addProperty(uniqueName: param.uniqueName, description: param.description);
 // kolla om test == true, och skicka signal till test
 generate RoomController5: finishedAddProperty to self;',
 	'');
@@ -632,7 +641,7 @@ if(empty roomManager)
 	relate roomManager to self across R11;
 	LOG::LogInfo(message: "Created a RoomManager");
 end if;
-assign ret = roomManager.addRoomConfiguration(description: param.description, price: param.price, roomType: param.roomType);
+assign ret = roomManager.addRoomConfiguration(description: param.description, price: param.price, roomType: param.roomType, uniqueName: param.uniqueName);
 generate RoomController7: finishedRoomConfiguration to self;',
 	'');
 INSERT INTO SM_TAH
@@ -645,7 +654,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("4d1dd7db-a168-4e80-9b14-37587fd8564e",
 	"d225bf50-1890-4d55-b411-40233d169e0c",
-	3,
+	1,
 	'',
 	'');
 INSERT INTO SM_TAH
@@ -658,7 +667,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("ab003f86-929f-41ff-a8f8-b4a2cc9ccf12",
 	"d225bf50-1890-4d55-b411-40233d169e0c",
-	3,
+	1,
 	'',
 	'');
 INSERT INTO GD_MD

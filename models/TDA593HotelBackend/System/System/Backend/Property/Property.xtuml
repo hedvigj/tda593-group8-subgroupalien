@@ -14,7 +14,7 @@ INSERT INTO O_TFR
 	'',
 	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
 	1,
-	'',
+	'return self.name;',
 	1,
 	'',
 	"00000000-0000-0000-0000-000000000000");
@@ -32,7 +32,7 @@ INSERT INTO O_TFR
 	'',
 	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
 	1,
-	'',
+	'return self.description;',
 	1,
 	'',
 	"aeea29bb-6134-47be-93fa-eb2e90232fc8");
