@@ -14,10 +14,10 @@ INSERT INTO O_TFR
 	'',
 	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
 	0,
-	'send Port1::addRoomType(name: "Single room");
-send Port1::addRoomType(name: "Double room");
-send Port1::addRoomType(name: "Family room");
-send Port1::addRoomType(name: "Suite");
+	'send Port1::addRoomType(uniqueName: "Single room");
+send Port1::addRoomType(uniqueName: "Double room");
+send Port1::addRoomType(uniqueName: "Family room");
+send Port1::addRoomType(uniqueName: "Suite");
 ',
 	1,
 	'',
@@ -36,9 +36,9 @@ INSERT INTO O_TFR
 	'',
 	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
 	0,
-	'send Port1::addProperty(name: "Bathroom", description: "Standard bathroom model x2012");
-send Port1::addProperty(name: "Sea view", description: "PRETTY FISHIS AND BIRDIES");
-send Port1::addProperty(name: "Crisp supply", description: "Supply of crisps");',
+	'send Port1::addProperty(uniqueName: "Bathroom", description: "Standard bathroom model x2012");
+send Port1::addProperty(uniqueName: "Sea view", description: "PRETTY FISHIS AND BIRDIES");
+send Port1::addProperty(uniqueName: "Crisp supply", description: "Supply of crisps");',
 	1,
 	'',
 	"7559b420-0172-4838-9572-814c324b8f4a");
@@ -49,9 +49,9 @@ INSERT INTO O_TFR
 	'',
 	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
 	0,
-	'send Port1::addRoomConfiguration(description: "DESC1", price: 10, roomType: "Single room");
-send Port1::addRoomConfiguration(description: "DESC2", price: 12, roomType: "Single room");
-send Port1::addRoomConfiguration(description: "OH GLORIOUS ROYAL HIGHNESS, THIS IS THE SUITE FOR YE OLDE ROYAL ENDEVOURS YE HAVETH", price: 1337, roomType: "Suite");',
+	'send Port1::addRoomConfiguration(uniqueName: "0x10", description: "DESC1", price: 10, roomType: "Single room");
+send Port1::addRoomConfiguration(uniqueName: "0x20", description: "DESC2", price: 12, roomType: "Single room");
+send Port1::addRoomConfiguration(uniqueName: "0x30", description: "OH GLORIOUS ROYAL HIGHNESS, THIS IS THE SUITE FOR YE OLDE ROYAL ENDEVOURS YE HAVETH", price: 1337, roomType: "Suite");',
 	1,
 	'',
 	"d8ce0a38-a16d-49f1-b4a5-c6425597c078");

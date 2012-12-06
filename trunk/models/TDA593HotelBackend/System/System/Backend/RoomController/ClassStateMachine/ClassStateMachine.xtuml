@@ -27,87 +27,6 @@ INSERT INTO SM_EVT
 	'',
 	'RoomController_A2',
 	'');
-INSERT INTO SM_SGEVT
-	VALUES ("a763a0db-6dd7-46ad-a620-8e4c3a4ffa42",
-	"2ca83bd0-02d8-43c2-81f7-ffba8259b70c",
-	"00000000-0000-0000-0000-000000000000",
-	"e2b993ae-1fa6-441d-bb04-70f706d8a5b6",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO SPR_PS_PROXY
-	VALUES ("e2b993ae-1fa6-441d-bb04-70f706d8a5b6",
-	'addRoomType',
-	'',
-	'',
-	1,
-	'../../../System.xtuml');
-INSERT INTO SM_SEVT
-	VALUES ("a763a0db-6dd7-46ad-a620-8e4c3a4ffa42",
-	"2ca83bd0-02d8-43c2-81f7-ffba8259b70c",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO SM_EVT
-	VALUES ("a763a0db-6dd7-46ad-a620-8e4c3a4ffa42",
-	"2ca83bd0-02d8-43c2-81f7-ffba8259b70c",
-	"00000000-0000-0000-0000-000000000000",
-	4,
-	'addRoomType',
-	0,
-	'',
-	'RoomController_A4',
-	'');
-INSERT INTO SM_SGEVT
-	VALUES ("6d5a730a-6c6e-4fdc-8188-b6ae56202e09",
-	"2ca83bd0-02d8-43c2-81f7-ffba8259b70c",
-	"00000000-0000-0000-0000-000000000000",
-	"e318315d-109d-4bb9-8b13-ed4cc8322a43",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO SPR_PS_PROXY
-	VALUES ("e318315d-109d-4bb9-8b13-ed4cc8322a43",
-	'addProperty',
-	'',
-	'',
-	1,
-	'../../../System.xtuml');
-INSERT INTO SM_SEVT
-	VALUES ("6d5a730a-6c6e-4fdc-8188-b6ae56202e09",
-	"2ca83bd0-02d8-43c2-81f7-ffba8259b70c",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO SM_EVT
-	VALUES ("6d5a730a-6c6e-4fdc-8188-b6ae56202e09",
-	"2ca83bd0-02d8-43c2-81f7-ffba8259b70c",
-	"00000000-0000-0000-0000-000000000000",
-	5,
-	'addProperty',
-	0,
-	'',
-	'RoomController_A5',
-	'');
-INSERT INTO SM_SGEVT
-	VALUES ("1d0fce6a-76f8-493e-b5eb-f53a770357ee",
-	"2ca83bd0-02d8-43c2-81f7-ffba8259b70c",
-	"00000000-0000-0000-0000-000000000000",
-	"da6c3fbf-c133-4139-9c4a-aacd1b5fbfee",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO SPR_PS_PROXY
-	VALUES ("da6c3fbf-c133-4139-9c4a-aacd1b5fbfee",
-	'addRoomConfiguration',
-	'',
-	'',
-	1,
-	'../../../System.xtuml');
-INSERT INTO SM_SEVT
-	VALUES ("1d0fce6a-76f8-493e-b5eb-f53a770357ee",
-	"2ca83bd0-02d8-43c2-81f7-ffba8259b70c",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO SM_EVT
-	VALUES ("1d0fce6a-76f8-493e-b5eb-f53a770357ee",
-	"2ca83bd0-02d8-43c2-81f7-ffba8259b70c",
-	"00000000-0000-0000-0000-000000000000",
-	6,
-	'addRoomConfiguration',
-	0,
-	'',
-	'RoomController_A6',
-	'');
 INSERT INTO SM_STATE
 	VALUES ("700abf43-7aed-4ec6-abf5-00018d6a3b14",
 	"2ca83bd0-02d8-43c2-81f7-ffba8259b70c",
@@ -118,39 +37,6 @@ INSERT INTO SM_STATE
 INSERT INTO SM_SEME
 	VALUES ("700abf43-7aed-4ec6-abf5-00018d6a3b14",
 	"190661eb-6402-44e8-bf91-427a520bf792",
-	"2ca83bd0-02d8-43c2-81f7-ffba8259b70c",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO SM_CH
-	VALUES ("700abf43-7aed-4ec6-abf5-00018d6a3b14",
-	"a763a0db-6dd7-46ad-a620-8e4c3a4ffa42",
-	"2ca83bd0-02d8-43c2-81f7-ffba8259b70c",
-	"00000000-0000-0000-0000-000000000000",
-	'');
-INSERT INTO SM_SEME
-	VALUES ("700abf43-7aed-4ec6-abf5-00018d6a3b14",
-	"a763a0db-6dd7-46ad-a620-8e4c3a4ffa42",
-	"2ca83bd0-02d8-43c2-81f7-ffba8259b70c",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO SM_CH
-	VALUES ("700abf43-7aed-4ec6-abf5-00018d6a3b14",
-	"6d5a730a-6c6e-4fdc-8188-b6ae56202e09",
-	"2ca83bd0-02d8-43c2-81f7-ffba8259b70c",
-	"00000000-0000-0000-0000-000000000000",
-	'');
-INSERT INTO SM_SEME
-	VALUES ("700abf43-7aed-4ec6-abf5-00018d6a3b14",
-	"6d5a730a-6c6e-4fdc-8188-b6ae56202e09",
-	"2ca83bd0-02d8-43c2-81f7-ffba8259b70c",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO SM_CH
-	VALUES ("700abf43-7aed-4ec6-abf5-00018d6a3b14",
-	"1d0fce6a-76f8-493e-b5eb-f53a770357ee",
-	"2ca83bd0-02d8-43c2-81f7-ffba8259b70c",
-	"00000000-0000-0000-0000-000000000000",
-	'');
-INSERT INTO SM_SEME
-	VALUES ("700abf43-7aed-4ec6-abf5-00018d6a3b14",
-	"1d0fce6a-76f8-493e-b5eb-f53a770357ee",
 	"2ca83bd0-02d8-43c2-81f7-ffba8259b70c",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO SM_STATE
@@ -171,21 +57,6 @@ INSERT INTO SM_SEME
 	"190661eb-6402-44e8-bf91-427a520bf792",
 	"2ca83bd0-02d8-43c2-81f7-ffba8259b70c",
 	"00000000-0000-0000-0000-000000000000");
-INSERT INTO SM_SEME
-	VALUES ("1957faea-d9f1-43e0-a933-ea2d4da37357",
-	"a763a0db-6dd7-46ad-a620-8e4c3a4ffa42",
-	"2ca83bd0-02d8-43c2-81f7-ffba8259b70c",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO SM_SEME
-	VALUES ("1957faea-d9f1-43e0-a933-ea2d4da37357",
-	"6d5a730a-6c6e-4fdc-8188-b6ae56202e09",
-	"2ca83bd0-02d8-43c2-81f7-ffba8259b70c",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO SM_SEME
-	VALUES ("1957faea-d9f1-43e0-a933-ea2d4da37357",
-	"1d0fce6a-76f8-493e-b5eb-f53a770357ee",
-	"2ca83bd0-02d8-43c2-81f7-ffba8259b70c",
-	"00000000-0000-0000-0000-000000000000");
 INSERT INTO SM_STATE
 	VALUES ("13f758ce-c331-4b0c-a9cb-94ea4309ff4c",
 	"2ca83bd0-02d8-43c2-81f7-ffba8259b70c",
@@ -196,39 +67,6 @@ INSERT INTO SM_STATE
 INSERT INTO SM_SEME
 	VALUES ("13f758ce-c331-4b0c-a9cb-94ea4309ff4c",
 	"190661eb-6402-44e8-bf91-427a520bf792",
-	"2ca83bd0-02d8-43c2-81f7-ffba8259b70c",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO SM_CH
-	VALUES ("13f758ce-c331-4b0c-a9cb-94ea4309ff4c",
-	"a763a0db-6dd7-46ad-a620-8e4c3a4ffa42",
-	"2ca83bd0-02d8-43c2-81f7-ffba8259b70c",
-	"00000000-0000-0000-0000-000000000000",
-	'');
-INSERT INTO SM_SEME
-	VALUES ("13f758ce-c331-4b0c-a9cb-94ea4309ff4c",
-	"a763a0db-6dd7-46ad-a620-8e4c3a4ffa42",
-	"2ca83bd0-02d8-43c2-81f7-ffba8259b70c",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO SM_CH
-	VALUES ("13f758ce-c331-4b0c-a9cb-94ea4309ff4c",
-	"6d5a730a-6c6e-4fdc-8188-b6ae56202e09",
-	"2ca83bd0-02d8-43c2-81f7-ffba8259b70c",
-	"00000000-0000-0000-0000-000000000000",
-	'');
-INSERT INTO SM_SEME
-	VALUES ("13f758ce-c331-4b0c-a9cb-94ea4309ff4c",
-	"6d5a730a-6c6e-4fdc-8188-b6ae56202e09",
-	"2ca83bd0-02d8-43c2-81f7-ffba8259b70c",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO SM_CH
-	VALUES ("13f758ce-c331-4b0c-a9cb-94ea4309ff4c",
-	"1d0fce6a-76f8-493e-b5eb-f53a770357ee",
-	"2ca83bd0-02d8-43c2-81f7-ffba8259b70c",
-	"00000000-0000-0000-0000-000000000000",
-	'');
-INSERT INTO SM_SEME
-	VALUES ("13f758ce-c331-4b0c-a9cb-94ea4309ff4c",
-	"1d0fce6a-76f8-493e-b5eb-f53a770357ee",
 	"2ca83bd0-02d8-43c2-81f7-ffba8259b70c",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO SM_STATE
@@ -243,44 +81,10 @@ INSERT INTO SM_SEME
 	"190661eb-6402-44e8-bf91-427a520bf792",
 	"2ca83bd0-02d8-43c2-81f7-ffba8259b70c",
 	"00000000-0000-0000-0000-000000000000");
-INSERT INTO SM_CH
-	VALUES ("ea00b7a5-e2cd-46ad-b2eb-e2c4bb067de8",
-	"a763a0db-6dd7-46ad-a620-8e4c3a4ffa42",
-	"2ca83bd0-02d8-43c2-81f7-ffba8259b70c",
-	"00000000-0000-0000-0000-000000000000",
-	'');
-INSERT INTO SM_SEME
-	VALUES ("ea00b7a5-e2cd-46ad-b2eb-e2c4bb067de8",
-	"a763a0db-6dd7-46ad-a620-8e4c3a4ffa42",
-	"2ca83bd0-02d8-43c2-81f7-ffba8259b70c",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO SM_CH
-	VALUES ("ea00b7a5-e2cd-46ad-b2eb-e2c4bb067de8",
-	"6d5a730a-6c6e-4fdc-8188-b6ae56202e09",
-	"2ca83bd0-02d8-43c2-81f7-ffba8259b70c",
-	"00000000-0000-0000-0000-000000000000",
-	'');
-INSERT INTO SM_SEME
-	VALUES ("ea00b7a5-e2cd-46ad-b2eb-e2c4bb067de8",
-	"6d5a730a-6c6e-4fdc-8188-b6ae56202e09",
-	"2ca83bd0-02d8-43c2-81f7-ffba8259b70c",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO SM_CH
-	VALUES ("ea00b7a5-e2cd-46ad-b2eb-e2c4bb067de8",
-	"1d0fce6a-76f8-493e-b5eb-f53a770357ee",
-	"2ca83bd0-02d8-43c2-81f7-ffba8259b70c",
-	"00000000-0000-0000-0000-000000000000",
-	'');
-INSERT INTO SM_SEME
-	VALUES ("ea00b7a5-e2cd-46ad-b2eb-e2c4bb067de8",
-	"1d0fce6a-76f8-493e-b5eb-f53a770357ee",
-	"2ca83bd0-02d8-43c2-81f7-ffba8259b70c",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO SM_NSTXN
+INSERT INTO SM_NETXN
 	VALUES ("42279efc-aa88-4051-9f6a-ce5acbe229a3",
 	"2ca83bd0-02d8-43c2-81f7-ffba8259b70c",
 	"1957faea-d9f1-43e0-a933-ea2d4da37357",
-	"a763a0db-6dd7-46ad-a620-8e4c3a4ffa42",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO SM_TXN
 	VALUES ("42279efc-aa88-4051-9f6a-ce5acbe229a3",
@@ -298,11 +102,10 @@ INSERT INTO SM_TXN
 	"2ca83bd0-02d8-43c2-81f7-ffba8259b70c",
 	"1957faea-d9f1-43e0-a933-ea2d4da37357",
 	"00000000-0000-0000-0000-000000000000");
-INSERT INTO SM_NSTXN
+INSERT INTO SM_NETXN
 	VALUES ("b2f6597f-5999-4fe2-9fc3-2a16e0afbdb4",
 	"2ca83bd0-02d8-43c2-81f7-ffba8259b70c",
 	"1957faea-d9f1-43e0-a933-ea2d4da37357",
-	"6d5a730a-6c6e-4fdc-8188-b6ae56202e09",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO SM_TXN
 	VALUES ("b2f6597f-5999-4fe2-9fc3-2a16e0afbdb4",
@@ -320,11 +123,10 @@ INSERT INTO SM_TXN
 	"2ca83bd0-02d8-43c2-81f7-ffba8259b70c",
 	"1957faea-d9f1-43e0-a933-ea2d4da37357",
 	"00000000-0000-0000-0000-000000000000");
-INSERT INTO SM_NSTXN
+INSERT INTO SM_NETXN
 	VALUES ("6b018c4a-e0cd-4036-ae6c-1f18a3b109a8",
 	"2ca83bd0-02d8-43c2-81f7-ffba8259b70c",
 	"1957faea-d9f1-43e0-a933-ea2d4da37357",
-	"1d0fce6a-76f8-493e-b5eb-f53a770357ee",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO SM_TXN
 	VALUES ("6b018c4a-e0cd-4036-ae6c-1f18a3b109a8",
@@ -360,7 +162,7 @@ if (empty roomController)
 	
 end if;
 
-generate RoomController1:addRoomType(name: param.name)to roomController;
+generate RoomController1:addRoomType(uniqueName: param.uniqueName)to roomController;
 generate RoomController_A2:finished to RoomController class;
 ',
 	'');
@@ -420,7 +222,7 @@ if (empty roomController)
 	LOG::LogInfo(message: "Created a RoomController");
 end if;
 
-generate RoomController4:addProperty(name: param.name, description: param.description)to roomController;
+generate RoomController4:addProperty(uniqueName: param.uniqueName, description: param.description)to roomController;
 generate RoomController_A2:finished to RoomController class;',
 	'');
 INSERT INTO SM_TAH
@@ -466,7 +268,7 @@ if (empty roomController)
 	LOG::LogInfo(message: "Created a RoomController");
 end if;
 
-generate RoomController6:addRoomConfiguration(description: param.description, price: param.price, roomType: param.roomType)to roomController;
+generate RoomController6:addRoomConfiguration(description: param.description, price: param.price, roomType: param.roomType, uniqueName: param.uniqueName)to roomController;
 generate RoomController_A2:finished to RoomController class;',
 	'');
 INSERT INTO SM_TAH
@@ -479,7 +281,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("f5cd9f55-38a0-43c6-9e11-8b4d673a4a5b",
 	"2ca83bd0-02d8-43c2-81f7-ffba8259b70c",
-	3,
+	1,
 	'',
 	'');
 INSERT INTO SM_TAH
@@ -492,7 +294,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("40e171f2-7243-442d-a134-52a6d3600345",
 	"2ca83bd0-02d8-43c2-81f7-ffba8259b70c",
-	3,
+	1,
 	'',
 	'');
 INSERT INTO GD_MD

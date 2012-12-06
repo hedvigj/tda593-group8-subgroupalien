@@ -14,16 +14,16 @@ INSERT INTO O_TFR
 	'',
 	"28114c36-aaba-4a92-b7c3-08f06e41c6a4",
 	1,
-	'select any property related by self->Property[R13] where selected.name == param.name;
+	'select any property related by self->Property[R13] where selected.name == param.uniqueName;
 if(empty property)
 	create object instance property of Property;
 	relate property to self across R13;
-	property.setName(name: param.name);
+	property.setName(name: param.uniqueName);
 	property.setDescription(description: param.description);
-	LOG::LogInfo(message: "Property was added: " + param.name + " Description: " + param.description);
+	LOG::LogInfo(message: "Property was added: " + property.getName() + " Description: " + property.getDescription());
 	return true;
 else
-	LOG::LogInfo(message: "Property was not added");
+	LOG::LogInfo(message: "Property was not added: " + param.uniqueName);
 	return false;
 end if;',
 	1,
@@ -32,7 +32,7 @@ end if;',
 INSERT INTO O_TPARM
 	VALUES ("c4fc71d7-0d29-40b9-bd78-e0f086f54540",
 	"ad6a1727-4487-4bf6-921b-92d40cf07d56",
-	'name',
+	'uniqueName',
 	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
 	0,
 	'',
