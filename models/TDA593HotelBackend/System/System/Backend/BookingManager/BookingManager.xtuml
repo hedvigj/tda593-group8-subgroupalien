@@ -122,51 +122,6 @@ INSERT INTO S_DT_PROXY
 	'',
 	'',
 	'../../../../Datatypes/Datatypes.xtuml');
-INSERT INTO O_TFR
-	VALUES ("21df229d-1f24-4b1f-a5d2-fe2c9c899fb3",
-	"9626466d-b088-4240-9b9e-cc44069b9de5",
-	'setCreditcard',
-	'',
-	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
-	1,
-	'self.creditcard = param.creditcard;',
-	1,
-	'',
-	"1949f51d-98a9-4773-bb28-18ed13310f84");
-INSERT INTO O_TPARM
-	VALUES ("1b38349c-c3d0-4039-aaa7-7517e0f8c414",
-	"21df229d-1f24-4b1f-a5d2-fe2c9c899fb3",
-	'creditcard',
-	"16664b58-a6dc-4ac7-9499-ba089cf98eaa",
-	0,
-	'',
-	"00000000-0000-0000-0000-000000000000",
-	'');
-INSERT INTO S_DT_PROXY
-	VALUES ("233e7f8d-a875-4812-a4c3-4ced8b823e83",
-	"00000000-0000-0000-0000-000000000000",
-	'void',
-	'',
-	'',
-	'../../../../Datatypes/Datatypes.xtuml');
-INSERT INTO O_NBATTR
-	VALUES ("84bd106c-2ad8-4403-b701-388cafffc3a3",
-	"9626466d-b088-4240-9b9e-cc44069b9de5");
-INSERT INTO O_BATTR
-	VALUES ("84bd106c-2ad8-4403-b701-388cafffc3a3",
-	"9626466d-b088-4240-9b9e-cc44069b9de5");
-INSERT INTO O_ATTR
-	VALUES ("84bd106c-2ad8-4403-b701-388cafffc3a3",
-	"9626466d-b088-4240-9b9e-cc44069b9de5",
-	"00000000-0000-0000-0000-000000000000",
-	'creditcard',
-	'',
-	'',
-	'creditcard',
-	0,
-	"16664b58-a6dc-4ac7-9499-ba089cf98eaa",
-	'',
-	'');
 INSERT INTO O_ID
 	VALUES (0,
 	"9626466d-b088-4240-9b9e-cc44069b9de5");

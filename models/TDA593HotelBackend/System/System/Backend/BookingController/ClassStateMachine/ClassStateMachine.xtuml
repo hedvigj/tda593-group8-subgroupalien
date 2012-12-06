@@ -28,7 +28,7 @@ INSERT INTO SM_EVT
 	'BookingController_A4',
 	'');
 INSERT INTO SM_SGEVT
-	VALUES ("3ed4d8fc-f4f1-43aa-a57a-8f4c9fb6d1c1",
+	VALUES ("7acfbdaa-9c73-4566-9fab-3e4e624690a8",
 	"b1c0c118-7b90-46d1-a471-74af5982f5bb",
 	"00000000-0000-0000-0000-000000000000",
 	"6e574927-b437-4411-8dd4-15981c28827f",
@@ -41,11 +41,11 @@ INSERT INTO SPR_PS_PROXY
 	3,
 	'../../../System.xtuml');
 INSERT INTO SM_SEVT
-	VALUES ("3ed4d8fc-f4f1-43aa-a57a-8f4c9fb6d1c1",
+	VALUES ("7acfbdaa-9c73-4566-9fab-3e4e624690a8",
 	"b1c0c118-7b90-46d1-a471-74af5982f5bb",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO SM_EVT
-	VALUES ("3ed4d8fc-f4f1-43aa-a57a-8f4c9fb6d1c1",
+	VALUES ("7acfbdaa-9c73-4566-9fab-3e4e624690a8",
 	"b1c0c118-7b90-46d1-a471-74af5982f5bb",
 	"00000000-0000-0000-0000-000000000000",
 	5,
@@ -74,7 +74,7 @@ INSERT INTO SM_SEME
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO SM_SEME
 	VALUES ("d96bd420-038a-4b73-8498-0733a45c8029",
-	"3ed4d8fc-f4f1-43aa-a57a-8f4c9fb6d1c1",
+	"7acfbdaa-9c73-4566-9fab-3e4e624690a8",
 	"b1c0c118-7b90-46d1-a471-74af5982f5bb",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO SM_STATE
@@ -91,20 +91,20 @@ INSERT INTO SM_SEME
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO SM_CH
 	VALUES ("30dad60d-63d6-4166-8e7c-73577d988d0c",
-	"3ed4d8fc-f4f1-43aa-a57a-8f4c9fb6d1c1",
+	"7acfbdaa-9c73-4566-9fab-3e4e624690a8",
 	"b1c0c118-7b90-46d1-a471-74af5982f5bb",
 	"00000000-0000-0000-0000-000000000000",
 	'');
 INSERT INTO SM_SEME
 	VALUES ("30dad60d-63d6-4166-8e7c-73577d988d0c",
-	"3ed4d8fc-f4f1-43aa-a57a-8f4c9fb6d1c1",
+	"7acfbdaa-9c73-4566-9fab-3e4e624690a8",
 	"b1c0c118-7b90-46d1-a471-74af5982f5bb",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO SM_NSTXN
 	VALUES ("2ad73571-ad65-4390-bd15-fb8829067350",
 	"b1c0c118-7b90-46d1-a471-74af5982f5bb",
 	"d96bd420-038a-4b73-8498-0733a45c8029",
-	"3ed4d8fc-f4f1-43aa-a57a-8f4c9fb6d1c1",
+	"7acfbdaa-9c73-4566-9fab-3e4e624690a8",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO SM_TXN
 	VALUES ("2ad73571-ad65-4390-bd15-fb8829067350",
@@ -152,7 +152,12 @@ if (empty bookingController)
 	LOG::LogInfo(message: "Created a BookingController");
 end if;
 
-generate BookingController6:start(creditcard: param.creditcard, personalInfo: param.personalInfo, timespan: param.timespan, roomConfigurationAmountTuples: param.roomConfigurationAmountTuples) to bookingController;
+bookingController.setCreditcard(creditcard: param.creditcard);
+bookingController.setPersonalInfo(personalInfo: param.personalInfo);
+bookingController.setRCAT(rcat: param.roomConfigurationAmountTuples);
+bookingController.setTimespan(timespan: param.timespan);
+
+generate BookingController2:lock(timespan: param.timespan, roomConfigurationAmountTuples: param.roomConfigurationAmountTuples) to bookingController;
 generate BookingController_A4: finished to BookingController class;',
 	'');
 INSERT INTO SM_TAH
@@ -319,8 +324,8 @@ INSERT INTO DIM_ND
 	0.000000,
 	"c98191da-8897-468c-a13b-78037078f78d");
 INSERT INTO DIM_GE
-	VALUES (4034.000000,
-	3135.000000,
+	VALUES (4036.000000,
+	3122.000000,
 	"c98191da-8897-468c-a13b-78037078f78d",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_ELE
