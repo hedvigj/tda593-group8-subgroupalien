@@ -174,6 +174,91 @@ INSERT INTO C_PP
 	0,
 	'',
 	"2dd3f996-84a6-4325-b1c7-a2e317845cbb");
+INSERT INTO C_EP
+	VALUES ("3fecd7d5-ac81-43ac-87c5-0209b7ea630a",
+	"55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",
+	-1,
+	'setRoomConfigurationEnabled');
+INSERT INTO C_AS
+	VALUES ("3fecd7d5-ac81-43ac-87c5-0209b7ea630a",
+	'setRoomConfigurationEnabled',
+	'',
+	0,
+	"27074fd3-afc3-4b27-a048-bb01de2a7176");
+INSERT INTO C_PP
+	VALUES ("8f977e74-67ee-44f0-b122-7100919c64be",
+	"3fecd7d5-ac81-43ac-87c5-0209b7ea630a",
+	"28114c36-aaba-4a92-b7c3-08f06e41c6a4",
+	'enabled',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO S_DT_PROXY
+	VALUES ("28114c36-aaba-4a92-b7c3-08f06e41c6a4",
+	"00000000-0000-0000-0000-000000000000",
+	'boolean',
+	'',
+	'',
+	'../../Datatypes/Datatypes.xtuml');
+INSERT INTO C_EP
+	VALUES ("e87579f9-fbeb-4f6b-a4c2-e45dad336e56",
+	"55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",
+	-1,
+	'addRoomConfigurationProperty');
+INSERT INTO C_AS
+	VALUES ("e87579f9-fbeb-4f6b-a4c2-e45dad336e56",
+	'addRoomConfigurationProperty',
+	'',
+	0,
+	"3fecd7d5-ac81-43ac-87c5-0209b7ea630a");
+INSERT INTO C_PP
+	VALUES ("791a8085-d983-45bb-a28b-03b5825c0a21",
+	"e87579f9-fbeb-4f6b-a4c2-e45dad336e56",
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	'configurationName',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("e25ec624-3159-4fb3-9127-6b525cb20866",
+	"e87579f9-fbeb-4f6b-a4c2-e45dad336e56",
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	'propertyName',
+	'',
+	0,
+	'',
+	"791a8085-d983-45bb-a28b-03b5825c0a21");
+INSERT INTO C_EP
+	VALUES ("7bc1157f-e9cb-4b49-865c-99e47e8d59e8",
+	"55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",
+	-1,
+	'removeRoomConfigurationProperty');
+INSERT INTO C_AS
+	VALUES ("7bc1157f-e9cb-4b49-865c-99e47e8d59e8",
+	'removeRoomConfigurationProperty',
+	'',
+	0,
+	"e87579f9-fbeb-4f6b-a4c2-e45dad336e56");
+INSERT INTO C_PP
+	VALUES ("6465c650-d79a-4066-83dc-125f4b29f392",
+	"7bc1157f-e9cb-4b49-865c-99e47e8d59e8",
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	'configurationName',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("7eb26474-5d18-4e5f-96f7-254d306710c1",
+	"7bc1157f-e9cb-4b49-865c-99e47e8d59e8",
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	'propertyName',
+	'',
+	0,
+	'',
+	"6465c650-d79a-4066-83dc-125f4b29f392");
 INSERT INTO IP_IP_PROXY
 	VALUES ("2c4b14cf-263e-4680-a6e2-ea8ecc8c143c",
 	"00000000-0000-0000-0000-000000000000",
