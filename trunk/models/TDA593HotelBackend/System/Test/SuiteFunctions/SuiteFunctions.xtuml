@@ -50,7 +50,8 @@ INSERT INTO S_SYNC
 	'RunTests',
 	'',
 	'TestClass::initializeRoomTypes();
-TestClass::initializeProperties();',
+TestClass::initializeProperties();
+TestClass::initializeRoomConfigurations();',
 	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
 	1,
 	'');
