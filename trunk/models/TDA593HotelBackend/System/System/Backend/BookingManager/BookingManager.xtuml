@@ -119,28 +119,57 @@ INSERT INTO S_DT_PROXY
 	'',
 	'',
 	'../../../../Datatypes/Datatypes.xtuml');
-INSERT INTO O_NBATTR
-	VALUES ("45fa244e-da31-44cd-98c4-cc6db5ef216f",
-	"9626466d-b088-4240-9b9e-cc44069b9de5");
-INSERT INTO O_BATTR
-	VALUES ("45fa244e-da31-44cd-98c4-cc6db5ef216f",
-	"9626466d-b088-4240-9b9e-cc44069b9de5");
-INSERT INTO O_ATTR
-	VALUES ("45fa244e-da31-44cd-98c4-cc6db5ef216f",
+INSERT INTO O_TFR
+	VALUES ("1949f51d-98a9-4773-bb28-18ed13310f84",
 	"9626466d-b088-4240-9b9e-cc44069b9de5",
-	"00000000-0000-0000-0000-000000000000",
-	'current_state',
+	'createBooking',
 	'',
+	"28114c36-aaba-4a92-b7c3-08f06e41c6a4",
+	1,
+	'create object instance booking of Booking;
+relate booking to self across R20;
+booking.setCreditcard(creditcard: param.creditcard);
+booking.setPersonalInfo(personalInfo: param.personalInfo);
+booking.setTimespan(timespan: param.timespan);
+return true;
+LOG::LogInfo(message: "Booking was created: ");
+
+
+',
+	1,
 	'',
-	'current_state',
+	"0f3b87e6-2532-4def-859a-27de17cdc422");
+INSERT INTO O_TPARM
+	VALUES ("96cb6c8d-3262-4295-ba31-75d676e3013e",
+	"1949f51d-98a9-4773-bb28-18ed13310f84",
+	'creditcard',
+	"16664b58-a6dc-4ac7-9499-ba089cf98eaa",
 	0,
-	"4e33731b-7545-47b2-bf5b-70c967e5b9be",
 	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("44f273be-e4e0-4415-b023-26819d8200f9",
+	"1949f51d-98a9-4773-bb28-18ed13310f84",
+	'personalInfo',
+	"f055cc32-7fa6-4cbd-949e-0cbdc50ee8b2",
+	0,
+	'',
+	"96cb6c8d-3262-4295-ba31-75d676e3013e",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("7f201c08-eaaa-4a32-919c-279a2943058a",
+	"1949f51d-98a9-4773-bb28-18ed13310f84",
+	'timespan',
+	"29455544-5da7-4d59-89a1-9d1261bd2be6",
+	0,
+	'',
+	"44f273be-e4e0-4415-b023-26819d8200f9",
 	'');
 INSERT INTO S_DT_PROXY
-	VALUES ("4e33731b-7545-47b2-bf5b-70c967e5b9be",
+	VALUES ("28114c36-aaba-4a92-b7c3-08f06e41c6a4",
 	"00000000-0000-0000-0000-000000000000",
-	'state<State_Model>',
+	'boolean',
 	'',
 	'',
 	'../../../../Datatypes/Datatypes.xtuml');

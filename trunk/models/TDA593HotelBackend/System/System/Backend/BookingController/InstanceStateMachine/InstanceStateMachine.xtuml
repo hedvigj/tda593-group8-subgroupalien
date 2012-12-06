@@ -82,6 +82,15 @@ INSERT INTO SM_EVTDI
 	'',
 	"b544a026-582a-4feb-9c25-09f267977b7b",
 	"ce4e8f71-e570-4cd2-85a4-0e01ff2ea9c6");
+INSERT INTO SM_EVTDI
+	VALUES ("05f34125-56a2-4ec0-b26d-f313f4e5a1ac",
+	"d0511597-9e3d-4192-8f21-26cadd9ed8f7",
+	'timespan',
+	'',
+	"29455544-5da7-4d59-89a1-9d1261bd2be6",
+	'',
+	"b544a026-582a-4feb-9c25-09f267977b7b",
+	"97482c96-d8bb-4483-beee-f78f55e4c458");
 INSERT INTO SM_LEVT
 	VALUES ("3c5a1a2c-3b08-4816-b8a8-1b1d3230742e",
 	"d0511597-9e3d-4192-8f21-26cadd9ed8f7",
@@ -322,7 +331,7 @@ if(empty bookingManager)
 	LOG::LogInfo(message: "Created a BookingManager");
 end if;
 
-//generate to Booking with parameters to BookingManagers statemachine and create a booking
+bookingManager.createBooking(creditcard: param.creditcard, personalInfo: param.personalinfo, timespan: param.timespan);
 generate BookingController3: finished to self;',
 	'');
 INSERT INTO SM_TAH
@@ -475,7 +484,7 @@ INSERT INTO GD_NCS
 	VALUES ("ffc8dffd-5706-4642-a221-fadb9713f9d1");
 INSERT INTO DIM_ND
 	VALUES (169.000000,
-	73.000000,
+	109.000000,
 	"ffc8dffd-5706-4642-a221-fadb9713f9d1");
 INSERT INTO DIM_GE
 	VALUES (4536.000000,
@@ -639,8 +648,8 @@ INSERT INTO DIM_ND
 	0.000000,
 	"f8623542-8d4f-4375-b388-cfcde10884b4");
 INSERT INTO DIM_GE
-	VALUES (4379.000000,
-	3140.000000,
+	VALUES (4353.000000,
+	3142.000000,
 	"f8623542-8d4f-4375-b388-cfcde10884b4",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_ELE
