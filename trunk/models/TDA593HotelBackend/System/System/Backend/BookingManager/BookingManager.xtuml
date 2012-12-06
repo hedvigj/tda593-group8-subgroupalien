@@ -54,91 +54,26 @@ INSERT INTO S_DT_PROXY
 	'',
 	'../../../../Datatypes/Datatypes.xtuml');
 INSERT INTO O_TFR
-	VALUES ("0f3b87e6-2532-4def-859a-27de17cdc422",
-	"9626466d-b088-4240-9b9e-cc44069b9de5",
-	'book',
-	'',
-	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
-	1,
-	'',
-	1,
-	'',
-	"a6c5dd67-f29f-4568-b043-9919e6bdf115");
-INSERT INTO O_TPARM
-	VALUES ("80301ddb-a34d-4574-b574-29ac0080dde6",
-	"0f3b87e6-2532-4def-859a-27de17cdc422",
-	'lock',
-	"ae256fd3-70b0-403f-8139-fd377a5896f0",
-	0,
-	'',
-	"00000000-0000-0000-0000-000000000000",
-	'');
-INSERT INTO S_DT_PROXY
-	VALUES ("ae256fd3-70b0-403f-8139-fd377a5896f0",
-	"00000000-0000-0000-0000-000000000000",
-	'unique_id',
-	'',
-	'',
-	'../../../../Datatypes/Datatypes.xtuml');
-INSERT INTO O_TPARM
-	VALUES ("48c45986-c362-49cb-9c10-e52e6933ab70",
-	"0f3b87e6-2532-4def-859a-27de17cdc422",
-	'info',
-	"f055cc32-7fa6-4cbd-949e-0cbdc50ee8b2",
-	0,
-	'',
-	"80301ddb-a34d-4574-b574-29ac0080dde6",
-	'');
-INSERT INTO S_DT_PROXY
-	VALUES ("f055cc32-7fa6-4cbd-949e-0cbdc50ee8b2",
-	"00000000-0000-0000-0000-000000000000",
-	'PersonalInfo',
-	'',
-	'',
-	'../../../../BackendDatatypes/BackendDatatypes.xtuml');
-INSERT INTO O_TPARM
-	VALUES ("71eb88a9-1580-449b-ac1e-bf3da018b44e",
-	"0f3b87e6-2532-4def-859a-27de17cdc422",
-	'creditcard',
-	"16664b58-a6dc-4ac7-9499-ba089cf98eaa",
-	0,
-	'',
-	"48c45986-c362-49cb-9c10-e52e6933ab70",
-	'');
-INSERT INTO S_DT_PROXY
-	VALUES ("16664b58-a6dc-4ac7-9499-ba089cf98eaa",
-	"00000000-0000-0000-0000-000000000000",
-	'CreditCard',
-	'',
-	'',
-	'../../../../BackendDatatypes/BackendDatatypes.xtuml');
-INSERT INTO S_DT_PROXY
-	VALUES ("233e7f8d-a875-4812-a4c3-4ced8b823e83",
-	"00000000-0000-0000-0000-000000000000",
-	'void',
-	'',
-	'',
-	'../../../../Datatypes/Datatypes.xtuml');
-INSERT INTO O_TFR
 	VALUES ("1949f51d-98a9-4773-bb28-18ed13310f84",
 	"9626466d-b088-4240-9b9e-cc44069b9de5",
 	'createBooking',
 	'',
 	"28114c36-aaba-4a92-b7c3-08f06e41c6a4",
 	1,
-	'create object instance booking of Booking;
-relate booking to self across R20;
-booking.setCreditcard(creditcard: param.creditcard);
-booking.setPersonalInfo(personalInfo: param.personalInfo);
-booking.setTimespan(timespan: param.timespan);
-return true;
-LOG::LogInfo(message: "Booking was created: ");
+	'//Kolla om creditkortet är giltigt
 
+	create object instance booking of Booking;
+	relate booking to self across R20;
+	booking.setCreditcard(creditcard: param.creditcard);
+	booking.setPersonalInfo(personalInfo: param.personalInfo);
+	booking.setTimespan(timespan: param.timespan);
+	return true;
+	LOG::LogInfo(message: "Booking was created");
 
-',
+	LOG::LogInfo(message: "Creditcard not valid");',
 	1,
 	'',
-	"0f3b87e6-2532-4def-859a-27de17cdc422");
+	"a6c5dd67-f29f-4568-b043-9919e6bdf115");
 INSERT INTO O_TPARM
 	VALUES ("96cb6c8d-3262-4295-ba31-75d676e3013e",
 	"1949f51d-98a9-4773-bb28-18ed13310f84",
@@ -148,6 +83,13 @@ INSERT INTO O_TPARM
 	'',
 	"00000000-0000-0000-0000-000000000000",
 	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("16664b58-a6dc-4ac7-9499-ba089cf98eaa",
+	"00000000-0000-0000-0000-000000000000",
+	'CreditCard',
+	'',
+	'',
+	'../../../../BackendDatatypes/BackendDatatypes.xtuml');
 INSERT INTO O_TPARM
 	VALUES ("44f273be-e4e0-4415-b023-26819d8200f9",
 	"1949f51d-98a9-4773-bb28-18ed13310f84",
@@ -157,6 +99,13 @@ INSERT INTO O_TPARM
 	'',
 	"96cb6c8d-3262-4295-ba31-75d676e3013e",
 	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("f055cc32-7fa6-4cbd-949e-0cbdc50ee8b2",
+	"00000000-0000-0000-0000-000000000000",
+	'PersonalInfo',
+	'',
+	'',
+	'../../../../BackendDatatypes/BackendDatatypes.xtuml');
 INSERT INTO O_TPARM
 	VALUES ("7f201c08-eaaa-4a32-919c-279a2943058a",
 	"1949f51d-98a9-4773-bb28-18ed13310f84",
