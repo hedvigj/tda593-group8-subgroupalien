@@ -149,6 +149,53 @@ INSERT INTO O_TPARM
 	'',
 	"00000000-0000-0000-0000-000000000000",
 	'');
+INSERT INTO O_TFR
+	VALUES ("9ea50039-8a6f-40ad-a078-b6e289f6da43",
+	"e5a9ffd7-615e-4d8a-9836-61d1236abc56",
+	'setTimespan',
+	'',
+	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
+	1,
+	'self.timespan = param.timespan;',
+	1,
+	'',
+	"7e342560-272f-415b-ba63-4505fc1bf719");
+INSERT INTO O_TPARM
+	VALUES ("9d664b66-7a43-4b42-81cb-6510bff0345b",
+	"9ea50039-8a6f-40ad-a078-b6e289f6da43",
+	'timespan',
+	"29455544-5da7-4d59-89a1-9d1261bd2be6",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO O_TFR
+	VALUES ("940be365-d9d1-4095-9bfe-336796b22b5d",
+	"e5a9ffd7-615e-4d8a-9836-61d1236abc56",
+	'setRCAT',
+	'',
+	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
+	1,
+	'self.rcat = param.rcat;',
+	1,
+	'',
+	"9ea50039-8a6f-40ad-a078-b6e289f6da43");
+INSERT INTO O_TPARM
+	VALUES ("750223ac-5c0c-478e-bb35-28e710f18aab",
+	"940be365-d9d1-4095-9bfe-336796b22b5d",
+	'rcat',
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("5f77c811-d46b-4197-a574-4b3505e92410",
+	"00000000-0000-0000-0000-000000000000",
+	'integer',
+	'',
+	'',
+	'../../../../Datatypes/Datatypes.xtuml');
 INSERT INTO O_NBATTR
 	VALUES ("2851f2a3-d897-48cb-bd6f-e54b19729763",
 	"e5a9ffd7-615e-4d8a-9836-61d1236abc56");
@@ -208,6 +255,42 @@ INSERT INTO O_ATTR
 	'creditcard',
 	0,
 	"16664b58-a6dc-4ac7-9499-ba089cf98eaa",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("f78ca949-540a-474b-8644-0c97997b7931",
+	"e5a9ffd7-615e-4d8a-9836-61d1236abc56");
+INSERT INTO O_BATTR
+	VALUES ("f78ca949-540a-474b-8644-0c97997b7931",
+	"e5a9ffd7-615e-4d8a-9836-61d1236abc56");
+INSERT INTO O_ATTR
+	VALUES ("f78ca949-540a-474b-8644-0c97997b7931",
+	"e5a9ffd7-615e-4d8a-9836-61d1236abc56",
+	"25b60735-7a69-4ba8-9474-850ed7e3199f",
+	'timespan',
+	'',
+	'',
+	'timespan',
+	0,
+	"29455544-5da7-4d59-89a1-9d1261bd2be6",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("12821be6-b4ff-4446-8865-e020311133c8",
+	"e5a9ffd7-615e-4d8a-9836-61d1236abc56");
+INSERT INTO O_BATTR
+	VALUES ("12821be6-b4ff-4446-8865-e020311133c8",
+	"e5a9ffd7-615e-4d8a-9836-61d1236abc56");
+INSERT INTO O_ATTR
+	VALUES ("12821be6-b4ff-4446-8865-e020311133c8",
+	"e5a9ffd7-615e-4d8a-9836-61d1236abc56",
+	"f78ca949-540a-474b-8644-0c97997b7931",
+	'rcat',
+	'',
+	'',
+	'rcat',
+	0,
+	"5f77c811-d46b-4197-a574-4b3505e92410",
 	'',
 	'');
 INSERT INTO O_ID
