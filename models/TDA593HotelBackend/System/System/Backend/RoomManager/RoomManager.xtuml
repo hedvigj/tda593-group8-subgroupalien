@@ -96,6 +96,7 @@ else
 	config.setPrice(price: param.price);
 	config.setEnabled(enabled: false);	// Default is disabled
 	relate config to self across R10;
+	relate config to roomType across R29;
 	LOG::LogInfo(message: "Configuration was added. Description: " + config.getDescription());
 	return true;
 end if;',
