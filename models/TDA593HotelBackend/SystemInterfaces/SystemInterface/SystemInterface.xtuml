@@ -136,6 +136,51 @@ INSERT INTO S_DT_PROXY
 	'',
 	'',
 	'../../Datatypes/Datatypes.xtuml');
+INSERT INTO C_EP
+	VALUES ("27074fd3-afc3-4b27-a048-bb01de2a7176",
+	"55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",
+	-1,
+	'addRoomConfiguration');
+INSERT INTO C_AS
+	VALUES ("27074fd3-afc3-4b27-a048-bb01de2a7176",
+	'addRoomConfiguration',
+	'',
+	0,
+	"1369d25e-4e1a-4676-93d8-ba7e46d55e3a");
+INSERT INTO C_PP
+	VALUES ("b128c6ac-8f36-4373-bcb4-3b5f421bdf58",
+	"27074fd3-afc3-4b27-a048-bb01de2a7176",
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	'description',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("2dd3f996-84a6-4325-b1c7-a2e317845cbb",
+	"27074fd3-afc3-4b27-a048-bb01de2a7176",
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	'price',
+	'',
+	0,
+	'',
+	"b128c6ac-8f36-4373-bcb4-3b5f421bdf58");
+INSERT INTO S_DT_PROXY
+	VALUES ("5f77c811-d46b-4197-a574-4b3505e92410",
+	"00000000-0000-0000-0000-000000000000",
+	'integer',
+	'',
+	'',
+	'../../Datatypes/Datatypes.xtuml');
+INSERT INTO C_PP
+	VALUES ("7231bf6c-a6bd-437b-aee6-1b61c1b848dd",
+	"27074fd3-afc3-4b27-a048-bb01de2a7176",
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	'roomType',
+	'',
+	0,
+	'',
+	"2dd3f996-84a6-4325-b1c7-a2e317845cbb");
 INSERT INTO IP_IP_PROXY
 	VALUES ("2c4b14cf-263e-4680-a6e2-ea8ecc8c143c",
 	"00000000-0000-0000-0000-000000000000",

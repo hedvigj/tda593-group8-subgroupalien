@@ -42,6 +42,17 @@ send Port1::addProperty(name: "Crisp supply", description: "Supply of crisps");'
 	1,
 	'',
 	"7559b420-0172-4838-9572-814c324b8f4a");
+INSERT INTO O_TFR
+	VALUES ("9a750711-df94-40e5-a556-f2f070d4fce0",
+	"32458e6c-09c1-479e-9d59-28cc2362f085",
+	'initializeRoomConfigurations',
+	'',
+	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
+	1,
+	'send Port1::addRoomConfiguration(description: "DESC1", price: 10, roomType: "Single Room");',
+	1,
+	'',
+	"d8ce0a38-a16d-49f1-b4a5-c6425597c078");
 INSERT INTO O_ID
 	VALUES (0,
 	"32458e6c-09c1-479e-9d59-28cc2362f085");
