@@ -109,6 +109,46 @@ INSERT INTO O_TPARM
 	'',
 	"8fca3c26-51af-4768-8fa0-ef05242edded",
 	'');
+INSERT INTO O_TFR
+	VALUES ("577e6839-9e7f-4294-b337-1f84628eb3ce",
+	"e5a9ffd7-615e-4d8a-9836-61d1236abc56",
+	'setPersonalInfo',
+	'',
+	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
+	1,
+	'self.personalInfo = param.personalInfo;',
+	1,
+	'',
+	"ee81073d-99f1-449d-b38c-c48345ab68a5");
+INSERT INTO O_TPARM
+	VALUES ("7e511381-1c94-4bdd-800f-7107d4869dfc",
+	"577e6839-9e7f-4294-b337-1f84628eb3ce",
+	'personalInfo',
+	"f055cc32-7fa6-4cbd-949e-0cbdc50ee8b2",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO O_TFR
+	VALUES ("7e342560-272f-415b-ba63-4505fc1bf719",
+	"e5a9ffd7-615e-4d8a-9836-61d1236abc56",
+	'setCreditcard',
+	'',
+	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
+	1,
+	'self.creditcard = param.creditcard;',
+	1,
+	'',
+	"577e6839-9e7f-4294-b337-1f84628eb3ce");
+INSERT INTO O_TPARM
+	VALUES ("05872547-ca6e-459e-b5a5-68ccd77aba3b",
+	"7e342560-272f-415b-ba63-4505fc1bf719",
+	'creditcard',
+	"16664b58-a6dc-4ac7-9499-ba089cf98eaa",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
 INSERT INTO O_NBATTR
 	VALUES ("2851f2a3-d897-48cb-bd6f-e54b19729763",
 	"e5a9ffd7-615e-4d8a-9836-61d1236abc56");
@@ -134,6 +174,42 @@ INSERT INTO S_DT_PROXY
 	'',
 	'',
 	'../../../../Datatypes/Datatypes.xtuml');
+INSERT INTO O_NBATTR
+	VALUES ("1801a5fd-3664-453e-a72f-4ddef68a0fdf",
+	"e5a9ffd7-615e-4d8a-9836-61d1236abc56");
+INSERT INTO O_BATTR
+	VALUES ("1801a5fd-3664-453e-a72f-4ddef68a0fdf",
+	"e5a9ffd7-615e-4d8a-9836-61d1236abc56");
+INSERT INTO O_ATTR
+	VALUES ("1801a5fd-3664-453e-a72f-4ddef68a0fdf",
+	"e5a9ffd7-615e-4d8a-9836-61d1236abc56",
+	"2851f2a3-d897-48cb-bd6f-e54b19729763",
+	'personalInfo',
+	'',
+	'',
+	'personalInfo',
+	0,
+	"f055cc32-7fa6-4cbd-949e-0cbdc50ee8b2",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("25b60735-7a69-4ba8-9474-850ed7e3199f",
+	"e5a9ffd7-615e-4d8a-9836-61d1236abc56");
+INSERT INTO O_BATTR
+	VALUES ("25b60735-7a69-4ba8-9474-850ed7e3199f",
+	"e5a9ffd7-615e-4d8a-9836-61d1236abc56");
+INSERT INTO O_ATTR
+	VALUES ("25b60735-7a69-4ba8-9474-850ed7e3199f",
+	"e5a9ffd7-615e-4d8a-9836-61d1236abc56",
+	"1801a5fd-3664-453e-a72f-4ddef68a0fdf",
+	'creditcard',
+	'',
+	'',
+	'creditcard',
+	0,
+	"16664b58-a6dc-4ac7-9499-ba089cf98eaa",
+	'',
+	'');
 INSERT INTO O_ID
 	VALUES (0,
 	"e5a9ffd7-615e-4d8a-9836-61d1236abc56");

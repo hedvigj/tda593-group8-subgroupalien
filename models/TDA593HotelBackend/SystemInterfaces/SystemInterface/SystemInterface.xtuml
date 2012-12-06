@@ -123,16 +123,16 @@ INSERT INTO S_DT_PROXY
 INSERT INTO C_PP
 	VALUES ("f363ee3a-c0c4-4919-9574-a40b0f365403",
 	"1369d25e-4e1a-4676-93d8-ba7e46d55e3a",
-	"ae256fd3-70b0-403f-8139-fd377a5896f0",
+	"5f77c811-d46b-4197-a574-4b3505e92410",
 	'roomConfigurationAmountTuples',
 	'',
 	0,
 	'',
 	"ca065851-64bd-4892-b72c-412e8edbdb93");
 INSERT INTO S_DT_PROXY
-	VALUES ("ae256fd3-70b0-403f-8139-fd377a5896f0",
+	VALUES ("5f77c811-d46b-4197-a574-4b3505e92410",
 	"00000000-0000-0000-0000-000000000000",
-	'unique_id',
+	'integer',
 	'',
 	'',
 	'../../Datatypes/Datatypes.xtuml');
@@ -165,13 +165,6 @@ INSERT INTO C_PP
 	0,
 	'',
 	"b128c6ac-8f36-4373-bcb4-3b5f421bdf58");
-INSERT INTO S_DT_PROXY
-	VALUES ("5f77c811-d46b-4197-a574-4b3505e92410",
-	"00000000-0000-0000-0000-000000000000",
-	'integer',
-	'',
-	'',
-	'../../Datatypes/Datatypes.xtuml');
 INSERT INTO C_PP
 	VALUES ("7231bf6c-a6bd-437b-aee6-1b61c1b848dd",
 	"27074fd3-afc3-4b27-a048-bb01de2a7176",
