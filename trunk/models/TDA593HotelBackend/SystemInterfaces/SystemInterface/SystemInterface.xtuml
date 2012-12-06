@@ -20,7 +20,7 @@ INSERT INTO C_PP
 	VALUES ("53b9e29b-788c-44af-b145-a4ec67382ce6",
 	"418b4d9f-ac17-49f9-aff4-cc4e4cb0532a",
 	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
-	'name',
+	'uniqueName',
 	'',
 	0,
 	'',
@@ -47,7 +47,7 @@ INSERT INTO C_PP
 	VALUES ("7a2ee627-6fe6-4063-bef0-5793d61fb0d7",
 	"4157c1f4-3f7b-4c8b-ba22-40b5c5008208",
 	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
-	'name',
+	'uniqueName',
 	'',
 	0,
 	'',
@@ -174,6 +174,15 @@ INSERT INTO C_PP
 	0,
 	'',
 	"2dd3f996-84a6-4325-b1c7-a2e317845cbb");
+INSERT INTO C_PP
+	VALUES ("9ebc434c-c07b-4a3a-aed6-2d63b11fb0ec",
+	"27074fd3-afc3-4b27-a048-bb01de2a7176",
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	'uniqueName',
+	'',
+	0,
+	'',
+	"7231bf6c-a6bd-437b-aee6-1b61c1b848dd");
 INSERT INTO C_EP
 	VALUES ("3fecd7d5-ac81-43ac-87c5-0209b7ea630a",
 	"55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",
@@ -201,6 +210,15 @@ INSERT INTO S_DT_PROXY
 	'',
 	'',
 	'../../Datatypes/Datatypes.xtuml');
+INSERT INTO C_PP
+	VALUES ("973d0ae4-0a10-4793-b91e-9ead7688672f",
+	"3fecd7d5-ac81-43ac-87c5-0209b7ea630a",
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	'configurationName',
+	'',
+	0,
+	'',
+	"8f977e74-67ee-44f0-b122-7100919c64be");
 INSERT INTO C_EP
 	VALUES ("e87579f9-fbeb-4f6b-a4c2-e45dad336e56",
 	"55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",
