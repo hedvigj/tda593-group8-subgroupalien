@@ -5,6 +5,33 @@ INSERT INTO C_I
 	"d15e23e3-8a03-46d2-be05-51155db01efc",
 	'BankInterface',
 	'');
+INSERT INTO C_EP
+	VALUES ("38182bc1-77e4-478b-9b85-0f5846e0feb0",
+	"1ebfed2c-970c-4c21-b2be-5a1975cbb06e",
+	-1,
+	'returnFromBank');
+INSERT INTO C_AS
+	VALUES ("38182bc1-77e4-478b-9b85-0f5846e0feb0",
+	'returnFromBank',
+	'',
+	0,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("046dd22e-4604-4384-b2c7-964a0d81d4cc",
+	"38182bc1-77e4-478b-9b85-0f5846e0feb0",
+	"28114c36-aaba-4a92-b7c3-08f06e41c6a4",
+	'answer',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO S_DT_PROXY
+	VALUES ("28114c36-aaba-4a92-b7c3-08f06e41c6a4",
+	"00000000-0000-0000-0000-000000000000",
+	'boolean',
+	'',
+	'',
+	'../../Datatypes/Datatypes.xtuml');
 INSERT INTO IP_IP_PROXY
 	VALUES ("d15e23e3-8a03-46d2-be05-51155db01efc",
 	"00000000-0000-0000-0000-000000000000",
