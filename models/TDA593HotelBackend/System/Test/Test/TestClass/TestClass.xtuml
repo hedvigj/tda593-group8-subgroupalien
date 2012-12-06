@@ -48,8 +48,10 @@ INSERT INTO O_TFR
 	'initializeRoomConfigurations',
 	'',
 	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
-	1,
-	'send Port1::addRoomConfiguration(description: "DESC1", price: 10, roomType: "Single Room");',
+	0,
+	'send Port1::addRoomConfiguration(description: "DESC1", price: 10, roomType: "Single room");
+send Port1::addRoomConfiguration(description: "DESC2", price: 12, roomType: "Single room");
+send Port1::addRoomConfiguration(description: "OH GLORIOUS ROYAL HIGHNESS, THIS IS THE SUITE FOR YE OLDE ROYAL ENDEVOURS YE HAVETH", price: 1337, roomType: "Suite");',
 	1,
 	'',
 	"d8ce0a38-a16d-49f1-b4a5-c6425597c078");
