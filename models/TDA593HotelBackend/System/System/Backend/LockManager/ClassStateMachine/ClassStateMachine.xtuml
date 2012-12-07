@@ -12,7 +12,7 @@ INSERT INTO SM_MOORE
 INSERT INTO SM_EVTDI
 	VALUES ("7fce8d95-484d-4365-a71d-91bacca58b02",
 	"cf0bd93f-b62b-4b86-8d31-34eb53f2642c",
-	'timeSpan',
+	'timespan',
 	'',
 	"29455544-5da7-4d59-89a1-9d1261bd2be6",
 	'',
@@ -28,31 +28,12 @@ INSERT INTO S_DT_PROXY
 INSERT INTO SM_EVTDI
 	VALUES ("0837351f-154a-41cf-a384-fa05f88ec771",
 	"cf0bd93f-b62b-4b86-8d31-34eb53f2642c",
-	'roomConfigurationAmountTuples',
+	'tempLockId',
 	'',
 	"5f77c811-d46b-4197-a574-4b3505e92410",
-	'[]',
+	'',
 	"b7f63a98-c6f8-4ca9-acbe-c6d19f8c732b",
 	"7fce8d95-484d-4365-a71d-91bacca58b02");
-INSERT INTO S_DIM
-	VALUES (0,
-	0,
-	"00000000-0000-0000-0000-000000000000",
-	"00000000-0000-0000-0000-000000000000",
-	"00000000-0000-0000-0000-000000000000",
-	"00000000-0000-0000-0000-000000000000",
-	"00000000-0000-0000-0000-000000000000",
-	"00000000-0000-0000-0000-000000000000",
-	"00000000-0000-0000-0000-000000000000",
-	"00000000-0000-0000-0000-000000000000",
-	"00000000-0000-0000-0000-000000000000",
-	"00000000-0000-0000-0000-000000000000",
-	"00000000-0000-0000-0000-000000000000",
-	"00000000-0000-0000-0000-000000000000",
-	"cf0bd93f-b62b-4b86-8d31-34eb53f2642c",
-	"0837351f-154a-41cf-a384-fa05f88ec771",
-	"e49b72f7-eae2-40bf-8351-1bccb6bc13d6",
-	"00000000-0000-0000-0000-000000000000");
 INSERT INTO S_DT_PROXY
 	VALUES ("5f77c811-d46b-4197-a574-4b3505e92410",
 	"00000000-0000-0000-0000-000000000000",
@@ -188,9 +169,77 @@ INSERT INTO SM_ACT
 	VALUES ("98020933-e56e-4a3f-be4a-45a473770782",
 	"cf0bd93f-b62b-4b86-8d31-34eb53f2642c",
 	1,
-	'select any lockManager from instances of LockManager;
+	'
+// Dont know if this is working // Sickan!
+// Det som inte funkar är att vi behöver få in roomconfigurations id på ett bra sätt
+// så vi vet vilka room configurations om ska testas.
 
-for each tuple in param.roomConfigurationAmountTuples;',
+// Check that no buiness roles were violated
+//select any businessruleManager from instances of BusinessRuleManager;
+//assign isOk = businessruleManager.checkCustomerBookingRules(tupleList, timespan);
+assign isOk = true;
+
+// No violations to the buissness roles
+if(isOk)
+	select any lockManager from instances of LockManager;
+	select any bookManager from instances of BookingManager;
+	select any roomManager from instances of RoomManager;
+	if(empty bookManager)
+		create object instance bookManager of BookingManager;
+	end if;
+	if(empty lockManager)
+		create object instance lockManager of LockManager;
+	end if;
+	if(empty roomManager) 
+		create object instance roomManager of RoomManager;
+	end if;
+		
+	select any tempLock related by lockManager->TempLock[R46] where
+		selected.id == param.tempLockId; 
+	if( not_empty tempLock )
+		select many rcats related by tempLock->RoomConfigurationAmountTuple[R44];
+		for each rcat in rcats
+			select one rc related by rcat->RoomConfiguration[R28];
+			
+			assign locked = lockManager.getLockedRoomCount(
+				roomConfigurationName: rc.getName(), 
+				timespan: param.timespan);
+			assign booked = bookManager.getBookedRoomCount(
+				roomConfigurationName: rc.getName(),  
+				timespan: param.timespan);
+			assign rooms = roomManager.getRoomCount(
+				roomConfigurationName: rc.getName()); 
+			
+			
+			if(locked+booked+rcat.getAmount() > rooms)
+				isOk = false;
+				generate LockManager_A2:done() to LockManager class;
+				break;
+			end if;
+		end for;
+		
+		if(isOk)
+			// The rooms are bookable
+			// Create a lock
+			create object instance lock of Lock;
+			assign dummy = lock.Lock(tempLockId: param.tempLockId, timespan: param.timespan);
+			relate lock to lockManager across R23;
+			
+			
+			//generate result
+			/*
+			select one bookingController from instances of BookingController 
+				where selected.sessionId == sessionId;
+			BookingController:lockResult(lockId) to bookingController;
+			*/
+			
+			//return
+			generate LockManager_A2:done() to LockManager class;
+		end if;	
+	end if;
+end if;
+
+',
 	'');
 INSERT INTO SM_TAH
 	VALUES ("9cc7d7df-9e73-4809-a485-55d922eb1ab0",
