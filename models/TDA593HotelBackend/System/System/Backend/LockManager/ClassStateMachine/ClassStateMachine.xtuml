@@ -226,14 +226,10 @@ if(isOk)
 			relate lock to lockManager across R23;
 			
 			
-			//generate result
-			/*
-			select one bookingController from instances of BookingController 
-				where selected.sessionId == sessionId;
-			BookingController:lockResult(lockId) to bookingController;
-			*/
-			
-			//return
+			select any bookingController from instances of BookingController;
+			//where selected.sessionId == sessionId;
+			generate BookingController3:wait(lock: lock.getId()) to bookingController;
+
 			generate LockManager_A2:done() to LockManager class;
 		end if;	
 	end if;
