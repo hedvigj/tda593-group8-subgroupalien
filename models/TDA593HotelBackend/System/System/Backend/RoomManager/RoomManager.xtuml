@@ -15,12 +15,11 @@ INSERT INTO O_TFR
 	"5f77c811-d46b-4197-a574-4b3505e92410",
 	1,
 	'select many rc related by self->RoomConfiguration[R10] where 
-	selected.name == param.roomConfigurationName;
-
-assign count = 0;
-if(not_empty rc)
-	select many rooms related by rc->RoomInstance[R26];
-
+ 	selected.name == param.roomConfigurationName;
+ 
+ assign count = 0;
+ if(not_empty rc)
+ 	select many rooms related by rc->RoomInstance[R26];
 	for each room in rooms
 		count = count + 1;
 	end for;
@@ -31,7 +30,7 @@ return count;',
 	'',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_TPARM
-	VALUES ("ed306765-7bf6-4eb0-ae75-352b8bb734ba",
+	VALUES ("24282ae1-0f76-4cba-98b5-d8c06b4b6653",
 	"aceb78d7-9a1f-46e7-a99a-85fcba249fdc",
 	'roomConfigurationName',
 	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
@@ -155,6 +154,135 @@ INSERT INTO O_TPARM
 	0,
 	'',
 	"6328adc8-37eb-470c-8134-d402564946da",
+	'');
+INSERT INTO O_TFR
+	VALUES ("fb95c05c-3a7c-4597-8219-13d20e7f2607",
+	"b1404731-4bdc-477f-ab49-48cf034fe57f",
+	'addRoomConfigurationProperty',
+	'',
+	"28114c36-aaba-4a92-b7c3-08f06e41c6a4",
+	1,
+	'select any roomConfig related by self->RoomConfiguration[R10] where selected.name == param.configurationName;
+select any property related by self->Property[R47] where selected.name == param.propertyName;
+if(empty property)
+	LOG::LogInfo(message: "Property not added to " + param.configurationName + ": Property " + param.propertyName + " does not exist.");
+	return false;
+elif(empty roomConfig)
+	LOG::LogInfo(message: "Property " + param.propertyName + " not added to the configuration: There is no configuration with the name: " + param.configurationName);
+	return false;
+else
+	select any testGetProperty related by roomConfig->Property[R12] where selected.name == param.propertyName;
+	if(empty testGetProperty)
+		create object instance ownership of Ownership; 
+		relate roomConfig to property across R12 using ownership;
+		LOG::LogInfo(message: "Property " + param.propertyName + " added to " + param.configurationName);
+		return true;
+	else
+		LOG::LogInfo(message: "Property " + param.propertyName + " already added to " + param.configurationName);
+		return false;
+	end if;
+end if;',
+	1,
+	'',
+	"74ed0fe1-90ac-4d4b-b8c1-5acb96fadb27");
+INSERT INTO O_TPARM
+	VALUES ("6d4c5e3b-20f0-48a1-91e8-6db3fd906546",
+	"fb95c05c-3a7c-4597-8219-13d20e7f2607",
+	'configurationName',
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("acf0f0c6-74c4-4197-811d-109f578209ba",
+	"fb95c05c-3a7c-4597-8219-13d20e7f2607",
+	'propertyName',
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	0,
+	'',
+	"6d4c5e3b-20f0-48a1-91e8-6db3fd906546",
+	'');
+INSERT INTO O_TFR
+	VALUES ("3bc2fea3-b57e-476d-be7a-fc1b2cb09e02",
+	"b1404731-4bdc-477f-ab49-48cf034fe57f",
+	'addProperty',
+	'',
+	"28114c36-aaba-4a92-b7c3-08f06e41c6a4",
+	1,
+	'select any property related by self->Property[R47] where selected.name == param.uniqueName;
+if(empty property)
+	create object instance property of Property;
+	relate property to self across R47;
+	property.setName(name: param.uniqueName);
+	property.setDescription(description: param.description);
+	LOG::LogInfo(message: "Property was added: " + property.getName() + " Description: " + property.getDescription());
+	return true;
+else
+	LOG::LogInfo(message: "Property was not added: " + param.uniqueName);
+	return false;
+end if;',
+	1,
+	'',
+	"fb95c05c-3a7c-4597-8219-13d20e7f2607");
+INSERT INTO O_TPARM
+	VALUES ("94880975-2cd9-43fd-a754-fa67ea931aa2",
+	"3bc2fea3-b57e-476d-be7a-fc1b2cb09e02",
+	'uniqueName',
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("c99055c8-b3b4-41fc-95c3-d755128f48f3",
+	"3bc2fea3-b57e-476d-be7a-fc1b2cb09e02",
+	'description',
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	0,
+	'',
+	"94880975-2cd9-43fd-a754-fa67ea931aa2",
+	'');
+INSERT INTO O_TFR
+	VALUES ("58c84403-5d5b-4dbb-9034-78005c94be8b",
+	"b1404731-4bdc-477f-ab49-48cf034fe57f",
+	'setRoomConfigurationEnabled',
+	'',
+	"28114c36-aaba-4a92-b7c3-08f06e41c6a4",
+	1,
+	'select any roomConfig related by self->RoomConfiguration[R10] where selected.name == param.configurationName;
+if(empty roomConfig)
+	LOG::LogInfo(message: "There is no RoomConfiguration named " + param.configurationName + ", so impossible to setEnable()");
+	return false;
+else
+	roomConfig.setEnabled(enabled: param.enabled);
+	if(roomConfig.isEnabled())
+		LOG::LogInfo(message: "Enabled the RoomConfiguration named " + roomConfig.getName());
+	else
+		LOG::LogInfo(message: "Disabled the RoomConfiguration named " + roomConfig.getName());
+	end if;
+	return true;
+end if;',
+	1,
+	'',
+	"3bc2fea3-b57e-476d-be7a-fc1b2cb09e02");
+INSERT INTO O_TPARM
+	VALUES ("f460bb0b-eff9-484f-a399-80392fa5ad37",
+	"58c84403-5d5b-4dbb-9034-78005c94be8b",
+	'configurationName',
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("f362ec93-6520-4150-bc16-c2e62d158b33",
+	"58c84403-5d5b-4dbb-9034-78005c94be8b",
+	'enabled',
+	"28114c36-aaba-4a92-b7c3-08f06e41c6a4",
+	0,
+	'',
+	"f460bb0b-eff9-484f-a399-80392fa5ad37",
 	'');
 INSERT INTO O_NBATTR
 	VALUES ("1051e230-8dda-4370-b6d3-252916c053c2",

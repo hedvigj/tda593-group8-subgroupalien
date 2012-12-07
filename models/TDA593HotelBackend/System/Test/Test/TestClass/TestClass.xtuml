@@ -51,7 +51,9 @@ INSERT INTO O_TFR
 	0,
 	'send Port1::addRoomConfiguration(uniqueName: "0x10", description: "DESC1", price: 10, roomType: "Single room");
 send Port1::addRoomConfiguration(uniqueName: "0x20", description: "DESC2", price: 12, roomType: "Single room");
-send Port1::addRoomConfiguration(uniqueName: "0x30", description: "OH GLORIOUS ROYAL HIGHNESS, THIS IS THE SUITE FOR YE OLDE ROYAL ENDEVOURS YE HAVETH", price: 1337, roomType: "Suite");',
+send Port1::addRoomConfiguration(uniqueName: "0x30", description: "OH GLORIOUS ROYAL HIGHNESS, THIS IS THE SUITE FOR YE OLDE ROYAL ENDEVOURS YE HAVETH", price: 1337, roomType: "Suite");
+send Port1::addRoomConfigurationProperty(configurationName: "0x10", propertyName: "Bathroom");
+send Port1::setRoomConfigurationEnabled(configurationName: "0x10", enabled: true);',
 	1,
 	'',
 	"d8ce0a38-a16d-49f1-b4a5-c6425597c078");
