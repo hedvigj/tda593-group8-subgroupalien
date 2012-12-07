@@ -620,7 +620,6 @@ if(empty bookingManager)
 end if;
 
 assign value = bookingManager.createBooking(creditcard: self.creditcard, personalInfo: self.personalInfo, timespan: self.timespan);
-bookingManager.setNextBookingNr();
 generate BookingController5: finished(booking: value) to self;',
 	'');
 INSERT INTO SM_TAH

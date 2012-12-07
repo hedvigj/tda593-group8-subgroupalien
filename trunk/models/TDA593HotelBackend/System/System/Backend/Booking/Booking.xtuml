@@ -227,6 +227,17 @@ INSERT INTO O_TPARM
 	'',
 	"00000000-0000-0000-0000-000000000000",
 	'');
+INSERT INTO O_TFR
+	VALUES ("45842ece-f844-43db-b64d-dcf10f1b62cb",
+	"c6ad6108-ec30-407d-b887-1a06eb50ee03",
+	'setBookingId',
+	'',
+	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
+	1,
+	'self.bookingId = self.bookingId + 1;',
+	1,
+	'',
+	"e9aec2fd-169b-4de5-89f3-936b86194d0c");
 INSERT INTO O_NBATTR
 	VALUES ("0f7eb0bf-7cc7-4e0d-a57b-04508d82887f",
 	"c6ad6108-ec30-407d-b887-1a06eb50ee03");
@@ -242,9 +253,16 @@ INSERT INTO O_ATTR
 	'',
 	'bookingId',
 	0,
-	"ae256fd3-70b0-403f-8139-fd377a5896f0",
+	"5f77c811-d46b-4197-a574-4b3505e92410",
 	'',
 	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("5f77c811-d46b-4197-a574-4b3505e92410",
+	"00000000-0000-0000-0000-000000000000",
+	'integer',
+	'',
+	'',
+	'../../../../Datatypes/Datatypes.xtuml');
 INSERT INTO O_NBATTR
 	VALUES ("adf87768-83f9-46d2-bb76-ffdb4d749d2f",
 	"c6ad6108-ec30-407d-b887-1a06eb50ee03");

@@ -79,19 +79,15 @@ INSERT INTO O_TFR
 	"9626466d-b088-4240-9b9e-cc44069b9de5",
 	'createBooking',
 	'',
-	"28114c36-aaba-4a92-b7c3-08f06e41c6a4",
+	"5f77c811-d46b-4197-a574-4b3505e92410",
 	1,
-	'//Kolla om creditkortet är giltigt
-
-	create object instance booking of Booking;
+	'	create object instance booking of Booking;
 	relate booking to self across R20;
 	booking.setCreditcard(creditcard: param.creditcard);
 	booking.setPersonalInfo(personalInfo: param.personalInfo);
 	booking.setTimespan(timespan: param.timespan);
-	return true;
-	LOG::LogInfo(message: "Booking was created");
-
-	LOG::LogInfo(message: "Creditcard not valid");',
+	booking.setBookingId();
+	return booking.bookingId;',
 	1,
 	'',
 	"a6c5dd67-f29f-4568-b043-9919e6bdf115");
@@ -136,13 +132,6 @@ INSERT INTO O_TPARM
 	'',
 	"44f273be-e4e0-4415-b023-26819d8200f9",
 	'');
-INSERT INTO S_DT_PROXY
-	VALUES ("28114c36-aaba-4a92-b7c3-08f06e41c6a4",
-	"00000000-0000-0000-0000-000000000000",
-	'boolean',
-	'',
-	'',
-	'../../../../Datatypes/Datatypes.xtuml');
 INSERT INTO O_TFR
 	VALUES ("21df229d-1f24-4b1f-a5d2-fe2c9c899fb3",
 	"9626466d-b088-4240-9b9e-cc44069b9de5",
