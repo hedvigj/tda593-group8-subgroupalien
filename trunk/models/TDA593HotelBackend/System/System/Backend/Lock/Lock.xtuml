@@ -105,8 +105,8 @@ INSERT INTO O_TFR
 	'',
 	"5f77c811-d46b-4197-a574-4b3505e92410",
 	1,
-	'',
-	3,
+	'return self.id;',
+	1,
 	'',
 	"3f9a5f5b-16cd-4413-ab52-7c09f7219cbd");
 INSERT INTO O_NBATTR
