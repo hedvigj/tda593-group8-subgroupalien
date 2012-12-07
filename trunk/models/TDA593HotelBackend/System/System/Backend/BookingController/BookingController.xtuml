@@ -196,6 +196,26 @@ INSERT INTO S_DT_PROXY
 	'',
 	'',
 	'../../../../Datatypes/Datatypes.xtuml');
+INSERT INTO O_TFR
+	VALUES ("55c56a80-edea-4fec-bcc9-73bb50c4b6f1",
+	"e5a9ffd7-615e-4d8a-9836-61d1236abc56",
+	'setLock',
+	'',
+	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
+	1,
+	'',
+	3,
+	'',
+	"940be365-d9d1-4095-9bfe-336796b22b5d");
+INSERT INTO O_TPARM
+	VALUES ("91082793-22c7-4128-8750-430646531fee",
+	"55c56a80-edea-4fec-bcc9-73bb50c4b6f1",
+	'lock',
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
 INSERT INTO O_NBATTR
 	VALUES ("2851f2a3-d897-48cb-bd6f-e54b19729763",
 	"e5a9ffd7-615e-4d8a-9836-61d1236abc56");
@@ -289,6 +309,24 @@ INSERT INTO O_ATTR
 	'',
 	'',
 	'rcat',
+	0,
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("14989cec-48ad-4208-8fed-50dc3d9bf4eb",
+	"e5a9ffd7-615e-4d8a-9836-61d1236abc56");
+INSERT INTO O_BATTR
+	VALUES ("14989cec-48ad-4208-8fed-50dc3d9bf4eb",
+	"e5a9ffd7-615e-4d8a-9836-61d1236abc56");
+INSERT INTO O_ATTR
+	VALUES ("14989cec-48ad-4208-8fed-50dc3d9bf4eb",
+	"e5a9ffd7-615e-4d8a-9836-61d1236abc56",
+	"12821be6-b4ff-4446-8865-e020311133c8",
+	'lock',
+	'',
+	'',
+	'lock',
 	0,
 	"5f77c811-d46b-4197-a574-4b3505e92410",
 	'',
