@@ -51,7 +51,7 @@ INSERT INTO O_TFR
 	'',
 	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
 	1,
-	'self.enabled = param.enabled;',
+	'self.enabled = param.enabled; ',
 	1,
 	'',
 	"c2d65c8b-8891-40cb-8161-0d6040eef8c4");

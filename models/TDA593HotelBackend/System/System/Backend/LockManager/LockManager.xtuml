@@ -84,7 +84,7 @@ for each lock in locks
 			break;
 		end if;
 	end for;
-end for;
+end for; 
 
 return count;',
 	1,
@@ -161,7 +161,7 @@ if( not_empty tempLock )
 	unrelate tempLock from self across R46;
 	
 	select many rcats related by tempLock->RoomConfigurationAmountTuple[R44];
-	for each rcat in rcats
+	for each rcat in rcats 
 		select one lock related by rcat->Lock[R24];
 		
 		unrelate rcat from tempLock across R44;
