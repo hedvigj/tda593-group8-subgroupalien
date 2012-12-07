@@ -22,9 +22,9 @@ assign count = 0;
 for each booking in bookings
 	select many reservations related by booking->Reservation[R15];
 	for each reservation in reservations
-		select any rc related by reservation->RoomConfiguration[R15] where
-			selected.uniqueName == param.roomConfigurationId;
-		if ( not_empty )
+		select one rc related by reservation->RoomConfiguration[R15] where
+			selected.name == param.roomConfigurationName;
+		if ( not_empty rc )
 			count = count + reservation.amount;
 			break;
 		end if;
@@ -42,7 +42,7 @@ INSERT INTO O_TPARM
 	"29455544-5da7-4d59-89a1-9d1261bd2be6",
 	0,
 	'',
-	"00000000-0000-0000-0000-000000000000",
+	"63c5e8ad-51a6-4870-a78c-88883ebc5f20",
 	'');
 INSERT INTO S_DT_PROXY
 	VALUES ("29455544-5da7-4d59-89a1-9d1261bd2be6",
@@ -51,6 +51,22 @@ INSERT INTO S_DT_PROXY
 	'',
 	'',
 	'../../../../BackendDatatypes/BackendDatatypes.xtuml');
+INSERT INTO O_TPARM
+	VALUES ("63c5e8ad-51a6-4870-a78c-88883ebc5f20",
+	"a6c5dd67-f29f-4568-b043-9919e6bdf115",
+	'roomConfigurationName',
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	"00000000-0000-0000-0000-000000000000",
+	'string',
+	'',
+	'',
+	'../../../../Datatypes/Datatypes.xtuml');
 INSERT INTO S_DT_PROXY
 	VALUES ("5f77c811-d46b-4197-a574-4b3505e92410",
 	"00000000-0000-0000-0000-000000000000",
