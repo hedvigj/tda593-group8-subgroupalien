@@ -14,12 +14,15 @@ INSERT INTO O_TFR
 	'',
 	"5f77c811-d46b-4197-a574-4b3505e92410",
 	1,
-	'select many rooms from instances of RoomInstance;
+	'select many rc related by self->RoomConfiguration[R10] where 
+	selected.name == param.roomConfigurationName;
 
 assign count = 0;
-if(not_empty rooms)
+if(not_empty rc)
+	select many rooms related by rc->RoomInstance[R26];
+
 	for each room in rooms
-		count = count+1;
+		count = count + 1;
 	end for;
 end if;
 
@@ -27,6 +30,22 @@ return count;',
 	1,
 	'',
 	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TPARM
+	VALUES ("ed306765-7bf6-4eb0-ae75-352b8bb734ba",
+	"aceb78d7-9a1f-46e7-a99a-85fcba249fdc",
+	'roomConfigurationName',
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	"00000000-0000-0000-0000-000000000000",
+	'string',
+	'',
+	'',
+	'../../../../Datatypes/Datatypes.xtuml');
 INSERT INTO S_DT_PROXY
 	VALUES ("5f77c811-d46b-4197-a574-4b3505e92410",
 	"00000000-0000-0000-0000-000000000000",
@@ -65,13 +84,6 @@ INSERT INTO O_TPARM
 	'',
 	"00000000-0000-0000-0000-000000000000",
 	'');
-INSERT INTO S_DT_PROXY
-	VALUES ("0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
-	"00000000-0000-0000-0000-000000000000",
-	'string',
-	'',
-	'',
-	'../../../../Datatypes/Datatypes.xtuml');
 INSERT INTO S_DT_PROXY
 	VALUES ("28114c36-aaba-4a92-b7c3-08f06e41c6a4",
 	"00000000-0000-0000-0000-000000000000",
