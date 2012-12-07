@@ -8,34 +8,16 @@ INSERT INTO O_OBJ
 	'',
 	"f56566de-5321-4b5f-b659-95d5c01e1baa");
 INSERT INTO O_TFR
-	VALUES ("29efceff-f58e-4a70-ae4a-437f6bdc7bca",
-	"9870931f-4767-4ca1-944a-b40dd1863246",
-	'getRoomConfiguration',
-	'',
-	"ae256fd3-70b0-403f-8139-fd377a5896f0",
-	1,
-	'',
-	1,
-	'',
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO S_DT_PROXY
-	VALUES ("ae256fd3-70b0-403f-8139-fd377a5896f0",
-	"00000000-0000-0000-0000-000000000000",
-	'unique_id',
-	'',
-	'',
-	'../../../../Datatypes/Datatypes.xtuml');
-INSERT INTO O_TFR
 	VALUES ("493f0747-339e-4d97-80a5-df0ebfbf8748",
 	"9870931f-4767-4ca1-944a-b40dd1863246",
 	'getAmount',
 	'',
 	"5f77c811-d46b-4197-a574-4b3505e92410",
 	1,
-	'',
+	'return self.amount;',
 	1,
 	'',
-	"29efceff-f58e-4a70-ae4a-437f6bdc7bca");
+	"00000000-0000-0000-0000-000000000000");
 INSERT INTO S_DT_PROXY
 	VALUES ("5f77c811-d46b-4197-a574-4b3505e92410",
 	"00000000-0000-0000-0000-000000000000",

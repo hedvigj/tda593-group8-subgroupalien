@@ -33,7 +33,7 @@ INSERT INTO O_TFR
 	'',
 	"28114c36-aaba-4a92-b7c3-08f06e41c6a4",
 	1,
-	'',
+	'return self.enabled;',
 	1,
 	'',
 	"62f1852e-f310-4e70-9e5e-65a27219eabe");
@@ -49,12 +49,28 @@ INSERT INTO O_TFR
 	"fa8a6ec5-bb0f-46de-b502-65628b69c7c1",
 	'setEnabled',
 	'',
-	"28114c36-aaba-4a92-b7c3-08f06e41c6a4",
+	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
 	1,
-	'',
+	'self.enabled = param.enabled;',
 	1,
 	'',
 	"c2d65c8b-8891-40cb-8161-0d6040eef8c4");
+INSERT INTO O_TPARM
+	VALUES ("2e6e3d49-8451-488c-b0f7-1d7baefb0a61",
+	"53e2fa3f-6b3a-4ed8-be45-7db6b7f34066",
+	'enabled',
+	"28114c36-aaba-4a92-b7c3-08f06e41c6a4",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("233e7f8d-a875-4812-a4c3-4ced8b823e83",
+	"00000000-0000-0000-0000-000000000000",
+	'void',
+	'',
+	'',
+	'../../../../Datatypes/Datatypes.xtuml');
 INSERT INTO O_TFR
 	VALUES ("ff177d96-d105-4550-92d7-54bbc2d7a88f",
 	"fa8a6ec5-bb0f-46de-b502-65628b69c7c1",
@@ -75,13 +91,6 @@ INSERT INTO O_TPARM
 	'',
 	"00000000-0000-0000-0000-000000000000",
 	'');
-INSERT INTO S_DT_PROXY
-	VALUES ("233e7f8d-a875-4812-a4c3-4ced8b823e83",
-	"00000000-0000-0000-0000-000000000000",
-	'void',
-	'',
-	'',
-	'../../../../Datatypes/Datatypes.xtuml');
 INSERT INTO O_NBATTR
 	VALUES ("25fac7ca-d417-4845-9a81-64e25edc309b",
 	"fa8a6ec5-bb0f-46de-b502-65628b69c7c1");
@@ -110,10 +119,10 @@ INSERT INTO O_ATTR
 	VALUES ("18991268-2e81-409a-8c83-40237fee9476",
 	"fa8a6ec5-bb0f-46de-b502-65628b69c7c1",
 	"25fac7ca-d417-4845-9a81-64e25edc309b",
-	'enable',
+	'enabled',
 	'',
 	'',
-	'enable',
+	'enabled',
 	0,
 	"28114c36-aaba-4a92-b7c3-08f06e41c6a4",
 	'',
