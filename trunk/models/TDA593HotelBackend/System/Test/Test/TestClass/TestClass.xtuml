@@ -53,6 +53,10 @@ INSERT INTO O_TFR
 send Port1::addRoomConfiguration(uniqueName: "0x20", description: "DESC2", price: 12, roomType: "Single room");
 send Port1::addRoomConfiguration(uniqueName: "0x30", description: "OH GLORIOUS ROYAL HIGHNESS, THIS IS THE SUITE FOR YE OLDE ROYAL ENDEVOURS YE HAVETH", price: 1337, roomType: "Suite");
 send Port1::addRoomConfigurationProperty(configurationName: "0x10", propertyName: "Bathroom");
+send Port1::addRoomConfigurationProperty(configurationName: "0x10", propertyName: "Bathroom");
+send Port1::removeRoomConfigurationProperty(configurationName: "0x10", propertyName: "Bathroom");
+send Port1::removeRoomConfigurationProperty(configurationName: "0x10", propertyName: "Bathroom");
+send Port1::addRoomConfigurationProperty(configurationName: "0x10", propertyName: "Bathroom");
 send Port1::setRoomConfigurationEnabled(configurationName: "0x10", enabled: true);',
 	1,
 	'',

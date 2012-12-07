@@ -314,7 +314,7 @@ if ( empty ri )
 		create object instance ri of RoomInstance;
 		relate ri to self across R48;
 		relate ri to rc across R26;
-		return true; 
+		return true;
 	end if;
 	
 end if;
@@ -339,6 +339,55 @@ INSERT INTO O_TPARM
 	0,
 	'',
 	"63eeddbf-b617-45e2-9ac8-ba76f1b74e30",
+	'');
+INSERT INTO O_TFR
+	VALUES ("518306ee-8c1f-47c2-947f-e5250f3bfc38",
+	"b1404731-4bdc-477f-ab49-48cf034fe57f",
+	'removeRoomConfigurationProperty',
+	'',
+	"28114c36-aaba-4a92-b7c3-08f06e41c6a4",
+	1,
+	'select any roomConfig related by self->RoomConfiguration[R10] where selected.name == param.configurationName;
+select any property related by self->Property[R47] where selected.name == param.propertyName;
+if(empty property)
+	LOG::LogInfo(message: "Property not removed from " + param.configurationName + ": Property " + param.propertyName + " because it does not exist.");
+	return false;
+elif(empty roomConfig)
+	LOG::LogInfo(message: "Property " + param.propertyName + " not removed from the configuration because there is no configuration with the name: " + param.configurationName);
+	return false;
+else
+	select any testGetProperty related by roomConfig->Property[R12] where selected.name == param.propertyName;
+	if(empty testGetProperty)
+		LOG::LogInfo(message: "Property " + param.propertyName + " not removed because it was not a property of " + param.configurationName);
+		return false;
+	else
+		select any ownership related by roomConfig->Ownership[R12];
+		unrelate roomConfig from property across R12 using ownership;
+		delete object instance ownership;
+		LOG::LogInfo(message: "Property " + param.propertyName + " removed from " + param.configurationName);
+		return true;
+	end if;
+end if;',
+	1,
+	'',
+	"0492a4e3-08a2-461c-be58-631f90ad2cb2");
+INSERT INTO O_TPARM
+	VALUES ("1b9ec36f-368b-4efa-a474-f0c32988f312",
+	"518306ee-8c1f-47c2-947f-e5250f3bfc38",
+	'configurationName',
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("2ea67bd4-8dfc-4fa8-8b0e-d56cf6b325c4",
+	"518306ee-8c1f-47c2-947f-e5250f3bfc38",
+	'propertyName',
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	0,
+	'',
+	"1b9ec36f-368b-4efa-a474-f0c32988f312",
 	'');
 INSERT INTO O_NBATTR
 	VALUES ("1051e230-8dda-4370-b6d3-252916c053c2",
