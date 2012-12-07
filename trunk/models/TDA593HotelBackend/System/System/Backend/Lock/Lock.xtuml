@@ -27,8 +27,14 @@ if(not_empty tempLock)
 	select many rcats related by tempLock->RoomConfigurationAmountTuple[R44];
 	
 	for each rcat in rcats
-		unrelate tempLock from rcat across R44; 
-		relate rcat to self across R24;
+		create object instance newrcat of RoomConfigurationAmountTuple;
+		
+		select one rc related by rcat->RoomConfiguration[R28];
+		
+		relate newrcat to self across R24;
+		relate newrcat to rc across R28;
+		
+		newrcat.amount = rcat.amount;
 	end for;
 
 	self.timespan = param.timespan; 
