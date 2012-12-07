@@ -1,0 +1,93 @@
+-- BP 7.1 content: FunctionPackage syschar: 3 persistence-version: 7.1.5
+
+INSERT INTO S_FPK
+	VALUES ("533876a6-edf5-43b0-907e-06a980686349",
+	'Helpers',
+	"00000000-0000-0000-0000-000000000000",
+	"00ea2887-e9c6-4656-a9aa-aa1c83bcdfb2");
+INSERT INTO GD_MD
+	VALUES ("dc3d2a07-4943-4b20-845c-056f967dd800",
+	101,
+	"533876a6-edf5-43b0-907e-06a980686349",
+	54,
+	0,
+	0,
+	1,
+	1,
+	1,
+	12,
+	1,
+	0,
+	0,
+	0,
+	0,
+	0,
+	'');
+INSERT INTO DIM_DIA
+	VALUES ("dc3d2a07-4943-4b20-845c-056f967dd800",
+	'',
+	1.000000,
+	4000.000000,
+	3000.000000,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO PL_FPID
+	VALUES ("533876a6-edf5-43b0-907e-06a980686349",
+	"44fbb79c-2243-41c0-b500-e1a8c72e3dd6");
+INSERT INTO S_DOM_PROXY
+	VALUES ("44fbb79c-2243-41c0-b500-e1a8c72e3dd6",
+	'Test',
+	'',
+	0,
+	"00000000-0000-0000-0000-000000000002",
+	"00000000-0000-0000-0000-000000000000",
+	'../../Test.xtuml');
+INSERT INTO S_FIP
+	VALUES ("533876a6-edf5-43b0-907e-06a980686349",
+	"44634cf6-9c75-48d6-96f8-8b29e398d510");
+INSERT INTO S_SYNC
+	VALUES ("44634cf6-9c75-48d6-96f8-8b29e398d510",
+	"44fbb79c-2243-41c0-b500-e1a8c72e3dd6",
+	'createTimeSpan',
+	'',
+	'create object instance factory of TimeSpanFactory;
+assign timeSpan = factory.createTimeSpan(startDate : param.startDate, endDate : param.endDate);
+delete object instance factory;
+return timeSpan;',
+	"29455544-5da7-4d59-89a1-9d1261bd2be6",
+	1,
+	'');
+INSERT INTO S_SPARM
+	VALUES ("b90d10c2-a636-4dbe-976d-4f5e9db20e9d",
+	"44634cf6-9c75-48d6-96f8-8b29e398d510",
+	'startDate',
+	"bdc36fef-8559-4ba2-9337-8ebb987f4334",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("bdc36fef-8559-4ba2-9337-8ebb987f4334",
+	"00000000-0000-0000-0000-000000000000",
+	'date',
+	'',
+	'',
+	'../../../../Datatypes/Datatypes.xtuml');
+INSERT INTO S_SPARM
+	VALUES ("cfa0113a-01ae-4dd3-b7cc-191ab41cb1d6",
+	"44634cf6-9c75-48d6-96f8-8b29e398d510",
+	'endDate',
+	"bdc36fef-8559-4ba2-9337-8ebb987f4334",
+	0,
+	'',
+	"b90d10c2-a636-4dbe-976d-4f5e9db20e9d",
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("29455544-5da7-4d59-89a1-9d1261bd2be6",
+	"00000000-0000-0000-0000-000000000000",
+	'TimeSpan',
+	'',
+	'',
+	'../../../../BackendDatatypes/BackendDatatypes.xtuml');
+INSERT INTO S_FPIP_PROXY
+	VALUES ("00ea2887-e9c6-4656-a9aa-aa1c83bcdfb2",
+	'../SuiteFunctions.xtuml');
