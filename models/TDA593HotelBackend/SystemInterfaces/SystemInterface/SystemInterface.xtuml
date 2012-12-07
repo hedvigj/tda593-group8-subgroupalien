@@ -177,7 +177,7 @@ INSERT INTO C_PP
 INSERT INTO C_PP
 	VALUES ("9ebc434c-c07b-4a3a-aed6-2d63b11fb0ec",
 	"27074fd3-afc3-4b27-a048-bb01de2a7176",
-	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	"5f77c811-d46b-4197-a574-4b3505e92410",
 	'uniqueName',
 	'',
 	0,
@@ -277,6 +277,26 @@ INSERT INTO C_PP
 	0,
 	'',
 	"6465c650-d79a-4066-83dc-125f4b29f392");
+INSERT INTO C_EP
+	VALUES ("4edfbad1-da70-4256-bb1c-57b257e3adcc",
+	"55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",
+	-1,
+	'returnBooking');
+INSERT INTO C_AS
+	VALUES ("4edfbad1-da70-4256-bb1c-57b257e3adcc",
+	'returnBooking',
+	'',
+	1,
+	"7bc1157f-e9cb-4b49-865c-99e47e8d59e8");
+INSERT INTO C_PP
+	VALUES ("d91bd0f6-9a7a-4edf-9476-8f4dbdc156f8",
+	"4edfbad1-da70-4256-bb1c-57b257e3adcc",
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	'bookingId',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
 INSERT INTO IP_IP_PROXY
 	VALUES ("2c4b14cf-263e-4680-a6e2-ea8ecc8c143c",
 	"00000000-0000-0000-0000-000000000000",
