@@ -14,17 +14,22 @@ INSERT INTO O_TFR
 	'',
 	"5f77c811-d46b-4197-a574-4b3505e92410",
 	1,
-	'select many bookings from instances of Booking where 
+	'select many bookings related by self->Booking[R20] where 
 (selected.timespan.startDate <= param.timespan.endDate) and 
 (selected.timespan.endDate >= param.timespan.startDate);
 
 assign count = 0;
-if(not_empty bookings)
-	for each booking in bookings
-		count = count+1;
+for each booking in bookings
+	select many reservations related by booking->Reservation[R15];
+	for each reservation in reservations
+		select any rc related by reservation->RoomConfiguration[R15] where
+			selected.uniqueName == param.roomConfigurationId;
+		if ( not_empty )
+			count = count + reservation.amount;
+			break;
+		end if;
 	end for;
-		
-end if;
+end for;
 
 return count;',
 	1,
@@ -58,16 +63,19 @@ INSERT INTO O_TFR
 	"9626466d-b088-4240-9b9e-cc44069b9de5",
 	'createBooking',
 	'',
-	"5f77c811-d46b-4197-a574-4b3505e92410",
+	"28114c36-aaba-4a92-b7c3-08f06e41c6a4",
 	1,
-	'create object instance booking of Booking;
-relate booking to self across R20;
-booking.setCreditcard(creditcard: param.creditcard);
-booking.setPersonalInfo(personalInfo: param.personalInfo);
-booking.setTimespan(timespan: param.timespan);
+	'//Kolla om creditkortet är giltigt
 
-LOG::LogReal(message: "Booking was created with bookingId: ", r:self.nextBookingNr);
-return self.getNextBookingNr();',
+	create object instance booking of Booking;
+	relate booking to self across R20;
+	booking.setCreditcard(creditcard: param.creditcard);
+	booking.setPersonalInfo(personalInfo: param.personalInfo);
+	booking.setTimespan(timespan: param.timespan);
+	return true;
+	LOG::LogInfo(message: "Booking was created");
+
+	LOG::LogInfo(message: "Creditcard not valid");',
 	1,
 	'',
 	"a6c5dd67-f29f-4568-b043-9919e6bdf115");
@@ -112,17 +120,33 @@ INSERT INTO O_TPARM
 	'',
 	"44f273be-e4e0-4415-b023-26819d8200f9",
 	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("28114c36-aaba-4a92-b7c3-08f06e41c6a4",
+	"00000000-0000-0000-0000-000000000000",
+	'boolean',
+	'',
+	'',
+	'../../../../Datatypes/Datatypes.xtuml');
 INSERT INTO O_TFR
-	VALUES ("22b83021-9f05-458f-bdcf-9a3dad450cff",
+	VALUES ("21df229d-1f24-4b1f-a5d2-fe2c9c899fb3",
 	"9626466d-b088-4240-9b9e-cc44069b9de5",
-	'setNextBookingNr',
+	'setCreditcard',
 	'',
 	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
 	1,
-	'self.nextBookingNr = self.nextBookingNr + 1;',
+	'self.creditcard = param.creditcard;',
 	1,
 	'',
 	"1949f51d-98a9-4773-bb28-18ed13310f84");
+INSERT INTO O_TPARM
+	VALUES ("1b38349c-c3d0-4039-aaa7-7517e0f8c414",
+	"21df229d-1f24-4b1f-a5d2-fe2c9c899fb3",
+	'creditcard',
+	"16664b58-a6dc-4ac7-9499-ba089cf98eaa",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
 INSERT INTO S_DT_PROXY
 	VALUES ("233e7f8d-a875-4812-a4c3-4ced8b823e83",
 	"00000000-0000-0000-0000-000000000000",
@@ -130,35 +154,24 @@ INSERT INTO S_DT_PROXY
 	'',
 	'',
 	'../../../../Datatypes/Datatypes.xtuml');
-INSERT INTO O_TFR
-	VALUES ("a3582d0a-ce03-4ea5-8080-ca57783fed69",
-	"9626466d-b088-4240-9b9e-cc44069b9de5",
-	'getNextBookingNr',
-	'',
-	"5f77c811-d46b-4197-a574-4b3505e92410",
-	1,
-	'return self.nextBookingNr;',
-	1,
-	'',
-	"22b83021-9f05-458f-bdcf-9a3dad450cff");
 INSERT INTO O_NBATTR
-	VALUES ("9dbc45e9-307f-4f1b-b635-76afcd6bdb1c",
+	VALUES ("84bd106c-2ad8-4403-b701-388cafffc3a3",
 	"9626466d-b088-4240-9b9e-cc44069b9de5");
 INSERT INTO O_BATTR
-	VALUES ("9dbc45e9-307f-4f1b-b635-76afcd6bdb1c",
+	VALUES ("84bd106c-2ad8-4403-b701-388cafffc3a3",
 	"9626466d-b088-4240-9b9e-cc44069b9de5");
 INSERT INTO O_ATTR
-	VALUES ("9dbc45e9-307f-4f1b-b635-76afcd6bdb1c",
+	VALUES ("84bd106c-2ad8-4403-b701-388cafffc3a3",
 	"9626466d-b088-4240-9b9e-cc44069b9de5",
 	"00000000-0000-0000-0000-000000000000",
-	'nextBookingNr',
+	'creditcard',
 	'',
 	'',
-	'nextBookingNr',
+	'creditcard',
 	0,
-	"5f77c811-d46b-4197-a574-4b3505e92410",
+	"16664b58-a6dc-4ac7-9499-ba089cf98eaa",
 	'',
-	'1');
+	'');
 INSERT INTO O_ID
 	VALUES (0,
 	"9626466d-b088-4240-9b9e-cc44069b9de5");
