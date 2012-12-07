@@ -297,6 +297,75 @@ INSERT INTO C_PP
 	0,
 	'',
 	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_EP
+	VALUES ("345834e8-51b3-474d-89c9-c3053d739675",
+	"55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",
+	-1,
+	'addRoomInstance');
+INSERT INTO C_AS
+	VALUES ("345834e8-51b3-474d-89c9-c3053d739675",
+	'addRoomInstance',
+	'',
+	0,
+	"4edfbad1-da70-4256-bb1c-57b257e3adcc");
+INSERT INTO C_PP
+	VALUES ("e525addd-e253-4b81-aeaf-b3815985a3d4",
+	"345834e8-51b3-474d-89c9-c3053d739675",
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	'roomInstanceName',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("cab3f13e-bcf2-4310-a5a9-a11d6ef1c7d7",
+	"345834e8-51b3-474d-89c9-c3053d739675",
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	'roomControllerName',
+	'',
+	0,
+	'',
+	"e525addd-e253-4b81-aeaf-b3815985a3d4");
+INSERT INTO C_EP
+	VALUES ("e6f20d87-7f8d-4221-9a21-9305e00e9a05",
+	"55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",
+	-1,
+	'checkIn');
+INSERT INTO C_AS
+	VALUES ("e6f20d87-7f8d-4221-9a21-9305e00e9a05",
+	'checkIn',
+	'',
+	0,
+	"345834e8-51b3-474d-89c9-c3053d739675");
+INSERT INTO C_PP
+	VALUES ("31bf7882-c5ba-4378-a3f9-97503769ae4a",
+	"e6f20d87-7f8d-4221-9a21-9305e00e9a05",
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	'bookingId',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_EP
+	VALUES ("2d066e93-cb79-4f63-ac4f-1b440aa49ce8",
+	"55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",
+	-1,
+	'checkOut');
+INSERT INTO C_AS
+	VALUES ("2d066e93-cb79-4f63-ac4f-1b440aa49ce8",
+	'checkOut',
+	'',
+	0,
+	"e6f20d87-7f8d-4221-9a21-9305e00e9a05");
+INSERT INTO C_PP
+	VALUES ("b9ac08ed-cbd9-47b4-8871-7a1a23d668f5",
+	"2d066e93-cb79-4f63-ac4f-1b440aa49ce8",
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	'bookingId',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
 INSERT INTO IP_IP_PROXY
 	VALUES ("2c4b14cf-263e-4680-a6e2-ea8ecc8c143c",
 	"00000000-0000-0000-0000-000000000000",
