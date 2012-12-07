@@ -22,17 +22,15 @@ if( empty rcm )
 end if;
 
 select any rc related by rcm->RoomConfiguration[R10] 
-where selected.id == param.roomConfigurationId;
+where selected.name == param.roomConfigurationName;
 
 if ( not_empty rc )
-	
-	
 	select many rcats related by self->RoomConfigurationAmountTuple[R44]; 
 	
 	//assign rcat;
 	for each rcat in rcats
 		select one rc2 related by rcat->RoomConfiguration[R28];
-		if(rc2.id == rc.id)
+		if(rc2.name == rc.name)
 			// the rcat already exists so can not add another.
 			return false;
 		end if;
@@ -73,16 +71,16 @@ INSERT INTO S_DT_PROXY
 INSERT INTO O_TPARM
 	VALUES ("ddef6454-a6de-494a-bbe3-02025ad35b1e",
 	"da1b9e44-eddd-4eda-82a5-bbfa38aaf1c7",
-	'roomConfigurationId',
-	"ae256fd3-70b0-403f-8139-fd377a5896f0",
+	'roomConfigurationName',
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
 	0,
 	'',
 	"f9964cd0-b095-480d-88bc-423e910d6387",
 	'');
 INSERT INTO S_DT_PROXY
-	VALUES ("ae256fd3-70b0-403f-8139-fd377a5896f0",
+	VALUES ("0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
 	"00000000-0000-0000-0000-000000000000",
-	'unique_id',
+	'string',
 	'',
 	'',
 	'../../../../Datatypes/Datatypes.xtuml');
@@ -108,17 +106,15 @@ if( empty rcm )
 end if;
 
 select any rc related by rcm->RoomConfiguration[R10] 
-where selected.id == param.roomConfigurationId;
+where selected.name == param.roomConfigurationName;
 
 if ( not_empty rc )
-	
-	
 	select many rcats related by self->RoomConfigurationAmountTuple[R44]; 
 	
 	//assign rcat;
 	for each rcat in rcats
 		select one rc2 related by rcat->RoomConfiguration[R28];
-		if(rc2.id == rc.id)
+		if(rc2.name == rc.name)
 			// the rcat already exists so can not add another.
 			unrelate rc from rcat across R28;
 			unrelate rcat from self across R44;
@@ -137,8 +133,8 @@ return false;
 INSERT INTO O_TPARM
 	VALUES ("b957c8f3-3df3-4889-9840-dbd144bb2c77",
 	"92fc69db-93da-4faa-a054-c1e495f87f6c",
-	'roomConfigurationId',
-	"ae256fd3-70b0-403f-8139-fd377a5896f0",
+	'roomConfigurationName',
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
 	0,
 	'',
 	"00000000-0000-0000-0000-000000000000",
@@ -148,7 +144,7 @@ INSERT INTO O_TFR
 	"9f6bb5a3-482c-4083-b148-3f2d21230a4c",
 	'changeAmountOnRoomConfiguration',
 	'',
-	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
+	"28114c36-aaba-4a92-b7c3-08f06e41c6a4",
 	1,
 	'// get singelton
 select any rcm from instances of RoomManager;
@@ -158,7 +154,7 @@ if( empty rcm )
 end if;
 
 select any rc related by rcm->RoomConfiguration[R10] 
-where selected.id == param.roomConfigurationId;
+where selected.name == param.roomConfigurationName;
 
 if ( not_empty rc )
 	
@@ -168,7 +164,7 @@ if ( not_empty rc )
 	//assign rcat;
 	for each rcat in rcats
 		select one rc2 related by rcat->RoomConfiguration[R28];
-		if(rc2.id == rc.id)
+		if(rc2.name == rc.name)
 			// the rcat already exists so can not add another.
 			return false;
 		end if;
@@ -199,19 +195,12 @@ INSERT INTO O_TPARM
 INSERT INTO O_TPARM
 	VALUES ("1ab8e214-393f-4342-9434-88157d11df86",
 	"e65916ed-3080-4be1-9502-75ccd5e4cec5",
-	'roomConfigurationId',
-	"ae256fd3-70b0-403f-8139-fd377a5896f0",
+	'roomConfigurationName',
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
 	0,
 	'',
 	"47af24c1-b880-4bd8-a390-3a767d394475",
 	'');
-INSERT INTO S_DT_PROXY
-	VALUES ("233e7f8d-a875-4812-a4c3-4ced8b823e83",
-	"00000000-0000-0000-0000-000000000000",
-	'void',
-	'',
-	'',
-	'../../../../Datatypes/Datatypes.xtuml');
 INSERT INTO O_TFR
 	VALUES ("7c3d18ef-f935-4ba0-a6ba-520e2419ae65",
 	"9f6bb5a3-482c-4083-b148-3f2d21230a4c",
@@ -227,6 +216,13 @@ end if;
 	1,
 	'',
 	"e65916ed-3080-4be1-9502-75ccd5e4cec5");
+INSERT INTO S_DT_PROXY
+	VALUES ("233e7f8d-a875-4812-a4c3-4ced8b823e83",
+	"00000000-0000-0000-0000-000000000000",
+	'void',
+	'',
+	'',
+	'../../../../Datatypes/Datatypes.xtuml');
 INSERT INTO O_TFR
 	VALUES ("6bbe92af-0a36-438f-a73c-f646a961afab",
 	"9f6bb5a3-482c-4083-b148-3f2d21230a4c",
