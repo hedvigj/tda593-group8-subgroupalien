@@ -129,24 +129,6 @@ INSERT INTO O_TPARM
 	"00000000-0000-0000-0000-000000000000",
 	'');
 INSERT INTO O_TFR
-	VALUES ("6cb6c7c0-4141-4d29-8e33-f7eaa3479d22",
-	"9b23cdf6-dd56-4dc1-b029-feb73c0f253a",
-	'getID',
-	'',
-	"ae256fd3-70b0-403f-8139-fd377a5896f0",
-	1,
-	'return self.id;',
-	1,
-	'',
-	"43d7d514-2355-423e-b3a5-308a8b0397e5");
-INSERT INTO S_DT_PROXY
-	VALUES ("ae256fd3-70b0-403f-8139-fd377a5896f0",
-	"00000000-0000-0000-0000-000000000000",
-	'unique_id',
-	'',
-	'',
-	'../../../../Datatypes/Datatypes.xtuml');
-INSERT INTO O_TFR
 	VALUES ("1ea4da75-b9a3-4cad-9e76-08a53869f5ad",
 	"9b23cdf6-dd56-4dc1-b029-feb73c0f253a",
 	'getName',
@@ -156,7 +138,7 @@ INSERT INTO O_TFR
 	'return self.name;',
 	1,
 	'',
-	"6cb6c7c0-4141-4d29-8e33-f7eaa3479d22");
+	"43d7d514-2355-423e-b3a5-308a8b0397e5");
 INSERT INTO O_TFR
 	VALUES ("68a28c2f-b521-4edb-8eec-e80c61c9c38b",
 	"9b23cdf6-dd56-4dc1-b029-feb73c0f253a",
