@@ -570,8 +570,11 @@ if(empty bookingManager)
 	LOG::LogInfo(message: "Created a BookingManager");
 end if;
 
+if(param.value)
 assign value = bookingManager.createBooking(creditcard: self.creditcard, personalInfo: self.personalInfo, timespan: self.timespan);
-generate BookingController5: finished(booking: value) to self;',
+generate BookingController5: finished(booking: value) to self;
+end if;
+',
 	'');
 INSERT INTO SM_TAH
 	VALUES ("829adc4e-3c66-43b4-a6e0-8ddd1a3a6772",
