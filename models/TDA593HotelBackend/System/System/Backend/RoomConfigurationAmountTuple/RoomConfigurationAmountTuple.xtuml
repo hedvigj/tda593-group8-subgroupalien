@@ -14,8 +14,8 @@ INSERT INTO O_TFR
 	'',
 	"5f77c811-d46b-4197-a574-4b3505e92410",
 	1,
-	'',
-	3,
+	'return self.amount;',
+	1,
 	'',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO S_DT_PROXY
