@@ -1,0 +1,90 @@
+-- BP 7.1 content: ModelClass syschar: 3 persistence-version: 7.1.5
+
+INSERT INTO O_OBJ
+	VALUES ("b607f26d-7410-4535-bb61-c036eeaedd6b",
+	'TimeSpanFactory',
+	33,
+	'TimeSpanFactory',
+	'',
+	"5ad41091-a5de-4698-b9d4-8a5fb23dde3a");
+INSERT INTO O_TFR
+	VALUES ("dd2f2465-3782-40ee-b584-c240d3f57ed9",
+	"b607f26d-7410-4535-bb61-c036eeaedd6b",
+	'createTimeSpan',
+	'',
+	"29455544-5da7-4d59-89a1-9d1261bd2be6",
+	1,
+	'assign self.timeSpan.startDate = param.startDate;
+assign self.timeSpan.endDate = param.endDate;
+return self.timeSpan;',
+	1,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TPARM
+	VALUES ("c1ff8a23-45a5-45e3-8ad3-2b7b88b7c510",
+	"dd2f2465-3782-40ee-b584-c240d3f57ed9",
+	'startDate',
+	"bdc36fef-8559-4ba2-9337-8ebb987f4334",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("bdc36fef-8559-4ba2-9337-8ebb987f4334",
+	"00000000-0000-0000-0000-000000000000",
+	'date',
+	'',
+	'',
+	'../../../../../Datatypes/Datatypes.xtuml');
+INSERT INTO O_TPARM
+	VALUES ("ab7f1bcb-e5fc-4f80-9764-a8fbc142e2a5",
+	"dd2f2465-3782-40ee-b584-c240d3f57ed9",
+	'endDate',
+	"bdc36fef-8559-4ba2-9337-8ebb987f4334",
+	0,
+	'',
+	"c1ff8a23-45a5-45e3-8ad3-2b7b88b7c510",
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("29455544-5da7-4d59-89a1-9d1261bd2be6",
+	"00000000-0000-0000-0000-000000000000",
+	'TimeSpan',
+	'',
+	'',
+	'../../../../../BackendDatatypes/BackendDatatypes.xtuml');
+INSERT INTO O_NBATTR
+	VALUES ("ad6c2a9f-65e8-4ce2-99c6-e4e3a9ee6856",
+	"b607f26d-7410-4535-bb61-c036eeaedd6b");
+INSERT INTO O_BATTR
+	VALUES ("ad6c2a9f-65e8-4ce2-99c6-e4e3a9ee6856",
+	"b607f26d-7410-4535-bb61-c036eeaedd6b");
+INSERT INTO O_ATTR
+	VALUES ("ad6c2a9f-65e8-4ce2-99c6-e4e3a9ee6856",
+	"b607f26d-7410-4535-bb61-c036eeaedd6b",
+	"00000000-0000-0000-0000-000000000000",
+	'timeSpan',
+	'',
+	'',
+	'timeSpan',
+	0,
+	"29455544-5da7-4d59-89a1-9d1261bd2be6",
+	'',
+	'');
+INSERT INTO O_ID
+	VALUES (0,
+	"b607f26d-7410-4535-bb61-c036eeaedd6b");
+INSERT INTO O_ID
+	VALUES (1,
+	"b607f26d-7410-4535-bb61-c036eeaedd6b");
+INSERT INTO O_ID
+	VALUES (2,
+	"b607f26d-7410-4535-bb61-c036eeaedd6b");
+INSERT INTO S_SS_PROXY
+	VALUES ("5ad41091-a5de-4698-b9d4-8a5fb23dde3a",
+	'Factories',
+	'',
+	'',
+	0,
+	"44fbb79c-2243-41c0-b500-e1a8c72e3dd6",
+	"00000000-0000-0000-0000-000000000000",
+	'../Factories.xtuml');
