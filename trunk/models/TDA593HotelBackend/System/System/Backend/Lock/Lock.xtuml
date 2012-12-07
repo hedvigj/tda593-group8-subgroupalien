@@ -93,8 +93,7 @@ INSERT INTO O_TFR
 	'',
 	"29455544-5da7-4d59-89a1-9d1261bd2be6",
 	1,
-	'
-return self.timespan;',
+	'return self.timespan;',
 	1,
 	'',
 	"e8d383e0-4c7e-44b4-af26-db730e1380b1");

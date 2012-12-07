@@ -14,7 +14,7 @@ INSERT INTO O_TFR
 	'',
 	"374fad22-0fdd-499d-9f5f-89e6ccd6c3a7",
 	1,
-	'return self.price;',
+	'return self.price; ',
 	1,
 	'',
 	"00000000-0000-0000-0000-000000000000");
