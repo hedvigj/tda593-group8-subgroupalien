@@ -21,6 +21,10 @@ if( empty rcm )
 	return false;
 end if;
 
+if(param.amount <= 0)
+	return false;
+end if;
+
 select any rc related by rcm->RoomConfiguration[R10] 
 where selected.name == param.roomConfigurationName;
 
@@ -150,6 +154,10 @@ INSERT INTO O_TFR
 select any rcm from instances of RoomManager;
 if( empty rcm )
 	create object instance rcm of RoomManager;
+	return false;
+end if;
+
+if( param.amount <= 0)
 	return false;
 end if;
 
