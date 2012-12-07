@@ -8,68 +8,53 @@ INSERT INTO O_OBJ
 	'',
 	"f56566de-5321-4b5f-b659-95d5c01e1baa");
 INSERT INTO O_TFR
-	VALUES ("f7ca6d95-ab82-4639-aea9-440702363709",
-	"676dbe4e-109f-49d7-af51-5ec2153af55b",
-	'addLock',
-	'',
-	"ae256fd3-70b0-403f-8139-fd377a5896f0",
-	1,
-	'',
-	3,
-	'',
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO O_TPARM
-	VALUES ("898918ce-314d-4c60-8d8d-8483503dfd1e",
-	"f7ca6d95-ab82-4639-aea9-440702363709",
-	'timespan',
-	"29455544-5da7-4d59-89a1-9d1261bd2be6",
-	0,
-	'',
-	"00000000-0000-0000-0000-000000000000",
-	'');
-INSERT INTO S_DT_PROXY
-	VALUES ("29455544-5da7-4d59-89a1-9d1261bd2be6",
-	"00000000-0000-0000-0000-000000000000",
-	'TimeSpan',
-	'',
-	'',
-	'../../../../BackendDatatypes/BackendDatatypes.xtuml');
-INSERT INTO O_TPARM
-	VALUES ("e472279a-e5f0-448a-af2e-238d99bb9938",
-	"f7ca6d95-ab82-4639-aea9-440702363709",
-	'roomConfigurationAmountTuples',
-	"ae256fd3-70b0-403f-8139-fd377a5896f0",
-	0,
-	'',
-	"898918ce-314d-4c60-8d8d-8483503dfd1e",
-	'');
-INSERT INTO S_DT_PROXY
-	VALUES ("ae256fd3-70b0-403f-8139-fd377a5896f0",
-	"00000000-0000-0000-0000-000000000000",
-	'unique_id',
-	'',
-	'',
-	'../../../../Datatypes/Datatypes.xtuml');
-INSERT INTO O_TFR
 	VALUES ("9d323f2a-68bd-4459-8570-308f1e4e06b1",
 	"676dbe4e-109f-49d7-af51-5ec2153af55b",
 	'removeLock',
 	'',
 	"28114c36-aaba-4a92-b7c3-08f06e41c6a4",
 	1,
+	'select any lock related by self->Lock[R23] where selected.id == param.lockId;
+
+if( not_empty lock)
+	select many rcats related by lock->RoomConfigurationAmountTuple[R24];
+
+	for each rcat in rcats
+		select one rc related by rcat->RoomConfiguration[R28];
+	
+		unrelate rc from rcat across R28;
+		unrelate rcat from lock across R24;
+		delete object instance rcat; 
+	
+	end for;
+
+	unrelate lock from self across R23;
+
+	delete object instance lock;
+	
+	return true;
+end if;
+
+return false;',
+	1,
 	'',
-	3,
-	'',
-	"f7ca6d95-ab82-4639-aea9-440702363709");
+	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_TPARM
 	VALUES ("1fd8f7c2-6343-48d8-91c1-3f308da54bf2",
 	"9d323f2a-68bd-4459-8570-308f1e4e06b1",
-	'lock',
-	"ae256fd3-70b0-403f-8139-fd377a5896f0",
+	'lockId',
+	"5f77c811-d46b-4197-a574-4b3505e92410",
 	0,
 	'',
 	"00000000-0000-0000-0000-000000000000",
 	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("5f77c811-d46b-4197-a574-4b3505e92410",
+	"00000000-0000-0000-0000-000000000000",
+	'integer',
+	'',
+	'',
+	'../../../../Datatypes/Datatypes.xtuml');
 INSERT INTO S_DT_PROXY
 	VALUES ("28114c36-aaba-4a92-b7c3-08f06e41c6a4",
 	"00000000-0000-0000-0000-000000000000",
@@ -80,23 +65,47 @@ INSERT INTO S_DT_PROXY
 INSERT INTO O_TFR
 	VALUES ("31b87c18-6208-444f-84a2-8317d75cfd59",
 	"676dbe4e-109f-49d7-af51-5ec2153af55b",
-	'getLockedRoomCount()',
+	'getLockedRoomCount',
 	'',
 	"5f77c811-d46b-4197-a574-4b3505e92410",
 	1,
-	'',
-	3,
+	'select many locks related by self->Lock[R23] where 
+(selected.timespan.startDate <= param.timespan.endDate) and 
+(selected.timespan.endDate >= param.timespan.startDate);
+
+assign count = 0;
+for each lock in locks
+	select many rcats related by lock->RoomConfigurationAmountTuple[R24];
+	for each rcat in rcats
+		select one rc related by rcat->RoomConfiguration[R28] where
+			selected.name == param.roomConfigurationName; 
+		if ( not_empty rc)
+			count = count + rcat.amount;
+			break;
+		end if;
+	end for;
+end for;
+
+return count;',
+	1,
 	'',
 	"9d323f2a-68bd-4459-8570-308f1e4e06b1");
 INSERT INTO O_TPARM
 	VALUES ("31134de5-ce73-4c0c-9398-c210e63bf479",
 	"31b87c18-6208-444f-84a2-8317d75cfd59",
-	'roomConfiguration',
-	"ae256fd3-70b0-403f-8139-fd377a5896f0",
+	'roomConfigurationName',
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
 	0,
 	'',
 	"00000000-0000-0000-0000-000000000000",
 	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	"00000000-0000-0000-0000-000000000000",
+	'string',
+	'',
+	'',
+	'../../../../Datatypes/Datatypes.xtuml');
 INSERT INTO O_TPARM
 	VALUES ("89c673e6-53c0-40ca-ab1c-c6a4af44d601",
 	"31b87c18-6208-444f-84a2-8317d75cfd59",
@@ -107,12 +116,104 @@ INSERT INTO O_TPARM
 	"31134de5-ce73-4c0c-9398-c210e63bf479",
 	'');
 INSERT INTO S_DT_PROXY
-	VALUES ("5f77c811-d46b-4197-a574-4b3505e92410",
+	VALUES ("29455544-5da7-4d59-89a1-9d1261bd2be6",
 	"00000000-0000-0000-0000-000000000000",
-	'integer',
+	'TimeSpan',
+	'',
+	'',
+	'../../../../BackendDatatypes/BackendDatatypes.xtuml');
+INSERT INTO O_TFR
+	VALUES ("0f63f33c-1c30-41d8-9a0a-256cd9c8d598",
+	"676dbe4e-109f-49d7-af51-5ec2153af55b",
+	'getUniqueLockId',
+	'',
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	1,
+	'self.uniqueLockIdCounter = self.uniqueLockIdCounter + 1;
+return self.uniqueLockIdCounter;',
+	1,
+	'',
+	"31b87c18-6208-444f-84a2-8317d75cfd59");
+INSERT INTO O_TFR
+	VALUES ("79eff7c4-59cf-41b0-856d-3abe5a12e408",
+	"676dbe4e-109f-49d7-af51-5ec2153af55b",
+	'getNewTempLock',
+	'',
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	1,
+	'create object instance tempLock of TempLock;
+relate tempLock to self across R46;
+tempLock.TempLock();
+return tempLock.getId();',
+	1,
+	'',
+	"0f63f33c-1c30-41d8-9a0a-256cd9c8d598");
+INSERT INTO O_TFR
+	VALUES ("0b422c37-8b89-46a5-9fc6-568978ea97ed",
+	"676dbe4e-109f-49d7-af51-5ec2153af55b",
+	'deleteTempLock',
+	'',
+	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
+	1,
+	'select any tempLock related by self->TempLock[R46] where selected.id == param.tempLockId;
+
+if( not_empty tempLock )
+	unrelate tempLock from self across R46;
+	
+	select many rcats related by tempLock->RoomConfigurationAmountTuple[R44];
+	for each rcat in rcats
+		select one lock related by rcat->Lock[R24];
+		
+		unrelate rcat from tempLock across R44;
+		
+		if( empty lock )
+			select one rc related by rcat->RoomConfiguration[R28];
+			unrelate rcat from rc across R28;
+			// No connection, no need to keep it
+			delete object instance rcat;
+		end if;
+	end for;
+	
+	delete object instance tempLock;
+end if;
+',
+	1,
+	'',
+	"79eff7c4-59cf-41b0-856d-3abe5a12e408");
+INSERT INTO O_TPARM
+	VALUES ("a3a8e101-00bc-4249-bf46-2b3543af319c",
+	"0b422c37-8b89-46a5-9fc6-568978ea97ed",
+	'tempLockId',
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("233e7f8d-a875-4812-a4c3-4ced8b823e83",
+	"00000000-0000-0000-0000-000000000000",
+	'void',
 	'',
 	'',
 	'../../../../Datatypes/Datatypes.xtuml');
+INSERT INTO O_NBATTR
+	VALUES ("5092337b-cf1d-4a62-85d0-e1f59c4fb5c4",
+	"676dbe4e-109f-49d7-af51-5ec2153af55b");
+INSERT INTO O_BATTR
+	VALUES ("5092337b-cf1d-4a62-85d0-e1f59c4fb5c4",
+	"676dbe4e-109f-49d7-af51-5ec2153af55b");
+INSERT INTO O_ATTR
+	VALUES ("5092337b-cf1d-4a62-85d0-e1f59c4fb5c4",
+	"676dbe4e-109f-49d7-af51-5ec2153af55b",
+	"00000000-0000-0000-0000-000000000000",
+	'uniqueLockIdCounter',
+	'',
+	'',
+	'uniqueLockIdCounter',
+	0,
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	'',
+	'0');
 INSERT INTO O_ID
 	VALUES (0,
 	"676dbe4e-109f-49d7-af51-5ec2153af55b");

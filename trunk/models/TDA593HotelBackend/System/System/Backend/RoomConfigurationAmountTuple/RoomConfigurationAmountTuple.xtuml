@@ -25,24 +25,6 @@ INSERT INTO S_DT_PROXY
 	'',
 	'',
 	'../../../../Datatypes/Datatypes.xtuml');
-INSERT INTO O_TFR
-	VALUES ("e88cac03-6275-4bba-9923-efb433e873bc",
-	"67556e6d-e05e-4ccb-a88f-1e4570e4831c",
-	'getRoomConfiguration',
-	'',
-	"ae256fd3-70b0-403f-8139-fd377a5896f0",
-	1,
-	'',
-	3,
-	'',
-	"d0c7e69a-37b2-4325-b485-59ff5d764ad2");
-INSERT INTO S_DT_PROXY
-	VALUES ("ae256fd3-70b0-403f-8139-fd377a5896f0",
-	"00000000-0000-0000-0000-000000000000",
-	'unique_id',
-	'',
-	'',
-	'../../../../Datatypes/Datatypes.xtuml');
 INSERT INTO O_NBATTR
 	VALUES ("4b299204-e3e3-4858-9d5c-3bf628ae6110",
 	"67556e6d-e05e-4ccb-a88f-1e4570e4831c");
