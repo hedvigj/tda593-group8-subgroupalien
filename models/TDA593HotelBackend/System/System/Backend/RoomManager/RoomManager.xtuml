@@ -284,6 +284,67 @@ INSERT INTO O_TPARM
 	'',
 	"f460bb0b-eff9-484f-a399-80392fa5ad37",
 	'');
+INSERT INTO O_TFR
+	VALUES ("f2f45787-9181-4e40-9892-e4184a08b901",
+	"b1404731-4bdc-477f-ab49-48cf034fe57f",
+	'getUniqueRoomId',
+	'',
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	1,
+	'self.uniqueRoomIdCounter = self.uniqueRoomIdCounter + 1;
+return self.uniqueRoomIdCounter;',
+	1,
+	'',
+	"58c84403-5d5b-4dbb-9034-78005c94be8b");
+INSERT INTO O_TFR
+	VALUES ("0492a4e3-08a2-461c-be58-631f90ad2cb2",
+	"b1404731-4bdc-477f-ab49-48cf034fe57f",
+	'addRoomInstance',
+	'',
+	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
+	1,
+	'select any ri related by self->RoomInstance[R48] where
+	selected.name == param.name;
+
+if ( empty ri )
+	select any rc related by self->RoomConfiguration[R10] where
+		selected.name == param.roomConfigurationName;
+		
+	if( not_empty rc )
+		create object instance ri of RoomInstance;
+		relate ri to self across R48;
+		relate ri to rc across R26;
+	end if;
+	
+end if;',
+	1,
+	'',
+	"f2f45787-9181-4e40-9892-e4184a08b901");
+INSERT INTO O_TPARM
+	VALUES ("63eeddbf-b617-45e2-9ac8-ba76f1b74e30",
+	"0492a4e3-08a2-461c-be58-631f90ad2cb2",
+	'name',
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("c2a52909-0268-4f6e-a254-32486605ca05",
+	"0492a4e3-08a2-461c-be58-631f90ad2cb2",
+	'roomConfigurationName',
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	0,
+	'',
+	"63eeddbf-b617-45e2-9ac8-ba76f1b74e30",
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("233e7f8d-a875-4812-a4c3-4ced8b823e83",
+	"00000000-0000-0000-0000-000000000000",
+	'void',
+	'',
+	'',
+	'../../../../Datatypes/Datatypes.xtuml');
 INSERT INTO O_NBATTR
 	VALUES ("1051e230-8dda-4370-b6d3-252916c053c2",
 	"b1404731-4bdc-477f-ab49-48cf034fe57f");
@@ -309,6 +370,24 @@ INSERT INTO S_DT_PROXY
 	'',
 	'',
 	'../../../../Datatypes/Datatypes.xtuml');
+INSERT INTO O_NBATTR
+	VALUES ("096edb06-7ff2-4470-bb7d-3e2e741a13fb",
+	"b1404731-4bdc-477f-ab49-48cf034fe57f");
+INSERT INTO O_BATTR
+	VALUES ("096edb06-7ff2-4470-bb7d-3e2e741a13fb",
+	"b1404731-4bdc-477f-ab49-48cf034fe57f");
+INSERT INTO O_ATTR
+	VALUES ("096edb06-7ff2-4470-bb7d-3e2e741a13fb",
+	"b1404731-4bdc-477f-ab49-48cf034fe57f",
+	"1051e230-8dda-4370-b6d3-252916c053c2",
+	'uniqueRoomIdCounter',
+	'',
+	'',
+	'uniqueRoomIdCounter',
+	0,
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	'',
+	'0');
 INSERT INTO O_ID
 	VALUES (0,
 	"b1404731-4bdc-477f-ab49-48cf034fe57f");
