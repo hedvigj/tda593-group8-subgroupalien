@@ -78,7 +78,7 @@ INSERT INTO SPR_RS_PROXY
 	'returnFromBank',
 	'',
 	'',
-	1,
+	3,
 	'../../../System.xtuml');
 INSERT INTO SM_SEVT
 	VALUES ("1bae8727-f5f5-4448-a566-87b7b56a6e8b",
@@ -98,12 +98,12 @@ INSERT INTO SM_SGEVT
 	VALUES ("a462b795-c8f3-490a-9974-11e74b6e49a7",
 	"b1c0c118-7b90-46d1-a471-74af5982f5bb",
 	"00000000-0000-0000-0000-000000000000",
-	"898140db-edbb-4d8c-a73a-2fbf8cee5aac",
+	"00000000-0000-0000-0000-000000000000",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO SPR_PS_PROXY
-	VALUES ("898140db-edbb-4d8c-a73a-2fbf8cee5aac",
-	'book',
-	'',
+	VALUES ("00000000-0000-0000-0000-000000000000",
+	'Orphaned',
+	'Orphaned',
 	'',
 	1,
 	'../../../System.xtuml');
@@ -234,12 +234,6 @@ INSERT INTO SM_STATE
 	'Bank',
 	3,
 	0);
-INSERT INTO SM_CH
-	VALUES ("1523e8ba-d682-45f0-af6a-0fb56cf1d957",
-	"dbbbaad1-b3c2-49f0-9ca1-66fc878a4cfc",
-	"b1c0c118-7b90-46d1-a471-74af5982f5bb",
-	"00000000-0000-0000-0000-000000000000",
-	'');
 INSERT INTO SM_SEME
 	VALUES ("1523e8ba-d682-45f0-af6a-0fb56cf1d957",
 	"dbbbaad1-b3c2-49f0-9ca1-66fc878a4cfc",
@@ -267,6 +261,12 @@ INSERT INTO SM_SEME
 	"2a198889-278f-417c-be9f-b2805e986a9c",
 	"b1c0c118-7b90-46d1-a471-74af5982f5bb",
 	"00000000-0000-0000-0000-000000000000");
+INSERT INTO SM_CH
+	VALUES ("1523e8ba-d682-45f0-af6a-0fb56cf1d957",
+	"1bae8727-f5f5-4448-a566-87b7b56a6e8b",
+	"b1c0c118-7b90-46d1-a471-74af5982f5bb",
+	"00000000-0000-0000-0000-000000000000",
+	'');
 INSERT INTO SM_SEME
 	VALUES ("1523e8ba-d682-45f0-af6a-0fb56cf1d957",
 	"1bae8727-f5f5-4448-a566-87b7b56a6e8b",
@@ -320,7 +320,7 @@ INSERT INTO SM_NSTXN
 	VALUES ("c2f95c89-9592-4fe1-b0f5-6f2eac2d168c",
 	"b1c0c118-7b90-46d1-a471-74af5982f5bb",
 	"1523e8ba-d682-45f0-af6a-0fb56cf1d957",
-	"1bae8727-f5f5-4448-a566-87b7b56a6e8b",
+	"dbbbaad1-b3c2-49f0-9ca1-66fc878a4cfc",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO SM_TXN
 	VALUES ("c2f95c89-9592-4fe1-b0f5-6f2eac2d168c",
@@ -395,7 +395,8 @@ if (empty bookingController)
 	LOG::LogInfo(message: "Created a BookingController");
 end if;
 
-generate BookingController4:answer(value: param.answer) to bookingController;',
+generate BookingController4:answer(value: param.value) to bookingController;
+generate BookingController_A4: finished to BookingController class;',
 	'');
 INSERT INTO SM_TAH
 	VALUES ("f5a28541-2fc3-4ded-a20c-f3d0d38ea803",
@@ -924,8 +925,8 @@ INSERT INTO DIM_ND
 	0.000000,
 	"790233a0-6317-4c57-b2eb-0d58e56e9c1e");
 INSERT INTO DIM_GE
-	VALUES (4632.000000,
-	2995.000000,
+	VALUES (4573.000000,
+	3075.000000,
 	"790233a0-6317-4c57-b2eb-0d58e56e9c1e",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_ELE
