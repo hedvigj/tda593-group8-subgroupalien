@@ -28,7 +28,7 @@ INSERT INTO S_DT_PROXY
 INSERT INTO O_TFR
 	VALUES ("17bb4973-d68f-438d-8e30-c3f0dcb423ee",
 	"f794f9a1-cfa4-4ef0-90cc-b74d1df35072",
-	'RoomController',
+	'RoomInstance',
 	'',
 	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
 	1,
