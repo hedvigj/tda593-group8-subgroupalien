@@ -158,7 +158,7 @@ INSERT INTO S_SDT
 	VALUES ("16664b58-a6dc-4ac7-9499-ba089cf98eaa");
 INSERT INTO S_MBR
 	VALUES ("62306052-d7a0-49a8-a620-1e27852afd89",
-	'creditCardNumber',
+	'creditcardNr',
 	'',
 	"16664b58-a6dc-4ac7-9499-ba089cf98eaa",
 	"5f77c811-d46b-4197-a574-4b3505e92410",
@@ -173,7 +173,7 @@ INSERT INTO S_DT_PROXY
 	'../Datatypes/Datatypes.xtuml');
 INSERT INTO S_MBR
 	VALUES ("04ec3b2f-d229-48b3-90ac-b02893066841",
-	'cvcNumber',
+	'cvcNr',
 	'',
 	"16664b58-a6dc-4ac7-9499-ba089cf98eaa",
 	"5f77c811-d46b-4197-a574-4b3505e92410",
@@ -199,9 +199,16 @@ INSERT INTO S_MBR
 	'validDate',
 	'',
 	"16664b58-a6dc-4ac7-9499-ba089cf98eaa",
-	"5f77c811-d46b-4197-a574-4b3505e92410",
+	"bdc36fef-8559-4ba2-9337-8ebb987f4334",
 	"7d74aa02-2c3b-4e14-b862-14c821a6849c",
 	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("bdc36fef-8559-4ba2-9337-8ebb987f4334",
+	"00000000-0000-0000-0000-000000000000",
+	'date',
+	'',
+	'',
+	'../Datatypes/Datatypes.xtuml');
 INSERT INTO S_DIP
 	VALUES ("8b93dcf8-aa01-450c-a7c6-1b287097233d",
 	"29455544-5da7-4d59-89a1-9d1261bd2be6");
@@ -221,13 +228,6 @@ INSERT INTO S_MBR
 	"bdc36fef-8559-4ba2-9337-8ebb987f4334",
 	"00000000-0000-0000-0000-000000000000",
 	'');
-INSERT INTO S_DT_PROXY
-	VALUES ("bdc36fef-8559-4ba2-9337-8ebb987f4334",
-	"00000000-0000-0000-0000-000000000000",
-	'date',
-	'',
-	'',
-	'../Datatypes/Datatypes.xtuml');
 INSERT INTO S_MBR
 	VALUES ("cda0ac41-aa88-4d6c-93bc-ca50371e550a",
 	'endDate',
@@ -281,7 +281,7 @@ INSERT INTO S_MBR
 	'');
 INSERT INTO S_MBR
 	VALUES ("8c3b4228-6ecf-4b67-a771-547aee2f7373",
-	'phoneNumber',
+	'phoneNr',
 	'',
 	"f055cc32-7fa6-4cbd-949e-0cbdc50ee8b2",
 	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
