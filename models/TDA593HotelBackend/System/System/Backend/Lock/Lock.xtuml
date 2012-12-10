@@ -19,13 +19,16 @@ if (empty lm)
 	create object instance lm of LockManager;
 	return false;
 end if;
- 
+
+// get the temp lock 
 select any tempLock related by lm->TempLock[R46] where 
 	selected.id == param.tempLockId;
 
 if(not_empty tempLock)
+	// get the connection to the lock
 	select many rcats related by tempLock->RoomConfigurationAmountTuple[R44];
 	
+	// copy the connections of the temp lock to this lock
 	for each rcat in rcats
 		create object instance newrcat of RoomConfigurationAmountTuple;
 		
@@ -41,7 +44,7 @@ if(not_empty tempLock)
 
 	self.id = lm.getUniqueLockId();
 	
-	// Start timeout timer
+	// Start timeout timer befor the lock is auto destoryed
 	assign countdownTime = 900000000; // 15 min
 	generate Lock1:setCountdown(microseconds: countdownTime) to self;
 
