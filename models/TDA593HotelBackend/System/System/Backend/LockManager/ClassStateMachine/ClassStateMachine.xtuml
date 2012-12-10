@@ -181,40 +181,50 @@ INSERT INTO SM_ACT
 // get the calling booking controller
 select any bookingController from instances of BookingController;
 		//where selected.sessionId == sessionId;
+if( empty bookingController )
+	create object instance bookingController of BookingController;
+end if;
+
 
 assign isOk = true;
 
 // No violations to the buissness roles
 if(isOk)
 	select any lockManager from instances of LockManager;
-	select any bookManager from instances of BookingManager;
+	select any bookingManager from instances of BookingManager;
 	select any roomManager from instances of RoomManager;
-	if(empty bookManager)
-		create object instance bookManager of BookingManager;
+	if(empty bookingManager)
+		create object instance bookingManager of BookingManager;
+		LOG::LogInfo(message: "bookingManager was created in lockingRoomState of LockManager");
 	end if;
 	if(empty lockManager)
 		create object instance lockManager of LockManager;
+		LOG::LogInfo(message: "lockManager was created in lockingRoomState of LockManager");
 	end if;
 	if(empty roomManager) 
 		create object instance roomManager of RoomManager;
+		LOG::LogInfo(message: "roomManager was created in lockingRoomState of LockManager");
 	end if;
 		
+	// Get the temp lock
 	select any tempLock related by lockManager->TempLock[R46] where
 		selected.id == param.tempLockId; 
 	if( not_empty tempLock )
+		// Get the connections of the temp lock
 		select many rcats related by tempLock->RoomConfigurationAmountTuple[R44];
+		
+		// Check that that temp lock is bookable
 		for each rcat in rcats
 			select one rc related by rcat->RoomConfiguration[R28];
 			
 			assign locked = lockManager.getLockedRoomCount(
 				roomConfigurationName: rc.getName(), 
 				timespan: param.timespan);
-			assign booked = bookManager.getBookedRoomCount(
+			assign booked = bookingManager.getBookedRoomCount( 
 				roomConfigurationName: rc.getName(),  
 				timespan: param.timespan);
 			assign rooms = roomManager.getRoomCount(
 				roomConfigurationName: rc.getName()); 
-			
 			
 			if(locked+booked+rcat.getAmount() > rooms)
 				isOk = false;
@@ -223,21 +233,22 @@ if(isOk)
 			end if;
 		end for;
 		
+		// If the rooms are bookable
 		if(isOk)
-			// The rooms are bookable
 			// Create a lock
 			create object instance lock of Lock;
 			assign dummy = lock.Lock(tempLockId: param.tempLockId, timespan: param.timespan);
 			relate lock to lockManager across R23;
 			
+			// generate the return messages
 			generate BookingController3:wait(lock: lock.getId()) to bookingController;
-
 			generate LockManager_A2:done() to LockManager class;
 			
 		end if;	
 	end if;
 end if;
 
+// If the booking somehow failed
 if ( isOk == false )
 	generate BookingController6:failure to bookingController;
 end if;
