@@ -277,7 +277,7 @@ INSERT INTO S_SYNC
 	'createTuple',
 	'',
 	'create object instance factory of TupleFactory;
-assign rcat = factory.createTuple();
+assign rcat = factory.createTuple(amount: param.amount, configuration: param.configuration);
 delete object instance factory;
 return rcat;',
 	"d919e5ab-5f67-4aab-9544-5fd6291e14e0",
