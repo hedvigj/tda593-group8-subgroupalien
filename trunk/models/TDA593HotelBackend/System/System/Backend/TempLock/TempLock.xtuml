@@ -46,6 +46,8 @@ if ( not_empty rc )
 	rcat.amount = param.amount; 
 	relate rcat to self across R44;
 	
+	LOG::LogInfo(message: "A RoomConfiguration was added to tempLock.");
+	
 	return true;
 	
 end if;
