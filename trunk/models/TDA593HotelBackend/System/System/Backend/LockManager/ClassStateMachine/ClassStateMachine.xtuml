@@ -155,7 +155,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("c34b02c7-27d1-47de-ba9f-ee7df6a65da0",
 	"cf0bd93f-b62b-4b86-8d31-34eb53f2642c",
-	3,
+	1,
 	'',
 	'');
 INSERT INTO SM_MOAH
@@ -177,6 +177,11 @@ INSERT INTO SM_ACT
 // Check that no buiness roles were violated
 //select any businessruleManager from instances of BusinessRuleManager;
 //assign isOk = businessruleManager.checkCustomerBookingRules(tupleList, timespan);
+
+// get the calling booking controller
+select any bookingController from instances of BookingController;
+		//where selected.sessionId == sessionId;
+
 assign isOk = true;
 
 // No violations to the buissness roles
@@ -225,14 +230,16 @@ if(isOk)
 			assign dummy = lock.Lock(tempLockId: param.tempLockId, timespan: param.timespan);
 			relate lock to lockManager across R23;
 			
-			
-			select any bookingController from instances of BookingController;
-			//where selected.sessionId == sessionId;
 			generate BookingController3:wait(lock: lock.getId()) to bookingController;
 
 			generate LockManager_A2:done() to LockManager class;
+			
 		end if;	
 	end if;
+end if;
+
+if ( isOk == false )
+	generate BookingController6:failure to bookingController;
 end if;
 
 ',
@@ -247,7 +254,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("9cc7d7df-9e73-4809-a485-55d922eb1ab0",
 	"cf0bd93f-b62b-4b86-8d31-34eb53f2642c",
-	3,
+	1,
 	'',
 	'');
 INSERT INTO SM_TAH
@@ -260,7 +267,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("ed2cc870-b8de-4d02-9816-e897bb44f2c5",
 	"cf0bd93f-b62b-4b86-8d31-34eb53f2642c",
-	3,
+	1,
 	'',
 	'');
 INSERT INTO GD_MD
