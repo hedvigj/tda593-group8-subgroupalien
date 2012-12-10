@@ -235,7 +235,7 @@ INSERT INTO S_SYNC
 	"44fbb79c-2243-41c0-b500-e1a8c72e3dd6",
 	'createRoomConfigurationAmountTuples',
 	'',
-	'create object instance factory of RoomConfigurationAmountTuplesFactory;
+	'create object instance factory of TupleArrayFactory;
 assign rcat = factory.createTuples();
 delete object instance factory;
 return rcat;',
@@ -268,6 +268,39 @@ INSERT INTO S_DT_PROXY
 	'',
 	'',
 	'../../../../BackendDatatypes/BackendDatatypes.xtuml');
+INSERT INTO S_FIP
+	VALUES ("533876a6-edf5-43b0-907e-06a980686349",
+	"7b0aed1c-1b06-4612-9d5b-81094c22fdec");
+INSERT INTO S_SYNC
+	VALUES ("7b0aed1c-1b06-4612-9d5b-81094c22fdec",
+	"44fbb79c-2243-41c0-b500-e1a8c72e3dd6",
+	'createTuple',
+	'',
+	'create object instance factory of TupleFactory;
+assign rcat = factory.createTuple();
+delete object instance factory;
+return rcat;',
+	"d919e5ab-5f67-4aab-9544-5fd6291e14e0",
+	1,
+	'');
+INSERT INTO S_SPARM
+	VALUES ("9741c9bd-7d63-428d-95c3-d59cd1500b57",
+	"7b0aed1c-1b06-4612-9d5b-81094c22fdec",
+	'configuration',
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("cb183c17-f1a7-4d1e-9632-cd2ecaf9079b",
+	"7b0aed1c-1b06-4612-9d5b-81094c22fdec",
+	'amount',
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	0,
+	'',
+	"9741c9bd-7d63-428d-95c3-d59cd1500b57",
+	'');
 INSERT INTO S_FPIP_PROXY
 	VALUES ("00ea2887-e9c6-4656-a9aa-aa1c83bcdfb2",
 	'../SuiteFunctions.xtuml');
