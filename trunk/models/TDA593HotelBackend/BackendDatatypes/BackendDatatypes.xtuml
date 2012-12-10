@@ -325,19 +325,12 @@ INSERT INTO S_MBR
 	'');
 INSERT INTO S_MBR
 	VALUES ("f444fe82-8607-4f93-a0dc-3bb0feb6d8f7",
-	'roomConfigurationID',
+	'configuration',
 	'',
 	"d919e5ab-5f67-4aab-9544-5fd6291e14e0",
-	"ae256fd3-70b0-403f-8139-fd377a5896f0",
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
 	"c853bcf0-3991-4604-9c41-5ca67f11a83f",
 	'');
-INSERT INTO S_DT_PROXY
-	VALUES ("ae256fd3-70b0-403f-8139-fd377a5896f0",
-	"00000000-0000-0000-0000-000000000000",
-	'unique_id',
-	'',
-	'',
-	'../Datatypes/Datatypes.xtuml');
 INSERT INTO SLD_SDINP
 	VALUES ("8b93dcf8-aa01-450c-a7c6-1b287097233d",
 	"16664b58-a6dc-4ac7-9499-ba089cf98eaa",

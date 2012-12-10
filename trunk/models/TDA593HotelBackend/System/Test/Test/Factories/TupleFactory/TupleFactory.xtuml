@@ -1,0 +1,97 @@
+-- BP 7.1 content: ModelClass syschar: 3 persistence-version: 7.1.5
+
+INSERT INTO O_OBJ
+	VALUES ("f6dfce41-3d0d-4e05-8004-6937cae6ccc7",
+	'TupleFactory',
+	37,
+	'TupleFactory',
+	'',
+	"5ad41091-a5de-4698-b9d4-8a5fb23dde3a");
+INSERT INTO O_TFR
+	VALUES ("97b4d964-461d-4ace-9d76-44cb62b30a16",
+	"f6dfce41-3d0d-4e05-8004-6937cae6ccc7",
+	'createTuple',
+	'',
+	"d919e5ab-5f67-4aab-9544-5fd6291e14e0",
+	1,
+	'assign self.tuple.amount = param.amount;
+assign self.tuple.configuration = param.configuration;
+return self.tuple;',
+	1,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TPARM
+	VALUES ("f8916097-4ac6-4220-a9c2-5e1343f85a93",
+	"97b4d964-461d-4ace-9d76-44cb62b30a16",
+	'amount',
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("5f77c811-d46b-4197-a574-4b3505e92410",
+	"00000000-0000-0000-0000-000000000000",
+	'integer',
+	'',
+	'',
+	'../../../../../Datatypes/Datatypes.xtuml');
+INSERT INTO O_TPARM
+	VALUES ("5564bc71-e3c2-4d05-a5b6-d3a81ddf1efa",
+	"97b4d964-461d-4ace-9d76-44cb62b30a16",
+	'configuration',
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	0,
+	'',
+	"f8916097-4ac6-4220-a9c2-5e1343f85a93",
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	"00000000-0000-0000-0000-000000000000",
+	'string',
+	'',
+	'',
+	'../../../../../Datatypes/Datatypes.xtuml');
+INSERT INTO S_DT_PROXY
+	VALUES ("d919e5ab-5f67-4aab-9544-5fd6291e14e0",
+	"00000000-0000-0000-0000-000000000000",
+	'RoomConfigurationAmountTuple',
+	'',
+	'',
+	'../../../../../BackendDatatypes/BackendDatatypes.xtuml');
+INSERT INTO O_NBATTR
+	VALUES ("73eaeda6-7453-4263-bfec-eb62eea30f5b",
+	"f6dfce41-3d0d-4e05-8004-6937cae6ccc7");
+INSERT INTO O_BATTR
+	VALUES ("73eaeda6-7453-4263-bfec-eb62eea30f5b",
+	"f6dfce41-3d0d-4e05-8004-6937cae6ccc7");
+INSERT INTO O_ATTR
+	VALUES ("73eaeda6-7453-4263-bfec-eb62eea30f5b",
+	"f6dfce41-3d0d-4e05-8004-6937cae6ccc7",
+	"00000000-0000-0000-0000-000000000000",
+	'tuple',
+	'',
+	'',
+	'tuple',
+	0,
+	"d919e5ab-5f67-4aab-9544-5fd6291e14e0",
+	'',
+	'');
+INSERT INTO O_ID
+	VALUES (0,
+	"f6dfce41-3d0d-4e05-8004-6937cae6ccc7");
+INSERT INTO O_ID
+	VALUES (1,
+	"f6dfce41-3d0d-4e05-8004-6937cae6ccc7");
+INSERT INTO O_ID
+	VALUES (2,
+	"f6dfce41-3d0d-4e05-8004-6937cae6ccc7");
+INSERT INTO S_SS_PROXY
+	VALUES ("5ad41091-a5de-4698-b9d4-8a5fb23dde3a",
+	'Factories',
+	'',
+	'',
+	0,
+	"44fbb79c-2243-41c0-b500-e1a8c72e3dd6",
+	"00000000-0000-0000-0000-000000000000",
+	'../Factories.xtuml');

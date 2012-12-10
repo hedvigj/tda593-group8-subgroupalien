@@ -66,8 +66,8 @@ INSERT INTO O_TFR
 	"32458e6c-09c1-479e-9d59-28cc2362f085",
 	'createBooking',
 	'',
-	"5f77c811-d46b-4197-a574-4b3505e92410",
-	1,
+	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
+	0,
 	'assign date = TIM::create_date(year: 1990, month: 12, day: 18, hour: 03, minute: 30, second: 30);
 assign startDate = TIM::create_date(year: 1990, month: 12, day: 18, hour: 03, minute: 30, second: 30);
 assign endDate = TIM::create_date(year: 1993, month: 12, day: 18, hour: 03, minute: 30, second: 30);
@@ -75,18 +75,12 @@ assign card = ::createCreditcard(name: "ERIK FACE", cvcNr: 123, creditcardNr: 32
 assign timespan = ::createTimeSpan(startDate: startDate, endDate: endDate);
 assign personalInfo = ::createPersonalInfo(firstName: "ERIK", lastName: "FACE", adress: "Street 101", email: "eric@something.com", phoneNr: "11312411");
 assign tuples = ::createRoomConfigurationAmountTuples();
-
-send Port1::book(timespan: timespan, creditcard: card, personalInfo: personalInfo, roomConfigurationAmountTuples: tuples );',
+assign tuples[0] = ::createTuple(configuration: "0x10", amount: 2);
+assign tuples[1] = ::createTuple(configuration: "0x20", amount: 1);
+send Port1::book(timespan: timespan, creditcard: card, personalInfo: personalInfo, roomConfigurationAmountTuples: tuples);',
 	1,
 	'',
 	"9a750711-df94-40e5-a556-f2f070d4fce0");
-INSERT INTO S_DT_PROXY
-	VALUES ("5f77c811-d46b-4197-a574-4b3505e92410",
-	"00000000-0000-0000-0000-000000000000",
-	'integer',
-	'',
-	'',
-	'../../../../Datatypes/Datatypes.xtuml');
 INSERT INTO O_ID
 	VALUES (0,
 	"32458e6c-09c1-479e-9d59-28cc2362f085");

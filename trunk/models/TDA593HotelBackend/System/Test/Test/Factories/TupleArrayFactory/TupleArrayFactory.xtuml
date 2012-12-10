@@ -2,9 +2,9 @@
 
 INSERT INTO O_OBJ
 	VALUES ("70865b18-b10d-4846-9152-ecbab9dec7b3",
-	'RoomConfigurationAmountTuplesFactory',
+	'TupleArrayFactory',
 	36,
-	'RoomConfigurationAmountTuplesFactory',
+	'TupleArrayFactory',
 	'',
 	"5ad41091-a5de-4698-b9d4-8a5fb23dde3a");
 INSERT INTO O_TFR
@@ -14,8 +14,8 @@ INSERT INTO O_TFR
 	'',
 	"d919e5ab-5f67-4aab-9544-5fd6291e14e0",
 	1,
-	'',
-	3,
+	'return self.roomConfigurationAmountTuples;',
+	1,
 	'[]',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO S_DIM
@@ -78,16 +78,9 @@ INSERT INTO O_ATTR
 	'',
 	'roomConfigurationAmountTuples',
 	0,
-	"5f77c811-d46b-4197-a574-4b3505e92410",
+	"d919e5ab-5f67-4aab-9544-5fd6291e14e0",
 	'[]',
 	'');
-INSERT INTO S_DT_PROXY
-	VALUES ("5f77c811-d46b-4197-a574-4b3505e92410",
-	"00000000-0000-0000-0000-000000000000",
-	'integer',
-	'',
-	'',
-	'../../../../../Datatypes/Datatypes.xtuml');
 INSERT INTO O_ID
 	VALUES (0,
 	"70865b18-b10d-4846-9152-ecbab9dec7b3");
