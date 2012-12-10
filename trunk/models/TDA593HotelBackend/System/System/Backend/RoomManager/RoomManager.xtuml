@@ -314,6 +314,9 @@ if ( empty ri )
 		create object instance ri of RoomInstance;
 		relate ri to self across R48;
 		relate ri to rc across R26;
+		ri.RoomInstance(name: param.name);
+		
+		LOG::LogInfo(message: "A room instance with name " + param.name + " was added.");
 		return true;
 	end if;
 	
