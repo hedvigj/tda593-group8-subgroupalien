@@ -83,10 +83,10 @@ INSERT INTO O_TFR
 	1,
 	'	create object instance booking of Booking;
 	relate booking to self across R20;
+	booking.bookingId = self.getUniqueBookingId();
 	booking.setCreditcard(creditcard: param.creditcard);
 	booking.setPersonalInfo(personalInfo: param.personalInfo);
 	booking.setTimespan(timespan: param.timespan);
-	booking.setBookingId();
 	return booking.bookingId;',
 	1,
 	'',
@@ -159,6 +159,18 @@ INSERT INTO S_DT_PROXY
 	'',
 	'',
 	'../../../../Datatypes/Datatypes.xtuml');
+INSERT INTO O_TFR
+	VALUES ("4d5e7125-616f-405b-931d-98e014f4a7dd",
+	"9626466d-b088-4240-9b9e-cc44069b9de5",
+	'getUniqueBookingId',
+	'',
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	1,
+	'self.uniqueBookingIdCounter = self.uniqueBookingIdCounter +1;
+return self.uniqueBookingIdCounter; ',
+	1,
+	'',
+	"21df229d-1f24-4b1f-a5d2-fe2c9c899fb3");
 INSERT INTO O_NBATTR
 	VALUES ("84bd106c-2ad8-4403-b701-388cafffc3a3",
 	"9626466d-b088-4240-9b9e-cc44069b9de5");
@@ -177,6 +189,24 @@ INSERT INTO O_ATTR
 	"16664b58-a6dc-4ac7-9499-ba089cf98eaa",
 	'',
 	'');
+INSERT INTO O_NBATTR
+	VALUES ("ee512811-f17d-40b2-9c2f-e8d79ccae7bb",
+	"9626466d-b088-4240-9b9e-cc44069b9de5");
+INSERT INTO O_BATTR
+	VALUES ("ee512811-f17d-40b2-9c2f-e8d79ccae7bb",
+	"9626466d-b088-4240-9b9e-cc44069b9de5");
+INSERT INTO O_ATTR
+	VALUES ("ee512811-f17d-40b2-9c2f-e8d79ccae7bb",
+	"9626466d-b088-4240-9b9e-cc44069b9de5",
+	"84bd106c-2ad8-4403-b701-388cafffc3a3",
+	'uniqueBookingIdCounter',
+	'',
+	'',
+	'uniqueBookingIdCounter',
+	0,
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	'',
+	'0');
 INSERT INTO O_ID
 	VALUES (0,
 	"9626466d-b088-4240-9b9e-cc44069b9de5");
