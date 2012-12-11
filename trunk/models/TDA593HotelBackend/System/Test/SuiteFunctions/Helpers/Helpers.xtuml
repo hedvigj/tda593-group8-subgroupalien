@@ -49,9 +49,14 @@ INSERT INTO S_SYNC
 	"44fbb79c-2243-41c0-b500-e1a8c72e3dd6",
 	'createTimeSpan',
 	'',
-	'create object instance factory of TimeSpanFactory;
+	'LOG::LogInfo(message: "HELPER - CREATING FACTORY");
+create object instance factory of MyFaceFactory;
+LOG::LogInfo(message: "HELPER - ASSIGN TIMESPAN");
+//assign bananer = factory.banan(startDate : param.startDate, endDate : param.endDate);
 assign timeSpan = factory.createTimeSpan(startDate : param.startDate, endDate : param.endDate);
+LOG::LogInfo(message: "HELPER - DELETING FACTORY");
 delete object instance factory;
+LOG::LogInfo(message: "HELPER - RETURNING");
 return timeSpan;',
 	"29455544-5da7-4d59-89a1-9d1261bd2be6",
 	1,
