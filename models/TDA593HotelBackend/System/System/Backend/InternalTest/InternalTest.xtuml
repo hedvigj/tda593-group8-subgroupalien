@@ -8,12 +8,12 @@ INSERT INTO O_OBJ
 	'',
 	"f56566de-5321-4b5f-b659-95d5c01e1baa");
 INSERT INTO O_TFR
-	VALUES ("e1f1c63a-94b3-49d7-9384-864283646498",
+	VALUES ("53f018bc-84e3-4554-9acd-c287c7332e3f",
 	"699aa943-8717-4702-b7bb-2e45f8adc606",
-	'testLock',
+	'TestLock1',
 	'',
 	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
-	1,
+	0,
 	'
 // Init managers to be used
 select any lm from instances of LockManager;
@@ -109,6 +109,9 @@ if(dummy != true)
 	LOG::LogInfo(message: "test:2 addRoomConfiguration failed");
 end if;
 
+LOG::LogInfo(message: "addRoomConfigurations to lock has been done");
+
+
 // Create a timespan
 create object instance timespanFactory of TimeSpanFactory;
 assign date1 = TIM::create_date (day:23, month:12, year:2012, second:0, minute:0, hour:0);
@@ -116,25 +119,67 @@ assign date2 = TIM::create_date (day:25, month:12, year:2012, second:0, minute:0
 assign timespan = timespanFactory.createTimeSpan(startDate: date1, endDate: date2);
 // Create a lock
 generate LockManager_A1:lock(tempLockId: tlId, timespan: timespan) to LockManager class;
-select any lock from instances of Lock;
+
+',
+	1,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO S_DT_PROXY
+	VALUES ("233e7f8d-a875-4812-a4c3-4ced8b823e83",
+	"00000000-0000-0000-0000-000000000000",
+	'void',
+	'',
+	'',
+	'../../../../Datatypes/Datatypes.xtuml');
+INSERT INTO O_TFR
+	VALUES ("9ba99cea-6bd5-4aa6-93a4-ce1d6c87962e",
+	"699aa943-8717-4702-b7bb-2e45f8adc606",
+	'TestLock2',
+	'',
+	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
+	0,
+	'// this is part to of the test. It was needed so the program have time to 
+// process the generated events in TestLock2
+
+select any lm from instances of LockManager;
+select any rm from instances of RoomManager;
+select any bm from instances of BookingManager;
+
+if ( empty bm or empty lm or empty rm)
+	LOG::LogInfo(message: "Please run TestLock1 befor this one");
+	return;
+end if; 
+
+
+assign rtName = "Batcave";
+
+// RoomConfigurations and RoomInstances
+assign rcName1 = "Batcave dungeon";
+assign rcName1ri1 = "Batcave dungeon 1";
+assign rcName1ri2 = "Batcave dungeon 2";
+assign rcName1ri3 = "Batcave dungeon 3";
+
+assign rcName2 = "Batcave mansion";
+assign rcName2ri1 = "Batcave mansion 1";
+assign rcName2ri2 = "Batcave mansion 2";
+assign rcName2ri3 = "Batcave mansion 3";
+
+
+
+select any lock related by lm->Lock[R23];
 if( empty lock )
 	LOG::LogInfo(message: "test:3 a lock was not added");
 end if;
-assign delay = 100000;
-while (0 < delay)
-	delay = delay - 1;
-end while;
-select any lock from instances of Lock;
-if( empty lock )
-	LOG::LogInfo(message: "test:4 a lock was still not added");
-end if;
+
+LOG::LogInfo(message: "Test add lock is done");
 
 
-// This should not work
+
+// This should not work ( not fully implemeneted as of yet )
 
 assign tl2Id = lm.getNewTempLock();
 select any tl2 related by lm->TempLock[R46] where 
-	selected.id == tl2Id;
+	selected.id == tl2Id; 
 
 dummy = tl2.addRoomConfiguration(
 	roomConfigurationName: rcName1,
@@ -166,14 +211,7 @@ LOG::LogInfo(message: "The is done");
 ',
 	1,
 	'',
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO S_DT_PROXY
-	VALUES ("233e7f8d-a875-4812-a4c3-4ced8b823e83",
-	"00000000-0000-0000-0000-000000000000",
-	'void',
-	'',
-	'',
-	'../../../../Datatypes/Datatypes.xtuml');
+	"53f018bc-84e3-4554-9acd-c287c7332e3f");
 INSERT INTO O_ID
 	VALUES (0,
 	"699aa943-8717-4702-b7bb-2e45f8adc606");
