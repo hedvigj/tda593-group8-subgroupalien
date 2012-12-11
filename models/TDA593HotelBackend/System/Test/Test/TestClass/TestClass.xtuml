@@ -69,14 +69,14 @@ INSERT INTO O_TFR
 	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
 	0,
 	'assign date = TIM::create_date(year: 1990, month: 12, day: 18, hour: 03, minute: 30, second: 30);
-assign startDate = TIM::create_date(year: 1990, month: 12, day: 18, hour: 03, minute: 30, second: 30);
-assign endDate = TIM::create_date(year: 1993, month: 12, day: 18, hour: 03, minute: 30, second: 30);
+assign sDate = TIM::create_date(year: 1990, month: 12, day: 18, hour: 03, minute: 30, second: 30);
+assign eDate = TIM::create_date(year: 1993, month: 12, day: 18, hour: 03, minute: 30, second: 30);
 assign card = ::createCreditcard(name: "ERIK FACE", cvcNr: 123, creditcardNr: 321, validDate: date);
-assign timespan = ::createTimeSpan(startDate: startDate, endDate: endDate);
 assign personalInfo = ::createPersonalInfo(firstName: "ERIK", lastName: "FACE", adress: "Street 101", email: "eric@something.com", phoneNr: "11312411");
 assign tuples = ::createRoomConfigurationAmountTuples();
 assign tuples[0] = ::createTuple(configuration: "0x10", amount: 2);
 assign tuples[1] = ::createTuple(configuration: "0x20", amount: 1);
+assign timespan = ::createTimeSpan(startDate: sDate, endDate: eDate);
 send Port1::book(timespan: timespan, creditcard: card, personalInfo: personalInfo, roomConfigurationAmountTuples: tuples);',
 	1,
 	'',

@@ -184,7 +184,7 @@ INSERT INTO O_TPARM
 	VALUES ("750223ac-5c0c-478e-bb35-28e710f18aab",
 	"940be365-d9d1-4095-9bfe-336796b22b5d",
 	'rcat',
-	"5f77c811-d46b-4197-a574-4b3505e92410",
+	"d919e5ab-5f67-4aab-9544-5fd6291e14e0",
 	0,
 	'[]',
 	"00000000-0000-0000-0000-000000000000",
@@ -209,12 +209,12 @@ INSERT INTO S_DIM
 	"33ccbc38-8f4d-43a6-a47a-e48910e273ca",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO S_DT_PROXY
-	VALUES ("5f77c811-d46b-4197-a574-4b3505e92410",
+	VALUES ("d919e5ab-5f67-4aab-9544-5fd6291e14e0",
 	"00000000-0000-0000-0000-000000000000",
-	'integer',
+	'RoomConfigurationAmountTuple',
 	'',
 	'',
-	'../../../../Datatypes/Datatypes.xtuml');
+	'../../../../BackendDatatypes/BackendDatatypes.xtuml');
 INSERT INTO O_TFR
 	VALUES ("55c56a80-edea-4fec-bcc9-73bb50c4b6f1",
 	"e5a9ffd7-615e-4d8a-9836-61d1236abc56",
@@ -223,7 +223,7 @@ INSERT INTO O_TFR
 	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
 	1,
 	'',
-	3,
+	1,
 	'',
 	"940be365-d9d1-4095-9bfe-336796b22b5d");
 INSERT INTO O_TPARM
@@ -235,6 +235,13 @@ INSERT INTO O_TPARM
 	'',
 	"00000000-0000-0000-0000-000000000000",
 	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("5f77c811-d46b-4197-a574-4b3505e92410",
+	"00000000-0000-0000-0000-000000000000",
+	'integer',
+	'',
+	'',
+	'../../../../Datatypes/Datatypes.xtuml');
 INSERT INTO O_NBATTR
 	VALUES ("2851f2a3-d897-48cb-bd6f-e54b19729763",
 	"e5a9ffd7-615e-4d8a-9836-61d1236abc56");
@@ -348,7 +355,7 @@ INSERT INTO O_ATTR
 	'',
 	'rcat',
 	0,
-	"5f77c811-d46b-4197-a574-4b3505e92410",
+	"d919e5ab-5f67-4aab-9544-5fd6291e14e0",
 	'[]',
 	'');
 INSERT INTO O_NBATTR

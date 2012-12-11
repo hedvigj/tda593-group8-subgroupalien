@@ -132,7 +132,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("3a22c89b-3e0b-407e-84c7-df90b494e8a0",
 	"05f7887b-8681-491f-adec-26a2bc64fa37",
-	3,
+	1,
 	'',
 	'');
 INSERT INTO SM_MOAH
@@ -146,13 +146,7 @@ INSERT INTO SM_ACT
 	VALUES ("22fba33f-6c42-4015-a5ac-409be3a02141",
 	"05f7887b-8681-491f-adec-26a2bc64fa37",
 	1,
-	'select any bankClass from instances of BankClass;
-if(empty bankClass)
-	create object instance bankClass of BankClass;
-	LOG::LogInfo(message: "Created Bank");
-end if;
-
-bankClass.answer(value: true);
+	'send Port2::returnFromBank(value: true);
 generate BankClass_A2:failure to BankClass class;',
 	'');
 INSERT INTO SM_TAH
@@ -165,7 +159,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("fb3de5a7-91f3-45a5-99a2-139a311148b5",
 	"05f7887b-8681-491f-adec-26a2bc64fa37",
-	3,
+	1,
 	'',
 	'');
 INSERT INTO SM_TAH
@@ -178,7 +172,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("d89bdf10-98b4-4891-9436-5a8068443779",
 	"05f7887b-8681-491f-adec-26a2bc64fa37",
-	3,
+	1,
 	'',
 	'');
 INSERT INTO GD_MD
