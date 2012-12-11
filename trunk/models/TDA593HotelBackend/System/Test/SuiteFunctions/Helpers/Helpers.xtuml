@@ -49,8 +49,8 @@ INSERT INTO S_SYNC
 	"44fbb79c-2243-41c0-b500-e1a8c72e3dd6",
 	'createTimeSpan',
 	'',
-	'create object instance factory of TimespanFactory;
-assign timeSpan = factory.createTimeSpan(startDate : param.startDate, endDate : param.endDate);
+	'create object instance factory of TimespanCreator;
+assign timeSpan = factory.createTimespan(startDate : param.startDate, endDate : param.endDate);
 delete object instance factory;
 return timeSpan;',
 	"29455544-5da7-4d59-89a1-9d1261bd2be6",
