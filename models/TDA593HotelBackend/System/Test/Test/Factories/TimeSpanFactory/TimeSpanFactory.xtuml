@@ -2,9 +2,9 @@
 
 INSERT INTO O_OBJ
 	VALUES ("7ca9d47a-db13-4be7-add4-ce789c04e0ca",
-	'MyFaceFactory',
+	'TimeSpanFactory',
 	38,
-	'MyFaceFactory',
+	'TimeSpanFactory',
 	'',
 	"5ad41091-a5de-4698-b9d4-8a5fb23dde3a");
 INSERT INTO O_TFR
