@@ -178,6 +178,31 @@ INSERT INTO O_ATTR
 	"5f77c811-d46b-4197-a574-4b3505e92410",
 	'',
 	'');
+INSERT INTO O_NBATTR
+	VALUES ("c934a0cd-b851-4aab-8b15-32bd76cc24c2",
+	"f2b8219f-1ef9-46db-986d-795339200bf5");
+INSERT INTO O_BATTR
+	VALUES ("c934a0cd-b851-4aab-8b15-32bd76cc24c2",
+	"f2b8219f-1ef9-46db-986d-795339200bf5");
+INSERT INTO O_ATTR
+	VALUES ("c934a0cd-b851-4aab-8b15-32bd76cc24c2",
+	"f2b8219f-1ef9-46db-986d-795339200bf5",
+	"08f6b305-5b8f-4452-9765-2fe0701aa8d6",
+	'destroyTimer',
+	'',
+	'',
+	'destroyTimer',
+	0,
+	"dc987208-704b-4080-a40c-9f270aad92a5",
+	'',
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("dc987208-704b-4080-a40c-9f270aad92a5",
+	"00000000-0000-0000-0000-000000000000",
+	'inst_ref<Timer>',
+	'',
+	'',
+	'../../../../Datatypes/Datatypes.xtuml');
 INSERT INTO O_ID
 	VALUES (2,
 	"f2b8219f-1ef9-46db-986d-795339200bf5");
