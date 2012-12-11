@@ -170,11 +170,8 @@ INSERT INTO SM_ACT
 	"cf0bd93f-b62b-4b86-8d31-34eb53f2642c",
 	1,
 	'
-// Dont know if this is working // Sickan!
-// Det som inte funkar är att vi behöver få in roomconfigurations id på ett bra sätt
-// så vi vet vilka room configurations om ska testas.
 
-// Check that no buiness roles were violated
+// Check that no buiness roles is violated
 //select any businessruleManager from instances of BusinessRuleManager;
 //assign isOk = businessruleManager.checkCustomerBookingRules(tupleList, timespan);
 
@@ -244,12 +241,15 @@ if(isOk)
 			generate BookingController3:wait(lock: lock.getId()) to bookingController;
 			generate LockManager_A2:done() to LockManager class;
 			
+			LOG::LogInfo(message: "A new lock has been added");
+			
 		end if;	
 	end if;
 end if;
 
 // If the booking somehow failed
 if ( isOk == false )
+	LOG::LogInfo(message: "Failed: to add new lock");
 	generate BookingController6:failure to bookingController;
 end if;
 
