@@ -4,7 +4,7 @@ INSERT INTO O_OBJ
 	VALUES ("e2d8cba7-50b4-4d81-8203-7f48e5afe294",
 	'BankClass',
 	1,
-	'KEY',
+	'BankClass',
 	'',
 	"ecb5d843-362d-4c4b-8887-b276c76746ec");
 INSERT INTO O_TFR
@@ -14,7 +14,7 @@ INSERT INTO O_TFR
 	'',
 	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
 	1,
-	'send Port2::returnFromBank(value: true);',
+	'send Port2::returnFromBank(value: param.value);',
 	1,
 	'',
 	"00000000-0000-0000-0000-000000000000");
