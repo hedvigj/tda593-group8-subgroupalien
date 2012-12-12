@@ -261,6 +261,7 @@ if(isOk)
 			generate LockManager_A2:done() to LockManager class;
 			break;
 		end if;
+		index = index + 1;
 	end while;
 	if(isOk)
 		// Create a lock
@@ -279,7 +280,6 @@ if(isOk)
 			generate BookingController3:wait(lock: lock.getId()) to bookingController;
 			
 			LOG::LogInfo(message: "A new lock has been added");
-			
 			select any addedLock related by lockManager->Lock[R23] 
 				where selected.id == lock.getId(); 
 			if( not_empty addedLock )
