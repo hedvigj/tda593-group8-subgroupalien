@@ -64,41 +64,7 @@ assign countdownTime = 900000000; // 15 min
 generate Lock1:setCountdown(microseconds: countdownTime) to self;
 
 return true;
-
-/*
-// get the temp lock 
-select any tempLock related by lm->TempLock[R46] where 
-	selected.id == param.tempLockId;
-
-if(not_empty tempLock)
-	// get the connection to the lock
-	select many rcats related by tempLock->RoomConfigurationAmountTuple[R44];
-	
-	// copy the connections of the temp lock to this lock
-	for each rcat in rcats
-		create object instance newrcat of RoomConfigurationAmountTuple;
-		
-		select one rc related by rcat->RoomConfiguration[R28];
-		
-		relate newrcat to self across R24;
-		relate newrcat to rc across R28;
-		
-		newrcat.amount = rcat.amount;
-	end for;
-
-	self.timespan = param.timespan; 
-
-	self.id = lm.getUniqueLockId();
-	
-	// Start timeout timer befor the lock is auto destoryed
-	assign countdownTime = 900000000; // 15 min
-	generate Lock1:setCountdown(microseconds: countdownTime) to self;
-
-	return true;
-end if;
-
-return false;
-*/',
+',
 	1,
 	'',
 	"00000000-0000-0000-0000-000000000000");
