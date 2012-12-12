@@ -26,21 +26,40 @@ INSERT INTO S_DT_PROXY
 	'',
 	'../../../../../BackendDatatypes/BackendDatatypes.xtuml');
 INSERT INTO SM_EVTDI
-	VALUES ("0837351f-154a-41cf-a384-fa05f88ec771",
+	VALUES ("95dfe089-bcfe-41d8-8484-94142bee5121",
 	"cf0bd93f-b62b-4b86-8d31-34eb53f2642c",
-	'tempLockId',
+	'rcats',
 	'',
-	"5f77c811-d46b-4197-a574-4b3505e92410",
-	'',
+	"d919e5ab-5f67-4aab-9544-5fd6291e14e0",
+	'[]',
 	"b7f63a98-c6f8-4ca9-acbe-c6d19f8c732b",
 	"7fce8d95-484d-4365-a71d-91bacca58b02");
-INSERT INTO S_DT_PROXY
-	VALUES ("5f77c811-d46b-4197-a574-4b3505e92410",
+INSERT INTO S_DIM
+	VALUES (0,
+	0,
 	"00000000-0000-0000-0000-000000000000",
-	'integer',
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"cf0bd93f-b62b-4b86-8d31-34eb53f2642c",
+	"95dfe089-bcfe-41d8-8484-94142bee5121",
+	"18e8b353-54c4-422e-97f5-9e2d036d824c",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO S_DT_PROXY
+	VALUES ("d919e5ab-5f67-4aab-9544-5fd6291e14e0",
+	"00000000-0000-0000-0000-000000000000",
+	'RoomConfigurationAmountTuple',
 	'',
 	'',
-	'../../../../../Datatypes/Datatypes.xtuml');
+	'../../../../../BackendDatatypes/BackendDatatypes.xtuml');
 INSERT INTO SM_LEVT
 	VALUES ("b7f63a98-c6f8-4ca9-acbe-c6d19f8c732b",
 	"cf0bd93f-b62b-4b86-8d31-34eb53f2642c",
@@ -185,6 +204,23 @@ end if;
 
 assign isOk = true;
 
+// Only allowed to be one of each room configuration and amount > 0
+assign index = 0;
+while index < param.rcats.length
+	assign index2 = index + 1;
+	while index < param.rcats.length
+		if(param.rcats[index].configuration == param.rcats[index2].configuration)
+			// Found two of the same room configuration
+			isOk = false;
+		end if;
+	end while;
+	
+	// amount is not allowed to be <= 0
+	if( param.rcats[index].amount <= 0 )
+		isOk = false;
+	end if;
+end while;
+
 // No violations to the buissness roles
 if(isOk)
 	select any lockManager from instances of LockManager;
@@ -202,7 +238,54 @@ if(isOk)
 		create object instance roomManager of RoomManager;
 		LOG::LogInfo(message: "roomManager was created in lockingRoomState of LockManager");
 	end if;
+	
+	assign index = 0;
+	while index < param.rcats.length
+		select any rc related by roomManager->RoomConfiguration[R10] where
+			selected.name == param.rcats[index].configuration; 
+			
+		assign locked = lockManager.getLockedRoomCount(
+			roomConfigurationName: rc.getName(), 
+			timespan: param.timespan);
+		assign booked = bookingManager.getBookedRoomCount( 
+			roomConfigurationName: rc.getName(),  
+			timespan: param.timespan);
+		assign rooms = roomManager.getRoomCount(
+			roomConfigurationName: rc.getName()); 
 		
+		if(locked+booked+param.rcats[index].amount > rooms)
+			isOk = false;
+			generate LockManager_A2:done() to LockManager class;
+			break;
+		end if;
+	end while;
+	if(isOk)
+		// Create a lock
+		create object instance lock of Lock;
+		assign dummy = lock.Lock(rcats: param.rcats, timespan: param.timespan);
+		
+		if(dummy == false)
+			isOk = false;
+			delete object instance lock;
+		end if;
+		
+		if (isOk)
+			relate lock to lockManager across R23;
+			
+			// generate the return messages
+			generate BookingController3:wait(lock: lock.getId()) to bookingController;
+			
+			LOG::LogInfo(message: "A new lock has been added");
+			
+			select any addedLock related by lockManager->Lock[R23] 
+				where selected.id == lock.getId(); 
+			if( not_empty addedLock )
+				LOG::LogInfo(message: "The new lock was indeed added");
+			end if;
+		end if;
+	end if;		
+	
+	/*	
 	// Get the temp lock
 	select any tempLock related by lockManager->TempLock[R46] where
 		selected.id == param.tempLockId; 
@@ -250,12 +333,13 @@ if(isOk)
 			
 		end if;	
 	end if;
+	*/
 end if;
 
 // If the booking somehow failed
 if ( isOk == false )
 	LOG::LogInfo(message: "Failed: to add new lock");
-	generate BookingController6:failure to bookingController;
+	generate BookingController6:failure() to bookingController;
 end if;
 
 generate LockManager_A2:done() to LockManager class;
