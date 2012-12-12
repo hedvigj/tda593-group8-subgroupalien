@@ -207,7 +207,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("5e0f6ce7-fba0-407b-a3ec-2c70eb51c854",
 	"95938ec7-2f10-4368-bd85-d4288f18bd2f",
-	3,
+	1,
 	'',
 	'');
 INSERT INTO SM_MOAH
@@ -238,6 +238,7 @@ INSERT INTO SM_ACT
 	"95938ec7-2f10-4368-bd85-d4288f18bd2f",
 	1,
 	'select one lm related by self->LockManager[R23];
+
 if(not_empty lm)
 	assign dummy = lm.removeLock(lockId: self.id);
 end if;
@@ -253,7 +254,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("688cf5b9-5bfa-492c-bb1e-6f6702c4555a",
 	"95938ec7-2f10-4368-bd85-d4288f18bd2f",
-	3,
+	1,
 	'',
 	'');
 INSERT INTO SM_TAH
@@ -266,7 +267,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("58f362d9-9db5-411a-984e-5922a1763252",
 	"95938ec7-2f10-4368-bd85-d4288f18bd2f",
-	3,
+	1,
 	'',
 	'');
 INSERT INTO SM_MOAH
@@ -297,7 +298,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("dab4b70d-6f9c-408d-adcd-ce71be811e1a",
 	"95938ec7-2f10-4368-bd85-d4288f18bd2f",
-	3,
+	1,
 	'',
 	'');
 INSERT INTO SM_TAH
@@ -310,7 +311,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("904cfc88-e359-4879-8150-12896d75e040",
 	"95938ec7-2f10-4368-bd85-d4288f18bd2f",
-	3,
+	1,
 	'',
 	'');
 INSERT INTO GD_MD
