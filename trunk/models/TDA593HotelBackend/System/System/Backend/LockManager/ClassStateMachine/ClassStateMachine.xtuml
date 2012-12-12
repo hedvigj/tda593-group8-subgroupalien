@@ -284,56 +284,6 @@ if(isOk)
 			end if;
 		end if;
 	end if;		
-	
-	/*	
-	// Get the temp lock
-	select any tempLock related by lockManager->TempLock[R46] where
-		selected.id == param.tempLockId; 
-	if( not_empty tempLock )
-		// Get the connections of the temp lock
-		select many rcats related by tempLock->RoomConfigurationAmountTuple[R44];
-		
-		// Check that that temp lock is bookable
-		for each rcat in rcats
-			select one rc related by rcat->RoomConfiguration[R28];
-			
-			assign locked = lockManager.getLockedRoomCount(
-				roomConfigurationName: rc.getName(), 
-				timespan: param.timespan);
-			assign booked = bookingManager.getBookedRoomCount( 
-				roomConfigurationName: rc.getName(),  
-				timespan: param.timespan);
-			assign rooms = roomManager.getRoomCount(
-				roomConfigurationName: rc.getName()); 
-			
-			if(locked+booked+rcat.getAmount() > rooms)
-				isOk = false;
-				generate LockManager_A2:done() to LockManager class;
-				break;
-			end if;
-		end for;
-		
-		// If the rooms are bookable
-		if(isOk)
-			// Create a lock
-			create object instance lock of Lock;
-			assign dummy = lock.Lock(tempLockId: param.tempLockId, timespan: param.timespan);
-			relate lock to lockManager across R23;
-			
-			// generate the return messages
-			generate BookingController3:wait(lock: lock.getId()) to bookingController;
-			
-			LOG::LogInfo(message: "A new lock has been added");
-			
-			select any addedLock related by lockManager->Lock[R23] 
-				where selected.id == lock.getId(); 
-			if( not_empty addedLock )
-				LOG::LogInfo(message: "The new lock was indeed added");
-			end if;
-			
-		end if;	
-	end if;
-	*/
 end if;
 
 // If the booking somehow failed
