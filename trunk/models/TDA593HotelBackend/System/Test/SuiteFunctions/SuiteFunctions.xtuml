@@ -76,7 +76,8 @@ INSERT INTO S_SYNC
 	'',
 	'TestClass::initializeRoomTypes();
 TestClass::initializeProperties();
-TestClass::initializeRoomConfigurations();',
+TestClass::initializeRoomConfigurations();
+TestClass::initializeRoomInstances();',
 	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
 	1,
 	'');

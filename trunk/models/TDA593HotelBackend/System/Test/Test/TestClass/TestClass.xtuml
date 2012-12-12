@@ -87,17 +87,17 @@ INSERT INTO O_TFR
 	'initializeRoomInstances',
 	'',
 	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
-	1,
-	'send Port1::addRoomInstance(roomInstanceName: "1", roomControllerName: "");
-send Port1::addRoomInstance(roomInstanceName: "2", roomControllerName: "");
-send Port1::addRoomInstance(roomInstanceName: "3", roomControllerName: "");
-send Port1::addRoomInstance(roomInstanceName: "4", roomControllerName: "");
-send Port1::addRoomInstance(roomInstanceName: "5", roomControllerName: "");
-send Port1::addRoomInstance(roomInstanceName: "6", roomControllerName: "");
-send Port1::addRoomInstance(roomInstanceName: "7", roomControllerName: "");
-send Port1::addRoomInstance(roomInstanceName: "8", roomControllerName: "");
-send Port1::addRoomInstance(roomInstanceName: "9", roomControllerName: "");
-send Port1::addRoomInstance(roomInstanceName: "10", roomControllerName: "");',
+	0,
+	'send Port1::addRoomInstance(roomInstanceName: "1", roomConfigurationName: "0x10");
+send Port1::addRoomInstance(roomInstanceName: "2", roomConfigurationName: "0x10");
+send Port1::addRoomInstance(roomInstanceName: "3", roomConfigurationName: "0x10");
+send Port1::addRoomInstance(roomInstanceName: "4", roomConfigurationName: "0x10");
+send Port1::addRoomInstance(roomInstanceName: "5", roomConfigurationName: "0x20");
+send Port1::addRoomInstance(roomInstanceName: "6", roomConfigurationName: "0x20");
+send Port1::addRoomInstance(roomInstanceName: "7", roomConfigurationName: "0x20");
+send Port1::addRoomInstance(roomInstanceName: "8", roomConfigurationName: "0x30");
+send Port1::addRoomInstance(roomInstanceName: "9", roomConfigurationName: "0x30");
+send Port1::addRoomInstance(roomInstanceName: "10", roomConfigurationName: "0x30");',
 	1,
 	'',
 	"3be7fd6a-54b0-42fc-b19a-dfdfe93ccfa7");
