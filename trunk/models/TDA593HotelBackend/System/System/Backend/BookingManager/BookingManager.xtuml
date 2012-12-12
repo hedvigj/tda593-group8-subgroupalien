@@ -81,13 +81,38 @@ INSERT INTO O_TFR
 	'',
 	"5f77c811-d46b-4197-a574-4b3505e92410",
 	1,
-	'	create object instance booking of Booking;
+	'select one bookingController related by self ->BookingController[R21];
+select any lm from instances of LockManager;
+if( empty lm )
+	create object instance lm of LockManager;
+	LOG::LogInfo(message: "LockManager created");
+end if;
+
+assign id = bookingController.getLock();
+	
+select any lock related by lm -> Lock[R23] where selected.id == id;
+if( not_empty lock )
+	create object instance booking of Booking;
 	relate booking to self across R20;
 	booking.bookingId = self.getUniqueBookingId();
 	booking.setCreditcard(creditcard: param.creditcard);
 	booking.setPersonalInfo(personalInfo: param.personalInfo);
 	booking.setTimespan(timespan: param.timespan);
-	return booking.bookingId;',
+
+	select many rcats related by lock->RoomConfigurationAmountTuple[R24];
+	
+	for each rcat in rcats
+		select one rc related by rcat->RoomConfiguration[R28];
+		
+		create object instance reservation of Reservation; 
+		relate booking to rc across R15 using reservation;
+		
+		reservation.amount = rcat.amount;
+	end for;
+	
+	return booking.bookingId;
+end if;
+return -1;',
 	1,
 	'',
 	"a6c5dd67-f29f-4568-b043-9919e6bdf115");
