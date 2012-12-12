@@ -213,17 +213,6 @@ INSERT INTO S_DT_PROXY
 	'',
 	'',
 	'../../../../Datatypes/Datatypes.xtuml');
-INSERT INTO O_TFR
-	VALUES ("8b8c0cdc-ce49-4a6b-968f-ef03eb1d7507",
-	"e5a9ffd7-615e-4d8a-9836-61d1236abc56",
-	'getLock',
-	'',
-	"5f77c811-d46b-4197-a574-4b3505e92410",
-	1,
-	'return self.lock;',
-	1,
-	'',
-	"55c56a80-edea-4fec-bcc9-73bb50c4b6f1");
 INSERT INTO O_NBATTR
 	VALUES ("2851f2a3-d897-48cb-bd6f-e54b19729763",
 	"e5a9ffd7-615e-4d8a-9836-61d1236abc56");

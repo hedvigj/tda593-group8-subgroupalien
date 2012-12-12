@@ -854,7 +854,7 @@ end if;
 LOG::LogInfo(message: "Banken klar");
 
 if(param.value == true)
-	assign value = bookingManager.createBooking(creditcard: self.creditcard, personalInfo: self.personalInfo, timespan: self.timespan);
+	assign value = bookingManager.createBooking(creditcard: self.creditcard, personalInfo: self.personalInfo, timespan: self.timespan, lock: self.lock);
 	generate BookingController5: finished(booking: value) to self;
 else 
 	generate BookingController7: bookingFailure() to self;
