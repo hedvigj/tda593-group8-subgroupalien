@@ -746,17 +746,7 @@ if(empty lockManager)
 	LOG::LogInfo(message: "Created a LockManager");
 end if;
 
-assign tempId = lockManager.getNewTempLock();
-select any lock related by lockManager->TempLock[R46] where selected.id == tempId;
-
-assign index = 0;
-while index < self.rcat.length
-	assign config = self.rcat[index].configuration;
-	assign amount = self.rcat[index].amount;
-	assign ret = lock.addRoomConfiguration(roomConfigurationName: config, amount: amount);
-	index = index + 1;
-end while;
-generate LockManager_A1:lock(timespan: self.timespan, tempLockId: tempId) to LockManager class;
+generate LockManager_A1:lock(timespan: self.timespan, rcats: self.rcat) to LockManager class;
 ',
 	'');
 INSERT INTO SM_TAH
