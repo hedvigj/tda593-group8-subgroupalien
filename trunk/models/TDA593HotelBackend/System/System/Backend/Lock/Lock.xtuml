@@ -29,17 +29,20 @@ end if;
 assign index = 0;
 while index < param.rcats.length
 	assign index2 = index + 1;
-	while index < param.rcats.length
+	while index2 < param.rcats.length
 		if(param.rcats[index].configuration == param.rcats[index2].configuration)
 			// Found two of the same room configuration
 			return false;
 		end if;
+		index2 = index2 + 1;
 	end while;
 	
 	// amount is not allowed to be <= 0
 	if( param.rcats[index].amount <= 0 )
 		return false;
 	end if;
+	
+	index = index + 1;
 end while;
 
 index = 0;
