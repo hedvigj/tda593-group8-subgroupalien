@@ -56,6 +56,8 @@ while index < param.rcats.length
 	relate rcat to rc across R28;
 	
 	rcat.amount = param.rcats[index].amount;
+	
+	index = index + 1;
 end while;
 
 self.timespan = param.timespan; 
