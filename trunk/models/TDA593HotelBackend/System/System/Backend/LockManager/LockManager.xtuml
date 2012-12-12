@@ -18,6 +18,8 @@ INSERT INTO O_TFR
 
 if( not_empty lock)
 	select many rcats related by lock->RoomConfigurationAmountTuple[R24];
+	
+	assign dummy = TIM::timer_cancel (timer_inst_ref: lock.destroyTimer);
 
 	for each rcat in rcats
 		select one rc related by rcat->RoomConfiguration[R28];
