@@ -239,9 +239,14 @@ if(isOk)
 			
 			// generate the return messages
 			generate BookingController3:wait(lock: lock.getId()) to bookingController;
-			generate LockManager_A2:done() to LockManager class;
 			
 			LOG::LogInfo(message: "A new lock has been added");
+			
+			select any addedLock related by lockManager->Lock[R23] 
+				where selected.id == lock.getId(); 
+			if( not_empty addedLock )
+				LOG::LogInfo(message: "The new lock was indeed added");
+			end if;
 			
 		end if;	
 	end if;
@@ -253,6 +258,7 @@ if ( isOk == false )
 	generate BookingController6:failure to bookingController;
 end if;
 
+generate LockManager_A2:done() to LockManager class;
 ',
 	'');
 INSERT INTO SM_TAH
