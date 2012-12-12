@@ -829,6 +829,7 @@ INSERT INTO SM_ACT
 create event instance bookingFailure of BookingController7:bookingFailure() to self;
 self.bankTimeoutTimer = TIM::timer_start(microseconds: 4000000, event_inst: bookingFailure);
 //Send creditcard to bank and wait for answer
+
 send Port2::toBank(creditcard: self.creditcard);',
 	'');
 INSERT INTO SM_MOAH
@@ -851,12 +852,12 @@ if(empty bookingManager)
 	LOG::LogInfo(message: "Created a BookingManager");
 end if;
 
-LOG::LogInfo(message: "Banken klar");
+LOG::LogInfo(message: "Bank finish");
 
 if(param.value == true)
 	assign value = bookingManager.createBooking(creditcard: self.creditcard, personalInfo: self.personalInfo, timespan: self.timespan, lock: self.lock);
 	generate BookingController5: finished(booking: value) to self;
-else 
+else
 	generate BookingController7: bookingFailure() to self;
 end if;
 ',
@@ -898,7 +899,7 @@ INSERT INTO SM_ACT
 	VALUES ("3bd33b5c-5fd5-4a7e-819c-59d73bb9361a",
 	"d0511597-9e3d-4192-8f21-26cadd9ed8f7",
 	1,
-	'LOG::LogInfo(message: "Bokning klar: ");
+	'LOG::LogInfo(message: "Booking finished: ");
 LOG::LogInteger(message: param.booking);
 send Port1::returnBooking(bookingId: param.booking);
 ',

@@ -193,7 +193,7 @@ INSERT INTO O_TFR
 	'',
 	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
 	1,
-	'',
+	'self.lock = param.lock;',
 	1,
 	'',
 	"940be365-d9d1-4095-9bfe-336796b22b5d");
