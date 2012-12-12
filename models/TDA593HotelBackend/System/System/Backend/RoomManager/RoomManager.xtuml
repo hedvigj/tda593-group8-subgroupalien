@@ -308,18 +308,23 @@ INSERT INTO O_TFR
 
 if ( empty ri )
 	select any rc related by self->RoomConfiguration[R10] where
-		selected.name == param.roomConfigurationName;
-		
+		selected.name == param.roomConfigurationName;	
 	if( not_empty rc )
 		create object instance ri of RoomInstance;
 		relate ri to self across R48;
 		relate ri to rc across R26;
 		ri.RoomInstance(name: param.name);
 		
-		LOG::LogInfo(message: "A room instance with name " + param.name + " was added.");
+		LOG::LogInfo(message: "A room instance with name " + param.name + " and configuration " + param.roomConfigurationName + " was added.");
 		return true;
+	else
+		LOG::LogInfo(message: "Could not add room instance with name " + param.name
+		+ " and room configuration: " + param.roomConfigurationName
+		+ ". Reason: No such room configuration exists!");
 	end if;
-	
+else
+	LOG::LogInfo(message: "Could not add room instance with name " + param.name
+	+ ". Reason: Exisiting room instance with same name.");
 end if;
 return false;',
 	1,
