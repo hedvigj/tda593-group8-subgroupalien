@@ -339,7 +339,7 @@ end if;
 // If the booking somehow failed
 if ( isOk == false )
 	LOG::LogInfo(message: "Failed: to add new lock");
-	generate BookingController6:failure() to bookingController;
+	generate BookingController6:lockingFailure() to bookingController;
 end if;
 
 generate LockManager_A2:done() to LockManager class;
