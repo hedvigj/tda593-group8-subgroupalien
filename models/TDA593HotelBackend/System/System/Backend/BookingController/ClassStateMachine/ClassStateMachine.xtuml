@@ -125,7 +125,7 @@ INSERT INTO SPR_PS_PROXY
 	'book',
 	'',
 	'',
-	3,
+	1,
 	'../../../System.xtuml');
 INSERT INTO SM_SEVT
 	VALUES ("3b17f1d2-195f-4a6f-ad29-b7816931dad0",
@@ -415,7 +415,7 @@ bookingController.setPersonalInfo(personalInfo: param.personalInfo);
 bookingController.setRCAT(rcat: param.roomConfigurationAmountTuples);
 bookingController.setTimespan(timespan: param.timespan);
 
-generate BookingController2:lock(timespan: param.timespan, roomConfigurationAmountTuples: param.roomConfigurationAmountTuples) to bookingController;
+generate BookingController2:lock(timespan: param.timespan, rcats: param.roomConfigurationAmountTuples) to bookingController;
 generate BookingController_A4: finished to BookingController class;',
 	'');
 INSERT INTO SM_TAH
