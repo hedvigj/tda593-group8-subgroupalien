@@ -347,7 +347,7 @@ INSERT INTO C_PP
 	VALUES ("cab3f13e-bcf2-4310-a5a9-a11d6ef1c7d7",
 	"345834e8-51b3-474d-89c9-c3053d739675",
 	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
-	'roomControllerName',
+	'roomConfigurationName',
 	'',
 	0,
 	'',

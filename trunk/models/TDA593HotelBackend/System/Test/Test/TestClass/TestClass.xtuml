@@ -81,6 +81,26 @@ send Port1::book(timespan: timespan, creditcard: card, personalInfo: personalInf
 	1,
 	'',
 	"9a750711-df94-40e5-a556-f2f070d4fce0");
+INSERT INTO O_TFR
+	VALUES ("a2a55851-52ed-4f8d-b295-a787ce3c301a",
+	"32458e6c-09c1-479e-9d59-28cc2362f085",
+	'initializeRoomInstances',
+	'',
+	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
+	1,
+	'send Port1::addRoomInstance(roomInstanceName: "1", roomControllerName: "");
+send Port1::addRoomInstance(roomInstanceName: "2", roomControllerName: "");
+send Port1::addRoomInstance(roomInstanceName: "3", roomControllerName: "");
+send Port1::addRoomInstance(roomInstanceName: "4", roomControllerName: "");
+send Port1::addRoomInstance(roomInstanceName: "5", roomControllerName: "");
+send Port1::addRoomInstance(roomInstanceName: "6", roomControllerName: "");
+send Port1::addRoomInstance(roomInstanceName: "7", roomControllerName: "");
+send Port1::addRoomInstance(roomInstanceName: "8", roomControllerName: "");
+send Port1::addRoomInstance(roomInstanceName: "9", roomControllerName: "");
+send Port1::addRoomInstance(roomInstanceName: "10", roomControllerName: "");',
+	1,
+	'',
+	"3be7fd6a-54b0-42fc-b19a-dfdfe93ccfa7");
 INSERT INTO O_ID
 	VALUES (0,
 	"32458e6c-09c1-479e-9d59-28cc2362f085");
