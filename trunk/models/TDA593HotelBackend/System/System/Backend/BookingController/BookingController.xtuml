@@ -74,42 +74,6 @@ INSERT INTO S_DT_PROXY
 	'',
 	'../../../../Datatypes/Datatypes.xtuml');
 INSERT INTO O_TFR
-	VALUES ("ee81073d-99f1-449d-b38c-c48345ab68a5",
-	"e5a9ffd7-615e-4d8a-9836-61d1236abc56",
-	'lockRoomConfiguration',
-	'',
-	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
-	1,
-	'',
-	1,
-	'',
-	"b453b0ff-bb71-4812-876f-301e670ea6d3");
-INSERT INTO O_TPARM
-	VALUES ("8fca3c26-51af-4768-8fa0-ef05242edded",
-	"ee81073d-99f1-449d-b38c-c48345ab68a5",
-	'timespan',
-	"29455544-5da7-4d59-89a1-9d1261bd2be6",
-	0,
-	'',
-	"00000000-0000-0000-0000-000000000000",
-	'');
-INSERT INTO S_DT_PROXY
-	VALUES ("29455544-5da7-4d59-89a1-9d1261bd2be6",
-	"00000000-0000-0000-0000-000000000000",
-	'TimeSpan',
-	'',
-	'',
-	'../../../../BackendDatatypes/BackendDatatypes.xtuml');
-INSERT INTO O_TPARM
-	VALUES ("9215c343-ac90-40b5-a71b-c58680293ae9",
-	"ee81073d-99f1-449d-b38c-c48345ab68a5",
-	'roomConfigurationAmountTuples',
-	"ae256fd3-70b0-403f-8139-fd377a5896f0",
-	0,
-	'',
-	"8fca3c26-51af-4768-8fa0-ef05242edded",
-	'');
-INSERT INTO O_TFR
 	VALUES ("577e6839-9e7f-4294-b337-1f84628eb3ce",
 	"e5a9ffd7-615e-4d8a-9836-61d1236abc56",
 	'setPersonalInfo',
@@ -119,7 +83,7 @@ INSERT INTO O_TFR
 	'self.personalInfo = param.personalInfo;',
 	1,
 	'',
-	"ee81073d-99f1-449d-b38c-c48345ab68a5");
+	"b453b0ff-bb71-4812-876f-301e670ea6d3");
 INSERT INTO O_TPARM
 	VALUES ("7e511381-1c94-4bdd-800f-7107d4869dfc",
 	"577e6839-9e7f-4294-b337-1f84628eb3ce",
@@ -169,6 +133,13 @@ INSERT INTO O_TPARM
 	'',
 	"00000000-0000-0000-0000-000000000000",
 	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("29455544-5da7-4d59-89a1-9d1261bd2be6",
+	"00000000-0000-0000-0000-000000000000",
+	'TimeSpan',
+	'',
+	'',
+	'../../../../BackendDatatypes/BackendDatatypes.xtuml');
 INSERT INTO O_TFR
 	VALUES ("940be365-d9d1-4095-9bfe-336796b22b5d",
 	"e5a9ffd7-615e-4d8a-9836-61d1236abc56",
