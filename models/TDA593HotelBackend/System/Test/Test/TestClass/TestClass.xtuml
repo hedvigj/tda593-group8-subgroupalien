@@ -38,7 +38,10 @@ INSERT INTO O_TFR
 	0,
 	'send Port1::addProperty(uniqueName: "Bathroom", description: "Standard bathroom model x2012");
 send Port1::addProperty(uniqueName: "Sea view", description: "PRETTY FISHIS AND BIRDIES");
-send Port1::addProperty(uniqueName: "Crisp supply", description: "Supply of crisps");',
+send Port1::addProperty(uniqueName: "Crisp supply", description: "Supply of crisps");
+send Port1::addProperty(uniqueName: "TV", description: "All your channel are belong to us");
+send Port1::addProperty(uniqueName: "Sea of balls", description: "For the children");
+send Port1::addProperty(uniqueName: "Ball of sea", description: "Nice attractive globe");',
 	1,
 	'',
 	"7559b420-0172-4838-9572-814c324b8f4a");
@@ -49,15 +52,28 @@ INSERT INTO O_TFR
 	'',
 	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
 	0,
-	'send Port1::addRoomConfiguration(uniqueName: "0x10", description: "DESC1", price: 10, roomType: "Single room");
+	'// Add room configurations
+send Port1::addRoomConfiguration(uniqueName: "0x10", description: "DESC1", price: 10, roomType: "Single room");
 send Port1::addRoomConfiguration(uniqueName: "0x20", description: "DESC2", price: 12, roomType: "Single room");
 send Port1::addRoomConfiguration(uniqueName: "0x30", description: "OH GLORIOUS ROYAL HIGHNESS, THIS IS THE SUITE FOR YE OLDE ROYAL ENDEVOURS YE HAVETH", price: 1337, roomType: "Suite");
+
+// Add bathroom
 send Port1::addRoomConfigurationProperty(configurationName: "0x10", propertyName: "Bathroom");
-send Port1::addRoomConfigurationProperty(configurationName: "0x10", propertyName: "Bathroom");
-send Port1::removeRoomConfigurationProperty(configurationName: "0x10", propertyName: "Bathroom");
-send Port1::removeRoomConfigurationProperty(configurationName: "0x10", propertyName: "Bathroom");
-send Port1::addRoomConfigurationProperty(configurationName: "0x10", propertyName: "Bathroom");
-send Port1::setRoomConfigurationEnabled(configurationName: "0x10", enabled: true);',
+send Port1::addRoomConfigurationProperty(configurationName: "0x20", propertyName: "Bathroom");
+send Port1::addRoomConfigurationProperty(configurationName: "0x30", propertyName: "Bathroom");
+
+// Add TV
+send Port1::addRoomConfigurationProperty(configurationName: "0x10", propertyName: "TV");
+send Port1::addRoomConfigurationProperty(configurationName: "0x20", propertyName: "TV");
+send Port1::addRoomConfigurationProperty(configurationName: "0x30", propertyName: "TV");
+
+// Add Ball of sea
+send Port1::addRoomConfigurationProperty(configurationName: "0x30", propertyName: "Ball of sea");
+
+// Enable/Disable configurations
+send Port1::setRoomConfigurationEnabled(configurationName: "0x10", enabled: true);
+send Port1::setRoomConfigurationEnabled(configurationName: "0x20", enabled: false);
+send Port1::setRoomConfigurationEnabled(configurationName: "0x30", enabled: true);',
 	1,
 	'',
 	"d8ce0a38-a16d-49f1-b4a5-c6425597c078");
@@ -97,10 +113,118 @@ send Port1::addRoomInstance(roomInstanceName: "6", roomConfigurationName: "0x20"
 send Port1::addRoomInstance(roomInstanceName: "7", roomConfigurationName: "0x20");
 send Port1::addRoomInstance(roomInstanceName: "8", roomConfigurationName: "0x30");
 send Port1::addRoomInstance(roomInstanceName: "9", roomConfigurationName: "0x30");
-send Port1::addRoomInstance(roomInstanceName: "10", roomConfigurationName: "0x30");',
+send Port1::addRoomInstance(roomInstanceName: "10", roomConfigurationName: "0x10");
+send Port1::addRoomInstance(roomInstanceName: "11", roomConfigurationName: "0x10");
+send Port1::addRoomInstance(roomInstanceName: "12", roomConfigurationName: "0x10");
+send Port1::addRoomInstance(roomInstanceName: "13", roomConfigurationName: "0x10");
+send Port1::addRoomInstance(roomInstanceName: "14", roomConfigurationName: "0x10");
+send Port1::addRoomInstance(roomInstanceName: "15", roomConfigurationName: "0x10");
+send Port1::addRoomInstance(roomInstanceName: "16", roomConfigurationName: "0x10");
+send Port1::addRoomInstance(roomInstanceName: "17", roomConfigurationName: "0x10");
+send Port1::addRoomInstance(roomInstanceName: "18", roomConfigurationName: "0x30");
+send Port1::addRoomInstance(roomInstanceName: "19", roomConfigurationName: "0x30");
+send Port1::addRoomInstance(roomInstanceName: "20", roomConfigurationName: "0x30");',
 	1,
 	'',
 	"3be7fd6a-54b0-42fc-b19a-dfdfe93ccfa7");
+INSERT INTO O_TFR
+	VALUES ("5af6bf08-b3fe-4af3-a6ee-f45e1fefca88",
+	"32458e6c-09c1-479e-9d59-28cc2362f085",
+	'testLog',
+	'',
+	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
+	0,
+	'LOG::LogInfo(message: "#############################");
+LOG::LogInfo(message: "");
+LOG::LogInfo(message: param.message);
+LOG::LogInfo(message: "=============================");',
+	1,
+	'',
+	"a2a55851-52ed-4f8d-b295-a787ce3c301a");
+INSERT INTO O_TPARM
+	VALUES ("f8956199-339c-413e-9c21-a0b8770757d7",
+	"5af6bf08-b3fe-4af3-a6ee-f45e1fefca88",
+	'message',
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	"00000000-0000-0000-0000-000000000000",
+	'string',
+	'',
+	'',
+	'../../../../Datatypes/Datatypes.xtuml');
+INSERT INTO O_NBATTR
+	VALUES ("83f623e0-f94e-4c47-a8fd-c6f31c1cbab1",
+	"32458e6c-09c1-479e-9d59-28cc2362f085");
+INSERT INTO O_BATTR
+	VALUES ("83f623e0-f94e-4c47-a8fd-c6f31c1cbab1",
+	"32458e6c-09c1-479e-9d59-28cc2362f085");
+INSERT INTO O_ATTR
+	VALUES ("83f623e0-f94e-4c47-a8fd-c6f31c1cbab1",
+	"32458e6c-09c1-479e-9d59-28cc2362f085",
+	"00000000-0000-0000-0000-000000000000",
+	'current_state',
+	'',
+	'',
+	'current_state',
+	0,
+	"4e33731b-7545-47b2-bf5b-70c967e5b9be",
+	'',
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("4e33731b-7545-47b2-bf5b-70c967e5b9be",
+	"00000000-0000-0000-0000-000000000000",
+	'state<State_Model>',
+	'',
+	'',
+	'../../../../Datatypes/Datatypes.xtuml');
+INSERT INTO O_NBATTR
+	VALUES ("3a66793e-877a-43d1-9744-d90b2dbc44ad",
+	"32458e6c-09c1-479e-9d59-28cc2362f085");
+INSERT INTO O_BATTR
+	VALUES ("3a66793e-877a-43d1-9744-d90b2dbc44ad",
+	"32458e6c-09c1-479e-9d59-28cc2362f085");
+INSERT INTO O_ATTR
+	VALUES ("3a66793e-877a-43d1-9744-d90b2dbc44ad",
+	"32458e6c-09c1-479e-9d59-28cc2362f085",
+	"83f623e0-f94e-4c47-a8fd-c6f31c1cbab1",
+	'testIndex',
+	'',
+	'',
+	'testIndex',
+	0,
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	'',
+	'-1');
+INSERT INTO S_DT_PROXY
+	VALUES ("5f77c811-d46b-4197-a574-4b3505e92410",
+	"00000000-0000-0000-0000-000000000000",
+	'integer',
+	'',
+	'',
+	'../../../../Datatypes/Datatypes.xtuml');
+INSERT INTO O_NBATTR
+	VALUES ("35448d89-0213-48ae-92a4-84a4520f1c6b",
+	"32458e6c-09c1-479e-9d59-28cc2362f085");
+INSERT INTO O_BATTR
+	VALUES ("35448d89-0213-48ae-92a4-84a4520f1c6b",
+	"32458e6c-09c1-479e-9d59-28cc2362f085");
+INSERT INTO O_ATTR
+	VALUES ("35448d89-0213-48ae-92a4-84a4520f1c6b",
+	"32458e6c-09c1-479e-9d59-28cc2362f085",
+	"3a66793e-877a-43d1-9744-d90b2dbc44ad",
+	'maxIndex',
+	'',
+	'',
+	'maxIndex',
+	0,
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	'',
+	'0');
 INSERT INTO O_ID
 	VALUES (0,
 	"32458e6c-09c1-479e-9d59-28cc2362f085");

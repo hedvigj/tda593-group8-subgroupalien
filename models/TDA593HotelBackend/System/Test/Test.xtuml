@@ -185,7 +185,7 @@ INSERT INTO SPR_RS
 	'addRoomType',
 	'',
 	'',
-	3);
+	1);
 INSERT INTO C_EP_PROXY
 	VALUES ("418b4d9f-ac17-49f9-aff4-cc4e4cb0532a",
 	"55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",
@@ -201,7 +201,7 @@ INSERT INTO SPR_RS
 	'addProperty',
 	'',
 	'',
-	3);
+	1);
 INSERT INTO C_EP_PROXY
 	VALUES ("4157c1f4-3f7b-4c8b-ba22-40b5c5008208",
 	"55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",
@@ -217,7 +217,7 @@ INSERT INTO SPR_RS
 	'book',
 	'',
 	'',
-	3);
+	1);
 INSERT INTO C_EP_PROXY
 	VALUES ("1369d25e-4e1a-4676-93d8-ba7e46d55e3a",
 	"55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",
@@ -233,7 +233,7 @@ INSERT INTO SPR_RS
 	'addRoomConfiguration',
 	'',
 	'',
-	3);
+	1);
 INSERT INTO C_EP_PROXY
 	VALUES ("27074fd3-afc3-4b27-a048-bb01de2a7176",
 	"55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",
@@ -249,7 +249,7 @@ INSERT INTO SPR_RS
 	'setRoomConfigurationEnabled',
 	'',
 	'',
-	3);
+	1);
 INSERT INTO C_EP_PROXY
 	VALUES ("3fecd7d5-ac81-43ac-87c5-0209b7ea630a",
 	"55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",
@@ -265,7 +265,7 @@ INSERT INTO SPR_RS
 	'addRoomConfigurationProperty',
 	'',
 	'',
-	3);
+	1);
 INSERT INTO C_EP_PROXY
 	VALUES ("e87579f9-fbeb-4f6b-a4c2-e45dad336e56",
 	"55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",
@@ -281,7 +281,7 @@ INSERT INTO SPR_RS
 	'removeRoomConfigurationProperty',
 	'',
 	'',
-	3);
+	1);
 INSERT INTO C_EP_PROXY
 	VALUES ("7bc1157f-e9cb-4b49-865c-99e47e8d59e8",
 	"55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",
@@ -297,7 +297,7 @@ INSERT INTO SPR_RS
 	'returnBooking',
 	'',
 	'',
-	3);
+	1);
 INSERT INTO C_EP_PROXY
 	VALUES ("4edfbad1-da70-4256-bb1c-57b257e3adcc",
 	"55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",
@@ -313,7 +313,7 @@ INSERT INTO SPR_RS
 	'addRoomInstance',
 	'',
 	'',
-	3);
+	1);
 INSERT INTO C_EP_PROXY
 	VALUES ("345834e8-51b3-474d-89c9-c3053d739675",
 	"55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",
@@ -329,7 +329,7 @@ INSERT INTO SPR_RS
 	'checkIn',
 	'',
 	'',
-	3);
+	1);
 INSERT INTO C_EP_PROXY
 	VALUES ("e6f20d87-7f8d-4221-9a21-9305e00e9a05",
 	"55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",
@@ -345,7 +345,7 @@ INSERT INTO SPR_RS
 	'checkOut',
 	'',
 	'',
-	3);
+	1);
 INSERT INTO C_EP_PROXY
 	VALUES ("2d066e93-cb79-4f63-ac4f-1b440aa49ce8",
 	"55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",
