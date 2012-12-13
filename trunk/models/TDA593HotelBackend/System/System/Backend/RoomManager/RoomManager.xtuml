@@ -63,6 +63,7 @@ INSERT INTO O_TFR
 if(empty roomType)
 	create object instance roomType of RoomType;
 	relate roomType to self across R42;
+	relate self to roomType across R42;
 	roomType.setName(name: param.uniqueName);
 	LOG::LogInfo(message: "RoomType was added: " + param.uniqueName);
 	return true;
@@ -112,7 +113,9 @@ else
 	config.setPrice(price: param.price);
 	config.setEnabled(enabled: false);	// Default is disabled
 	relate config to self across R10;
+	relate self to config across R10;
 	relate config to roomType across R29;
+	relate roomType to config across R29;
 	LOG::LogInfo(message: "Configuration was added. Name: " + config.getName());
 	return true;
 end if;',
@@ -175,6 +178,7 @@ else
 	if(empty testGetProperty)
 		create object instance ownership of Ownership; 
 		relate roomConfig to property across R12 using ownership;
+		relate property to roomConfig across R12 using ownership;
 		LOG::LogInfo(message: "Property " + param.propertyName + " added to " + param.configurationName);
 		return true;
 	else
@@ -214,6 +218,7 @@ INSERT INTO O_TFR
 if(empty property)
 	create object instance property of Property;
 	relate property to self across R47;
+	relate self to property across R47;
 	property.setName(name: param.uniqueName);
 	property.setDescription(description: param.description);
 	LOG::LogInfo(message: "Property was added: " + property.getName() + " Description: " + property.getDescription());
@@ -265,7 +270,7 @@ else
 end if;',
 	1,
 	'',
-	"3bc2fea3-b57e-476d-be7a-fc1b2cb09e02");
+	"0492a4e3-08a2-461c-be58-631f90ad2cb2");
 INSERT INTO O_TPARM
 	VALUES ("f460bb0b-eff9-484f-a399-80392fa5ad37",
 	"58c84403-5d5b-4dbb-9034-78005c94be8b",
@@ -312,7 +317,9 @@ if ( empty ri )
 	if( not_empty rc )
 		create object instance ri of RoomInstance;
 		relate ri to self across R48;
+		relate self to ri across R48;
 		relate ri to rc across R26;
+		relate rc to ri across R26;
 		ri.RoomInstance(name: param.name);
 		
 		LOG::LogInfo(message: "A room instance with name " + param.name + " and configuration " + param.roomConfigurationName + " was added.");
@@ -329,7 +336,7 @@ end if;
 return false;',
 	1,
 	'',
-	"f2f45787-9181-4e40-9892-e4184a08b901");
+	"3bc2fea3-b57e-476d-be7a-fc1b2cb09e02");
 INSERT INTO O_TPARM
 	VALUES ("63eeddbf-b617-45e2-9ac8-ba76f1b74e30",
 	"0492a4e3-08a2-461c-be58-631f90ad2cb2",
@@ -371,6 +378,7 @@ else
 	else
 		select any ownership related by roomConfig->Ownership[R12];
 		unrelate roomConfig from property across R12 using ownership;
+		unrelate property from roomConfig across R12 using ownership;
 		delete object instance ownership;
 		LOG::LogInfo(message: "Property " + param.propertyName + " removed from " + param.configurationName);
 		return true;
@@ -378,7 +386,7 @@ else
 end if;',
 	1,
 	'',
-	"0492a4e3-08a2-461c-be58-631f90ad2cb2");
+	"f2f45787-9181-4e40-9892-e4184a08b901");
 INSERT INTO O_TPARM
 	VALUES ("1b9ec36f-368b-4efa-a474-f0c32988f312",
 	"518306ee-8c1f-47c2-947f-e5250f3bfc38",
