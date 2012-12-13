@@ -101,6 +101,24 @@ INSERT INTO S_DT_PROXY
 	'',
 	'',
 	'../../../../../BackendDatatypes/BackendDatatypes.xtuml');
+INSERT INTO SM_EVTDI
+	VALUES ("d94df42a-b30b-48ae-840e-b5c8dd68ce14",
+	"d0511597-9e3d-4192-8f21-26cadd9ed8f7",
+	'lockId',
+	'',
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	'',
+	"7a65d0ad-e3c5-4917-9597-479e66e89068",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO SM_EVTDI
+	VALUES ("4df351fb-4b86-4b09-b030-0848e9a1772c",
+	"d0511597-9e3d-4192-8f21-26cadd9ed8f7",
+	'lockId',
+	'',
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	'',
+	"cec000b4-8da8-4c50-83d3-72c713ae4355",
+	"00000000-0000-0000-0000-000000000000");
 INSERT INTO SM_LEVT
 	VALUES ("3c5a1a2c-3b08-4816-b8a8-1b1d3230742e",
 	"d0511597-9e3d-4192-8f21-26cadd9ed8f7",
@@ -936,7 +954,9 @@ if(empty lockManager)
 end if;
 
 LOG::LogInfo(message: "Failure to book");
-assign ret = lockManager.removeLock(lockId: param.lockID);',
+
+assign ret = lockManager.removeLock(lockId: param.lockId);
+send Port1::returnBooking(bookingId: -1);',
 	'');
 INSERT INTO SM_TAH
 	VALUES ("b8c49eda-89cf-489a-8a34-5d997fdb1e83",
