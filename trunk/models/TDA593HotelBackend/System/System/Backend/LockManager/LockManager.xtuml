@@ -137,20 +137,6 @@ return self.uniqueLockIdCounter;',
 	'',
 	"31b87c18-6208-444f-84a2-8317d75cfd59");
 INSERT INTO O_TFR
-	VALUES ("79eff7c4-59cf-41b0-856d-3abe5a12e408",
-	"676dbe4e-109f-49d7-af51-5ec2153af55b",
-	'getNewTempLock',
-	'',
-	"5f77c811-d46b-4197-a574-4b3505e92410",
-	1,
-	'create object instance tempLock of TempLock;
-relate tempLock to self across R46;
-tempLock.TempLock();
-return tempLock.getId();',
-	1,
-	'',
-	"0f63f33c-1c30-41d8-9a0a-256cd9c8d598");
-INSERT INTO O_TFR
 	VALUES ("0b422c37-8b89-46a5-9fc6-568978ea97ed",
 	"676dbe4e-109f-49d7-af51-5ec2153af55b",
 	'deleteTempLock',
@@ -181,7 +167,7 @@ end if;
 ',
 	1,
 	'',
-	"79eff7c4-59cf-41b0-856d-3abe5a12e408");
+	"0f63f33c-1c30-41d8-9a0a-256cd9c8d598");
 INSERT INTO O_TPARM
 	VALUES ("a3a8e101-00bc-4249-bf46-2b3543af319c",
 	"0b422c37-8b89-46a5-9fc6-568978ea97ed",
