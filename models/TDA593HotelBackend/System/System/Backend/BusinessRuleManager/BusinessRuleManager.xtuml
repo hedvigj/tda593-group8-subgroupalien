@@ -55,10 +55,16 @@ if(param.timespan.endDate > dummyDate)
 	return false;
 end if;
 
+assign d = TIM::current_date();
+
+// Checks if startDate is today or in the future. Not a passed date
+
+if(d < param.timespan.startDate)
+	LOG::LogInfo(message: "startDate has passed");
+	return false;
+end if;
 
 // Checks if the booking occurs one year ahead if so return false
-
-assign d = TIM::current_date();
 
 assign day1 = TIM::get_day (date:d);
 assign month1 = TIM::get_month(date:d);
