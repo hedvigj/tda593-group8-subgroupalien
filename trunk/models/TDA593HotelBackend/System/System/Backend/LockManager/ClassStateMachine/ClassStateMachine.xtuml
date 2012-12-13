@@ -258,7 +258,6 @@ if(isOk)
 		
 		if(locked+booked+param.rcats[index].amount > rooms)
 			isOk = false;
-			generate LockManager_A2:done() to LockManager class;
 			break;
 		end if;
 		index = index + 1;
