@@ -63,7 +63,6 @@ INSERT INTO O_TFR
 if(empty roomType)
 	create object instance roomType of RoomType;
 	relate roomType to self across R42;
-	relate self to roomType across R42;
 	roomType.setName(name: param.uniqueName);
 	LOG::LogInfo(message: "RoomType was added: " + param.uniqueName);
 	return true;
@@ -113,9 +112,7 @@ else
 	config.setPrice(price: param.price);
 	config.setEnabled(enabled: false);	// Default is disabled
 	relate config to self across R10;
-	relate self to config across R10;
 	relate config to roomType across R29;
-	relate roomType to config across R29;
 	LOG::LogInfo(message: "Configuration was added. Name: " + config.getName());
 	return true;
 end if;',
@@ -178,7 +175,6 @@ else
 	if(empty testGetProperty)
 		create object instance ownership of Ownership; 
 		relate roomConfig to property across R12 using ownership;
-		relate property to roomConfig across R12 using ownership;
 		LOG::LogInfo(message: "Property " + param.propertyName + " added to " + param.configurationName);
 		return true;
 	else
@@ -218,7 +214,6 @@ INSERT INTO O_TFR
 if(empty property)
 	create object instance property of Property;
 	relate property to self across R47;
-	relate self to property across R47;
 	property.setName(name: param.uniqueName);
 	property.setDescription(description: param.description);
 	LOG::LogInfo(message: "Property was added: " + property.getName() + " Description: " + property.getDescription());
@@ -317,9 +312,7 @@ if ( empty ri )
 	if( not_empty rc )
 		create object instance ri of RoomInstance;
 		relate ri to self across R48;
-		relate self to ri across R48;
 		relate ri to rc across R26;
-		relate rc to ri across R26;
 		ri.RoomInstance(name: param.name);
 		
 		LOG::LogInfo(message: "A room instance with name " + param.name + " and configuration " + param.roomConfigurationName + " was added.");
@@ -378,7 +371,6 @@ else
 	else
 		select any ownership related by roomConfig->Ownership[R12];
 		unrelate roomConfig from property across R12 using ownership;
-		unrelate property from roomConfig across R12 using ownership;
 		delete object instance ownership;
 		LOG::LogInfo(message: "Property " + param.propertyName + " removed from " + param.configurationName);
 		return true;
@@ -404,6 +396,81 @@ INSERT INTO O_TPARM
 	0,
 	'',
 	"1b9ec36f-368b-4efa-a474-f0c32988f312",
+	'');
+INSERT INTO O_TFR
+	VALUES ("0ff3eb63-b190-46fc-a4d3-9382c92e5f89",
+	"b1404731-4bdc-477f-ab49-48cf034fe57f",
+	'getAFreeRoomName',
+	'',
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	1,
+	'select any rc related by self->RoomConfiguration[R10] where
+	selected.name == param.roomConfiguration;
+	
+if( not_empty rc )
+	select many rooms related by rc->RoomInstance[R26];
+	assign date = TIM::current_date();  
+	
+	for each room in rooms 
+	
+		select any ci related by room->CheckIn[R25] where
+			selected.checkOutDate <= date;
+		if( empty ci )
+			return room.getName();
+		end if; 	
+	end for;	
+end if;
+
+return "<!error!>";',
+	1,
+	'',
+	"518306ee-8c1f-47c2-947f-e5250f3bfc38");
+INSERT INTO O_TPARM
+	VALUES ("06655019-82a2-4d17-9b68-dfe3753d3b85",
+	"0ff3eb63-b190-46fc-a4d3-9382c92e5f89",
+	'roomConfiguration',
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO O_TFR
+	VALUES ("a28d38c8-5831-4696-9d90-32e80bb59b67",
+	"b1404731-4bdc-477f-ab49-48cf034fe57f",
+	'getNrOfFreeRooms',
+	'',
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	1,
+	'select any rc related by self->RoomConfiguration[R10] where
+	selected.name == param.roomConfiguration;
+	
+assign counter = 0;
+if( not_empty rc )
+	select many rooms related by rc->RoomInstance[R26];
+	assign date = TIM::current_date();
+	
+	for each room in rooms 
+		  
+		select any ci related by room->CheckIn[R25] where
+			selected.checkOutDate <= date;
+		if( empty ci )
+			counter = counter + 1;
+		end if; 	
+	end for;	
+end if;
+
+return counter; ',
+	1,
+	'',
+	"0ff3eb63-b190-46fc-a4d3-9382c92e5f89");
+INSERT INTO O_TPARM
+	VALUES ("353c3ac2-4b21-4617-b923-7d04d9a938dd",
+	"a28d38c8-5831-4696-9d90-32e80bb59b67",
+	'roomConfiguration',
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
 	'');
 INSERT INTO O_NBATTR
 	VALUES ("1051e230-8dda-4370-b6d3-252916c053c2",
