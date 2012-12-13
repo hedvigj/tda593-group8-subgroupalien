@@ -93,6 +93,7 @@ select any lock related by lm -> Lock[R23] where selected.id == param.lock;
 if( not_empty lock )
 	create object instance booking of Booking;
 	relate booking to self across R20;
+	relate self to booking across R20;
 	booking.bookingId = self.getUniqueBookingId();
 	booking.setCreditcard(creditcard: param.creditcard);
 	booking.setPersonalInfo(personalInfo: param.personalInfo);
