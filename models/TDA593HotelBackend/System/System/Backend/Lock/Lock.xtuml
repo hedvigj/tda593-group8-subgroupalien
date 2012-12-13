@@ -53,7 +53,9 @@ while index < param.rcats.length
 	create object instance rcat of RoomConfigurationAmountTuple;
 	
 	relate rcat to self across R24;
+	relate self to rcat across R24;
 	relate rcat to rc across R28;
+	relate rc to rcat across R28;
 	
 	rcat.amount = param.rcats[index].amount;
 	
