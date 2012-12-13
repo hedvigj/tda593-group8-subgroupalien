@@ -844,7 +844,7 @@ INSERT INTO SM_ACT
 	1,
 	'self.setLock(lock: param.lock);
 // Set timeout timer
-create event instance bookingFailure of BookingController7:bookingFailure() to self;
+create event instance bookingFailure of BookingController7:bookingFailure(lockId: param.lock) to self;
 self.bankTimeoutTimer = TIM::timer_start(microseconds: 4000000, event_inst: bookingFailure);
 //Send creditcard to bank and wait for answer
 
