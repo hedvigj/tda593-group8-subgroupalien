@@ -291,6 +291,44 @@ INSERT INTO S_DT_PROXY
 	'',
 	'',
 	'../../../../Datatypes/Datatypes.xtuml');
+INSERT INTO O_TFR
+	VALUES ("a114b330-e866-4d60-b416-82dded3acbb8",
+	"9626466d-b088-4240-9b9e-cc44069b9de5",
+	'checkOut',
+	'',
+	"28114c36-aaba-4a92-b7c3-08f06e41c6a4",
+	1,
+	'select any booking related by self->Booking[R20] where
+	selected.bookingId == param.bookingId;
+
+if ( not_empty booking ) 
+
+	// Check that the booking is not already checked in
+	
+	select many checkInSet related by booking->CheckIn[R25];
+	
+	assign date = TIM::current_date();
+	
+	for each ci in checkInSet
+		ci.checkOutDate = date;
+	end for; 
+	
+	return true;
+end if;
+
+return false;',
+	1,
+	'',
+	"735f61e9-fcba-42a4-b1ff-40def0b41465");
+INSERT INTO O_TPARM
+	VALUES ("c18b9835-1e32-4c12-830a-c6f2bd8fdc2a",
+	"a114b330-e866-4d60-b416-82dded3acbb8",
+	'bookingId',
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
 INSERT INTO O_NBATTR
 	VALUES ("84bd106c-2ad8-4403-b701-388cafffc3a3",
 	"9626466d-b088-4240-9b9e-cc44069b9de5");
