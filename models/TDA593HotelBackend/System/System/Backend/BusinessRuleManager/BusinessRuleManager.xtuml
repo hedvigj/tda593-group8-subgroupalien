@@ -59,7 +59,7 @@ assign d = TIM::current_date();
 
 // Checks if startDate is today or in the future. Not a passed date
 
-if(d < param.timespan.startDate)
+if(d > param.timespan.startDate)
 	LOG::LogInfo(message: "startDate has passed");
 	return false;
 end if;

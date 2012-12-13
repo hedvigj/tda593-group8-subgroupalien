@@ -193,7 +193,8 @@ INSERT INTO SM_ACT
 // Check that no buiness roles is violated
 select any businessruleManager from instances of BusinessRuleManager;
 assign isOk = businessruleManager.checkBookingRules(rcats: param.rcats , timespan: param.timespan);
- 
+// assign isOk = true;
+
 // get the calling booking controller
 select any bookingController from instances of BookingController;
 		//where selected.sessionId == sessionId;
@@ -286,7 +287,7 @@ if(isOk)
 	end if;		
 end if;
 
-// If the booking somehow failed
+// If the booking somehow d
 if ( isOk == false )
 	LOG::LogInfo(message: "Failed: to add new lock");
 	generate BookingController6:lockingFailure() to bookingController;
