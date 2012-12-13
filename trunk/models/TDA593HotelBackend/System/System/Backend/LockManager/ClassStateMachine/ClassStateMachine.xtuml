@@ -191,18 +191,15 @@ INSERT INTO SM_ACT
 	'
 
 // Check that no buiness roles is violated
-//select any businessruleManager from instances of BusinessRuleManager;
-//assign isOk = businessruleManager.checkCustomerBookingRules(tupleList, timespan);
-
+select any businessruleManager from instances of BusinessRuleManager;
+assign isOk = businessruleManager.checkBookingRules(rcats: param.rcats , timespan: param.timespan);
+ 
 // get the calling booking controller
 select any bookingController from instances of BookingController;
 		//where selected.sessionId == sessionId;
 if( empty bookingController )
 	create object instance bookingController of BookingController;
 end if;
-
-
-assign isOk = true;
 
 // Only allowed to be one of each room configuration and amount > 0
 assign index = 0;
