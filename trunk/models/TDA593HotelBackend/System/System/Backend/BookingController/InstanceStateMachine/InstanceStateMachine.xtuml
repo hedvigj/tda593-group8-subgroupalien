@@ -876,7 +876,7 @@ if(param.value == true)
 	assign value = bookingManager.createBooking(creditcard: self.creditcard, personalInfo: self.personalInfo, timespan: self.timespan, lock: self.lock);
 	generate BookingController5: finished(booking: value) to self;
 else
-	generate BookingController7: bookingFailure() to self;
+	generate BookingController7: bookingFailure(lockId: self.lock) to self;
 end if;
 ',
 	'');
