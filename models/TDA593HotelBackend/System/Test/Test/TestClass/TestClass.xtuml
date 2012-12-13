@@ -84,9 +84,9 @@ INSERT INTO O_TFR
 	'',
 	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
 	0,
-	'assign date = TIM::create_date(year: 1990, month: 12, day: 18, hour: 03, minute: 30, second: 30);
-assign sDate = TIM::create_date(year: 1990, month: 12, day: 18, hour: 03, minute: 30, second: 30);
-assign eDate = TIM::create_date(year: 1993, month: 12, day: 18, hour: 03, minute: 30, second: 10);
+	'assign date = TIM::create_date(year: 2013, month: 12, day: 18, hour: 03, minute: 30, second: 30);
+assign sDate = TIM::create_date(year: 2013, month: 4, day: 18, hour: 03, minute: 30, second: 30);
+assign eDate = TIM::create_date(year: 2013, month: 4, day: 19, hour: 03, minute: 30, second: 10);
 assign card = ::createCreditcard(name: "ERIK FACE", cvcNr: 123, creditcardNr: 321, validDate: date);
 assign personalInfo = ::createPersonalInfo(firstName: "ERIK", lastName: "FACE", adress: "Street 101", email: "eric@something.com", phoneNr: "11312411");
 assign tuples = ::createRoomConfigurationAmountTuples();
@@ -157,6 +157,58 @@ INSERT INTO S_DT_PROXY
 	'',
 	'',
 	'../../../../Datatypes/Datatypes.xtuml');
+INSERT INTO O_TFR
+	VALUES ("5cb6fb97-2cf2-45b8-b2c3-5065eb3a67a6",
+	"32458e6c-09c1-479e-9d59-28cc2362f085",
+	'checkOut1',
+	'',
+	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
+	1,
+	'assign bookingId = 1;
+send Port1::checkOut(bookingId: bookingId);
+',
+	1,
+	'',
+	"5af6bf08-b3fe-4af3-a6ee-f45e1fefca88");
+INSERT INTO O_TFR
+	VALUES ("a828cc13-9115-406f-b7a3-5afc094f4a1b",
+	"32458e6c-09c1-479e-9d59-28cc2362f085",
+	'checkOut2',
+	'',
+	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
+	0,
+	'assign bookingId = 2;
+send Port1::checkOut(bookingId: bookingId);
+',
+	1,
+	'',
+	"5cb6fb97-2cf2-45b8-b2c3-5065eb3a67a6");
+INSERT INTO O_TFR
+	VALUES ("aacc95b0-6785-4e99-8759-a027984e69d5",
+	"32458e6c-09c1-479e-9d59-28cc2362f085",
+	'checkIn2',
+	'',
+	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
+	0,
+	'assign bookingId = 2;
+send Port1::checkIn(bookingId: bookingId);
+',
+	1,
+	'',
+	"a828cc13-9115-406f-b7a3-5afc094f4a1b");
+INSERT INTO O_TFR
+	VALUES ("0eeea9ea-f64b-4d62-af33-7f0365efb1a3",
+	"32458e6c-09c1-479e-9d59-28cc2362f085",
+	'checkIn1',
+	'',
+	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
+	0,
+	'assign bookingId = 1;
+send Port1::checkIn(bookingId: bookingId);
+',
+	1,
+	'',
+	"aacc95b0-6785-4e99-8759-a027984e69d5");
 INSERT INTO O_NBATTR
 	VALUES ("83f623e0-f94e-4c47-a8fd-c6f31c1cbab1",
 	"32458e6c-09c1-479e-9d59-28cc2362f085");
