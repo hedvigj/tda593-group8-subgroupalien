@@ -25,12 +25,15 @@ if( not_empty lock)
 		select one rc related by rcat->RoomConfiguration[R28];
 	
 		unrelate rc from rcat across R28;
+		unrelate rcat from rc across R28;
 		unrelate rcat from lock across R24;
+		unrelate lock from rcat across R24;
 		delete object instance rcat; 
 	
 	end for;
 
 	unrelate lock from self across R23;
+	unrelate self from lock across R23;
 
 	delete object instance lock;
 	
@@ -136,54 +139,6 @@ return self.uniqueLockIdCounter;',
 	1,
 	'',
 	"31b87c18-6208-444f-84a2-8317d75cfd59");
-INSERT INTO O_TFR
-	VALUES ("0b422c37-8b89-46a5-9fc6-568978ea97ed",
-	"676dbe4e-109f-49d7-af51-5ec2153af55b",
-	'deleteTempLock',
-	'',
-	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
-	1,
-	'select any tempLock related by self->TempLock[R46] where selected.id == param.tempLockId;
-
-if( not_empty tempLock )
-	unrelate tempLock from self across R46;
-	
-	select many rcats related by tempLock->RoomConfigurationAmountTuple[R44];
-	for each rcat in rcats 
-		select one lock related by rcat->Lock[R24];
-		
-		unrelate rcat from tempLock across R44;
-		
-		if( empty lock )
-			select one rc related by rcat->RoomConfiguration[R28];
-			unrelate rcat from rc across R28;
-			// No connection, no need to keep it
-			delete object instance rcat;
-		end if;
-	end for;
-	
-	delete object instance tempLock;
-end if;
-',
-	1,
-	'',
-	"0f63f33c-1c30-41d8-9a0a-256cd9c8d598");
-INSERT INTO O_TPARM
-	VALUES ("a3a8e101-00bc-4249-bf46-2b3543af319c",
-	"0b422c37-8b89-46a5-9fc6-568978ea97ed",
-	'tempLockId',
-	"5f77c811-d46b-4197-a574-4b3505e92410",
-	0,
-	'',
-	"00000000-0000-0000-0000-000000000000",
-	'');
-INSERT INTO S_DT_PROXY
-	VALUES ("233e7f8d-a875-4812-a4c3-4ced8b823e83",
-	"00000000-0000-0000-0000-000000000000",
-	'void',
-	'',
-	'',
-	'../../../../Datatypes/Datatypes.xtuml');
 INSERT INTO O_NBATTR
 	VALUES ("5092337b-cf1d-4a62-85d0-e1f59c4fb5c4",
 	"676dbe4e-109f-49d7-af51-5ec2153af55b");
