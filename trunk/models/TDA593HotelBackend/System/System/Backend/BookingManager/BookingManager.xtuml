@@ -106,6 +106,7 @@ if( not_empty lock )
 		
 		create object instance reservation of Reservation; 
 		relate booking to rc across R15 using reservation;
+		relate rc to booking across R15 using reservation;
 		
 		reservation.amount = rcat.amount;
 	end for;
