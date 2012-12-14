@@ -204,10 +204,12 @@ INSERT INTO SM_ACT
 		LOG::LogInfo(message: "roomManager was created in lockingRoomState of LockManager");
 	end if;
 
-// Check that no buiness roles is violated
+// Check that no buiness rules are violated
 select any businessruleManager from instances of BusinessRuleManager;
 assign isOk = businessruleManager.checkBookingRules(rcats: param.rcats , timespan: param.timespan);
-// assign isOk = true;
+if (isOk)
+	LOG::LogInfo(message: "Business rule violation, so will not lock.");
+end if;
 
 // get the calling booking controller
 select any bookingController from instances of BookingController;
@@ -224,6 +226,7 @@ while index < param.rcats.length
 		if(param.rcats[index].configuration == param.rcats[index2].configuration)
 			// Found two of the same room configuration
 			isOk = false;
+			LOG::LogInfo(message: "Array of RoomConfigurationTuples contained a RoomConfiguration more than once: will not lock");
 		end if;
 		index2 = index2 + 1;
 	end while;
@@ -231,6 +234,7 @@ while index < param.rcats.length
 	// amount is not allowed to be <= 0
 	if( param.rcats[index].amount <= 0 )
 		isOk = false;
+		LOG::LogInfo(message: "Amount of " + param.rcats[index].configuration + " to be locked was less than zero: will not lock");
 	end if;
 	
 			select any rc related by roomManager->RoomConfiguration[R10] where
@@ -246,7 +250,7 @@ while index < param.rcats.length
 	index = index + 1;
 end while;
 
-// No violations to the buissness rules
+// No violations to the business rules or other violations
 if(isOk)
 	assign index = 0;
 	while index < param.rcats.length
@@ -295,9 +299,9 @@ if(isOk)
 	end if;		
 end if;
 
-// If the booking somehow d
+// If the booking somehow failed
 if (not isOk)
-	LOG::LogInfo(message: "Failed: to add new lock");
+	LOG::LogInfo(message: "Failed to add new lock");
 	generate BookingController6:lockingFailure() to bookingController;
 end if;
 
