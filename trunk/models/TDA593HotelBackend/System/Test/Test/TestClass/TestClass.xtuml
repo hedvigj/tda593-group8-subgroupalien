@@ -91,7 +91,7 @@ assign card = ::createCreditcard(name: "ERIK FACE", cvcNr: 123, creditcardNr: 32
 assign personalInfo = ::createPersonalInfo(firstName: "ERIK", lastName: "FACE", adress: "Street 101", email: "eric@something.com", phoneNr: "11312411");
 assign tuples = ::createRoomConfigurationAmountTuples();
 assign tuples[0] = ::createTuple(configuration: "0x10", amount: 2);
-assign tuples[1] = ::createTuple(configuration: "0x20", amount: 1);
+assign tuples[1] = ::createTuple(configuration: "0x30", amount: 1);
 assign timespan = ::createTimeSpan(startDate: sDate, endDate: eDate);
 send Port1::book(timespan: timespan, creditcard: card, personalInfo: personalInfo, roomConfigurationAmountTuples: tuples);',
 	1,

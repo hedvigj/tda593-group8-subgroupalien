@@ -188,7 +188,21 @@ INSERT INTO SM_ACT
 	VALUES ("98020933-e56e-4a3f-be4a-45a473770782",
 	"cf0bd93f-b62b-4b86-8d31-34eb53f2642c",
 	1,
-	'
+	'select any lockManager from instances of LockManager;
+	select any bookingManager from instances of BookingManager;
+	select any roomManager from instances of RoomManager;
+	if(empty bookingManager)
+		create object instance bookingManager of BookingManager;
+		LOG::LogInfo(message: "bookingManager was created in lockingRoomState of LockManager");
+	end if;
+	if(empty lockManager)
+		create object instance lockManager of LockManager;
+		LOG::LogInfo(message: "lockManager was created in lockingRoomState of LockManager");
+	end if;
+	if(empty roomManager) 
+		create object instance roomManager of RoomManager;
+		LOG::LogInfo(message: "roomManager was created in lockingRoomState of LockManager");
+	end if;
 
 // Check that no buiness roles is violated
 select any businessruleManager from instances of BusinessRuleManager;
@@ -213,33 +227,27 @@ while index < param.rcats.length
 		end if;
 		index2 = index2 + 1;
 	end while;
-	
+		
 	// amount is not allowed to be <= 0
 	if( param.rcats[index].amount <= 0 )
 		isOk = false;
 	end if;
 	
+			select any rc related by roomManager->RoomConfiguration[R10] where
+			selected.name == param.rcats[index].configuration; 
+		if(empty rc)
+			LOG::LogInfo(message: "RoomConfiguration " + param.rcats[index].configuration + " does not exist, so can''t lock instances of it.");
+			isOk = false;
+		elif(not rc.isEnabled())
+			LOG::LogInfo(message: "RoomConfiguration " + param.rcats[index].configuration + " is disabled, so can''t lock instances of it.");
+			isOk = false;
+		end if;
+	
 	index = index + 1;
 end while;
 
-// No violations to the buissness roles
+// No violations to the buissness rules
 if(isOk)
-	select any lockManager from instances of LockManager;
-	select any bookingManager from instances of BookingManager;
-	select any roomManager from instances of RoomManager;
-	if(empty bookingManager)
-		create object instance bookingManager of BookingManager;
-		LOG::LogInfo(message: "bookingManager was created in lockingRoomState of LockManager");
-	end if;
-	if(empty lockManager)
-		create object instance lockManager of LockManager;
-		LOG::LogInfo(message: "lockManager was created in lockingRoomState of LockManager");
-	end if;
-	if(empty roomManager) 
-		create object instance roomManager of RoomManager;
-		LOG::LogInfo(message: "roomManager was created in lockingRoomState of LockManager");
-	end if;
-	
 	assign index = 0;
 	while index < param.rcats.length
 		select any rc related by roomManager->RoomConfiguration[R10] where
@@ -288,7 +296,7 @@ if(isOk)
 end if;
 
 // If the booking somehow d
-if ( isOk == false )
+if (not isOk)
 	LOG::LogInfo(message: "Failed: to add new lock");
 	generate BookingController6:lockingFailure() to bookingController;
 end if;
