@@ -395,7 +395,7 @@ INSERT INTO SM_STATE
 	"00000000-0000-0000-0000-000000000000",
 	'complete',
 	7,
-	1);
+	0);
 INSERT INTO SM_CH
 	VALUES ("6c34ad9c-3b93-4182-b644-ca880c7bed45",
 	"909509f7-3dbf-4e28-95e0-220973368a32",
@@ -440,7 +440,7 @@ INSERT INTO SM_SEME
 	"1a997f8e-a6a4-4503-84c4-b67259552801",
 	"f187b272-95a2-4b59-9e4c-eaa9d069b0b8",
 	"00000000-0000-0000-0000-000000000000");
-INSERT INTO SM_CH
+INSERT INTO SM_EIGN
 	VALUES ("6c34ad9c-3b93-4182-b644-ca880c7bed45",
 	"49179956-4790-40c6-a2e2-c63805e54085",
 	"f187b272-95a2-4b59-9e4c-eaa9d069b0b8",
@@ -557,7 +557,7 @@ INSERT INTO SM_ACT
 	"f187b272-95a2-4b59-9e4c-eaa9d069b0b8",
 	1,
 	'assign self.testIndex = self.testIndex + 1;
-assign maxIndex = 0;
+assign maxIndex = 3;
 
 if(self.testIndex > maxIndex)
 	generate TestClass8:testsComplete to self;
@@ -575,6 +575,18 @@ else
 	*/
 	if(self.testIndex == 0)
 		self.assertSuccess = true;
+		TestClass::createBooking();
+	end if;
+	if(self.testIndex == 1)
+		self.assertSuccess = true;
+		TestClass::createBooking();
+	end if;
+	if(self.testIndex == 2)
+		self.assertSuccess = true;
+		TestClass::createBooking();
+	end if;
+	if(self.testIndex == 3)
+		self.assertSuccess = false;
 		TestClass::createBooking();
 	end if;
 	generate TestClass5:waitResult to self;
