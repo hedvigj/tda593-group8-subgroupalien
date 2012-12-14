@@ -214,6 +214,7 @@ INSERT INTO O_TFR
 	"28114c36-aaba-4a92-b7c3-08f06e41c6a4",
 	1,
 	'LOG::LogInteger(message: param.bookingId); 
+
 select many bookings related by self->Booking[R20] where 
 	selected.bookingId == param.bookingId;
  
@@ -283,8 +284,8 @@ end for;
 return false;
 
 
-/*
 
+/*
 select any booking related by self->Booking[R20] where 
 	selected.bookingId == param.bookingId;
 	
@@ -343,8 +344,8 @@ if ( not_empty booking )
 	return true;
 end if;
 return false;
-
-*/',
+*/
+',
 	1,
 	'',
 	"4d5e7125-616f-405b-931d-98e014f4a7dd");

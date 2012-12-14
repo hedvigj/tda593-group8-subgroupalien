@@ -838,16 +838,12 @@ if (empty bookingManager)
 	
 else
 	
-	select any booking related by bookingManager->Booking[R20] where
-		selected.bookingId == param.bookingId;
+	assign dummy = bookingManager.checkIn(bookingId: param.bookingId );
 	
-	if ( not_empty booking ) 
-		assign dummy = bookingManager.checkIn(bookingId: param.bookingId );
-		
-		if( dummy == false )
-			LOG::LogInfo(message: "Checking in failed!");
-		end if;
+	if( dummy == false )
+		LOG::LogInfo(message: "Checking in failed!");
 	end if;
+	
 end if;
 
 generate BookingController_A4: finished to BookingController class;
