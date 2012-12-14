@@ -36,7 +36,7 @@ while index < param.rcats.length
 		end if;
 		index2 = index2 + 1;
 	end while;
-	
+	 
 	// amount is not allowed to be <= 0
 	if( param.rcats[index].amount <= 0 )
 		return false;
@@ -66,7 +66,7 @@ self.timespan = param.timespan;
 
 self.id = lm.getUniqueLockId();
 
-// Start timeout timer befor the lock is auto destoryed
+// Start timeout timer before the lock is auto-destroyed
 assign countdownTime = 900000000; // 15 min
 generate Lock1:setCountdown(microseconds: countdownTime) to self;
 
