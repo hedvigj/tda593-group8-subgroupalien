@@ -557,36 +557,30 @@ INSERT INTO SM_ACT
 	"f187b272-95a2-4b59-9e4c-eaa9d069b0b8",
 	1,
 	'assign self.testIndex = self.testIndex + 1;
-assign maxIndex = 3;
+assign self.maxIndex = 2;
 
-if(self.testIndex > maxIndex)
+if(self.testIndex > self.maxIndex)
 	generate TestClass8:testsComplete to self;
 else
 	/* 	# HOW TO ADD TESTS #
 		####################
-		> 1. Add the test using the following syntax
+		> 1. Add the test using the following syntax (insert the below before the end if;)
 			(use the highest current test index + 1 as <unique_test_index>):
 			--------------------------------------------------------------
-				if(self.testIndex == <unique_test_index>)
+				elif(self.testIndex == <unique_test_index>)
 					self.assertSuccess = <boolean_value>
 					<Do_testing_Stuff>
-				end if;
+				
 		> 2. Increment maxIndex in the top of the code.
 	*/
 	if(self.testIndex == 0)
 		self.assertSuccess = true;
 		TestClass::createBooking();
-	end if;
-	if(self.testIndex == 1)
+	elif(self.testIndex == 1)
 		self.assertSuccess = true;
 		TestClass::createBooking();
-	end if;
-	if(self.testIndex == 2)
+	elif(self.testIndex == 2)
 		self.assertSuccess = true;
-		TestClass::createBooking();
-	end if;
-	if(self.testIndex == 3)
-		self.assertSuccess = false;
 		TestClass::createBooking();
 	end if;
 	generate TestClass5:waitResult to self;
@@ -637,7 +631,8 @@ if(value)
 	LOG::LogReal(message: ": <--- ## SUCCESS ##: Test did pass!", r: self.testIndex);
 else
 	LOG::LogReal(message: ": <--- ## ERROR ##: Test did not pass!", r: self.testIndex);
-end if;',
+end if;
+assign self.testResults[self.testIndex] = value;',
 	'');
 INSERT INTO SM_TAH
 	VALUES ("2e8be599-2ae4-4684-9b4e-347b529af100",
@@ -689,7 +684,31 @@ INSERT INTO SM_ACT
 	VALUES ("b076a32e-c755-4022-a4d2-420f7ea444c7",
 	"f187b272-95a2-4b59-9e4c-eaa9d069b0b8",
 	1,
-	'TestClass::testLog(message: "Tests complete!");',
+	'assign index = 0;
+assign nr_of_failed = 0;
+assign failed[0] = -1;
+while(index <= self.maxIndex)
+	assign success = self.testResults[index];
+	if (not success)
+		assign nr_of_failed = nr_of_failed + 1;
+		assign failed[nr_of_failed-1] = index;
+	end if;
+	assign index = index + 1;
+end while;
+TestClass::testLog(message: "Tests complete!");
+LOG::LogReal(r: (index - nr_of_failed), message: " tests succeeded");
+if (nr_of_failed > 0)
+	LOG::LogReal(r: nr_of_failed, message: " tests failed");
+	LOG::LogInfo(message: "The tests that failed were:");
+	assign index2 = 0;
+	while(index2 < nr_of_failed)
+		LOG::LogReal(r: failed[index2], message: " failed");
+		assign index2 = index2 + 1;
+	end while;
+else
+	LOG::LogInfo(message: "no tests failed");
+end if;
+',
 	'');
 INSERT INTO SM_TAH
 	VALUES ("59bc1eb3-237f-4ff9-891c-7993c2f19c83",
