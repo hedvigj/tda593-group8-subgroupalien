@@ -580,7 +580,7 @@ else
 		self.assertSuccess = true;
 		TestClass::createBooking();
 	elif(self.testIndex == 2)
-		self.assertSuccess = true;
+		self.assertSuccess = false; //Business rule violation: we now attempt to book more than 8 rooms
 		TestClass::createBooking();
 	end if;
 	generate TestClass5:waitResult to self;
