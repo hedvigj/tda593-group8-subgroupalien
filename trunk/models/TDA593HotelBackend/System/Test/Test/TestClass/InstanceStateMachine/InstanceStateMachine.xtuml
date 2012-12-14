@@ -369,28 +369,6 @@ INSERT INTO SM_SEME
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO SM_CH
 	VALUES ("e855dc65-7393-4679-ba6b-0b532415fb49",
-	"c26becf8-c878-4e81-85fd-b6517dd6a27a",
-	"f187b272-95a2-4b59-9e4c-eaa9d069b0b8",
-	"00000000-0000-0000-0000-000000000000",
-	'');
-INSERT INTO SM_SEME
-	VALUES ("e855dc65-7393-4679-ba6b-0b532415fb49",
-	"c26becf8-c878-4e81-85fd-b6517dd6a27a",
-	"f187b272-95a2-4b59-9e4c-eaa9d069b0b8",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO SM_CH
-	VALUES ("e855dc65-7393-4679-ba6b-0b532415fb49",
-	"909509f7-3dbf-4e28-95e0-220973368a32",
-	"f187b272-95a2-4b59-9e4c-eaa9d069b0b8",
-	"00000000-0000-0000-0000-000000000000",
-	'');
-INSERT INTO SM_SEME
-	VALUES ("e855dc65-7393-4679-ba6b-0b532415fb49",
-	"909509f7-3dbf-4e28-95e0-220973368a32",
-	"f187b272-95a2-4b59-9e4c-eaa9d069b0b8",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO SM_CH
-	VALUES ("e855dc65-7393-4679-ba6b-0b532415fb49",
 	"49179956-4790-40c6-a2e2-c63805e54085",
 	"f187b272-95a2-4b59-9e4c-eaa9d069b0b8",
 	"00000000-0000-0000-0000-000000000000",
@@ -460,28 +438,6 @@ INSERT INTO SM_CH
 INSERT INTO SM_SEME
 	VALUES ("6c34ad9c-3b93-4182-b644-ca880c7bed45",
 	"1a997f8e-a6a4-4503-84c4-b67259552801",
-	"f187b272-95a2-4b59-9e4c-eaa9d069b0b8",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO SM_CH
-	VALUES ("6c34ad9c-3b93-4182-b644-ca880c7bed45",
-	"c26becf8-c878-4e81-85fd-b6517dd6a27a",
-	"f187b272-95a2-4b59-9e4c-eaa9d069b0b8",
-	"00000000-0000-0000-0000-000000000000",
-	'');
-INSERT INTO SM_SEME
-	VALUES ("6c34ad9c-3b93-4182-b644-ca880c7bed45",
-	"c26becf8-c878-4e81-85fd-b6517dd6a27a",
-	"f187b272-95a2-4b59-9e4c-eaa9d069b0b8",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO SM_CH
-	VALUES ("6c34ad9c-3b93-4182-b644-ca880c7bed45",
-	"909509f7-3dbf-4e28-95e0-220973368a32",
-	"f187b272-95a2-4b59-9e4c-eaa9d069b0b8",
-	"00000000-0000-0000-0000-000000000000",
-	'');
-INSERT INTO SM_SEME
-	VALUES ("6c34ad9c-3b93-4182-b644-ca880c7bed45",
-	"909509f7-3dbf-4e28-95e0-220973368a32",
 	"f187b272-95a2-4b59-9e4c-eaa9d069b0b8",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO SM_CH
@@ -608,10 +564,12 @@ else
 	/* 	TODO: Add more tests
 		Syntax:
 		if(self.testIndex == <unique_test_index>)
+			self.assertSuccess = <boolean_value>
 			<Do_testing_Stuff>
 		end if;
 	*/
 	if(self.testIndex == 0)
+		self.assertSuccess = true;
 		TestClass::createBooking();
 	end if;
 	generate TestClass5:waitResult to self;
@@ -654,10 +612,14 @@ INSERT INTO SM_ACT
 	VALUES ("55ff4d8b-1ec0-41e7-9c07-e838610746c2",
 	"f187b272-95a2-4b59-9e4c-eaa9d069b0b8",
 	1,
-	'if(param.success == false)
-	LOG::LogReal(message: ": <--- ## ERROR ##: Test did not pass!", r: self.testIndex);
-else
+	'assign value = param.success;
+if(self.assertSuccess == false)
+	assign value = not value;
+end if;
+if(value)
 	LOG::LogReal(message: ": <--- ## SUCCESS ##: Test did pass!", r: self.testIndex);
+else
+	LOG::LogReal(message: ": <--- ## ERROR ##: Test did not pass!", r: self.testIndex);
 end if;',
 	'');
 INSERT INTO SM_TAH
