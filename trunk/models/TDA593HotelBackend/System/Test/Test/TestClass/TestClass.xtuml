@@ -163,7 +163,7 @@ INSERT INTO O_TFR
 	'checkOut1',
 	'',
 	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
-	1,
+	0,
 	'assign bookingId = 1;
 send Port1::checkOut(bookingId: bookingId);
 ',
