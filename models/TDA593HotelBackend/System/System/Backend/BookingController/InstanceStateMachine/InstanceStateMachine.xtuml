@@ -899,10 +899,16 @@ INSERT INTO SM_ACT
 	VALUES ("3bd33b5c-5fd5-4a7e-819c-59d73bb9361a",
 	"d0511597-9e3d-4192-8f21-26cadd9ed8f7",
 	1,
-	'LOG::LogInfo(message: "Booking finished: ");
-LOG::LogInteger(message: param.booking);
+	'select one lockManager related by self -> LockManager[R22];
+if(empty lockManager)
+	create object instance lockManager of LockManager;
+	relate lockManager to self across R22;
+	LOG::LogInfo(message: "Created a LockManager");
+end if;
+assign ret = lockManager.removeLock(lockId: self.lock);
 send Port1::returnBooking(bookingId: param.booking);
-',
+LOG::LogInfo(message: "Booking finished: ");
+LOG::LogInteger(message: param.booking);',
 	'');
 INSERT INTO SM_TAH
 	VALUES ("85bffcff-d47d-4977-ae62-2acf2a3d8ac5",
@@ -928,7 +934,7 @@ INSERT INTO SM_ACT
 	VALUES ("44a85806-20d6-4c1a-9d5d-44d819ca017d",
 	"d0511597-9e3d-4192-8f21-26cadd9ed8f7",
 	1,
-	'select any lockManager from instances of LockManager;
+	'select one lockManager related by self -> LockManager[R22];
 if(empty lockManager)
 	create object instance lockManager of LockManager;
 	relate lockManager to self across R22;

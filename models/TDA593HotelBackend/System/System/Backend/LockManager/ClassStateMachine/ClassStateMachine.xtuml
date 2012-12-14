@@ -204,10 +204,10 @@ INSERT INTO SM_ACT
 		LOG::LogInfo(message: "roomManager was created in lockingRoomState of LockManager");
 	end if;
 
-// Check that no buiness rules are violated
+// Check that no business rules are violated
 select any businessruleManager from instances of BusinessRuleManager;
 assign isOk = businessruleManager.checkBookingRules(rcats: param.rcats , timespan: param.timespan);
-if (isOk)
+if (not isOk)
 	LOG::LogInfo(message: "Business rule violation, so will not lock.");
 end if;
 
@@ -267,6 +267,7 @@ if(isOk)
 			roomConfigurationName: rc.getName()); 
 		
 		if(locked+booked+param.rcats[index].amount > rooms)
+			LOG::LogInfo(message: "No available rooms");
 			isOk = false;
 			break;
 		end if;
