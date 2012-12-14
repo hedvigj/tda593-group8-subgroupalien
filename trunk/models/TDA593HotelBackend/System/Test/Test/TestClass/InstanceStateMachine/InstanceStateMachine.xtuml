@@ -557,16 +557,21 @@ INSERT INTO SM_ACT
 	"f187b272-95a2-4b59-9e4c-eaa9d069b0b8",
 	1,
 	'assign self.testIndex = self.testIndex + 1;
+assign maxIndex = 0;
 
-if(self.testIndex > self.maxIndex)
+if(self.testIndex > maxIndex)
 	generate TestClass8:testsComplete to self;
 else
-	/* 	TODO: Add more tests
-		Syntax:
-		if(self.testIndex == <unique_test_index>)
-			self.assertSuccess = <boolean_value>
-			<Do_testing_Stuff>
-		end if;
+	/* 	# HOW TO ADD TESTS #
+		####################
+		> 1. Add the test using the following syntax
+			(use the highest current test index + 1 as <unique_test_index>):
+			--------------------------------------------------------------
+				if(self.testIndex == <unique_test_index>)
+					self.assertSuccess = <boolean_value>
+					<Do_testing_Stuff>
+				end if;
+		> 2. Increment maxIndex in the top of the code.
 	*/
 	if(self.testIndex == 0)
 		self.assertSuccess = true;
