@@ -1017,7 +1017,7 @@ if(empty lockManager)
 	LOG::LogInfo(message: "Created a LockManager");
 end if;
 
-generate LockManager_A1:lock(timespan: param.timespan, rcats: param.rcats) to LockManager class;
+generate LockManager_A1:lock(timespan: param.timespan, rcats: param.rcats, sessionId: self.sessionId) to LockManager class;
 
 
 ',
