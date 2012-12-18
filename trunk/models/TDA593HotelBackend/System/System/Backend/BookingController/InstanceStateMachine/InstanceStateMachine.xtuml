@@ -44,7 +44,7 @@ INSERT INTO S_DT_PROXY
 INSERT INTO SM_EVTDI
 	VALUES ("f177a9ee-17b9-4cfb-a1ee-7282e97fb29e",
 	"d0511597-9e3d-4192-8f21-26cadd9ed8f7",
-	'booking',
+	'bookingId',
 	'',
 	"5f77c811-d46b-4197-a574-4b3505e92410",
 	'',
@@ -1174,8 +1174,12 @@ end if;
 LOG::LogInfo(message: "Bank finish");
 
 if(param.value == true)
-	assign value = bookingManager.createBooking(creditcard: self.creditcard, personalInfo: self.personalInfo, lock: self.lock);
-	generate BookingController5: finished(booking: value) to self;
+	assign bookingId = bookingManager.createBooking(creditcard: self.creditcard, personalInfo: self.personalInfo, lock: self.lock);
+	if(bookingId >= 1)
+		generate BookingController5: finished(bookingId: bookingId) to self;
+	else
+		generate BookingController7: bookingFailure() to self;
+	end if;
 else
 	generate BookingController7: bookingFailure() to self;
 end if;
@@ -1211,9 +1215,9 @@ if(empty lockManager)
 	LOG::LogInfo(message: "Created a LockManager");
 end if;
 assign ret = lockManager.removeLock(lockId: self.lock);
-send Port1::returnBooking(sessionId: self.sessionId, bookingId: param.booking);
+send Port1::returnBooking(sessionId: self.sessionId, bookingId: param.bookingId);
 LOG::LogInfo(message: "Booking finished (and session terminated): ");
-LOG::LogInteger(message: param.booking);',
+LOG::LogInteger(message: param.bookingId);',
 	'');
 INSERT INTO SM_TAH
 	VALUES ("85bffcff-d47d-4977-ae62-2acf2a3d8ac5",
@@ -1352,7 +1356,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("5c40eeb8-4e4b-440b-acb3-c0e6f86c0629",
 	"d0511597-9e3d-4192-8f21-26cadd9ed8f7",
-	3,
+	1,
 	'',
 	'');
 INSERT INTO GD_MD
