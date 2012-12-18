@@ -14,32 +14,33 @@ INSERT INTO O_TFR
 	'',
 	"28114c36-aaba-4a92-b7c3-08f06e41c6a4",
 	1,
-	'select any lock related by self->Lock[R23] where selected.id == param.lockId;
+	'select many locks related by self->Lock[R23];// where selected.id == param.lockId;
+for each lock in locks
 
-if( not_empty lock)
-	select many rcats related by lock->RoomConfigurationAmountTuple[R24];
+	if(lock.id == param.lockId)
+		select many rcats related by lock->RoomConfigurationAmountTuple[R24];
+		
+		assign dummy = TIM::timer_cancel (timer_inst_ref: lock.destroyTimer);
 	
-	assign dummy = TIM::timer_cancel (timer_inst_ref: lock.destroyTimer);
-
-	for each rcat in rcats
-		select one rc related by rcat->RoomConfiguration[R28];
+		for each rcat in rcats
+			select one rc related by rcat->RoomConfiguration[R28];
+		
+			unrelate rc from rcat across R28;
+			unrelate rcat from rc across R28;
+			unrelate rcat from lock across R24;
+			unrelate lock from rcat across R24;
+			delete object instance rcat; 
+		
+		end for;
 	
-		unrelate rc from rcat across R28;
-		unrelate rcat from rc across R28;
-		unrelate rcat from lock across R24;
-		unrelate lock from rcat across R24;
-		delete object instance rcat; 
+		unrelate lock from self across R23;
+		unrelate self from lock across R23;
 	
-	end for;
-
-	unrelate lock from self across R23;
-	unrelate self from lock across R23;
-
-	delete object instance lock;
-	
-	return true;
-end if;
-
+		delete object instance lock;
+		
+		return true;
+	end if;
+end for;
 return false;',
 	1,
 	'',
