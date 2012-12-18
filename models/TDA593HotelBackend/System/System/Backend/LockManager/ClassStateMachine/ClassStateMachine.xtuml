@@ -60,6 +60,22 @@ INSERT INTO S_DT_PROXY
 	'',
 	'',
 	'../../../../../BackendDatatypes/BackendDatatypes.xtuml');
+INSERT INTO SM_EVTDI
+	VALUES ("d551fd2c-2a97-42da-b168-5c5f6b04d935",
+	"cf0bd93f-b62b-4b86-8d31-34eb53f2642c",
+	'sessionId',
+	'',
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	'',
+	"b7f63a98-c6f8-4ca9-acbe-c6d19f8c732b",
+	"95dfe089-bcfe-41d8-8484-94142bee5121");
+INSERT INTO S_DT_PROXY
+	VALUES ("5f77c811-d46b-4197-a574-4b3505e92410",
+	"00000000-0000-0000-0000-000000000000",
+	'integer',
+	'',
+	'',
+	'../../../../../Datatypes/Datatypes.xtuml');
 INSERT INTO SM_LEVT
 	VALUES ("b7f63a98-c6f8-4ca9-acbe-c6d19f8c732b",
 	"cf0bd93f-b62b-4b86-8d31-34eb53f2642c",
@@ -214,43 +230,46 @@ if (not isOk)
 end if;
 
 // get the calling booking controller
-select any bookingController from instances of BookingController;
-		//where selected.sessionId == sessionId;
+select any bookingController from instances of BookingController where 
+	selected.sessionId == param.sessionId;
 if( empty bookingController )
-	create object instance bookingController of BookingController;
+	LOG::LogInfo(message: "No booking controller with that id was found in LockManager:lockingRoom");
+	return;
 end if;
 
-// Only allowed to be one of each room configuration and amount > 0
-assign index = 0;
-while index < param.rcats.length
-	assign index2 = index + 1;
-	while index2 < param.rcats.length
-		if(param.rcats[index].configuration == param.rcats[index2].configuration)
-			// Found two of the same room configuration
+if(isOk == true)
+	// Only allowed to be one of each room configuration and amount > 0
+	assign index = 0;
+	while index < param.rcats.length
+		assign index2 = index + 1;
+		while index2 < param.rcats.length
+			if(param.rcats[index].configuration == param.rcats[index2].configuration)
+				// Found two of the same room configuration
+				isOk = false;
+				LOG::LogInfo(message: "Array of RoomConfigurationTuples contained a RoomConfiguration more than once: will not lock");
+			end if;
+			index2 = index2 + 1;
+		end while;
+			
+		// amount is not allowed to be <= 0
+		if( param.rcats[index].amount <= 0 )
 			isOk = false;
-			LOG::LogInfo(message: "Array of RoomConfigurationTuples contained a RoomConfiguration more than once: will not lock");
+			LOG::LogInfo(message: "Amount of " + param.rcats[index].configuration + " to be locked was less than zero: will not lock");
 		end if;
-		index2 = index2 + 1;
-	end while;
 		
-	// amount is not allowed to be <= 0
-	if( param.rcats[index].amount <= 0 )
-		isOk = false;
-		LOG::LogInfo(message: "Amount of " + param.rcats[index].configuration + " to be locked was less than zero: will not lock");
-	end if;
-	
-			select any rc related by roomManager->RoomConfiguration[R10] where
-			selected.name == param.rcats[index].configuration; 
-		if(empty rc)
-			LOG::LogInfo(message: "RoomConfiguration " + param.rcats[index].configuration + " does not exist, so can''t lock instances of it.");
-			isOk = false;
-		elif(not rc.isEnabled())
-			LOG::LogInfo(message: "RoomConfiguration " + param.rcats[index].configuration + " is disabled, so can''t lock instances of it.");
-			isOk = false;
-		end if;
-	
-	index = index + 1;
-end while;
+				select any rc related by roomManager->RoomConfiguration[R10] where
+				selected.name == param.rcats[index].configuration; 
+			if(empty rc)
+				LOG::LogInfo(message: "RoomConfiguration " + param.rcats[index].configuration + " does not exist, so can''t lock instances of it.");
+				isOk = false;
+			elif(not rc.isEnabled())
+				LOG::LogInfo(message: "RoomConfiguration " + param.rcats[index].configuration + " is disabled, so can''t lock instances of it.");
+				isOk = false;
+			end if;
+		
+		index = index + 1;
+	end while;
+end if;
 
 // No violations to the business rules or other violations
 if(isOk)
