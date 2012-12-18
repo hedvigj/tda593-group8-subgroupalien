@@ -86,6 +86,58 @@ generate TestClass7:next to tc;',
 	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
 	1,
 	'');
+INSERT INTO S_FIP
+	VALUES ("8c7f0eb1-4ef5-448e-bf73-7c1e73d6d7e0",
+	"eb216a24-7d9d-433c-8c5b-a981ba19677a");
+INSERT INTO S_SYNC
+	VALUES ("eb216a24-7d9d-433c-8c5b-a981ba19677a",
+	"44fbb79c-2243-41c0-b500-e1a8c72e3dd6",
+	'Lock',
+	'',
+	'assign sDate = TIM::create_date(year: 2013, month: 4, day: 18, hour: 03, minute: 30, second: 30);
+assign eDate = TIM::create_date(year: 2013, month: 4, day: 19, hour: 03, minute: 30, second: 10);
+assign tuples = ::createRoomConfigurationAmountTuples();
+assign tuples[0] = ::createTuple(configuration: "0x10", amount: 2);
+assign tuples[1] = ::createTuple(configuration: "0x30", amount: 1);
+assign timespan = ::createTimeSpan(startDate: sDate, endDate: eDate);
+send Port1::lock(timespan: timespan, rcats: tuples);',
+	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
+	1,
+	'');
+INSERT INTO S_FIP
+	VALUES ("8c7f0eb1-4ef5-448e-bf73-7c1e73d6d7e0",
+	"189f21ad-d65f-4284-b74e-9789c59230b4");
+INSERT INTO S_SYNC
+	VALUES ("189f21ad-d65f-4284-b74e-9789c59230b4",
+	"44fbb79c-2243-41c0-b500-e1a8c72e3dd6",
+	'Book',
+	'',
+	'assign date = TIM::create_date(year: 2013, month: 12, day: 18, hour: 03, minute: 30, second: 30);
+assign card = ::createCreditcard(name: "ERIK FACE", cvcNr: 123, creditcardNr: 321, validDate: date);
+assign personalInfo = ::createPersonalInfo(firstName: "ERIK", lastName: "FACE", adress: "Street 101", email: "eric@something.com", phoneNr: "11312411");
+
+send Port1::book(sessionId: 1, personalInfo: personalInfo, creditcard:card);
+',
+	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
+	1,
+	'');
+INSERT INTO S_FIP
+	VALUES ("8c7f0eb1-4ef5-448e-bf73-7c1e73d6d7e0",
+	"a2a7bbb4-10f1-4019-8672-238ce24c76bc");
+INSERT INTO S_SYNC
+	VALUES ("a2a7bbb4-10f1-4019-8672-238ce24c76bc",
+	"44fbb79c-2243-41c0-b500-e1a8c72e3dd6",
+	'Book2',
+	'',
+	'assign date = TIM::create_date(year: 2013, month: 12, day: 18, hour: 03, minute: 30, second: 30);
+assign card = ::createCreditcard(name: "ERIK FACE", cvcNr: 123, creditcardNr: 321, validDate: date);
+assign personalInfo = ::createPersonalInfo(firstName: "ERIK", lastName: "FACE", adress: "Street 101", email: "eric@something.com", phoneNr: "11312411");
+
+send Port1::book(sessionId: 2, personalInfo: personalInfo, creditcard:card);
+',
+	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
+	1,
+	'');
 INSERT INTO S_FPIP_PROXY
 	VALUES ("00ea2887-e9c6-4656-a9aa-aa1c83bcdfb2",
 	'../SuiteFunctions.xtuml');

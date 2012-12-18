@@ -177,11 +177,11 @@ INSERT INTO C_P
 	'Unnamed Interface',
 	'');
 INSERT INTO SPR_PEP
-	VALUES ("9282ccd4-db2f-4f71-86d2-128ef81a72d5",
+	VALUES ("fab0e929-72d3-4b2c-9abd-5645654e6ce8",
 	"38182bc1-77e4-478b-9b85-0f5846e0feb0",
 	"c31689d5-d8e6-4f8c-8d90-baa7076f224b");
 INSERT INTO SPR_PS
-	VALUES ("9282ccd4-db2f-4f71-86d2-128ef81a72d5",
+	VALUES ("fab0e929-72d3-4b2c-9abd-5645654e6ce8",
 	'returnFromBank',
 	'',
 	'',
@@ -193,11 +193,11 @@ INSERT INTO C_EP_PROXY
 	'returnFromBank',
 	'../../BankInterface/BankInterface/BankInterface.xtuml');
 INSERT INTO SPR_PEP
-	VALUES ("3aee670d-81ec-4f18-a0a4-b9b8e0798b1b",
+	VALUES ("5241838a-df93-4017-9a18-e9e8c960e008",
 	"9eb4b1b9-3950-438d-9edf-0caee2d06f4b",
 	"c31689d5-d8e6-4f8c-8d90-baa7076f224b");
 INSERT INTO SPR_PS
-	VALUES ("3aee670d-81ec-4f18-a0a4-b9b8e0798b1b",
+	VALUES ("5241838a-df93-4017-9a18-e9e8c960e008",
 	'toBank',
 	'',
 	'',
