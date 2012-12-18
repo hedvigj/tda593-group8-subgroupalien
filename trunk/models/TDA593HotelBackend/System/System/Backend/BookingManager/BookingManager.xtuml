@@ -81,7 +81,7 @@ INSERT INTO O_TFR
 	'',
 	"5f77c811-d46b-4197-a574-4b3505e92410",
 	1,
-	'select one bookingController related by self ->BookingController[R21];
+	'
 select any lm from instances of LockManager;
 if( empty lm )
 	create object instance lm of LockManager;
@@ -97,7 +97,7 @@ if( not_empty lock )
 	booking.bookingId = self.getUniqueBookingId();
 	booking.setCreditcard(creditcard: param.creditcard);
 	booking.setPersonalInfo(personalInfo: param.personalInfo);
-	booking.setTimespan(timespan: param.timespan);
+	booking.setTimespan(timespan: lock.getTimespan());
 
 	select many rcats related by lock->RoomConfigurationAmountTuple[R24];
 	
@@ -150,22 +150,13 @@ INSERT INTO S_DT_PROXY
 	'',
 	'../../../../BackendDatatypes/BackendDatatypes.xtuml');
 INSERT INTO O_TPARM
-	VALUES ("7f201c08-eaaa-4a32-919c-279a2943058a",
-	"1949f51d-98a9-4773-bb28-18ed13310f84",
-	'timespan',
-	"29455544-5da7-4d59-89a1-9d1261bd2be6",
-	0,
-	'',
-	"44f273be-e4e0-4415-b023-26819d8200f9",
-	'');
-INSERT INTO O_TPARM
 	VALUES ("9e6b08ae-8818-4f45-a097-9d9d3b8a0b5f",
 	"1949f51d-98a9-4773-bb28-18ed13310f84",
 	'lock',
 	"5f77c811-d46b-4197-a574-4b3505e92410",
 	0,
 	'',
-	"7f201c08-eaaa-4a32-919c-279a2943058a",
+	"44f273be-e4e0-4415-b023-26819d8200f9",
 	'');
 INSERT INTO O_TFR
 	VALUES ("21df229d-1f24-4b1f-a5d2-fe2c9c899fb3",

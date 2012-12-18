@@ -93,7 +93,7 @@ assign tuples = ::createRoomConfigurationAmountTuples();
 assign tuples[0] = ::createTuple(configuration: "0x10", amount: 2);
 assign tuples[1] = ::createTuple(configuration: "0x30", amount: 1);
 assign timespan = ::createTimeSpan(startDate: sDate, endDate: eDate);
-send Port1::book(timespan: timespan, creditcard: card, personalInfo: personalInfo, roomConfigurationAmountTuples: tuples);',
+send Port1::book(creditcard: card, personalInfo: personalInfo);',
 	1,
 	'',
 	"9a750711-df94-40e5-a556-f2f070d4fce0");

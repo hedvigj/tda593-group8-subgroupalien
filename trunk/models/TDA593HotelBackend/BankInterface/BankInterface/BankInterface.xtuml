@@ -32,6 +32,22 @@ INSERT INTO S_DT_PROXY
 	'',
 	'',
 	'../../Datatypes/Datatypes.xtuml');
+INSERT INTO C_PP
+	VALUES ("699bb8ff-7e31-4f50-8543-bf45b5d051b2",
+	"38182bc1-77e4-478b-9b85-0f5846e0feb0",
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	'sessionId',
+	'',
+	0,
+	'',
+	"046dd22e-4604-4384-b2c7-964a0d81d4cc");
+INSERT INTO S_DT_PROXY
+	VALUES ("5f77c811-d46b-4197-a574-4b3505e92410",
+	"00000000-0000-0000-0000-000000000000",
+	'integer',
+	'',
+	'',
+	'../../Datatypes/Datatypes.xtuml');
 INSERT INTO C_EP
 	VALUES ("9eb4b1b9-3950-438d-9edf-0caee2d06f4b",
 	"1ebfed2c-970c-4c21-b2be-5a1975cbb06e",
@@ -59,6 +75,15 @@ INSERT INTO S_DT_PROXY
 	'',
 	'',
 	'../../BackendDatatypes/BackendDatatypes.xtuml');
+INSERT INTO C_PP
+	VALUES ("ac9e348d-e3f0-44fa-a977-eb8e20939dab",
+	"9eb4b1b9-3950-438d-9edf-0caee2d06f4b",
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	'sessionId',
+	'',
+	0,
+	'',
+	"d43928ae-48a8-4849-9eb1-1ba9cfa4e43b");
 INSERT INTO IP_IP_PROXY
 	VALUES ("d15e23e3-8a03-46d2-be05-51155db01efc",
 	"00000000-0000-0000-0000-000000000000",
