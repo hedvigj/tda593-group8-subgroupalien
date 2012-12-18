@@ -68,7 +68,7 @@ self.id = lm.getUniqueLockId();
 
 // Start timeout timer before the lock is auto-destroyed
 // assign countdownTime = 900000000; // 15 min
-assign countdownTime = 1000; // 15 min
+assign countdownTime = 300000000; // 5 min
 // assign countdownTime = 30000000; // 30 sec 
 generate Lock1:setCountdown(microseconds: countdownTime) to self;
 
