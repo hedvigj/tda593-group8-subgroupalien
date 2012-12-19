@@ -38,7 +38,7 @@ INSERT INTO SPR_PS_PROXY
 	'toBank',
 	'',
 	'',
-	3,
+	1,
 	'../../../Bank.xtuml');
 INSERT INTO SM_SEVT
 	VALUES ("e3476b20-1d1c-476e-837a-21ef031044d1",
@@ -146,7 +146,11 @@ INSERT INTO SM_ACT
 	VALUES ("22fba33f-6c42-4015-a5ac-409be3a02141",
 	"05f7887b-8681-491f-adec-26a2bc64fa37",
 	1,
-	'send Port2::returnFromBank(value: true, sessionId: param.sessionId);
+	'if(param.creditcard.validDate < TIM::current_date())
+	send Port2::returnFromBank(value: false, sessionId: param.sessionId);
+else
+	send Port2::returnFromBank(value: true, sessionId: param.sessionId);
+end if;
 generate BankClass_A2:failure to BankClass class;',
 	'');
 INSERT INTO SM_TAH
