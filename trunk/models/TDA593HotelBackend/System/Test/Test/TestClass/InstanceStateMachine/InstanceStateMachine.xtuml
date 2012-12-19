@@ -645,6 +645,18 @@ else
 		self.bookTest(name: "ERIK", validCard: true, sessionId: -1, expectSuccess: false);
 	elif(self.testIndex == 20)
 		self.bookTest(name: "ERIK", validCard: true, sessionId: 3333, expectSuccess: false);
+	elif(self.testIndex == 21)
+		self.checkInTest(bookingId: self.bookingIdArray[0], expectSuccess: true);
+	elif(self.testIndex == 22)
+		self.checkInTest(bookingId: self.bookingIdArray[0], expectSuccess: false);
+	elif(self.testIndex == 23)
+		self.checkInTest(bookingId: 333, expectSuccess: false);
+	elif(self.testIndex == 23)
+		self.checkOutTest(bookingId: self.bookingIdArray[0], expectSuccess: true);
+	elif(self.testIndex == 23)
+		self.checkOutTest(bookingId: self.bookingIdArray[0], expectSuccess: false);
+	elif(self.testIndex == 23)
+		self.checkOutTest(bookingId: 333, expectSuccess: false);
 	end if;
 	generate TestClass5:waitResult to self;
 end if;',
