@@ -98,7 +98,7 @@ INSERT INTO SPR_PS_PROXY
 	'checkIn',
 	'',
 	'',
-	3,
+	1,
 	'../../../System.xtuml');
 INSERT INTO SM_SEVT
 	VALUES ("34fae9db-c7fe-4037-9e91-e1c84dade685",
@@ -125,7 +125,7 @@ INSERT INTO SPR_PS_PROXY
 	'checkOut',
 	'',
 	'',
-	3,
+	1,
 	'../../../System.xtuml');
 INSERT INTO SM_SEVT
 	VALUES ("43460cd8-3ec1-4ea5-8ba9-6f2a4d2d8ddb",
@@ -152,7 +152,7 @@ INSERT INTO SPR_PS_PROXY
 	'book',
 	'',
 	'',
-	3,
+	1,
 	'../../../System.xtuml');
 INSERT INTO SM_SEVT
 	VALUES ("aa8579fa-4e16-44b1-85b3-8ec93c776ddd",
@@ -179,7 +179,7 @@ INSERT INTO SPR_PS_PROXY
 	'lock',
 	'',
 	'',
-	3,
+	1,
 	'../../../System.xtuml');
 INSERT INTO SM_SEVT
 	VALUES ("2adae462-9110-4c43-848f-07fa7f5bdc72",
@@ -206,7 +206,7 @@ INSERT INTO SPR_RS_PROXY
 	'returnFromBank',
 	'',
 	'',
-	3,
+	1,
 	'../../../System.xtuml');
 INSERT INTO SM_SEVT
 	VALUES ("771a7903-8e9d-4e8e-94d4-c05ca0f7fe8d",
@@ -936,10 +936,13 @@ INSERT INTO SM_ACT
 	selected.sessionId == param.sessionId;
 if (empty bookingController)
 	LOG::LogInfo(message: "EXTREME ERROR. NO SUCH BOOKING CONTROLLER EXISTS!");
+	send Port1::returnBooking(sessionId: -2, bookingId: -2);
+else
+	generate BookingController8:continueBooking(personalInfo: param.personalInfo, creditcard: param.creditcard) to bookingController;
 end if;
 
-generate BookingController8:continueBooking(personalInfo: param.personalInfo, creditcard: param.creditcard) to bookingController;
-generate BookingController_A4: finished to BookingController class;',
+generate BookingController_A4: finished to BookingController class;
+',
 	'');
 INSERT INTO SM_TAH
 	VALUES ("f44445d1-97f7-41c3-9111-b0309463aae7",
@@ -1170,7 +1173,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("719d44ce-1c90-4e0c-8d52-a8b7fb6b8bf0",
 	"b1c0c118-7b90-46d1-a471-74af5982f5bb",
-	3,
+	1,
 	'',
 	'');
 INSERT INTO SM_TAH
@@ -1183,7 +1186,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("72dabb20-f796-473b-aa74-afbbea7ac961",
 	"b1c0c118-7b90-46d1-a471-74af5982f5bb",
-	3,
+	1,
 	'',
 	'');
 INSERT INTO GD_MD
