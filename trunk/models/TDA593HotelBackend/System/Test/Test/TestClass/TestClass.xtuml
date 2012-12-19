@@ -21,7 +21,7 @@ send Port1::addRoomType(uniqueName: "Suite");
 ',
 	1,
 	'',
-	"00000000-0000-0000-0000-000000000000");
+	"618454a9-be0c-47a0-a60a-f7c7647dce67");
 INSERT INTO S_DT_PROXY
 	VALUES ("233e7f8d-a875-4812-a4c3-4ced8b823e83",
 	"00000000-0000-0000-0000-000000000000",
@@ -78,26 +78,6 @@ send Port1::setRoomConfigurationEnabled(configurationName: "0x30", enabled: true
 	'',
 	"d8ce0a38-a16d-49f1-b4a5-c6425597c078");
 INSERT INTO O_TFR
-	VALUES ("3be7fd6a-54b0-42fc-b19a-dfdfe93ccfa7",
-	"32458e6c-09c1-479e-9d59-28cc2362f085",
-	'createBooking',
-	'',
-	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
-	0,
-	'assign date = TIM::create_date(year: 2013, month: 12, day: 18, hour: 03, minute: 30, second: 30);
-assign sDate = TIM::create_date(year: 2013, month: 4, day: 18, hour: 03, minute: 30, second: 30);
-assign eDate = TIM::create_date(year: 2013, month: 4, day: 19, hour: 03, minute: 30, second: 10);
-assign card = ::createCreditcard(name: "ERIK FACE", cvcNr: 123, creditcardNr: 321, validDate: date);
-assign personalInfo = ::createPersonalInfo(firstName: "ERIK", lastName: "FACE", adress: "Street 101", email: "eric@something.com", phoneNr: "11312411");
-assign tuples = ::createRoomConfigurationAmountTuples();
-assign tuples[0] = ::createTuple(configuration: "0x10", amount: 2);
-assign tuples[1] = ::createTuple(configuration: "0x30", amount: 1);
-assign timespan = ::createTimeSpan(startDate: sDate, endDate: eDate);
-send Port1::book(creditcard: card, personalInfo: personalInfo);',
-	1,
-	'',
-	"9a750711-df94-40e5-a556-f2f070d4fce0");
-INSERT INTO O_TFR
 	VALUES ("a2a55851-52ed-4f8d-b295-a787ce3c301a",
 	"32458e6c-09c1-479e-9d59-28cc2362f085",
 	'initializeRoomInstances',
@@ -126,7 +106,7 @@ send Port1::addRoomInstance(roomInstanceName: "19", roomConfigurationName: "0x30
 send Port1::addRoomInstance(roomInstanceName: "20", roomConfigurationName: "0x30");',
 	1,
 	'',
-	"3be7fd6a-54b0-42fc-b19a-dfdfe93ccfa7");
+	"9a750711-df94-40e5-a556-f2f070d4fce0");
 INSERT INTO O_TFR
 	VALUES ("5af6bf08-b3fe-4af3-a6ee-f45e1fefca88",
 	"32458e6c-09c1-479e-9d59-28cc2362f085",
@@ -140,7 +120,7 @@ LOG::LogInfo(message: param.message);
 LOG::LogInfo(message: "=============================");',
 	1,
 	'',
-	"a2a55851-52ed-4f8d-b295-a787ce3c301a");
+	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_TPARM
 	VALUES ("f8956199-339c-413e-9c21-a0b8770757d7",
 	"5af6bf08-b3fe-4af3-a6ee-f45e1fefca88",
@@ -160,55 +140,238 @@ INSERT INTO S_DT_PROXY
 INSERT INTO O_TFR
 	VALUES ("5cb6fb97-2cf2-45b8-b2c3-5065eb3a67a6",
 	"32458e6c-09c1-479e-9d59-28cc2362f085",
-	'checkOut1',
+	'checkOut',
 	'',
 	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
 	0,
-	'assign bookingId = 1;
-send Port1::checkOut(bookingId: bookingId);
+	'send Port1::checkOut(bookingId: param.bookingId);
 ',
 	1,
 	'',
-	"5af6bf08-b3fe-4af3-a6ee-f45e1fefca88");
+	"a2a55851-52ed-4f8d-b295-a787ce3c301a");
+INSERT INTO O_TPARM
+	VALUES ("eedb5e3a-bb5c-49fb-8d1c-dd9414d72109",
+	"5cb6fb97-2cf2-45b8-b2c3-5065eb3a67a6",
+	'bookingId',
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("5f77c811-d46b-4197-a574-4b3505e92410",
+	"00000000-0000-0000-0000-000000000000",
+	'integer',
+	'',
+	'',
+	'../../../../Datatypes/Datatypes.xtuml');
 INSERT INTO O_TFR
-	VALUES ("a828cc13-9115-406f-b7a3-5afc094f4a1b",
+	VALUES ("0eeea9ea-f64b-4d62-af33-7f0365efb1a3",
 	"32458e6c-09c1-479e-9d59-28cc2362f085",
-	'checkOut2',
+	'checkIn',
 	'',
 	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
 	0,
-	'assign bookingId = 2;
-send Port1::checkOut(bookingId: bookingId);
+	'send Port1::checkIn(bookingId: param.bookingId);
 ',
 	1,
 	'',
 	"5cb6fb97-2cf2-45b8-b2c3-5065eb3a67a6");
+INSERT INTO O_TPARM
+	VALUES ("80545883-837b-463b-8633-8fc26483e658",
+	"0eeea9ea-f64b-4d62-af33-7f0365efb1a3",
+	'bookingId',
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
 INSERT INTO O_TFR
-	VALUES ("aacc95b0-6785-4e99-8759-a027984e69d5",
+	VALUES ("5d11dac7-e449-4713-9c15-7dbe819ac2cc",
 	"32458e6c-09c1-479e-9d59-28cc2362f085",
-	'checkIn2',
+	'lockTest',
 	'',
 	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
+	1,
+	'assign startDate = TestClass::createDayDate(day: param.startDay);
+assign endDate = TestClass::createDayDate(day: param.endDay);		
+assign timespan = ::createTimeSpan(startDate: startDate, endDate: endDate);
+self.assertSuccess = param.expectSuccess;
+send Port1::lock(timespan: timespan, rcats: param.rcats);',
+	1,
+	'',
+	"0eeea9ea-f64b-4d62-af33-7f0365efb1a3");
+INSERT INTO O_TPARM
+	VALUES ("52884119-fbde-4118-9604-03043f2cfe42",
+	"5d11dac7-e449-4713-9c15-7dbe819ac2cc",
+	'rcats',
+	"d919e5ab-5f67-4aab-9544-5fd6291e14e0",
 	0,
-	'assign bookingId = 2;
-send Port1::checkIn(bookingId: bookingId);
+	'[]',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO S_DIM
+	VALUES (0,
+	0,
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"52884119-fbde-4118-9604-03043f2cfe42",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"95f02ef9-0c8d-49cd-b96c-9e0139f6b4ca",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO S_DT_PROXY
+	VALUES ("d919e5ab-5f67-4aab-9544-5fd6291e14e0",
+	"00000000-0000-0000-0000-000000000000",
+	'RoomConfigurationAmountTuple',
+	'',
+	'',
+	'../../../../BackendDatatypes/BackendDatatypes.xtuml');
+INSERT INTO O_TPARM
+	VALUES ("2834c447-f599-4e28-89ff-3905f6413568",
+	"5d11dac7-e449-4713-9c15-7dbe819ac2cc",
+	'startDay',
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	0,
+	'',
+	"52884119-fbde-4118-9604-03043f2cfe42",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("2eecc81f-cbb5-4cb7-8877-437f083aac5c",
+	"5d11dac7-e449-4713-9c15-7dbe819ac2cc",
+	'endDay',
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	0,
+	'',
+	"2834c447-f599-4e28-89ff-3905f6413568",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("d62eff71-fd9a-4caf-820b-ccb3a5b690ce",
+	"5d11dac7-e449-4713-9c15-7dbe819ac2cc",
+	'expectSuccess',
+	"28114c36-aaba-4a92-b7c3-08f06e41c6a4",
+	0,
+	'',
+	"2eecc81f-cbb5-4cb7-8877-437f083aac5c",
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("28114c36-aaba-4a92-b7c3-08f06e41c6a4",
+	"00000000-0000-0000-0000-000000000000",
+	'boolean',
+	'',
+	'',
+	'../../../../Datatypes/Datatypes.xtuml');
+INSERT INTO O_TFR
+	VALUES ("caeac473-2270-4b17-a2c5-7ed480501837",
+	"32458e6c-09c1-479e-9d59-28cc2362f085",
+	'bookTest',
+	'',
+	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
+	1,
+	'assign currentDate = TIM::current_date();
+assign day = TIM::get_day (date: currentDate);
+assign month = TIM::get_month(date: currentDate);
+assign year = TIM::get_year (date:currentDate);
+assign hour = TIM::get_hour (date:currentDate);
+assign minutes = TIM::get_minute (date:currentDate);
+assign seconds = TIM::get_second (date:currentDate);
+
+if(param.validCard)
+	year = year + 1;
+else
+	year = year - 1;
+end if;
+
+assign date = TIM::create_date(year: year, month: month, day: day, hour: hour, minute: minutes, second: seconds);
+assign card = ::createCreditcard(name: "ERIK FACE", cvcNr: 123, creditcardNr: 321, validDate: date);
+assign personalInfo = ::createPersonalInfo(firstName: param.name, lastName: "IN YO FACE", adress: "Street 101", email: "eric@something.com", phoneNr: "11312411");
+
+self.assertSuccess = param.expectSuccess;
+self.sessionTestIndex = param.sessionId;
+send Port1::book(sessionId: param.sessionId, creditcard: card, personalInfo: personalInfo);',
+	1,
+	'',
+	"5d11dac7-e449-4713-9c15-7dbe819ac2cc");
+INSERT INTO O_TPARM
+	VALUES ("f01629b4-f503-4d22-9c32-33865bcfff61",
+	"caeac473-2270-4b17-a2c5-7ed480501837",
+	'name',
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("c79f595a-9aa9-4c65-b039-80c67d35dd19",
+	"caeac473-2270-4b17-a2c5-7ed480501837",
+	'validCard',
+	"28114c36-aaba-4a92-b7c3-08f06e41c6a4",
+	0,
+	'',
+	"f01629b4-f503-4d22-9c32-33865bcfff61",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("9a6910bd-f006-4cdd-bf4b-642f21ebedc6",
+	"caeac473-2270-4b17-a2c5-7ed480501837",
+	'sessionId',
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	0,
+	'',
+	"c79f595a-9aa9-4c65-b039-80c67d35dd19",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("1f144e84-8ca0-4a5c-a37b-10a6f072843e",
+	"caeac473-2270-4b17-a2c5-7ed480501837",
+	'expectSuccess',
+	"28114c36-aaba-4a92-b7c3-08f06e41c6a4",
+	0,
+	'',
+	"9a6910bd-f006-4cdd-bf4b-642f21ebedc6",
+	'');
+INSERT INTO O_TFR
+	VALUES ("618454a9-be0c-47a0-a60a-f7c7647dce67",
+	"32458e6c-09c1-479e-9d59-28cc2362f085",
+	'createDayDate',
+	'',
+	"bdc36fef-8559-4ba2-9337-8ebb987f4334",
+	0,
+	'assign currentDate = TIM::current_date();
+assign day = TIM::get_day(date: currentDate);
+assign month = TIM::get_month(date: currentDate);
+assign year = TIM::get_year (date:currentDate);
+assign hour = TIM::get_hour (date:currentDate);
+assign minutes = TIM::get_minute (date:currentDate);
+assign seconds = TIM::get_second (date:currentDate);
+return TIM::create_date(year: 2013, month: 2, day: param.day, hour: hour, minute: minutes, second: seconds);
 ',
 	1,
 	'',
-	"a828cc13-9115-406f-b7a3-5afc094f4a1b");
-INSERT INTO O_TFR
-	VALUES ("0eeea9ea-f64b-4d62-af33-7f0365efb1a3",
-	"32458e6c-09c1-479e-9d59-28cc2362f085",
-	'checkIn1',
-	'',
-	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
+	"5af6bf08-b3fe-4af3-a6ee-f45e1fefca88");
+INSERT INTO O_TPARM
+	VALUES ("cc159088-7c4b-49d1-9274-d185cc72c2f1",
+	"618454a9-be0c-47a0-a60a-f7c7647dce67",
+	'day',
+	"5f77c811-d46b-4197-a574-4b3505e92410",
 	0,
-	'assign bookingId = 1;
-send Port1::checkIn(bookingId: bookingId);
-',
-	1,
 	'',
-	"aacc95b0-6785-4e99-8759-a027984e69d5");
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("bdc36fef-8559-4ba2-9337-8ebb987f4334",
+	"00000000-0000-0000-0000-000000000000",
+	'date',
+	'',
+	'',
+	'../../../../Datatypes/Datatypes.xtuml');
 INSERT INTO O_NBATTR
 	VALUES ("83f623e0-f94e-4c47-a8fd-c6f31c1cbab1",
 	"32458e6c-09c1-479e-9d59-28cc2362f085");
@@ -252,13 +415,6 @@ INSERT INTO O_ATTR
 	"5f77c811-d46b-4197-a574-4b3505e92410",
 	'',
 	'-1');
-INSERT INTO S_DT_PROXY
-	VALUES ("5f77c811-d46b-4197-a574-4b3505e92410",
-	"00000000-0000-0000-0000-000000000000",
-	'integer',
-	'',
-	'',
-	'../../../../Datatypes/Datatypes.xtuml');
 INSERT INTO O_NBATTR
 	VALUES ("141ba0e7-c018-4575-8008-5d43621f0672",
 	"32458e6c-09c1-479e-9d59-28cc2362f085");
@@ -277,13 +433,6 @@ INSERT INTO O_ATTR
 	"28114c36-aaba-4a92-b7c3-08f06e41c6a4",
 	'',
 	'');
-INSERT INTO S_DT_PROXY
-	VALUES ("28114c36-aaba-4a92-b7c3-08f06e41c6a4",
-	"00000000-0000-0000-0000-000000000000",
-	'boolean',
-	'',
-	'',
-	'../../../../Datatypes/Datatypes.xtuml');
 INSERT INTO O_NBATTR
 	VALUES ("0e9a4831-eb42-4663-9019-9001c7399b00",
 	"32458e6c-09c1-479e-9d59-28cc2362f085");
@@ -339,6 +488,61 @@ INSERT INTO O_ATTR
 	"5f77c811-d46b-4197-a574-4b3505e92410",
 	'',
 	'0');
+INSERT INTO O_NBATTR
+	VALUES ("49954627-b399-4fec-ba36-63c4a68547b1",
+	"32458e6c-09c1-479e-9d59-28cc2362f085");
+INSERT INTO O_BATTR
+	VALUES ("49954627-b399-4fec-ba36-63c4a68547b1",
+	"32458e6c-09c1-479e-9d59-28cc2362f085");
+INSERT INTO S_DIM
+	VALUES (0,
+	0,
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"32458e6c-09c1-479e-9d59-28cc2362f085",
+	"49954627-b399-4fec-ba36-63c4a68547b1",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"bbe2e0af-7e5a-4d3a-9bd4-889178c7d95c",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_ATTR
+	VALUES ("49954627-b399-4fec-ba36-63c4a68547b1",
+	"32458e6c-09c1-479e-9d59-28cc2362f085",
+	"aaacd26f-2540-4360-8cbb-9513f6c9e209",
+	'sessionArray',
+	'',
+	'',
+	'sessionArray',
+	0,
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	'[]',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("f9d0df01-10bb-4455-a401-a68415a57c43",
+	"32458e6c-09c1-479e-9d59-28cc2362f085");
+INSERT INTO O_BATTR
+	VALUES ("f9d0df01-10bb-4455-a401-a68415a57c43",
+	"32458e6c-09c1-479e-9d59-28cc2362f085");
+INSERT INTO O_ATTR
+	VALUES ("f9d0df01-10bb-4455-a401-a68415a57c43",
+	"32458e6c-09c1-479e-9d59-28cc2362f085",
+	"49954627-b399-4fec-ba36-63c4a68547b1",
+	'sessionTestIndex',
+	'',
+	'',
+	'sessionTestIndex',
+	0,
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	'',
+	'');
 INSERT INTO O_ID
 	VALUES (0,
 	"32458e6c-09c1-479e-9d59-28cc2362f085");

@@ -1344,7 +1344,8 @@ INSERT INTO SM_ACT
 	VALUES ("845b231f-81be-40fa-a75d-c41a50e7836c",
 	"d0511597-9e3d-4192-8f21-26cadd9ed8f7",
 	1,
-	'LOG::LogInfo(message: "Lock failure. Booking session terminated.");',
+	'send Port1::returnLock(sessionId: -1);
+LOG::LogInfo(message: "Lock failure. Booking session terminated.");',
 	'');
 INSERT INTO SM_TAH
 	VALUES ("5c40eeb8-4e4b-440b-acb3-c0e6f86c0629",

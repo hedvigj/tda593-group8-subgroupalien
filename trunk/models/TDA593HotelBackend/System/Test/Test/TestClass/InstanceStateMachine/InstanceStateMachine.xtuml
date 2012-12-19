@@ -557,7 +557,7 @@ INSERT INTO SM_ACT
 	"f187b272-95a2-4b59-9e4c-eaa9d069b0b8",
 	1,
 	'assign self.testIndex = self.testIndex + 1;
-assign self.maxIndex = 2;
+assign self.maxIndex = 20;
 
 if(self.testIndex > self.maxIndex)
 	generate TestClass8:testsComplete to self;
@@ -568,20 +568,83 @@ else
 			(use the highest current test index + 1 as <unique_test_index>):
 			--------------------------------------------------------------
 				elif(self.testIndex == <unique_test_index>)
-					self.assertSuccess = <boolean_value>
+		(optional)	self.currentSession = <integer_value>
 					<Do_testing_Stuff>
 				
 		> 2. Increment maxIndex in the top of the code.
 	*/
 	if(self.testIndex == 0)
-		self.assertSuccess = true;
-		TestClass::createBooking();
+		assign rcats = ::createRoomConfigurationAmountTuples();
+		assign rcats[0] = ::createTuple(configuration: "0x30", amount: 1);
+		self.lockTest(startDay: 2, endDay : 5, rcats: rcats, expectSuccess: true);
 	elif(self.testIndex == 1)
-		self.assertSuccess = true;
-		TestClass::createBooking();
+		assign rcats = ::createRoomConfigurationAmountTuples();
+		assign rcats[0] = ::createTuple(configuration: "0x30", amount: 1);
+		self.lockTest(startDay: 2, endDay : 5, rcats: rcats, expectSuccess: true);
 	elif(self.testIndex == 2)
-		self.assertSuccess = true;
-		TestClass::createBooking();
+		assign rcats = ::createRoomConfigurationAmountTuples();
+		assign rcats[0] = ::createTuple(configuration: "0x30", amount: 1);
+		self.lockTest(startDay: 2, endDay : 5, rcats: rcats, expectSuccess: true);
+	elif(self.testIndex == 3)
+		assign rcats = ::createRoomConfigurationAmountTuples();
+		assign rcats[0] = ::createTuple(configuration: "0x30", amount: 1);
+		self.lockTest(startDay: 2, endDay : 5, rcats: rcats, expectSuccess: true);
+	elif(self.testIndex == 4)
+		assign rcats = ::createRoomConfigurationAmountTuples();
+		assign rcats[0] = ::createTuple(configuration: "0x30", amount: 1);
+		self.lockTest(startDay: 2, endDay : 5, rcats: rcats, expectSuccess: true);
+	elif(self.testIndex == 5) // 5 Already added, not enough rooms
+		assign rcats = ::createRoomConfigurationAmountTuples();
+		assign rcats[0] = ::createTuple(configuration: "0x30", amount: 1);
+		self.lockTest(startDay: 2, endDay : 5, rcats: rcats, expectSuccess: false);
+	elif(self.testIndex == 6)
+		assign rcats = ::createRoomConfigurationAmountTuples();
+		assign rcats[0] = ::createTuple(configuration: "0x30", amount: 1);
+		self.lockTest(startDay: 6, endDay : 7, rcats: rcats, expectSuccess: true);
+	elif(self.testIndex == 7)
+		assign rcats = ::createRoomConfigurationAmountTuples();
+		assign rcats[0] = ::createTuple(configuration: "0x30", amount: 4);
+		self.lockTest(startDay: 6, endDay : 7, rcats: rcats, expectSuccess: true);
+	elif(self.testIndex == 8) // 5 Already added, not enough rooms
+		assign rcats = ::createRoomConfigurationAmountTuples();
+		assign rcats[0] = ::createTuple(configuration: "0x30", amount: 1);
+		self.lockTest(startDay: 6, endDay : 7, rcats: rcats, expectSuccess: false);
+	elif(self.testIndex == 9)
+		assign rcats = ::createRoomConfigurationAmountTuples();
+		assign rcats[0] = ::createTuple(configuration: "0x10", amount: 1);
+		assign rcats[1] = ::createTuple(configuration: "0x30", amount: 1);
+		self.lockTest(startDay: 6, endDay : 7, rcats: rcats, expectSuccess: false);
+	elif(self.testIndex == 10)
+		assign rcats = ::createRoomConfigurationAmountTuples();
+		assign rcats[0] = ::createTuple(configuration: "0x10", amount: 1);
+		assign rcats[1] = ::createTuple(configuration: "0x30", amount: 1);
+		self.lockTest(startDay: 10, endDay : 15, rcats: rcats, expectSuccess: true);
+	elif(self.testIndex == 11) // 5 Already added, not enough rooms, testing overlapping span
+		assign rcats = ::createRoomConfigurationAmountTuples();
+		assign rcats[0] = ::createTuple(configuration: "0x30", amount: 1);
+		self.lockTest(startDay: 1, endDay : 2, rcats: rcats, expectSuccess: false);
+	elif(self.testIndex == 12) // 5 Already added, not enough rooms, testing inclusive span
+		assign rcats = ::createRoomConfigurationAmountTuples();
+		assign rcats[0] = ::createTuple(configuration: "0x30", amount: 1);
+		self.lockTest(startDay: 3, endDay : 4, rcats: rcats, expectSuccess: false);
+	elif(self.testIndex == 13) // 5 Already added, not enough rooms, testing overlapping span
+		assign rcats = ::createRoomConfigurationAmountTuples();
+		assign rcats[0] = ::createTuple(configuration: "0x30", amount: 1);
+		self.lockTest(startDay: 7, endDay : 8, rcats: rcats, expectSuccess: false);
+	elif(self.testIndex == 14)
+		self.bookTest(name: "ERIK", validCard: true, sessionId: self.sessionArray[0], expectSuccess: true);
+	elif(self.testIndex == 15)
+		self.bookTest(name: "ERIK", validCard: true, sessionId: self.sessionArray[0], expectSuccess: false);
+	elif(self.testIndex == 16)
+		self.bookTest(name: "ERIK", validCard: false, sessionId: self.sessionArray[1], expectSuccess: false);
+	elif(self.testIndex == 17)
+		self.bookTest(name: "ERIK", validCard: true, sessionId: self.sessionArray[1], expectSuccess: false);
+	elif(self.testIndex == 18)
+		self.bookTest(name: "ERIK", validCard: true, sessionId: self.sessionArray[2], expectSuccess: true);
+	elif(self.testIndex == 19)
+		self.bookTest(name: "ERIK", validCard: true, sessionId: -1, expectSuccess: false);
+	elif(self.testIndex == 20)
+		self.bookTest(name: "ERIK", validCard: true, sessionId: 3333, expectSuccess: false);
 	end if;
 	generate TestClass5:waitResult to self;
 end if;',
@@ -686,7 +749,7 @@ INSERT INTO SM_ACT
 	1,
 	'assign index = 0;
 assign nr_of_failed = 0;
-assign failed[0] = -1;
+assign failed[self.maxIndex] = -1;
 while(index <= self.maxIndex)
 	assign success = self.testResults[index];
 	if (not success)
@@ -702,7 +765,7 @@ if (nr_of_failed > 0)
 	LOG::LogInfo(message: "The tests that failed were:");
 	assign index2 = 0;
 	while(index2 < nr_of_failed)
-		LOG::LogReal(r: failed[index2], message: " failed");
+		LOG::LogReal(r: failed[index2], message: " | failed");
 		assign index2 = index2 + 1;
 	end while;
 else
