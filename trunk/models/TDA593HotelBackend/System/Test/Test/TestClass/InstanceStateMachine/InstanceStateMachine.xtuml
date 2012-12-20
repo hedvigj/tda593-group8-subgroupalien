@@ -557,7 +557,7 @@ INSERT INTO SM_ACT
 	"f187b272-95a2-4b59-9e4c-eaa9d069b0b8",
 	1,
 	'assign self.testIndex = self.testIndex + 1;
-assign self.maxIndex = 20;
+assign self.maxIndex = 26;
 
 if(self.testIndex > self.maxIndex)
 	generate TestClass8:testsComplete to self;
@@ -651,11 +651,11 @@ else
 		self.checkInTest(bookingId: self.bookingIdArray[0], expectSuccess: false);
 	elif(self.testIndex == 23)
 		self.checkInTest(bookingId: 333, expectSuccess: false);
-	elif(self.testIndex == 23)
+	elif(self.testIndex == 24)
 		self.checkOutTest(bookingId: self.bookingIdArray[0], expectSuccess: true);
-	elif(self.testIndex == 23)
+	elif(self.testIndex == 25)
 		self.checkOutTest(bookingId: self.bookingIdArray[0], expectSuccess: false);
-	elif(self.testIndex == 23)
+	elif(self.testIndex == 26)
 		self.checkOutTest(bookingId: 333, expectSuccess: false);
 	end if;
 	generate TestClass5:waitResult to self;
