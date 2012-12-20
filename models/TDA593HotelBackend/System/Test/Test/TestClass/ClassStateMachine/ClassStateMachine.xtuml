@@ -56,7 +56,7 @@ INSERT INTO SPR_RS_PROXY
 	'returnBooking',
 	'',
 	'',
-	3,
+	1,
 	'../../../Test.xtuml');
 INSERT INTO SM_SEVT
 	VALUES ("df17cccf-c757-46a9-b854-fb937cf0aa04",
@@ -83,7 +83,7 @@ INSERT INTO SPR_RS_PROXY
 	'returnLock',
 	'',
 	'',
-	3,
+	1,
 	'../../../Test.xtuml');
 INSERT INTO SM_SEVT
 	VALUES ("668aad4c-eca5-448e-a5e8-a2f541392cbd",
@@ -110,7 +110,7 @@ INSERT INTO SPR_RS_PROXY
 	'checkedOut',
 	'',
 	'',
-	3,
+	1,
 	'../../../Test.xtuml');
 INSERT INTO SM_SEVT
 	VALUES ("0c6dad50-c60e-41c5-970a-ab598f333461",
@@ -137,7 +137,7 @@ INSERT INTO SPR_RS_PROXY
 	'checkedIn',
 	'',
 	'',
-	3,
+	1,
 	'../../../Test.xtuml');
 INSERT INTO SM_SEVT
 	VALUES ("6f0eb37f-327e-478d-b7e0-50c12bd09ba8",
@@ -400,7 +400,7 @@ tc.bookingIdArray[tc.testIndex] = param.bookingId;
 
 if(param.sessionId < -1)
 	generate TestClass9:testComplete(success: not tc.assertSuccess) to tc;
-elif(param.sessionId != tc.sessionArray[tc.sessionTestIndex] or param.bookingId < 1)
+elif(param.sessionId != tc.sessionInTest or param.bookingId < 1)
 	generate TestClass9:testComplete(success: false) to tc;
 else
 	generate TestClass9:testComplete(success: true) to tc;

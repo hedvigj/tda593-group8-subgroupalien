@@ -318,7 +318,7 @@ assign card = ::createCreditcard(name: "ERIK FACE", cvcNr: 123, creditcardNr: 32
 assign personalInfo = ::createPersonalInfo(firstName: param.name, lastName: "IN YO FACE", adress: "Street 101", email: "eric@something.com", phoneNr: "11312411");
 
 self.assertSuccess = param.expectSuccess;
-self.sessionTestIndex = param.sessionId;
+self.sessionInTest = param.sessionId;
 send Port1::book(sessionId: param.sessionId, creditcard: card, personalInfo: personalInfo);',
 	1,
 	'',
@@ -557,10 +557,10 @@ INSERT INTO O_ATTR
 	VALUES ("f9d0df01-10bb-4455-a401-a68415a57c43",
 	"32458e6c-09c1-479e-9d59-28cc2362f085",
 	"49954627-b399-4fec-ba36-63c4a68547b1",
-	'sessionTestIndex',
+	'sessionInTest',
 	'',
 	'',
-	'sessionTestIndex',
+	'sessionInTest',
 	0,
 	"5f77c811-d46b-4197-a574-4b3505e92410",
 	'',
