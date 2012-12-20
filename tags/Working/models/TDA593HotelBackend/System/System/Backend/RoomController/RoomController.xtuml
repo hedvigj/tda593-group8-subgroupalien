@@ -1,0 +1,52 @@
+-- BP 7.1 content: ModelClass syschar: 3 persistence-version: 7.1.5
+
+INSERT INTO O_OBJ
+	VALUES ("b6f096b2-e562-4c26-8fa6-be81a5215695",
+	'RoomController',
+	19,
+	'RoomController',
+	'',
+	"f56566de-5321-4b5f-b659-95d5c01e1baa");
+INSERT INTO O_NBATTR
+	VALUES ("8d2f55c9-f29b-4046-9f42-e3c79d90e900",
+	"b6f096b2-e562-4c26-8fa6-be81a5215695");
+INSERT INTO O_BATTR
+	VALUES ("8d2f55c9-f29b-4046-9f42-e3c79d90e900",
+	"b6f096b2-e562-4c26-8fa6-be81a5215695");
+INSERT INTO O_ATTR
+	VALUES ("8d2f55c9-f29b-4046-9f42-e3c79d90e900",
+	"b6f096b2-e562-4c26-8fa6-be81a5215695",
+	"00000000-0000-0000-0000-000000000000",
+	'current_state',
+	'',
+	'',
+	'current_state',
+	0,
+	"4e33731b-7545-47b2-bf5b-70c967e5b9be",
+	'',
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("4e33731b-7545-47b2-bf5b-70c967e5b9be",
+	"00000000-0000-0000-0000-000000000000",
+	'state<State_Model>',
+	'',
+	'',
+	'../../../../Datatypes/Datatypes.xtuml');
+INSERT INTO O_ID
+	VALUES (0,
+	"b6f096b2-e562-4c26-8fa6-be81a5215695");
+INSERT INTO O_ID
+	VALUES (1,
+	"b6f096b2-e562-4c26-8fa6-be81a5215695");
+INSERT INTO O_ID
+	VALUES (2,
+	"b6f096b2-e562-4c26-8fa6-be81a5215695");
+INSERT INTO S_SS_PROXY
+	VALUES ("f56566de-5321-4b5f-b659-95d5c01e1baa",
+	'Backend',
+	'',
+	'',
+	0,
+	"02903c54-443d-4a88-aa81-181997e1d9f4",
+	"00000000-0000-0000-0000-000000000000",
+	'../Backend.xtuml');

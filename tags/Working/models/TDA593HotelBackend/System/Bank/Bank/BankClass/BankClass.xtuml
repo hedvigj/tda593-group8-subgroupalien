@@ -1,0 +1,27 @@
+-- BP 7.1 content: ModelClass syschar: 3 persistence-version: 7.1.5
+
+INSERT INTO O_OBJ
+	VALUES ("e2d8cba7-50b4-4d81-8203-7f48e5afe294",
+	'BankClass',
+	1,
+	'BankClass',
+	'',
+	"ecb5d843-362d-4c4b-8887-b276c76746ec");
+INSERT INTO O_ID
+	VALUES (0,
+	"e2d8cba7-50b4-4d81-8203-7f48e5afe294");
+INSERT INTO O_ID
+	VALUES (1,
+	"e2d8cba7-50b4-4d81-8203-7f48e5afe294");
+INSERT INTO O_ID
+	VALUES (2,
+	"e2d8cba7-50b4-4d81-8203-7f48e5afe294");
+INSERT INTO S_SS_PROXY
+	VALUES ("ecb5d843-362d-4c4b-8887-b276c76746ec",
+	'Bank',
+	'',
+	'',
+	0,
+	"40966034-b1b5-4b89-97c9-9f1af092fd75",
+	"00000000-0000-0000-0000-000000000000",
+	'../Bank.xtuml');
