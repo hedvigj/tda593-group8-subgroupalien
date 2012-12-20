@@ -370,9 +370,9 @@ INSERT INTO O_TFR
 assign day = TIM::get_day(date: currentDate);
 assign month = TIM::get_month(date: currentDate);
 assign year = TIM::get_year (date:currentDate);
-assign hour = TIM::get_hour (date:currentDate);
-assign minutes = TIM::get_minute (date:currentDate);
-assign seconds = TIM::get_second (date:currentDate);
+assign hour = 12;
+assign minutes = 0;
+assign seconds = 0;
 return TIM::create_date(year: 2013, month: 2, day: param.day, hour: hour, minute: minutes, second: seconds);
 ',
 	1,
