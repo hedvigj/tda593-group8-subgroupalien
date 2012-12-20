@@ -81,13 +81,7 @@ INSERT INTO O_TFR
 	'',
 	"5f77c811-d46b-4197-a574-4b3505e92410",
 	1,
-	'
-select any lm from instances of LockManager;
-if( empty lm )
-	create object instance lm of LockManager;
-	LOG::LogInfo(message: "LockManager created");
-end if;
-
+	'select one lm related by self->LockManager[R50];
 select any lock related by lm -> Lock[R23] where selected.id == param.lock;
 
 if( not_empty lock )
