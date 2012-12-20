@@ -205,25 +205,10 @@ INSERT INTO SM_ACT
 	"cf0bd93f-b62b-4b86-8d31-34eb53f2642c",
 	1,
 	'select any lockManager from instances of LockManager;
-if(empty lockManager)
-	create object instance lockManager of LockManager;
-	LOG::LogInfo(message: "lockManager was created in lockingRoomState of LockManager");
-end if;
+select one bookingManager related by lockManager->BookingManager[R50];
+select one roomManager related by lockManager->RoomManager[R49];
+select one businessruleManager related by lockManager->BusinessRuleManager[R51];
 
-select any bookingManager from instances of BookingManager;
-if(empty bookingManager)
-	create object instance bookingManager of BookingManager;
-	LOG::LogInfo(message: "bookingManager was created in lockingRoomState of LockManager");
-end if;
-
-select any roomManager from instances of RoomManager;
-if(empty roomManager) 
-	create object instance roomManager of RoomManager;
-	LOG::LogInfo(message: "roomManager was created in lockingRoomState of LockManager");
-end if;
-
-// Check that no business rules are violated
-select any businessruleManager from instances of BusinessRuleManager;
 assign isOk = businessruleManager.checkBookingRules(rcats: param.rcats , timespan: param.timespan);
 if (not isOk)
 	LOG::LogInfo(message: "Business rule violation, so will not lock.");

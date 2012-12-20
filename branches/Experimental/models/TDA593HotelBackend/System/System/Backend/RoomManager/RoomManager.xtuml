@@ -102,7 +102,7 @@ select any roomType related by self->RoomType[R42] where selected.name == param.
 if(empty roomType)
 	LOG::LogInfo(message: "Configuration not added, RoomType (" + param.roomType + ") does not exist. Name: " + param.uniqueName);
 	return false;
-elif(not empty roomConfig)
+elif(not_empty roomConfig)
 	LOG::LogInfo(message: "Configuration not added. There is an existing configuration with the same name: " + param.uniqueName);
 	return false;
 else

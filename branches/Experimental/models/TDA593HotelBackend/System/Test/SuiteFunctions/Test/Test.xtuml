@@ -47,7 +47,7 @@ INSERT INTO S_FIP
 INSERT INTO S_SYNC
 	VALUES ("e25df0d3-119d-44ae-9273-d440b0dfc23e",
 	"44fbb79c-2243-41c0-b500-e1a8c72e3dd6",
-	'Step1_Init',
+	'Step2_AddStuff',
 	'',
 	'generate TestClass_A1:init to TestClass class;',
 	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
@@ -66,7 +66,7 @@ INSERT INTO S_FIP
 INSERT INTO S_SYNC
 	VALUES ("deff4953-8914-48f5-8038-23eee3717320",
 	"44fbb79c-2243-41c0-b500-e1a8c72e3dd6",
-	'Step2_Misinitialization',
+	'Step3_MisAddStuff',
 	'',
 	'select any tc from instances of TestClass;
 generate TestClass7:next to tc;',
@@ -79,10 +79,22 @@ INSERT INTO S_FIP
 INSERT INTO S_SYNC
 	VALUES ("167f03d1-2ceb-4408-8f88-cd6cb8c4b635",
 	"44fbb79c-2243-41c0-b500-e1a8c72e3dd6",
-	'Step3_Autotests',
+	'Step4_Autotests',
 	'',
 	'select any tc from instances of TestClass;
 generate TestClass7:next to tc;',
+	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
+	1,
+	'');
+INSERT INTO S_FIP
+	VALUES ("8c7f0eb1-4ef5-448e-bf73-7c1e73d6d7e0",
+	"0dc56523-624b-41ef-8a5f-011ebbf2ec0d");
+INSERT INTO S_SYNC
+	VALUES ("0dc56523-624b-41ef-8a5f-011ebbf2ec0d",
+	"44fbb79c-2243-41c0-b500-e1a8c72e3dd6",
+	'Step1_Init',
+	'',
+	'send Port1::initSystem();',
 	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
 	1,
 	'');

@@ -1106,12 +1106,8 @@ INSERT INTO SM_ACT
 	VALUES ("235f12f6-f5c9-42e5-b1b6-eed991f36da6",
 	"d0511597-9e3d-4192-8f21-26cadd9ed8f7",
 	1,
-	'select any lockManager from instances of LockManager;
-if(empty lockManager)
-	create object instance lockManager of LockManager;
-	LOG::LogInfo(message: "Created a LockManager");
-end if;
-
+	'//select one lockManager related by self->LockManager[R22]; 
+select any lockManager from instances of LockManager;
 generate LockManager_A1:lock(timespan: param.timespan, rcats: param.rcats, sessionId: self.sessionId) to LockManager class;
 
 
@@ -1165,11 +1161,8 @@ INSERT INTO SM_ACT
 	1,
 	'// Clear bank timeout timer
 assign ret = TIM::timer_cancel(timer_inst_ref: self.bankTimeoutTimer);
+// select one bookingManager related by self->BookingManager[R21];
 select any bookingManager from instances of BookingManager;
-if(empty bookingManager)
-	create object instance bookingManager of BookingManager;
-	LOG::LogInfo(message: "Created a BookingManager");
-end if;
 
 LOG::LogInfo(message: "Bank finish");
 
