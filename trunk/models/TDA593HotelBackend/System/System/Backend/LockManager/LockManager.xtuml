@@ -81,15 +81,18 @@ INSERT INTO O_TFR
 
 assign count = 0;
 for each lock in locks
-	select many rcats related by lock->RoomConfigurationAmountTuple[R24];
-	for each rcat in rcats
-		select one rc related by rcat->RoomConfiguration[R28] where
-			selected.name == param.roomConfigurationName; 
-		if ( not_empty rc)
-			count = count + rcat.amount;
-			break;
-		end if;
-	end for;
+	if((lock.timespan.startDate <= param.timespan.endDate) and 
+		(lock.timespan.endDate >= param.timespan.startDate))
+		select many rcats related by lock->RoomConfigurationAmountTuple[R24];
+		for each rcat in rcats
+			select one rc related by rcat->RoomConfiguration[R28] where
+				selected.name == param.roomConfigurationName; 
+			if ( not_empty rc)
+				count = count + rcat.amount;
+				break;
+			end if;
+		end for;
+	end if;
 end for; 
 
 return count;',
