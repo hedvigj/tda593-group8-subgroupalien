@@ -145,6 +145,7 @@ INSERT INTO O_TFR
 	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
 	1,
 	'self.assertSuccess = param.expectSuccess;
+self.wantedBookingId = param.bookingId;
 send Port1::checkOut(bookingId: param.bookingId);
 ',
 	1,
@@ -190,6 +191,7 @@ INSERT INTO O_TFR
 	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
 	1,
 	'self.assertSuccess = param.expectSuccess;
+self.wantedBookingId = param.bookingId;
 send Port1::checkIn(bookingId: param.bookingId);
 ',
 	1,
@@ -599,6 +601,24 @@ INSERT INTO O_ATTR
 	0,
 	"5f77c811-d46b-4197-a574-4b3505e92410",
 	'[]',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("eabc79cb-4892-40c4-9141-e885bc7241ad",
+	"32458e6c-09c1-479e-9d59-28cc2362f085");
+INSERT INTO O_BATTR
+	VALUES ("eabc79cb-4892-40c4-9141-e885bc7241ad",
+	"32458e6c-09c1-479e-9d59-28cc2362f085");
+INSERT INTO O_ATTR
+	VALUES ("eabc79cb-4892-40c4-9141-e885bc7241ad",
+	"32458e6c-09c1-479e-9d59-28cc2362f085",
+	"002942c1-a8fc-4d79-b9f7-eea9285afe4f",
+	'wantedBookingId',
+	'',
+	'',
+	'wantedBookingId',
+	0,
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	'',
 	'');
 INSERT INTO O_ID
 	VALUES (0,

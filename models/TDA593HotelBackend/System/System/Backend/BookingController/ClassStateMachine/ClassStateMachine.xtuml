@@ -1038,6 +1038,9 @@ else
 	
 	if( dummy == false )
 		LOG::LogInfo(message: "Checking in failed!");
+		send Port1::checkedIn(bookingId: -1);
+	else
+		send Port1::checkedIn(bookingId: param.bookingId);
 	end if;
 	
 end if;
@@ -1098,6 +1101,9 @@ else
 		
 		if( dummy == false )
 			LOG::LogInfo(message: "Checking out failed!");
+			send Port1::checkedOut(bookingId: -1);
+		else
+			send Port1::checkedOut(bookingId: param.bookingId);
 		end if;
 	end if;
 end if;
