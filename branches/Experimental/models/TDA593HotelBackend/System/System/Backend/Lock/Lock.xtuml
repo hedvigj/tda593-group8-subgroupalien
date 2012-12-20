@@ -14,16 +14,9 @@ INSERT INTO O_TFR
 	'',
 	"28114c36-aaba-4a92-b7c3-08f06e41c6a4",
 	1,
-	'select any lm from instances of LockManager;
-if (empty lm)
-	create object instance lm of LockManager;
-	return false;
-end if;
+	'select one lm related by self->LockManager[R23];
 
-select any rm from instances of RoomManager;
-if (empty rm)
-	return false;
-end if;
+select one rm related by self->LockManager[R23]->RoomManager[R49];
 
 // Only allowed to be one of each type
 assign index = 0;
