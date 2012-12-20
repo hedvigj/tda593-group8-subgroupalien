@@ -377,7 +377,7 @@ for each booking in bookings
 			assign date = TIM::current_date();
 			
 			for each ci in checkInSet
-				ci.checkOutDate = date;
+				ci.checkOut(date: date);
 			end for; 
 			
 			LOG::LogInfo(message: "Check out succeeded");
