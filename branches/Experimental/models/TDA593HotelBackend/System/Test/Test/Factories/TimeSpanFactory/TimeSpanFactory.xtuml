@@ -1,0 +1,74 @@
+-- BP 7.1 content: ModelClass syschar: 3 persistence-version: 7.1.5
+
+INSERT INTO O_OBJ
+	VALUES ("7ca9d47a-db13-4be7-add4-ce789c04e0ca",
+	'TimeSpanFactory',
+	38,
+	'TimeSpanFactory',
+	'',
+	"5ad41091-a5de-4698-b9d4-8a5fb23dde3a");
+INSERT INTO O_TFR
+	VALUES ("0d6015c5-0d10-4b63-8fc1-c3fb7c206682",
+	"7ca9d47a-db13-4be7-add4-ce789c04e0ca",
+	'createTimeSpan',
+	'',
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	1,
+	'LOG::LogInfo(message: "FACTORY - ASSIGNING");
+//assign self.timeSpan.startDate = param.startDate;
+//assign self.timeSpan.endDate = param.endDate;
+LOG::LogInfo(message: "FACTORY - RETURNING");
+return 0;',
+	1,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TPARM
+	VALUES ("2f838b0b-2e3e-4ad3-86a0-20abe67cdda2",
+	"0d6015c5-0d10-4b63-8fc1-c3fb7c206682",
+	'startDate',
+	"bdc36fef-8559-4ba2-9337-8ebb987f4334",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("bdc36fef-8559-4ba2-9337-8ebb987f4334",
+	"00000000-0000-0000-0000-000000000000",
+	'date',
+	'',
+	'',
+	'../../../../../Datatypes/Datatypes.xtuml');
+INSERT INTO O_TPARM
+	VALUES ("fbb57235-9d11-469a-a528-cf542c730a3c",
+	"0d6015c5-0d10-4b63-8fc1-c3fb7c206682",
+	'endDate',
+	"bdc36fef-8559-4ba2-9337-8ebb987f4334",
+	0,
+	'',
+	"2f838b0b-2e3e-4ad3-86a0-20abe67cdda2",
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("5f77c811-d46b-4197-a574-4b3505e92410",
+	"00000000-0000-0000-0000-000000000000",
+	'integer',
+	'',
+	'',
+	'../../../../../Datatypes/Datatypes.xtuml');
+INSERT INTO O_ID
+	VALUES (0,
+	"7ca9d47a-db13-4be7-add4-ce789c04e0ca");
+INSERT INTO O_ID
+	VALUES (1,
+	"7ca9d47a-db13-4be7-add4-ce789c04e0ca");
+INSERT INTO O_ID
+	VALUES (2,
+	"7ca9d47a-db13-4be7-add4-ce789c04e0ca");
+INSERT INTO S_SS_PROXY
+	VALUES ("5ad41091-a5de-4698-b9d4-8a5fb23dde3a",
+	'Factories',
+	'',
+	'',
+	0,
+	"44fbb79c-2243-41c0-b500-e1a8c72e3dd6",
+	"00000000-0000-0000-0000-000000000000",
+	'../Factories.xtuml');

@@ -1,0 +1,52 @@
+-- BP 7.1 content: ModelClass syschar: 3 persistence-version: 7.1.5
+
+INSERT INTO O_OBJ
+	VALUES ("d3f6496d-11ad-4df6-80db-4fa3c51e8e2b",
+	'MemberLevel',
+	4,
+	'MemberLevel',
+	'',
+	"f56566de-5321-4b5f-b659-95d5c01e1baa");
+INSERT INTO O_NBATTR
+	VALUES ("6ca8d282-4f1c-4bad-a0ce-2fc07225b838",
+	"d3f6496d-11ad-4df6-80db-4fa3c51e8e2b");
+INSERT INTO O_BATTR
+	VALUES ("6ca8d282-4f1c-4bad-a0ce-2fc07225b838",
+	"d3f6496d-11ad-4df6-80db-4fa3c51e8e2b");
+INSERT INTO O_ATTR
+	VALUES ("6ca8d282-4f1c-4bad-a0ce-2fc07225b838",
+	"d3f6496d-11ad-4df6-80db-4fa3c51e8e2b",
+	"00000000-0000-0000-0000-000000000000",
+	'name',
+	'',
+	'',
+	'name',
+	0,
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	'',
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	"00000000-0000-0000-0000-000000000000",
+	'string',
+	'',
+	'',
+	'../../../../Datatypes/Datatypes.xtuml');
+INSERT INTO O_ID
+	VALUES (0,
+	"d3f6496d-11ad-4df6-80db-4fa3c51e8e2b");
+INSERT INTO O_ID
+	VALUES (1,
+	"d3f6496d-11ad-4df6-80db-4fa3c51e8e2b");
+INSERT INTO O_ID
+	VALUES (2,
+	"d3f6496d-11ad-4df6-80db-4fa3c51e8e2b");
+INSERT INTO S_SS_PROXY
+	VALUES ("f56566de-5321-4b5f-b659-95d5c01e1baa",
+	'Backend',
+	'',
+	'',
+	0,
+	"02903c54-443d-4a88-aa81-181997e1d9f4",
+	"00000000-0000-0000-0000-000000000000",
+	'../Backend.xtuml');

@@ -1,0 +1,493 @@
+-- BP 7.1 content: Interface syschar: 3 persistence-version: 7.1.5
+
+INSERT INTO C_I
+	VALUES ("55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",
+	"2c4b14cf-263e-4680-a6e2-ea8ecc8c143c",
+	'SystemInterface',
+	'');
+INSERT INTO C_EP
+	VALUES ("418b4d9f-ac17-49f9-aff4-cc4e4cb0532a",
+	"55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",
+	-1,
+	'addRoomType');
+INSERT INTO C_AS
+	VALUES ("418b4d9f-ac17-49f9-aff4-cc4e4cb0532a",
+	'addRoomType',
+	'',
+	0,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("53b9e29b-788c-44af-b145-a4ec67382ce6",
+	"418b4d9f-ac17-49f9-aff4-cc4e4cb0532a",
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	'uniqueName',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO S_DT_PROXY
+	VALUES ("0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	"00000000-0000-0000-0000-000000000000",
+	'string',
+	'',
+	'',
+	'../../Datatypes/Datatypes.xtuml');
+INSERT INTO C_EP
+	VALUES ("4157c1f4-3f7b-4c8b-ba22-40b5c5008208",
+	"55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",
+	-1,
+	'addProperty');
+INSERT INTO C_AS
+	VALUES ("4157c1f4-3f7b-4c8b-ba22-40b5c5008208",
+	'addProperty',
+	'',
+	0,
+	"418b4d9f-ac17-49f9-aff4-cc4e4cb0532a");
+INSERT INTO C_PP
+	VALUES ("7a2ee627-6fe6-4063-bef0-5793d61fb0d7",
+	"4157c1f4-3f7b-4c8b-ba22-40b5c5008208",
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	'uniqueName',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("96612615-6b59-4ce3-a71a-451a37be3077",
+	"4157c1f4-3f7b-4c8b-ba22-40b5c5008208",
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	'description',
+	'',
+	0,
+	'',
+	"7a2ee627-6fe6-4063-bef0-5793d61fb0d7");
+INSERT INTO C_EP
+	VALUES ("1369d25e-4e1a-4676-93d8-ba7e46d55e3a",
+	"55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",
+	-1,
+	'book');
+INSERT INTO C_AS
+	VALUES ("1369d25e-4e1a-4676-93d8-ba7e46d55e3a",
+	'book',
+	'',
+	0,
+	"7bc1157f-e9cb-4b49-865c-99e47e8d59e8");
+INSERT INTO C_PP
+	VALUES ("b854cdcf-e5c0-4648-b420-df06d5dd1a63",
+	"1369d25e-4e1a-4676-93d8-ba7e46d55e3a",
+	"f055cc32-7fa6-4cbd-949e-0cbdc50ee8b2",
+	'personalInfo',
+	'',
+	0,
+	'',
+	"519262ed-2aec-49e4-ae76-bd3368db9b26");
+INSERT INTO S_DT_PROXY
+	VALUES ("f055cc32-7fa6-4cbd-949e-0cbdc50ee8b2",
+	"00000000-0000-0000-0000-000000000000",
+	'PersonalInfo',
+	'',
+	'',
+	'../../BackendDatatypes/BackendDatatypes.xtuml');
+INSERT INTO C_PP
+	VALUES ("9822c854-258e-4b6a-ab5d-ccf2cb96ed79",
+	"1369d25e-4e1a-4676-93d8-ba7e46d55e3a",
+	"16664b58-a6dc-4ac7-9499-ba089cf98eaa",
+	'creditcard',
+	'',
+	0,
+	'',
+	"b854cdcf-e5c0-4648-b420-df06d5dd1a63");
+INSERT INTO S_DT_PROXY
+	VALUES ("16664b58-a6dc-4ac7-9499-ba089cf98eaa",
+	"00000000-0000-0000-0000-000000000000",
+	'CreditCard',
+	'',
+	'',
+	'../../BackendDatatypes/BackendDatatypes.xtuml');
+INSERT INTO C_PP
+	VALUES ("519262ed-2aec-49e4-ae76-bd3368db9b26",
+	"1369d25e-4e1a-4676-93d8-ba7e46d55e3a",
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	'sessionId',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO S_DT_PROXY
+	VALUES ("5f77c811-d46b-4197-a574-4b3505e92410",
+	"00000000-0000-0000-0000-000000000000",
+	'integer',
+	'',
+	'',
+	'../../Datatypes/Datatypes.xtuml');
+INSERT INTO C_EP
+	VALUES ("27074fd3-afc3-4b27-a048-bb01de2a7176",
+	"55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",
+	-1,
+	'addRoomConfiguration');
+INSERT INTO C_AS
+	VALUES ("27074fd3-afc3-4b27-a048-bb01de2a7176",
+	'addRoomConfiguration',
+	'',
+	0,
+	"4157c1f4-3f7b-4c8b-ba22-40b5c5008208");
+INSERT INTO C_PP
+	VALUES ("b128c6ac-8f36-4373-bcb4-3b5f421bdf58",
+	"27074fd3-afc3-4b27-a048-bb01de2a7176",
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	'description',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("2dd3f996-84a6-4325-b1c7-a2e317845cbb",
+	"27074fd3-afc3-4b27-a048-bb01de2a7176",
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	'price',
+	'',
+	0,
+	'',
+	"b128c6ac-8f36-4373-bcb4-3b5f421bdf58");
+INSERT INTO C_PP
+	VALUES ("7231bf6c-a6bd-437b-aee6-1b61c1b848dd",
+	"27074fd3-afc3-4b27-a048-bb01de2a7176",
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	'roomType',
+	'',
+	0,
+	'',
+	"2dd3f996-84a6-4325-b1c7-a2e317845cbb");
+INSERT INTO C_PP
+	VALUES ("9ebc434c-c07b-4a3a-aed6-2d63b11fb0ec",
+	"27074fd3-afc3-4b27-a048-bb01de2a7176",
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	'uniqueName',
+	'',
+	0,
+	'',
+	"7231bf6c-a6bd-437b-aee6-1b61c1b848dd");
+INSERT INTO C_EP
+	VALUES ("3fecd7d5-ac81-43ac-87c5-0209b7ea630a",
+	"55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",
+	-1,
+	'setRoomConfigurationEnabled');
+INSERT INTO C_AS
+	VALUES ("3fecd7d5-ac81-43ac-87c5-0209b7ea630a",
+	'setRoomConfigurationEnabled',
+	'',
+	0,
+	"345834e8-51b3-474d-89c9-c3053d739675");
+INSERT INTO C_PP
+	VALUES ("8f977e74-67ee-44f0-b122-7100919c64be",
+	"3fecd7d5-ac81-43ac-87c5-0209b7ea630a",
+	"28114c36-aaba-4a92-b7c3-08f06e41c6a4",
+	'enabled',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO S_DT_PROXY
+	VALUES ("28114c36-aaba-4a92-b7c3-08f06e41c6a4",
+	"00000000-0000-0000-0000-000000000000",
+	'boolean',
+	'',
+	'',
+	'../../Datatypes/Datatypes.xtuml');
+INSERT INTO C_PP
+	VALUES ("973d0ae4-0a10-4793-b91e-9ead7688672f",
+	"3fecd7d5-ac81-43ac-87c5-0209b7ea630a",
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	'configurationName',
+	'',
+	0,
+	'',
+	"8f977e74-67ee-44f0-b122-7100919c64be");
+INSERT INTO C_EP
+	VALUES ("e87579f9-fbeb-4f6b-a4c2-e45dad336e56",
+	"55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",
+	-1,
+	'addRoomConfigurationProperty');
+INSERT INTO C_AS
+	VALUES ("e87579f9-fbeb-4f6b-a4c2-e45dad336e56",
+	'addRoomConfigurationProperty',
+	'',
+	0,
+	"27074fd3-afc3-4b27-a048-bb01de2a7176");
+INSERT INTO C_PP
+	VALUES ("791a8085-d983-45bb-a28b-03b5825c0a21",
+	"e87579f9-fbeb-4f6b-a4c2-e45dad336e56",
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	'configurationName',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("e25ec624-3159-4fb3-9127-6b525cb20866",
+	"e87579f9-fbeb-4f6b-a4c2-e45dad336e56",
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	'propertyName',
+	'',
+	0,
+	'',
+	"791a8085-d983-45bb-a28b-03b5825c0a21");
+INSERT INTO C_EP
+	VALUES ("7bc1157f-e9cb-4b49-865c-99e47e8d59e8",
+	"55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",
+	-1,
+	'removeRoomConfigurationProperty');
+INSERT INTO C_AS
+	VALUES ("7bc1157f-e9cb-4b49-865c-99e47e8d59e8",
+	'removeRoomConfigurationProperty',
+	'',
+	0,
+	"3fecd7d5-ac81-43ac-87c5-0209b7ea630a");
+INSERT INTO C_PP
+	VALUES ("6465c650-d79a-4066-83dc-125f4b29f392",
+	"7bc1157f-e9cb-4b49-865c-99e47e8d59e8",
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	'configurationName',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("7eb26474-5d18-4e5f-96f7-254d306710c1",
+	"7bc1157f-e9cb-4b49-865c-99e47e8d59e8",
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	'propertyName',
+	'',
+	0,
+	'',
+	"6465c650-d79a-4066-83dc-125f4b29f392");
+INSERT INTO C_EP
+	VALUES ("4edfbad1-da70-4256-bb1c-57b257e3adcc",
+	"55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",
+	-1,
+	'returnBooking');
+INSERT INTO C_AS
+	VALUES ("4edfbad1-da70-4256-bb1c-57b257e3adcc",
+	'returnBooking',
+	'',
+	1,
+	"1369d25e-4e1a-4676-93d8-ba7e46d55e3a");
+INSERT INTO C_PP
+	VALUES ("d91bd0f6-9a7a-4edf-9476-8f4dbdc156f8",
+	"4edfbad1-da70-4256-bb1c-57b257e3adcc",
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	'bookingId',
+	'',
+	0,
+	'',
+	"a0daff01-5c96-4e40-8846-bcc99ad72f24");
+INSERT INTO C_PP
+	VALUES ("a0daff01-5c96-4e40-8846-bcc99ad72f24",
+	"4edfbad1-da70-4256-bb1c-57b257e3adcc",
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	'sessionId',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_EP
+	VALUES ("345834e8-51b3-474d-89c9-c3053d739675",
+	"55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",
+	-1,
+	'addRoomInstance');
+INSERT INTO C_AS
+	VALUES ("345834e8-51b3-474d-89c9-c3053d739675",
+	'addRoomInstance',
+	'',
+	0,
+	"e87579f9-fbeb-4f6b-a4c2-e45dad336e56");
+INSERT INTO C_PP
+	VALUES ("e525addd-e253-4b81-aeaf-b3815985a3d4",
+	"345834e8-51b3-474d-89c9-c3053d739675",
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	'roomInstanceName',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("cab3f13e-bcf2-4310-a5a9-a11d6ef1c7d7",
+	"345834e8-51b3-474d-89c9-c3053d739675",
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	'roomConfigurationName',
+	'',
+	0,
+	'',
+	"e525addd-e253-4b81-aeaf-b3815985a3d4");
+INSERT INTO C_EP
+	VALUES ("e6f20d87-7f8d-4221-9a21-9305e00e9a05",
+	"55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",
+	-1,
+	'checkIn');
+INSERT INTO C_AS
+	VALUES ("e6f20d87-7f8d-4221-9a21-9305e00e9a05",
+	'checkIn',
+	'',
+	0,
+	"e3cc8a0c-68c9-44d0-b885-9c2a7c3e8d12");
+INSERT INTO C_PP
+	VALUES ("31bf7882-c5ba-4378-a3f9-97503769ae4a",
+	"e6f20d87-7f8d-4221-9a21-9305e00e9a05",
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	'bookingId',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_EP
+	VALUES ("2d066e93-cb79-4f63-ac4f-1b440aa49ce8",
+	"55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",
+	-1,
+	'checkOut');
+INSERT INTO C_AS
+	VALUES ("2d066e93-cb79-4f63-ac4f-1b440aa49ce8",
+	'checkOut',
+	'',
+	0,
+	"e6f20d87-7f8d-4221-9a21-9305e00e9a05");
+INSERT INTO C_PP
+	VALUES ("b9ac08ed-cbd9-47b4-8871-7a1a23d668f5",
+	"2d066e93-cb79-4f63-ac4f-1b440aa49ce8",
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	'bookingId',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_EP
+	VALUES ("9e4609f3-9fdf-4595-9aff-f172c6ae8864",
+	"55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",
+	-1,
+	'lock');
+INSERT INTO C_AS
+	VALUES ("9e4609f3-9fdf-4595-9aff-f172c6ae8864",
+	'lock',
+	'',
+	0,
+	"4edfbad1-da70-4256-bb1c-57b257e3adcc");
+INSERT INTO C_PP
+	VALUES ("ce1fc809-b0be-445a-a425-60d7ba323179",
+	"9e4609f3-9fdf-4595-9aff-f172c6ae8864",
+	"29455544-5da7-4d59-89a1-9d1261bd2be6",
+	'timespan',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO S_DT_PROXY
+	VALUES ("29455544-5da7-4d59-89a1-9d1261bd2be6",
+	"00000000-0000-0000-0000-000000000000",
+	'TimeSpan',
+	'',
+	'',
+	'../../BackendDatatypes/BackendDatatypes.xtuml');
+INSERT INTO C_PP
+	VALUES ("b1eedcb3-d9c9-4ce1-ad43-242a695edc47",
+	"9e4609f3-9fdf-4595-9aff-f172c6ae8864",
+	"d919e5ab-5f67-4aab-9544-5fd6291e14e0",
+	'rcats',
+	'',
+	0,
+	'[]',
+	"ce1fc809-b0be-445a-a425-60d7ba323179");
+INSERT INTO S_DIM
+	VALUES (0,
+	0,
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"b1eedcb3-d9c9-4ce1-ad43-242a695edc47",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"229cd88b-3b35-41fc-9bc3-ee80d8919879",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO S_DT_PROXY
+	VALUES ("d919e5ab-5f67-4aab-9544-5fd6291e14e0",
+	"00000000-0000-0000-0000-000000000000",
+	'RoomConfigurationAmountTuple',
+	'',
+	'',
+	'../../BackendDatatypes/BackendDatatypes.xtuml');
+INSERT INTO C_EP
+	VALUES ("e3cc8a0c-68c9-44d0-b885-9c2a7c3e8d12",
+	"55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",
+	-1,
+	'returnLock');
+INSERT INTO C_AS
+	VALUES ("e3cc8a0c-68c9-44d0-b885-9c2a7c3e8d12",
+	'returnLock',
+	'',
+	1,
+	"9e4609f3-9fdf-4595-9aff-f172c6ae8864");
+INSERT INTO C_PP
+	VALUES ("5ab51141-2849-4348-b6d3-0371722549a8",
+	"e3cc8a0c-68c9-44d0-b885-9c2a7c3e8d12",
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	'sessionId',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_EP
+	VALUES ("e82c75a0-5187-4afc-a54e-f2d6a54580ec",
+	"55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",
+	-1,
+	'checkedOut');
+INSERT INTO C_AS
+	VALUES ("e82c75a0-5187-4afc-a54e-f2d6a54580ec",
+	'checkedOut',
+	'',
+	1,
+	"2d066e93-cb79-4f63-ac4f-1b440aa49ce8");
+INSERT INTO C_PP
+	VALUES ("04eeb63b-bf45-4a7f-8af0-8374516388e3",
+	"e82c75a0-5187-4afc-a54e-f2d6a54580ec",
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	'bookingId',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_EP
+	VALUES ("7f84510c-1ca3-44dc-a904-69b70fa26e50",
+	"55528f2f-3dd2-484c-8551-7ddc4fdb0cdc",
+	-1,
+	'checkedIn');
+INSERT INTO C_AS
+	VALUES ("7f84510c-1ca3-44dc-a904-69b70fa26e50",
+	'checkedIn',
+	'',
+	1,
+	"e82c75a0-5187-4afc-a54e-f2d6a54580ec");
+INSERT INTO C_PP
+	VALUES ("51f004da-c667-4fd2-ab41-fff2d518bb48",
+	"7f84510c-1ca3-44dc-a904-69b70fa26e50",
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	'bookingId',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO IP_IP_PROXY
+	VALUES ("2c4b14cf-263e-4680-a6e2-ea8ecc8c143c",
+	"00000000-0000-0000-0000-000000000000",
+	"6e2c4488-fb8a-40a5-b159-2b8df9e0cfd7",
+	"6e2c4488-fb8a-40a5-b159-2b8df9e0cfd7",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	'SystemInterfaces',
+	'',
+	'../SystemInterfaces.xtuml');

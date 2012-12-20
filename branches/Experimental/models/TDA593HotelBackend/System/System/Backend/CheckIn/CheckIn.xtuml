@@ -1,0 +1,134 @@
+-- BP 7.1 content: ModelClass syschar: 3 persistence-version: 7.1.5
+
+INSERT INTO O_OBJ
+	VALUES ("8c17b14c-cea0-451c-a475-c0b94f2ec8f6",
+	'CheckIn',
+	13,
+	'CheckIn',
+	'',
+	"f56566de-5321-4b5f-b659-95d5c01e1baa");
+INSERT INTO O_TFR
+	VALUES ("55e883a3-511a-4afe-89ff-f72d02c3b4de",
+	"8c17b14c-cea0-451c-a475-c0b94f2ec8f6",
+	'isCheckedIn',
+	'',
+	"28114c36-aaba-4a92-b7c3-08f06e41c6a4",
+	1,
+	'return not self.isCheckedOut;',
+	1,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO S_DT_PROXY
+	VALUES ("28114c36-aaba-4a92-b7c3-08f06e41c6a4",
+	"00000000-0000-0000-0000-000000000000",
+	'boolean',
+	'',
+	'',
+	'../../../../Datatypes/Datatypes.xtuml');
+INSERT INTO O_TFR
+	VALUES ("77ddd10b-355b-4463-91e3-d44999e67724",
+	"8c17b14c-cea0-451c-a475-c0b94f2ec8f6",
+	'checkOut',
+	'',
+	"233e7f8d-a875-4812-a4c3-4ced8b823e83",
+	1,
+	'self.isCheckedOut = true;
+checkOutDate = param.date;',
+	1,
+	'',
+	"55e883a3-511a-4afe-89ff-f72d02c3b4de");
+INSERT INTO O_TPARM
+	VALUES ("ea7bde5f-7747-4722-8a59-ff2644c3a3d3",
+	"77ddd10b-355b-4463-91e3-d44999e67724",
+	'date',
+	"bdc36fef-8559-4ba2-9337-8ebb987f4334",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("bdc36fef-8559-4ba2-9337-8ebb987f4334",
+	"00000000-0000-0000-0000-000000000000",
+	'date',
+	'',
+	'',
+	'../../../../Datatypes/Datatypes.xtuml');
+INSERT INTO S_DT_PROXY
+	VALUES ("233e7f8d-a875-4812-a4c3-4ced8b823e83",
+	"00000000-0000-0000-0000-000000000000",
+	'void',
+	'',
+	'',
+	'../../../../Datatypes/Datatypes.xtuml');
+INSERT INTO O_NBATTR
+	VALUES ("5cdd6d55-1d96-4a82-a89c-87b9cbb11a26",
+	"8c17b14c-cea0-451c-a475-c0b94f2ec8f6");
+INSERT INTO O_BATTR
+	VALUES ("5cdd6d55-1d96-4a82-a89c-87b9cbb11a26",
+	"8c17b14c-cea0-451c-a475-c0b94f2ec8f6");
+INSERT INTO O_ATTR
+	VALUES ("5cdd6d55-1d96-4a82-a89c-87b9cbb11a26",
+	"8c17b14c-cea0-451c-a475-c0b94f2ec8f6",
+	"00000000-0000-0000-0000-000000000000",
+	'checkInDate',
+	'',
+	'',
+	'checkInDate',
+	0,
+	"bdc36fef-8559-4ba2-9337-8ebb987f4334",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("99505cf8-ef5b-4707-811b-63905f2022fc",
+	"8c17b14c-cea0-451c-a475-c0b94f2ec8f6");
+INSERT INTO O_BATTR
+	VALUES ("99505cf8-ef5b-4707-811b-63905f2022fc",
+	"8c17b14c-cea0-451c-a475-c0b94f2ec8f6");
+INSERT INTO O_ATTR
+	VALUES ("99505cf8-ef5b-4707-811b-63905f2022fc",
+	"8c17b14c-cea0-451c-a475-c0b94f2ec8f6",
+	"5cdd6d55-1d96-4a82-a89c-87b9cbb11a26",
+	'checkOutDate',
+	'',
+	'',
+	'checkOutDate',
+	0,
+	"bdc36fef-8559-4ba2-9337-8ebb987f4334",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("2cfa9eab-6d02-4084-b73f-6602d80c88f1",
+	"8c17b14c-cea0-451c-a475-c0b94f2ec8f6");
+INSERT INTO O_BATTR
+	VALUES ("2cfa9eab-6d02-4084-b73f-6602d80c88f1",
+	"8c17b14c-cea0-451c-a475-c0b94f2ec8f6");
+INSERT INTO O_ATTR
+	VALUES ("2cfa9eab-6d02-4084-b73f-6602d80c88f1",
+	"8c17b14c-cea0-451c-a475-c0b94f2ec8f6",
+	"99505cf8-ef5b-4707-811b-63905f2022fc",
+	'isCheckedOut',
+	'',
+	'',
+	'isCheckedOut',
+	0,
+	"28114c36-aaba-4a92-b7c3-08f06e41c6a4",
+	'',
+	'');
+INSERT INTO O_ID
+	VALUES (0,
+	"8c17b14c-cea0-451c-a475-c0b94f2ec8f6");
+INSERT INTO O_ID
+	VALUES (1,
+	"8c17b14c-cea0-451c-a475-c0b94f2ec8f6");
+INSERT INTO O_ID
+	VALUES (2,
+	"8c17b14c-cea0-451c-a475-c0b94f2ec8f6");
+INSERT INTO S_SS_PROXY
+	VALUES ("f56566de-5321-4b5f-b659-95d5c01e1baa",
+	'Backend',
+	'',
+	'',
+	0,
+	"02903c54-443d-4a88-aa81-181997e1d9f4",
+	"00000000-0000-0000-0000-000000000000",
+	'../Backend.xtuml');

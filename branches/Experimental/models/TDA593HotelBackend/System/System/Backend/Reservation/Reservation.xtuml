@@ -1,0 +1,63 @@
+-- BP 7.1 content: ModelClass syschar: 3 persistence-version: 7.1.5
+
+INSERT INTO O_OBJ
+	VALUES ("9870931f-4767-4ca1-944a-b40dd1863246",
+	'Reservation',
+	27,
+	'Reservation',
+	'',
+	"f56566de-5321-4b5f-b659-95d5c01e1baa");
+INSERT INTO O_TFR
+	VALUES ("493f0747-339e-4d97-80a5-df0ebfbf8748",
+	"9870931f-4767-4ca1-944a-b40dd1863246",
+	'getAmount',
+	'',
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	1,
+	'return self.amount;',
+	1,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO S_DT_PROXY
+	VALUES ("5f77c811-d46b-4197-a574-4b3505e92410",
+	"00000000-0000-0000-0000-000000000000",
+	'integer',
+	'',
+	'',
+	'../../../../Datatypes/Datatypes.xtuml');
+INSERT INTO O_NBATTR
+	VALUES ("425bb391-8dde-4062-be27-8efc369dc4a9",
+	"9870931f-4767-4ca1-944a-b40dd1863246");
+INSERT INTO O_BATTR
+	VALUES ("425bb391-8dde-4062-be27-8efc369dc4a9",
+	"9870931f-4767-4ca1-944a-b40dd1863246");
+INSERT INTO O_ATTR
+	VALUES ("425bb391-8dde-4062-be27-8efc369dc4a9",
+	"9870931f-4767-4ca1-944a-b40dd1863246",
+	"00000000-0000-0000-0000-000000000000",
+	'amount',
+	'',
+	'',
+	'amount',
+	0,
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	'',
+	'');
+INSERT INTO O_ID
+	VALUES (0,
+	"9870931f-4767-4ca1-944a-b40dd1863246");
+INSERT INTO O_ID
+	VALUES (1,
+	"9870931f-4767-4ca1-944a-b40dd1863246");
+INSERT INTO O_ID
+	VALUES (2,
+	"9870931f-4767-4ca1-944a-b40dd1863246");
+INSERT INTO S_SS_PROXY
+	VALUES ("f56566de-5321-4b5f-b659-95d5c01e1baa",
+	'Backend',
+	'',
+	'',
+	0,
+	"02903c54-443d-4a88-aa81-181997e1d9f4",
+	"00000000-0000-0000-0000-000000000000",
+	'../Backend.xtuml');

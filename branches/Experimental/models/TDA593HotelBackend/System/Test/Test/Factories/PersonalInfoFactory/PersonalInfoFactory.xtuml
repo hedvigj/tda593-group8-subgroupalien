@@ -1,0 +1,120 @@
+-- BP 7.1 content: ModelClass syschar: 3 persistence-version: 7.1.5
+
+INSERT INTO O_OBJ
+	VALUES ("b4c08ede-31e9-41ae-8547-aec1fb2a9f0d",
+	'PersonalInfoFactory',
+	35,
+	'PersonalInfoFactory',
+	'',
+	"5ad41091-a5de-4698-b9d4-8a5fb23dde3a");
+INSERT INTO O_TFR
+	VALUES ("f2f8078e-4b0c-491b-9c45-45f8d109e36e",
+	"b4c08ede-31e9-41ae-8547-aec1fb2a9f0d",
+	'createPersonalInfo',
+	'',
+	"f055cc32-7fa6-4cbd-949e-0cbdc50ee8b2",
+	1,
+	'assign self.personalInfo.firstName = param.firstName;
+assign self.personalInfo.lastName = param.lastName;
+assign self.personalInfo.adress = param.adress;
+assign self.personalInfo.email = param.email;
+assign self.personalInfo.phoneNr = param.phoneNr;
+return self.personalInfo;',
+	1,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TPARM
+	VALUES ("de1a5525-b3a3-4277-a6ce-a0d625b7197d",
+	"f2f8078e-4b0c-491b-9c45-45f8d109e36e",
+	'firstName',
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	"00000000-0000-0000-0000-000000000000",
+	'string',
+	'',
+	'',
+	'../../../../../Datatypes/Datatypes.xtuml');
+INSERT INTO O_TPARM
+	VALUES ("424714d4-0ba1-4bf3-b843-07c08280eaf9",
+	"f2f8078e-4b0c-491b-9c45-45f8d109e36e",
+	'lastName',
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	0,
+	'',
+	"de1a5525-b3a3-4277-a6ce-a0d625b7197d",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("e2a51348-f644-4ac6-a20e-9a431bb90b01",
+	"f2f8078e-4b0c-491b-9c45-45f8d109e36e",
+	'adress',
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	0,
+	'',
+	"424714d4-0ba1-4bf3-b843-07c08280eaf9",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("cbdbd728-e00b-4901-9b67-fdc476ecf757",
+	"f2f8078e-4b0c-491b-9c45-45f8d109e36e",
+	'email',
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	0,
+	'',
+	"e2a51348-f644-4ac6-a20e-9a431bb90b01",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("ce8c4ca8-c1a0-4a23-af1c-c31a41f908f5",
+	"f2f8078e-4b0c-491b-9c45-45f8d109e36e",
+	'phoneNr',
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	0,
+	'',
+	"cbdbd728-e00b-4901-9b67-fdc476ecf757",
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("f055cc32-7fa6-4cbd-949e-0cbdc50ee8b2",
+	"00000000-0000-0000-0000-000000000000",
+	'PersonalInfo',
+	'',
+	'',
+	'../../../../../BackendDatatypes/BackendDatatypes.xtuml');
+INSERT INTO O_NBATTR
+	VALUES ("9c3a5b5b-478e-4060-99dc-022f809f190b",
+	"b4c08ede-31e9-41ae-8547-aec1fb2a9f0d");
+INSERT INTO O_BATTR
+	VALUES ("9c3a5b5b-478e-4060-99dc-022f809f190b",
+	"b4c08ede-31e9-41ae-8547-aec1fb2a9f0d");
+INSERT INTO O_ATTR
+	VALUES ("9c3a5b5b-478e-4060-99dc-022f809f190b",
+	"b4c08ede-31e9-41ae-8547-aec1fb2a9f0d",
+	"00000000-0000-0000-0000-000000000000",
+	'personalInfo',
+	'',
+	'',
+	'personalInfo',
+	0,
+	"f055cc32-7fa6-4cbd-949e-0cbdc50ee8b2",
+	'',
+	'');
+INSERT INTO O_ID
+	VALUES (0,
+	"b4c08ede-31e9-41ae-8547-aec1fb2a9f0d");
+INSERT INTO O_ID
+	VALUES (1,
+	"b4c08ede-31e9-41ae-8547-aec1fb2a9f0d");
+INSERT INTO O_ID
+	VALUES (2,
+	"b4c08ede-31e9-41ae-8547-aec1fb2a9f0d");
+INSERT INTO S_SS_PROXY
+	VALUES ("5ad41091-a5de-4698-b9d4-8a5fb23dde3a",
+	'Factories',
+	'',
+	'',
+	0,
+	"44fbb79c-2243-41c0-b500-e1a8c72e3dd6",
+	"00000000-0000-0000-0000-000000000000",
+	'../Factories.xtuml');
