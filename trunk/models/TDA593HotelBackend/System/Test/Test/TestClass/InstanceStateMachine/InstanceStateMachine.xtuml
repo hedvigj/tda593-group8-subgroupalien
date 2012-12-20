@@ -646,15 +646,15 @@ else
 	elif(self.testIndex == 20)
 		self.bookTest(name: "ERIK", validCard: true, sessionId: 3333, expectSuccess: false);
 	elif(self.testIndex == 21)
-		self.checkInTest(bookingId: self.bookingIdArray[0], expectSuccess: true);
+		self.checkInTest(bookingId: self.bookingIdArray[14], expectSuccess: true);
 	elif(self.testIndex == 22)
-		self.checkInTest(bookingId: self.bookingIdArray[0], expectSuccess: false);
+		self.checkInTest(bookingId: self.bookingIdArray[14], expectSuccess: false);
 	elif(self.testIndex == 23)
 		self.checkInTest(bookingId: 333, expectSuccess: false);
 	elif(self.testIndex == 24)
-		self.checkOutTest(bookingId: self.bookingIdArray[0], expectSuccess: true);
+		self.checkOutTest(bookingId: self.bookingIdArray[14], expectSuccess: true);
 	elif(self.testIndex == 25)
-		self.checkOutTest(bookingId: self.bookingIdArray[0], expectSuccess: false);
+		self.checkOutTest(bookingId: self.bookingIdArray[14], expectSuccess: false);
 	elif(self.testIndex == 26)
 		self.checkOutTest(bookingId: 333, expectSuccess: false);
 	end if;
