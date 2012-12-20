@@ -439,7 +439,7 @@ INSERT INTO SM_ACT
 	"d33b759f-5b30-4f67-9a91-179b3767324e",
 	1,
 	'select any tc from instances of TestClass;
-generate TestClass9: testComplete(success: param.bookingId != tc.wantedBookingId) to tc;',
+generate TestClass9: testComplete(success: param.bookingId == tc.wantedBookingId) to tc;',
 	'');
 INSERT INTO SM_TAH
 	VALUES ("ecd28301-f23d-4f6a-9c15-af08c3759912",
@@ -453,7 +453,7 @@ INSERT INTO SM_ACT
 	"d33b759f-5b30-4f67-9a91-179b3767324e",
 	1,
 	'select any tc from instances of TestClass;
-generate TestClass9: testComplete(success: param.bookingId != tc.wantedBookingId) to tc;',
+generate TestClass9: testComplete(success: param.bookingId == tc.wantedBookingId) to tc;',
 	'');
 INSERT INTO GD_MD
 	VALUES ("0976d002-9f0d-476c-b52b-cbf0c3803502",
