@@ -138,7 +138,7 @@ INSERT INTO SPR_PS_PROXY
 	'addRoomType',
 	'',
 	'',
-	3,
+	1,
 	'../../../System.xtuml');
 INSERT INTO SM_SEVT
 	VALUES ("fa567f21-02cd-4336-80e6-5831b33af05d",
@@ -165,7 +165,7 @@ INSERT INTO SPR_PS_PROXY
 	'addProperty',
 	'',
 	'',
-	3,
+	1,
 	'../../../System.xtuml');
 INSERT INTO SM_SEVT
 	VALUES ("d9f845e9-cec5-4809-b60f-f8f3e10daa1a",
@@ -192,7 +192,7 @@ INSERT INTO SPR_PS_PROXY
 	'addRoomConfiguration',
 	'',
 	'',
-	3,
+	1,
 	'../../../System.xtuml');
 INSERT INTO SM_SEVT
 	VALUES ("3cdc6e73-1221-4354-870f-8b5799e3c31a",
@@ -219,7 +219,7 @@ INSERT INTO SPR_PS_PROXY
 	'setRoomConfigurationEnabled',
 	'',
 	'',
-	3,
+	1,
 	'../../../System.xtuml');
 INSERT INTO SM_SEVT
 	VALUES ("ab74abf7-9e93-4a9d-9e4f-32ddd96f9b1a",
@@ -246,7 +246,7 @@ INSERT INTO SPR_PS_PROXY
 	'removeRoomConfigurationProperty',
 	'',
 	'',
-	3,
+	1,
 	'../../../System.xtuml');
 INSERT INTO SM_SEVT
 	VALUES ("0884b184-23dc-458a-beb4-c9e3526b63cd",
@@ -273,7 +273,7 @@ INSERT INTO SPR_PS_PROXY
 	'addRoomConfigurationProperty',
 	'',
 	'',
-	3,
+	1,
 	'../../../System.xtuml');
 INSERT INTO SM_SEVT
 	VALUES ("9c43d5b5-dbe6-4c60-89c8-f573e67aa46d",
@@ -300,7 +300,7 @@ INSERT INTO SPR_PS_PROXY
 	'addRoomInstance',
 	'',
 	'',
-	3,
+	1,
 	'../../../System.xtuml');
 INSERT INTO SM_SEVT
 	VALUES ("470bd265-47a5-44bf-8fbb-da1ed49e2d6e",
@@ -980,6 +980,8 @@ INSERT INTO SM_ACT
 	'select any roomController from instances of RoomController;
 if (empty roomController)
 	create object instance roomController of RoomController;
+	select any rm from instances of RoomManager;
+	relate roomController to rm across R11;
 	LOG::LogInfo(message: "Created a RoomController");
 	
 end if;
@@ -1041,6 +1043,8 @@ INSERT INTO SM_ACT
 	'select any roomController from instances of RoomController;
 if (empty roomController)
 	create object instance roomController of RoomController;
+	select any rm from instances of RoomManager;
+	relate roomController to rm across R11;
 	LOG::LogInfo(message: "Created a RoomController");
 end if;
 
@@ -1087,6 +1091,8 @@ INSERT INTO SM_ACT
 	'select any roomController from instances of RoomController;
 if (empty roomController)
 	create object instance roomController of RoomController;
+	select any rm from instances of RoomManager;
+	relate roomController to rm across R11;
 	LOG::LogInfo(message: "Created a RoomController");
 end if;
 
@@ -1133,6 +1139,8 @@ INSERT INTO SM_ACT
 	'select any roomController from instances of RoomController;
 if (empty roomController)
 	create object instance roomController of RoomController;
+	select any rm from instances of RoomManager;
+	relate roomController to rm across R11;
 	LOG::LogInfo(message: "Created a RoomController");
 end if;
 
@@ -1152,6 +1160,8 @@ INSERT INTO SM_ACT
 	'select any roomController from instances of RoomController;
 if (empty roomController)
 	create object instance roomController of RoomController;
+	select any rm from instances of RoomManager;
+	relate roomController to rm across R11;
 	LOG::LogInfo(message: "Created a RoomController");
 end if;
 
@@ -1171,6 +1181,8 @@ INSERT INTO SM_ACT
 	'select any roomController from instances of RoomController;
 if (empty roomController)
 	create object instance roomController of RoomController;
+	select any rm from instances of RoomManager;
+	relate roomController to rm across R11;
 	LOG::LogInfo(message: "Created a RoomController");
 end if;
 
@@ -1190,6 +1202,8 @@ INSERT INTO SM_ACT
 	'select any roomController from instances of RoomController;
 if (empty roomController)
 	create object instance roomController of RoomController;
+	select any rm from instances of RoomManager;
+	relate roomController to rm across R11;
 	LOG::LogInfo(message: "Created a RoomController");
 end if;
 

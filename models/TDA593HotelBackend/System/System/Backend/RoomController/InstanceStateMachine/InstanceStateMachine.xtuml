@@ -888,12 +888,8 @@ INSERT INTO SM_ACT
 	VALUES ("6096cf33-4943-401c-8961-e94d77b20fbd",
 	"d225bf50-1890-4d55-b411-40233d169e0c",
 	1,
-	'select any roomManager from instances of RoomManager;
-if(empty roomManager)
-	create object instance roomManager of RoomManager;
-	relate roomManager to self across R11;
-	LOG::LogInfo(message: "Created a RoomManager");
-end if;
+	'select one roomManager related by self->RoomManager[R11];
+
 assign ret = roomManager.addRoomType(uniqueName: param.uniqueName);
 generate RoomController3: finishedRoomType to self;',
 	'');
@@ -934,12 +930,7 @@ INSERT INTO SM_ACT
 	VALUES ("0328fb82-bec2-47da-8f2f-df50d185c302",
 	"d225bf50-1890-4d55-b411-40233d169e0c",
 	1,
-	'select any roomManager from instances of RoomManager;
-if(empty roomManager)
-	create object instance roomManager of RoomManager;
-	relate roomManager to self across R11;
-	LOG::LogInfo(message: "Created a RoomManager");
-end if;
+	'select one roomManager related by self->RoomManager[R11];
 	
 assign test = roomManager.addProperty(uniqueName: param.uniqueName, description: param.description);
 // kolla om test == true, och skicka signal till test
@@ -982,12 +973,8 @@ INSERT INTO SM_ACT
 	VALUES ("817cae1b-a318-4dd0-844d-9f29352c73d9",
 	"d225bf50-1890-4d55-b411-40233d169e0c",
 	1,
-	'select any roomManager from instances of RoomManager;
-if(empty roomManager)
-	create object instance roomManager of RoomManager;
-	relate roomManager to self across R11;
-	LOG::LogInfo(message: "Created a RoomManager");
-end if;
+	'select one roomManager related by self->RoomManager[R11];
+
 assign ret = roomManager.addRoomConfiguration(description: param.description, price: param.price, roomType: param.roomType, uniqueName: param.uniqueName);
 generate RoomController7: finishedRoomConfiguration to self;',
 	'');
@@ -1028,12 +1015,8 @@ INSERT INTO SM_ACT
 	VALUES ("a9f777ad-8776-4d08-a9ef-19006d1ea6da",
 	"d225bf50-1890-4d55-b411-40233d169e0c",
 	1,
-	'select any roomManager from instances of RoomManager;
-if(empty roomManager)
-	create object instance roomManager of RoomManager;
-	relate roomManager to self across R11;
-	LOG::LogInfo(message: "Created a RoomManager");
-end if;
+	'select one roomManager related by self->RoomManager[R11];
+
 assign ret = roomManager.addRoomConfigurationProperty(configurationName: param.configurationName, propertyName: param.propertyName);',
 	'');
 INSERT INTO SM_TAH
@@ -1047,12 +1030,8 @@ INSERT INTO SM_ACT
 	VALUES ("3a8812c5-e758-462f-a1ec-8a0df85b5676",
 	"d225bf50-1890-4d55-b411-40233d169e0c",
 	1,
-	'select any roomManager from instances of RoomManager;
-if(empty roomManager)
-	create object instance roomManager of RoomManager;
-	relate roomManager to self across R11;
-	LOG::LogInfo(message: "Created a RoomManager");
-end if;
+	'select one roomManager related by self->RoomManager[R11];
+
 assign ret = roomManager.setRoomConfigurationEnabled(configurationName: param.configurationName, enabled: param.enabled);',
 	'');
 INSERT INTO SM_TAH
@@ -1066,12 +1045,8 @@ INSERT INTO SM_ACT
 	VALUES ("6f0bc099-e7ea-4f16-a4bd-61d49879a871",
 	"d225bf50-1890-4d55-b411-40233d169e0c",
 	1,
-	'select any roomManager from instances of RoomManager;
-if(empty roomManager)
-	create object instance roomManager of RoomManager;
-	relate roomManager to self across R11;
-	LOG::LogInfo(message: "Created a RoomManager");
-end if;
+	'select one roomManager related by self->RoomManager[R11];
+
 assign ret = roomManager.removeRoomConfigurationProperty(configurationName: param.configurationName, propertyName: param.propertyName);',
 	'');
 INSERT INTO SM_TAH
@@ -1085,12 +1060,8 @@ INSERT INTO SM_ACT
 	VALUES ("fbbe9442-b9c1-4c19-a140-2c55584e5085",
 	"d225bf50-1890-4d55-b411-40233d169e0c",
 	1,
-	'select any roomManager from instances of RoomManager;
-if(empty roomManager)
-	create object instance roomManager of RoomManager;
-	relate roomManager to self across R11;
-	LOG::LogInfo(message: "Created a RoomManager");
-end if;
+	'select one roomManager related by self->RoomManager[R11];
+
 assign ret = roomManager.addRoomInstance(name: param.roomName, roomConfigurationName: param.configurationName);',
 	'');
 INSERT INTO GD_MD

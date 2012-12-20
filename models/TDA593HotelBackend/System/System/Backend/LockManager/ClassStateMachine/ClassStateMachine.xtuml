@@ -282,16 +282,17 @@ if(isOk)
 	if(isOk)
 		// Create a lock
 		create object instance lock of Lock;
+		relate lock to lockManager across R23;
+		
 		assign dummy = lock.Lock(rcats: param.rcats, timespan: param.timespan);
 		
 		if(dummy == false)
 			isOk = false;
+			unrelate lock from lockManager across R23;
 			delete object instance lock;
 		end if;
 		
 		if (isOk)
-			relate lock to lockManager across R23;
-			relate lockManager to lock across R23;
 			
 			// generate the return messages
 			generate BookingController3:wait(lock: lock.getId()) to bookingController;

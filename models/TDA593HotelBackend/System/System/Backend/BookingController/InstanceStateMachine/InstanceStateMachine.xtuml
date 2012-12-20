@@ -1106,8 +1106,7 @@ INSERT INTO SM_ACT
 	VALUES ("235f12f6-f5c9-42e5-b1b6-eed991f36da6",
 	"d0511597-9e3d-4192-8f21-26cadd9ed8f7",
 	1,
-	'//select one lockManager related by self->LockManager[R22]; 
-select any lockManager from instances of LockManager;
+	'select one lockManager related by self->LockManager[R22]; 
 generate LockManager_A1:lock(timespan: param.timespan, rcats: param.rcats, sessionId: self.sessionId) to LockManager class;
 
 
@@ -1161,8 +1160,7 @@ INSERT INTO SM_ACT
 	1,
 	'// Clear bank timeout timer
 assign ret = TIM::timer_cancel(timer_inst_ref: self.bankTimeoutTimer);
-// select one bookingManager related by self->BookingManager[R21];
-select any bookingManager from instances of BookingManager;
+select one bookingManager related by self->BookingManager[R21];
 
 LOG::LogInfo(message: "Bank finish");
 
@@ -1202,11 +1200,9 @@ INSERT INTO SM_ACT
 	VALUES ("3bd33b5c-5fd5-4a7e-819c-59d73bb9361a",
 	"d0511597-9e3d-4192-8f21-26cadd9ed8f7",
 	1,
-	'select any lockManager from instances of LockManager;
-if(empty lockManager)
-	create object instance lockManager of LockManager;
-	LOG::LogInfo(message: "Created a LockManager");
-end if;
+	'select one lockManager related by self->LockManager[R22];
+
+
 assign ret = lockManager.removeLock(lockId: self.lock);
 send Port1::returnBooking(sessionId: self.sessionId, bookingId: param.bookingId);
 LOG::LogInfo(message: "Booking finished (and session terminated): ");
@@ -1236,11 +1232,7 @@ INSERT INTO SM_ACT
 	VALUES ("44a85806-20d6-4c1a-9d5d-44d819ca017d",
 	"d0511597-9e3d-4192-8f21-26cadd9ed8f7",
 	1,
-	'select any lockManager from instances of LockManager;
-if(empty lockManager)
-	create object instance lockManager of LockManager;
-	LOG::LogInfo(message: "Created a LockManager");
-end if;
+	'select one lockManager related by self->LockManager[R22];
 
 LOG::LogInfo(message: "Book failure. Booking session terminated.");
 

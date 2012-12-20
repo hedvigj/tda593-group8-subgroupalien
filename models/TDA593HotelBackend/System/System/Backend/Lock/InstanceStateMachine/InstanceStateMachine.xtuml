@@ -203,10 +203,9 @@ INSERT INTO SM_ACT
 	1,
 	'select one lm related by self->LockManager[R23];
 
-if(not_empty lm)
-	LOG::LogInfo(message: "Lock was removed useing the destroy event (probably due to timeout)");
-	assign dummy = lm.removeLock(lockId: self.id);
-end if;
+LOG::LogInfo(message: "Lock was removed useing the destroy event (probably due to timeout)");
+assign dummy = lm.removeLock(lockId: self.id);
+
 ',
 	'');
 INSERT INTO SM_TAH

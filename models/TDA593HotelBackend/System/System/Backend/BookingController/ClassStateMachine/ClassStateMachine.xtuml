@@ -125,7 +125,7 @@ INSERT INTO SPR_PS_PROXY
 	'lock',
 	'',
 	'',
-	3,
+	1,
 	'../../../System.xtuml');
 INSERT INTO SM_SEVT
 	VALUES ("13cbb8e1-46c5-4211-8efa-cc1302829eaf",
@@ -152,7 +152,7 @@ INSERT INTO SPR_PS_PROXY
 	'book',
 	'',
 	'',
-	3,
+	1,
 	'../../../System.xtuml');
 INSERT INTO SM_SEVT
 	VALUES ("6c316ae2-4f89-496c-9022-d6db65713249",
@@ -179,7 +179,7 @@ INSERT INTO SPR_PS_PROXY
 	'checkIn',
 	'',
 	'',
-	3,
+	1,
 	'../../../System.xtuml');
 INSERT INTO SM_SEVT
 	VALUES ("488f1394-9f12-4487-ac57-8094826f5205",
@@ -206,7 +206,7 @@ INSERT INTO SPR_PS_PROXY
 	'checkOut',
 	'',
 	'',
-	3,
+	1,
 	'../../../System.xtuml');
 INSERT INTO SM_SEVT
 	VALUES ("bfcbc72b-3827-4489-a4bb-cba4abcf6ef9",
@@ -1028,21 +1028,15 @@ INSERT INTO SM_ACT
 	"b1c0c118-7b90-46d1-a471-74af5982f5bb",
 	1,
 	'select any bookingManager from instances of BookingManager;
-if (empty bookingManager)
-	create object instance bookingManager of BookingManager;
-	LOG::LogInfo(message: "Created a BookingController");
-	
+
+
+assign dummy = bookingManager.checkIn(bookingId: param.bookingId );
+
+if( dummy == false )
+	LOG::LogInfo(message: "Checking in failed!");
+	send Port1::checkedIn(bookingId: -1);
 else
-	
-	assign dummy = bookingManager.checkIn(bookingId: param.bookingId );
-	
-	if( dummy == false )
-		LOG::LogInfo(message: "Checking in failed!");
-		send Port1::checkedIn(bookingId: -1);
-	else
-		send Port1::checkedIn(bookingId: param.bookingId);
-	end if;
-	
+	send Port1::checkedIn(bookingId: param.bookingId);
 end if;
 
 generate BookingController_A4: finished to BookingController class;
@@ -1087,24 +1081,19 @@ INSERT INTO SM_ACT
 	"b1c0c118-7b90-46d1-a471-74af5982f5bb",
 	1,
 	'select any bookingManager from instances of BookingManager;
-if (empty bookingManager)
-	create object instance bookingManager of BookingManager;
-	LOG::LogInfo(message: "Created a BookingController");
+
 	
-else
+select any booking related by bookingManager->Booking[R20] where
+	selected.bookingId == param.bookingId;
+
+if ( not_empty booking )
+	assign dummy = bookingManager.checkOut(bookingId: param.bookingId );
 	
-	select any booking related by bookingManager->Booking[R20] where
-		selected.bookingId == param.bookingId;
-	
-	if ( not_empty booking )
-		assign dummy = bookingManager.checkOut(bookingId: param.bookingId );
-		
-		if( dummy == false )
-			LOG::LogInfo(message: "Checking out failed!");
-			send Port1::checkedOut(bookingId: -1);
-		else
-			send Port1::checkedOut(bookingId: param.bookingId);
-		end if;
+	if( dummy == false )
+		LOG::LogInfo(message: "Checking out failed!");
+		send Port1::checkedOut(bookingId: -1);
+	else
+		send Port1::checkedOut(bookingId: param.bookingId);
 	end if;
 end if;
 
@@ -1162,6 +1151,12 @@ end for;
 // Create a new session
 create object instance bc of BookingController;
 bc.setSessionId(sessionId: maxValueId + 1);
+
+select any lm from instances of LockManager;
+select any bm from instances of BookingManager;
+relate bc to bm across R21;
+relate bc to lm across R22;
+
 
 generate BookingController2:lock(timespan: param.timespan, rcats: param.rcats) to bc;
 generate BookingController_A4: finished to BookingController class;

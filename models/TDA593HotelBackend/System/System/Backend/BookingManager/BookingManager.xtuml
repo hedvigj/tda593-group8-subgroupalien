@@ -214,10 +214,7 @@ for each booking in bookings
 			
 		end if;
 	
-		select any rm from instances of RoomManager;
-		if( empty rm )
-			return false; 
-		end if;
+		select one rm related by self->LockManager[R50]->RoomManager[R49];
 		
 		select many reses related by booking->Reservation[R15];
 	
@@ -269,67 +266,6 @@ end for;
 return false;
 
 
-
-/*
-select any booking related by self->Booking[R20] where 
-	selected.bookingId == param.bookingId;
-	
-if ( not_empty booking ) 
-
-	// Check that the booking is not already checked in
-	select any ci related by booking->CheckIn[R25];
-	if( not_empty ci )
-		
-		LOG::LogInfo(message: "This booking has already been checked in befor");
-		return false;
-		
-	end if;
-
-	select any rm from instances of RoomManager;
-	if( empty rm )
-		return false; 
-	end if;
-	
-	select many reses related by booking->Reservation[R15];
-
-	// check that there are enough room available
-	for each res in reses
-		select one rc related by res->RoomConfiguration[R15];
-		
-		assign nrOfFreeRooms = rm.getNrOfFreeRooms(roomConfiguration: rc.getName());
-		
-		if( nrOfFreeRooms < res.getAmount())
-			LOG::LogInfo(message: "Not enough free room to check in with the booking");
-			return false;
-		end if;
-		
-	end for;
-	
-	// Checkin to rooms
-	for each res in reses
-		select one rc related by res->RoomConfiguration[R15];
-		
-		assign i = 0;
-		while i < res.getAmount()
-			
-			assign roomName = rm.getAFreeRoomName(roomConfiguration: rc.getName());
-			
-			select any room related by rc->RoomInstance[R26] where
-				selected.name == roomName;
-			
-			create object instance checkIn of CheckIn;
-			relate room to booking across R25 using checkIn;
-			relate booking to room across R25 using checkIn;
-			
-			i = i + 1;
-		end while;
-				
-	end for; 
-	LOG::LogInfo(message: "The booking was now checked in");
-	return true;
-end if;
-return false;
-*/
 ',
 	1,
 	'',
