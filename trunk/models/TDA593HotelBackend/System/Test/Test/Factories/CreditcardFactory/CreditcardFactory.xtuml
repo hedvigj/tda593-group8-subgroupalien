@@ -1,0 +1,125 @@
+-- BP 7.1 content: ModelClass syschar: 3 persistence-version: 7.1.5
+
+INSERT INTO O_OBJ
+	VALUES ("b5c18d53-6651-47fe-b339-92539c34ed21",
+	'CreditcardFactory',
+	34,
+	'CreditcardFactory',
+	'',
+	"5ad41091-a5de-4698-b9d4-8a5fb23dde3a");
+INSERT INTO O_TFR
+	VALUES ("b4b77940-d84c-488b-b6d5-1356bc8086cb",
+	"b5c18d53-6651-47fe-b339-92539c34ed21",
+	'createCreditcard',
+	'',
+	"16664b58-a6dc-4ac7-9499-ba089cf98eaa",
+	1,
+	'assign self.creditcard.name = param.name;
+assign self.creditcard.creditcardNr = param.creditcardNr;
+assign self.creditcard.cvcNr = param.cvcNr;
+assign self.creditcard.validDate = param.validDate;
+
+return self.creditcard;',
+	1,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TPARM
+	VALUES ("5695d2e0-f687-4c14-a6a3-8402a870bca7",
+	"b4b77940-d84c-488b-b6d5-1356bc8086cb",
+	'name',
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	"00000000-0000-0000-0000-000000000000",
+	'string',
+	'',
+	'',
+	'../../../../../Datatypes/Datatypes.xtuml');
+INSERT INTO O_TPARM
+	VALUES ("d517bd2c-3c3e-48cc-9d7e-f2126f4ba290",
+	"b4b77940-d84c-488b-b6d5-1356bc8086cb",
+	'creditcardNr',
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	0,
+	'',
+	"5695d2e0-f687-4c14-a6a3-8402a870bca7",
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("5f77c811-d46b-4197-a574-4b3505e92410",
+	"00000000-0000-0000-0000-000000000000",
+	'integer',
+	'',
+	'',
+	'../../../../../Datatypes/Datatypes.xtuml');
+INSERT INTO O_TPARM
+	VALUES ("8a7a4dde-f46f-4c59-bc53-fe451e34b09c",
+	"b4b77940-d84c-488b-b6d5-1356bc8086cb",
+	'cvcNr',
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	0,
+	'',
+	"d517bd2c-3c3e-48cc-9d7e-f2126f4ba290",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("e909633b-d5d2-4d18-ad24-b4f8f8e77798",
+	"b4b77940-d84c-488b-b6d5-1356bc8086cb",
+	'validDate',
+	"bdc36fef-8559-4ba2-9337-8ebb987f4334",
+	0,
+	'',
+	"8a7a4dde-f46f-4c59-bc53-fe451e34b09c",
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("bdc36fef-8559-4ba2-9337-8ebb987f4334",
+	"00000000-0000-0000-0000-000000000000",
+	'date',
+	'',
+	'',
+	'../../../../../Datatypes/Datatypes.xtuml');
+INSERT INTO S_DT_PROXY
+	VALUES ("16664b58-a6dc-4ac7-9499-ba089cf98eaa",
+	"00000000-0000-0000-0000-000000000000",
+	'CreditCard',
+	'',
+	'',
+	'../../../../../BackendDatatypes/BackendDatatypes.xtuml');
+INSERT INTO O_NBATTR
+	VALUES ("2552da43-dbf6-4df7-bc9d-d17fb06d7a6c",
+	"b5c18d53-6651-47fe-b339-92539c34ed21");
+INSERT INTO O_BATTR
+	VALUES ("2552da43-dbf6-4df7-bc9d-d17fb06d7a6c",
+	"b5c18d53-6651-47fe-b339-92539c34ed21");
+INSERT INTO O_ATTR
+	VALUES ("2552da43-dbf6-4df7-bc9d-d17fb06d7a6c",
+	"b5c18d53-6651-47fe-b339-92539c34ed21",
+	"00000000-0000-0000-0000-000000000000",
+	'creditcard',
+	'',
+	'',
+	'creditcard',
+	0,
+	"16664b58-a6dc-4ac7-9499-ba089cf98eaa",
+	'',
+	'');
+INSERT INTO O_ID
+	VALUES (0,
+	"b5c18d53-6651-47fe-b339-92539c34ed21");
+INSERT INTO O_ID
+	VALUES (1,
+	"b5c18d53-6651-47fe-b339-92539c34ed21");
+INSERT INTO O_ID
+	VALUES (2,
+	"b5c18d53-6651-47fe-b339-92539c34ed21");
+INSERT INTO S_SS_PROXY
+	VALUES ("5ad41091-a5de-4698-b9d4-8a5fb23dde3a",
+	'Factories',
+	'',
+	'',
+	0,
+	"44fbb79c-2243-41c0-b500-e1a8c72e3dd6",
+	"00000000-0000-0000-0000-000000000000",
+	'../Factories.xtuml');

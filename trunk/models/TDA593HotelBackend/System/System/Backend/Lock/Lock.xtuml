@@ -1,0 +1,270 @@
+-- BP 7.1 content: ModelClass syschar: 3 persistence-version: 7.1.5
+
+INSERT INTO O_OBJ
+	VALUES ("f2b8219f-1ef9-46db-986d-795339200bf5",
+	'Lock',
+	11,
+	'Lock',
+	'',
+	"f56566de-5321-4b5f-b659-95d5c01e1baa");
+INSERT INTO O_TFR
+	VALUES ("e8d383e0-4c7e-44b4-af26-db730e1380b1",
+	"f2b8219f-1ef9-46db-986d-795339200bf5",
+	'Lock',
+	'',
+	"28114c36-aaba-4a92-b7c3-08f06e41c6a4",
+	1,
+	'select any lm from instances of LockManager;
+if (empty lm)
+	create object instance lm of LockManager;
+	return false;
+end if;
+
+select any rm from instances of RoomManager;
+if (empty rm)
+	return false;
+end if;
+
+// Only allowed to be one of each type
+assign index = 0;
+while index < param.rcats.length
+	assign index2 = index + 1;
+	while index2 < param.rcats.length
+		if(param.rcats[index].configuration == param.rcats[index2].configuration)
+			// Found two of the same room configuration
+			return false;
+		end if;
+		index2 = index2 + 1;
+	end while;
+	 
+	// amount is not allowed to be <= 0
+	if( param.rcats[index].amount <= 0 )
+		return false;
+	end if;
+	
+	index = index + 1;
+end while;
+
+index = 0;
+while index < param.rcats.length
+	select any rc related by rm->RoomConfiguration[R10] where
+		selected.name == param.rcats[index].configuration;
+		
+	create object instance rcat of RoomConfigurationAmountTuple;
+	
+	relate rcat to self across R24;
+	relate self to rcat across R24;
+	relate rcat to rc across R28;
+	relate rc to rcat across R28;
+	
+	rcat.amount = param.rcats[index].amount;
+	
+	index = index + 1;
+end while;
+
+self.timespan = param.timespan; 
+
+self.id = lm.getUniqueLockId();
+
+// Start timeout timer before the lock is auto-destroyed
+// assign countdownTime = 900000000; // 15 min
+assign countdownTime = 300000000; // 5 min
+// assign countdownTime = 30000000; // 30 sec 
+generate Lock1:setCountdown(microseconds: countdownTime) to self;
+
+return true;
+',
+	1,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TPARM
+	VALUES ("9d8ad043-c542-46e4-9066-1d2cd328a796",
+	"e8d383e0-4c7e-44b4-af26-db730e1380b1",
+	'timespan',
+	"29455544-5da7-4d59-89a1-9d1261bd2be6",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("29455544-5da7-4d59-89a1-9d1261bd2be6",
+	"00000000-0000-0000-0000-000000000000",
+	'TimeSpan',
+	'',
+	'',
+	'../../../../BackendDatatypes/BackendDatatypes.xtuml');
+INSERT INTO O_TPARM
+	VALUES ("eeee5862-a644-4816-a700-4e2fc6e4d5ca",
+	"e8d383e0-4c7e-44b4-af26-db730e1380b1",
+	'rcats',
+	"d919e5ab-5f67-4aab-9544-5fd6291e14e0",
+	0,
+	'[]',
+	"9d8ad043-c542-46e4-9066-1d2cd328a796",
+	'');
+INSERT INTO S_DIM
+	VALUES (0,
+	0,
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"eeee5862-a644-4816-a700-4e2fc6e4d5ca",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"5e8f1dff-8596-4d9e-90de-671f214aa7f3",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO S_DT_PROXY
+	VALUES ("d919e5ab-5f67-4aab-9544-5fd6291e14e0",
+	"00000000-0000-0000-0000-000000000000",
+	'RoomConfigurationAmountTuple',
+	'',
+	'',
+	'../../../../BackendDatatypes/BackendDatatypes.xtuml');
+INSERT INTO S_DT_PROXY
+	VALUES ("28114c36-aaba-4a92-b7c3-08f06e41c6a4",
+	"00000000-0000-0000-0000-000000000000",
+	'boolean',
+	'',
+	'',
+	'../../../../Datatypes/Datatypes.xtuml');
+INSERT INTO O_TFR
+	VALUES ("3f9a5f5b-16cd-4413-ab52-7c09f7219cbd",
+	"f2b8219f-1ef9-46db-986d-795339200bf5",
+	'getTimespan',
+	'',
+	"29455544-5da7-4d59-89a1-9d1261bd2be6",
+	1,
+	'return self.timespan;',
+	1,
+	'',
+	"e8d383e0-4c7e-44b4-af26-db730e1380b1");
+INSERT INTO O_TFR
+	VALUES ("4d966230-976d-43b1-ba5c-7c3edf99cb95",
+	"f2b8219f-1ef9-46db-986d-795339200bf5",
+	'getId',
+	'',
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	1,
+	'return self.id;',
+	1,
+	'',
+	"3f9a5f5b-16cd-4413-ab52-7c09f7219cbd");
+INSERT INTO S_DT_PROXY
+	VALUES ("5f77c811-d46b-4197-a574-4b3505e92410",
+	"00000000-0000-0000-0000-000000000000",
+	'integer',
+	'',
+	'',
+	'../../../../Datatypes/Datatypes.xtuml');
+INSERT INTO O_NBATTR
+	VALUES ("5fd60060-588c-4b9d-a919-ab469a67afb7",
+	"f2b8219f-1ef9-46db-986d-795339200bf5");
+INSERT INTO O_BATTR
+	VALUES ("5fd60060-588c-4b9d-a919-ab469a67afb7",
+	"f2b8219f-1ef9-46db-986d-795339200bf5");
+INSERT INTO O_ATTR
+	VALUES ("5fd60060-588c-4b9d-a919-ab469a67afb7",
+	"f2b8219f-1ef9-46db-986d-795339200bf5",
+	"00000000-0000-0000-0000-000000000000",
+	'timespan',
+	'',
+	'',
+	'timespan',
+	0,
+	"29455544-5da7-4d59-89a1-9d1261bd2be6",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("5eb53b9c-3dfb-42de-bf18-63af3d0e6ec3",
+	"f2b8219f-1ef9-46db-986d-795339200bf5");
+INSERT INTO O_BATTR
+	VALUES ("5eb53b9c-3dfb-42de-bf18-63af3d0e6ec3",
+	"f2b8219f-1ef9-46db-986d-795339200bf5");
+INSERT INTO O_ATTR
+	VALUES ("5eb53b9c-3dfb-42de-bf18-63af3d0e6ec3",
+	"f2b8219f-1ef9-46db-986d-795339200bf5",
+	"5fd60060-588c-4b9d-a919-ab469a67afb7",
+	'current_state',
+	'',
+	'',
+	'current_state',
+	0,
+	"4e33731b-7545-47b2-bf5b-70c967e5b9be",
+	'',
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("4e33731b-7545-47b2-bf5b-70c967e5b9be",
+	"00000000-0000-0000-0000-000000000000",
+	'state<State_Model>',
+	'',
+	'',
+	'../../../../Datatypes/Datatypes.xtuml');
+INSERT INTO O_NBATTR
+	VALUES ("08f6b305-5b8f-4452-9765-2fe0701aa8d6",
+	"f2b8219f-1ef9-46db-986d-795339200bf5");
+INSERT INTO O_BATTR
+	VALUES ("08f6b305-5b8f-4452-9765-2fe0701aa8d6",
+	"f2b8219f-1ef9-46db-986d-795339200bf5");
+INSERT INTO O_ATTR
+	VALUES ("08f6b305-5b8f-4452-9765-2fe0701aa8d6",
+	"f2b8219f-1ef9-46db-986d-795339200bf5",
+	"5eb53b9c-3dfb-42de-bf18-63af3d0e6ec3",
+	'id',
+	'',
+	'',
+	'id',
+	0,
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("c934a0cd-b851-4aab-8b15-32bd76cc24c2",
+	"f2b8219f-1ef9-46db-986d-795339200bf5");
+INSERT INTO O_BATTR
+	VALUES ("c934a0cd-b851-4aab-8b15-32bd76cc24c2",
+	"f2b8219f-1ef9-46db-986d-795339200bf5");
+INSERT INTO O_ATTR
+	VALUES ("c934a0cd-b851-4aab-8b15-32bd76cc24c2",
+	"f2b8219f-1ef9-46db-986d-795339200bf5",
+	"08f6b305-5b8f-4452-9765-2fe0701aa8d6",
+	'destroyTimer',
+	'',
+	'',
+	'destroyTimer',
+	0,
+	"dc987208-704b-4080-a40c-9f270aad92a5",
+	'',
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("dc987208-704b-4080-a40c-9f270aad92a5",
+	"00000000-0000-0000-0000-000000000000",
+	'inst_ref<Timer>',
+	'',
+	'',
+	'../../../../Datatypes/Datatypes.xtuml');
+INSERT INTO O_ID
+	VALUES (2,
+	"f2b8219f-1ef9-46db-986d-795339200bf5");
+INSERT INTO O_ID
+	VALUES (1,
+	"f2b8219f-1ef9-46db-986d-795339200bf5");
+INSERT INTO O_ID
+	VALUES (0,
+	"f2b8219f-1ef9-46db-986d-795339200bf5");
+INSERT INTO S_SS_PROXY
+	VALUES ("f56566de-5321-4b5f-b659-95d5c01e1baa",
+	'Backend',
+	'',
+	'',
+	0,
+	"02903c54-443d-4a88-aa81-181997e1d9f4",
+	"00000000-0000-0000-0000-000000000000",
+	'../Backend.xtuml');

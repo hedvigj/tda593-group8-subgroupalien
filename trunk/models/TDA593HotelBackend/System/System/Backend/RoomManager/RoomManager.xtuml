@@ -1,0 +1,535 @@
+-- BP 7.1 content: ModelClass syschar: 3 persistence-version: 7.1.5
+
+INSERT INTO O_OBJ
+	VALUES ("b1404731-4bdc-477f-ab49-48cf034fe57f",
+	'RoomManager',
+	18,
+	'RoomManager',
+	'',
+	"f56566de-5321-4b5f-b659-95d5c01e1baa");
+INSERT INTO O_TFR
+	VALUES ("aceb78d7-9a1f-46e7-a99a-85fcba249fdc",
+	"b1404731-4bdc-477f-ab49-48cf034fe57f",
+	'getRoomCount',
+	'',
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	1,
+	'select many rc related by self->RoomConfiguration[R10] where 
+ 	selected.name == param.roomConfigurationName;
+ 
+ assign count = 0;
+ if(not_empty rc)
+ 	select many rooms related by rc->RoomInstance[R26];
+	for each room in rooms
+		count = count + 1;
+	end for;
+end if;
+
+return count;',
+	1,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TPARM
+	VALUES ("24282ae1-0f76-4cba-98b5-d8c06b4b6653",
+	"aceb78d7-9a1f-46e7-a99a-85fcba249fdc",
+	'roomConfigurationName',
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	"00000000-0000-0000-0000-000000000000",
+	'string',
+	'',
+	'',
+	'../../../../Datatypes/Datatypes.xtuml');
+INSERT INTO S_DT_PROXY
+	VALUES ("5f77c811-d46b-4197-a574-4b3505e92410",
+	"00000000-0000-0000-0000-000000000000",
+	'integer',
+	'',
+	'',
+	'../../../../Datatypes/Datatypes.xtuml');
+INSERT INTO O_TFR
+	VALUES ("535ae405-a4b3-43a3-8e6b-75d556299473",
+	"b1404731-4bdc-477f-ab49-48cf034fe57f",
+	'addRoomType',
+	'',
+	"28114c36-aaba-4a92-b7c3-08f06e41c6a4",
+	1,
+	'select any roomType related by self->RoomType[R42] where selected.name == param.uniqueName;
+if(empty roomType)
+	create object instance roomType of RoomType;
+	relate roomType to self across R42;
+	roomType.setName(name: param.uniqueName);
+	LOG::LogInfo(message: "RoomType was added: " + param.uniqueName);
+	return true;
+else
+	LOG::LogInfo(message: "RoomType was not added, existing type with same name exists: " + param.uniqueName);
+	return false;
+end if;
+',
+	1,
+	'',
+	"aceb78d7-9a1f-46e7-a99a-85fcba249fdc");
+INSERT INTO O_TPARM
+	VALUES ("d68644b9-2124-40bd-b731-3cd2c19f2e8c",
+	"535ae405-a4b3-43a3-8e6b-75d556299473",
+	'uniqueName',
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("28114c36-aaba-4a92-b7c3-08f06e41c6a4",
+	"00000000-0000-0000-0000-000000000000",
+	'boolean',
+	'',
+	'',
+	'../../../../Datatypes/Datatypes.xtuml');
+INSERT INTO O_TFR
+	VALUES ("74ed0fe1-90ac-4d4b-b8c1-5acb96fadb27",
+	"b1404731-4bdc-477f-ab49-48cf034fe57f",
+	'addRoomConfiguration',
+	'',
+	"28114c36-aaba-4a92-b7c3-08f06e41c6a4",
+	1,
+	'select any roomConfig related by self->RoomConfiguration[R10] where selected.name == param.uniqueName;
+select any roomType related by self->RoomType[R42] where selected.name == param.roomType;
+if(empty roomType)
+	LOG::LogInfo(message: "Configuration not added, RoomType (" + param.roomType + ") does not exist. Name: " + param.uniqueName);
+	return false;
+elif(not empty roomConfig)
+	LOG::LogInfo(message: "Configuration not added. There is an existing configuration with the same name: " + param.uniqueName);
+	return false;
+else
+	create object instance config of RoomConfiguration;
+	config.setName(name: param.uniqueName);
+	config.setDescription(description: param.description);
+	config.setPrice(price: param.price);
+	config.setEnabled(enabled: false);	// Default is disabled
+	relate config to self across R10;
+	relate config to roomType across R29;
+	LOG::LogInfo(message: "Configuration was added. Name: " + config.getName());
+	return true;
+end if;',
+	1,
+	'',
+	"535ae405-a4b3-43a3-8e6b-75d556299473");
+INSERT INTO O_TPARM
+	VALUES ("41e014f7-d82a-4c90-b9e6-5c633e328fea",
+	"74ed0fe1-90ac-4d4b-b8c1-5acb96fadb27",
+	'description',
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("5eba0bf6-3bd2-47d0-9ade-e3f9074fc08b",
+	"74ed0fe1-90ac-4d4b-b8c1-5acb96fadb27",
+	'price',
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	0,
+	'',
+	"41e014f7-d82a-4c90-b9e6-5c633e328fea",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("6328adc8-37eb-470c-8134-d402564946da",
+	"74ed0fe1-90ac-4d4b-b8c1-5acb96fadb27",
+	'roomType',
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	0,
+	'',
+	"5eba0bf6-3bd2-47d0-9ade-e3f9074fc08b",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("2d10dce6-dd5a-4712-ad55-52d786274223",
+	"74ed0fe1-90ac-4d4b-b8c1-5acb96fadb27",
+	'uniqueName',
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	0,
+	'',
+	"6328adc8-37eb-470c-8134-d402564946da",
+	'');
+INSERT INTO O_TFR
+	VALUES ("fb95c05c-3a7c-4597-8219-13d20e7f2607",
+	"b1404731-4bdc-477f-ab49-48cf034fe57f",
+	'addRoomConfigurationProperty',
+	'',
+	"28114c36-aaba-4a92-b7c3-08f06e41c6a4",
+	1,
+	'select any roomConfig related by self->RoomConfiguration[R10] where selected.name == param.configurationName;
+select any property related by self->Property[R47] where selected.name == param.propertyName;
+if(empty property)
+	LOG::LogInfo(message: "Property not added to " + param.configurationName + ": Property " + param.propertyName + " does not exist.");
+	return false;
+elif(empty roomConfig)
+	LOG::LogInfo(message: "Property " + param.propertyName + " not added to the configuration: There is no configuration with the name: " + param.configurationName);
+	return false;
+else
+	select any testGetProperty related by roomConfig->Property[R12] where selected.name == param.propertyName;
+	if(empty testGetProperty)
+		create object instance ownership of Ownership; 
+		relate roomConfig to property across R12 using ownership;
+		LOG::LogInfo(message: "Property " + param.propertyName + " added to " + param.configurationName);
+		return true;
+	else
+		LOG::LogInfo(message: "Property " + param.propertyName + " already added to " + param.configurationName);
+		return false;
+	end if;
+end if;',
+	1,
+	'',
+	"74ed0fe1-90ac-4d4b-b8c1-5acb96fadb27");
+INSERT INTO O_TPARM
+	VALUES ("6d4c5e3b-20f0-48a1-91e8-6db3fd906546",
+	"fb95c05c-3a7c-4597-8219-13d20e7f2607",
+	'configurationName',
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("acf0f0c6-74c4-4197-811d-109f578209ba",
+	"fb95c05c-3a7c-4597-8219-13d20e7f2607",
+	'propertyName',
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	0,
+	'',
+	"6d4c5e3b-20f0-48a1-91e8-6db3fd906546",
+	'');
+INSERT INTO O_TFR
+	VALUES ("3bc2fea3-b57e-476d-be7a-fc1b2cb09e02",
+	"b1404731-4bdc-477f-ab49-48cf034fe57f",
+	'addProperty',
+	'',
+	"28114c36-aaba-4a92-b7c3-08f06e41c6a4",
+	1,
+	'select any property related by self->Property[R47] where selected.name == param.uniqueName;
+if(empty property)
+	create object instance property of Property;
+	relate property to self across R47;
+	property.setName(name: param.uniqueName);
+	property.setDescription(description: param.description);
+	LOG::LogInfo(message: "Property was added: " + property.getName() + " Description: " + property.getDescription());
+	return true;
+else
+	LOG::LogInfo(message: "Property was not added: " + param.uniqueName);
+	return false;
+end if;',
+	1,
+	'',
+	"fb95c05c-3a7c-4597-8219-13d20e7f2607");
+INSERT INTO O_TPARM
+	VALUES ("94880975-2cd9-43fd-a754-fa67ea931aa2",
+	"3bc2fea3-b57e-476d-be7a-fc1b2cb09e02",
+	'uniqueName',
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("c99055c8-b3b4-41fc-95c3-d755128f48f3",
+	"3bc2fea3-b57e-476d-be7a-fc1b2cb09e02",
+	'description',
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	0,
+	'',
+	"94880975-2cd9-43fd-a754-fa67ea931aa2",
+	'');
+INSERT INTO O_TFR
+	VALUES ("58c84403-5d5b-4dbb-9034-78005c94be8b",
+	"b1404731-4bdc-477f-ab49-48cf034fe57f",
+	'setRoomConfigurationEnabled',
+	'',
+	"28114c36-aaba-4a92-b7c3-08f06e41c6a4",
+	1,
+	'select any roomConfig related by self->RoomConfiguration[R10] where selected.name == param.configurationName;
+if(empty roomConfig)
+	LOG::LogInfo(message: "There is no RoomConfiguration named " + param.configurationName + ", so impossible to setEnable()");
+	return false;
+else
+	roomConfig.setEnabled(enabled: param.enabled);
+	if(roomConfig.isEnabled())
+		LOG::LogInfo(message: "Enabled the RoomConfiguration named " + roomConfig.getName());
+	else
+		LOG::LogInfo(message: "Disabled the RoomConfiguration named " + roomConfig.getName());
+	end if;
+	return true;
+end if;',
+	1,
+	'',
+	"0492a4e3-08a2-461c-be58-631f90ad2cb2");
+INSERT INTO O_TPARM
+	VALUES ("f460bb0b-eff9-484f-a399-80392fa5ad37",
+	"58c84403-5d5b-4dbb-9034-78005c94be8b",
+	'configurationName',
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("f362ec93-6520-4150-bc16-c2e62d158b33",
+	"58c84403-5d5b-4dbb-9034-78005c94be8b",
+	'enabled',
+	"28114c36-aaba-4a92-b7c3-08f06e41c6a4",
+	0,
+	'',
+	"f460bb0b-eff9-484f-a399-80392fa5ad37",
+	'');
+INSERT INTO O_TFR
+	VALUES ("f2f45787-9181-4e40-9892-e4184a08b901",
+	"b1404731-4bdc-477f-ab49-48cf034fe57f",
+	'getUniqueRoomId',
+	'',
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	1,
+	'self.uniqueRoomIdCounter = self.uniqueRoomIdCounter + 1;
+return self.uniqueRoomIdCounter;',
+	1,
+	'',
+	"58c84403-5d5b-4dbb-9034-78005c94be8b");
+INSERT INTO O_TFR
+	VALUES ("0492a4e3-08a2-461c-be58-631f90ad2cb2",
+	"b1404731-4bdc-477f-ab49-48cf034fe57f",
+	'addRoomInstance',
+	'',
+	"28114c36-aaba-4a92-b7c3-08f06e41c6a4",
+	1,
+	'select any ri related by self->RoomInstance[R48] where
+	selected.name == param.name;
+
+if ( empty ri )
+	select any rc related by self->RoomConfiguration[R10] where
+		selected.name == param.roomConfigurationName;	
+	if( not_empty rc )
+		create object instance ri of RoomInstance;
+		relate ri to self across R48;
+		relate ri to rc across R26;
+		ri.RoomInstance(name: param.name);
+		
+		LOG::LogInfo(message: "A room instance with name " + param.name + " and configuration " + param.roomConfigurationName + " was added.");
+		return true;
+	else
+		LOG::LogInfo(message: "Could not add room instance with name " + param.name
+		+ " and room configuration: " + param.roomConfigurationName
+		+ ". Reason: No such room configuration exists!");
+	end if;
+else
+	LOG::LogInfo(message: "Could not add room instance with name " + param.name
+	+ ". Reason: Exisiting room instance with same name.");
+end if;
+return false;',
+	1,
+	'',
+	"3bc2fea3-b57e-476d-be7a-fc1b2cb09e02");
+INSERT INTO O_TPARM
+	VALUES ("63eeddbf-b617-45e2-9ac8-ba76f1b74e30",
+	"0492a4e3-08a2-461c-be58-631f90ad2cb2",
+	'name',
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("c2a52909-0268-4f6e-a254-32486605ca05",
+	"0492a4e3-08a2-461c-be58-631f90ad2cb2",
+	'roomConfigurationName',
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	0,
+	'',
+	"63eeddbf-b617-45e2-9ac8-ba76f1b74e30",
+	'');
+INSERT INTO O_TFR
+	VALUES ("518306ee-8c1f-47c2-947f-e5250f3bfc38",
+	"b1404731-4bdc-477f-ab49-48cf034fe57f",
+	'removeRoomConfigurationProperty',
+	'',
+	"28114c36-aaba-4a92-b7c3-08f06e41c6a4",
+	1,
+	'select any roomConfig related by self->RoomConfiguration[R10] where selected.name == param.configurationName;
+select any property related by self->Property[R47] where selected.name == param.propertyName;
+if(empty property)
+	LOG::LogInfo(message: "Property not removed from " + param.configurationName + ": Property " + param.propertyName + " because it does not exist.");
+	return false;
+elif(empty roomConfig)
+	LOG::LogInfo(message: "Property " + param.propertyName + " not removed from the configuration because there is no configuration with the name: " + param.configurationName);
+	return false;
+else
+	select any testGetProperty related by roomConfig->Property[R12] where selected.name == param.propertyName;
+	if(empty testGetProperty)
+		LOG::LogInfo(message: "Property " + param.propertyName + " not removed because it was not a property of " + param.configurationName);
+		return false;
+	else
+		select any ownership related by roomConfig->Ownership[R12];
+		unrelate roomConfig from property across R12 using ownership;
+		delete object instance ownership;
+		LOG::LogInfo(message: "Property " + param.propertyName + " removed from " + param.configurationName);
+		return true;
+	end if;
+end if;',
+	1,
+	'',
+	"f2f45787-9181-4e40-9892-e4184a08b901");
+INSERT INTO O_TPARM
+	VALUES ("1b9ec36f-368b-4efa-a474-f0c32988f312",
+	"518306ee-8c1f-47c2-947f-e5250f3bfc38",
+	'configurationName',
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("2ea67bd4-8dfc-4fa8-8b0e-d56cf6b325c4",
+	"518306ee-8c1f-47c2-947f-e5250f3bfc38",
+	'propertyName',
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	0,
+	'',
+	"1b9ec36f-368b-4efa-a474-f0c32988f312",
+	'');
+INSERT INTO O_TFR
+	VALUES ("0ff3eb63-b190-46fc-a4d3-9382c92e5f89",
+	"b1404731-4bdc-477f-ab49-48cf034fe57f",
+	'getAFreeRoomName',
+	'',
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	1,
+	'select any rc related by self->RoomConfiguration[R10] where
+	selected.name == param.roomConfiguration;
+	
+if( not_empty rc )
+	select many rooms related by rc->RoomInstance[R26];
+	assign date = TIM::current_date();  
+	
+	for each room in rooms 
+	
+		select any ci related by room->CheckIn[R25] where
+			selected.checkOutDate <= date;
+		if( empty ci )
+			return room.getName();
+		end if; 	
+	end for;	
+end if;
+
+return "<!error!>";',
+	1,
+	'',
+	"518306ee-8c1f-47c2-947f-e5250f3bfc38");
+INSERT INTO O_TPARM
+	VALUES ("06655019-82a2-4d17-9b68-dfe3753d3b85",
+	"0ff3eb63-b190-46fc-a4d3-9382c92e5f89",
+	'roomConfiguration',
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO O_TFR
+	VALUES ("a28d38c8-5831-4696-9d90-32e80bb59b67",
+	"b1404731-4bdc-477f-ab49-48cf034fe57f",
+	'getNrOfFreeRooms',
+	'',
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	1,
+	'select any rc related by self->RoomConfiguration[R10] where
+	selected.name == param.roomConfiguration;
+	
+assign counter = 0;
+if( not_empty rc )
+	select many rooms related by rc->RoomInstance[R26];
+	assign date = TIM::current_date();
+	
+	for each room in rooms 
+		  
+		select any ci related by room->CheckIn[R25] where
+			selected.checkOutDate <= date;
+		if( empty ci )
+			counter = counter + 1;
+		end if; 	
+	end for;	
+end if;
+
+return counter; ',
+	1,
+	'',
+	"0ff3eb63-b190-46fc-a4d3-9382c92e5f89");
+INSERT INTO O_TPARM
+	VALUES ("353c3ac2-4b21-4617-b923-7d04d9a938dd",
+	"a28d38c8-5831-4696-9d90-32e80bb59b67",
+	'roomConfiguration',
+	"0cc44ce3-8f6d-4cee-9214-d23d12af9eaf",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("1051e230-8dda-4370-b6d3-252916c053c2",
+	"b1404731-4bdc-477f-ab49-48cf034fe57f");
+INSERT INTO O_BATTR
+	VALUES ("1051e230-8dda-4370-b6d3-252916c053c2",
+	"b1404731-4bdc-477f-ab49-48cf034fe57f");
+INSERT INTO O_ATTR
+	VALUES ("1051e230-8dda-4370-b6d3-252916c053c2",
+	"b1404731-4bdc-477f-ab49-48cf034fe57f",
+	"00000000-0000-0000-0000-000000000000",
+	'currentState',
+	'',
+	'',
+	'currentState',
+	0,
+	"4e33731b-7545-47b2-bf5b-70c967e5b9be",
+	'',
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("4e33731b-7545-47b2-bf5b-70c967e5b9be",
+	"00000000-0000-0000-0000-000000000000",
+	'state<State_Model>',
+	'',
+	'',
+	'../../../../Datatypes/Datatypes.xtuml');
+INSERT INTO O_NBATTR
+	VALUES ("096edb06-7ff2-4470-bb7d-3e2e741a13fb",
+	"b1404731-4bdc-477f-ab49-48cf034fe57f");
+INSERT INTO O_BATTR
+	VALUES ("096edb06-7ff2-4470-bb7d-3e2e741a13fb",
+	"b1404731-4bdc-477f-ab49-48cf034fe57f");
+INSERT INTO O_ATTR
+	VALUES ("096edb06-7ff2-4470-bb7d-3e2e741a13fb",
+	"b1404731-4bdc-477f-ab49-48cf034fe57f",
+	"1051e230-8dda-4370-b6d3-252916c053c2",
+	'uniqueRoomIdCounter',
+	'',
+	'',
+	'uniqueRoomIdCounter',
+	0,
+	"5f77c811-d46b-4197-a574-4b3505e92410",
+	'',
+	'0');
+INSERT INTO O_ID
+	VALUES (0,
+	"b1404731-4bdc-477f-ab49-48cf034fe57f");
+INSERT INTO O_ID
+	VALUES (1,
+	"b1404731-4bdc-477f-ab49-48cf034fe57f");
+INSERT INTO O_ID
+	VALUES (2,
+	"b1404731-4bdc-477f-ab49-48cf034fe57f");
+INSERT INTO S_SS_PROXY
+	VALUES ("f56566de-5321-4b5f-b659-95d5c01e1baa",
+	'Backend',
+	'',
+	'',
+	0,
+	"02903c54-443d-4a88-aa81-181997e1d9f4",
+	"00000000-0000-0000-0000-000000000000",
+	'../Backend.xtuml');

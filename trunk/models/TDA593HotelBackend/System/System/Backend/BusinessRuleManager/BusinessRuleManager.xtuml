@@ -1,0 +1,162 @@
+-- BP 7.1 content: ModelClass syschar: 3 persistence-version: 7.1.5
+
+INSERT INTO O_OBJ
+	VALUES ("748b0fc5-2df2-4edb-a020-5e8cabee0da3",
+	'BusinessRuleManager',
+	32,
+	'BusinessRuleManager',
+	'',
+	"f56566de-5321-4b5f-b659-95d5c01e1baa");
+INSERT INTO O_TFR
+	VALUES ("8c0a740d-dabb-4821-92ca-829557665373",
+	"748b0fc5-2df2-4edb-a020-5e8cabee0da3",
+	'checkBookingRules',
+	'',
+	"28114c36-aaba-4a92-b7c3-08f06e41c6a4",
+	1,
+	'
+// Check if there is more than 8 rooms, if so return false
+
+assign index = 0;
+assign counter = 0;
+while index < param.rcats.length
+	counter = counter + param.rcats[index].amount; 
+	index = index + 1;
+end while;
+
+if(counter > 8)
+LOG::LogInfo(message: "Can not book more than 8 rooms");
+	return false;
+end if;
+
+//Check if endDate starts before startDate, if so return false
+
+assign startDate = param.timespan.startDate;
+assign endDate = param.timespan.endDate;
+
+if (endDate < startDate)
+	LOG::LogInfo(message: "endDate starts before startDate");
+	return false;
+end if;
+
+// Checks if the booking is longer than 30 days if so return false;
+
+assign day = TIM::get_day (date: param.timespan.startDate);
+assign month = TIM::get_month(date: param.timespan.startDate);
+assign year = TIM::get_year (date:param.timespan.startDate);
+assign hour = TIM::get_hour (date:param.timespan.startDate);
+assign minutes = TIM::get_minute (date:param.timespan.startDate);
+assign seconds = TIM::get_second (date:param.timespan.startDate);
+
+assign dummyDate = TIM::create_date(year: year, month: month, day: day + 30, hour: hour, minute: minutes, second: seconds);
+
+if(param.timespan.endDate > dummyDate)
+	LOG::LogInfo(message: "Booking can not be longer than 30 days");
+	return false;
+end if;
+
+assign d = TIM::current_date();
+
+// Checks if startDate is today or in the future. Not a passed date
+
+if(d > param.timespan.startDate)
+	LOG::LogInfo(message: "startDate has passed");
+	return false;
+end if;
+
+// Checks if the booking occurs one year ahead if so return false
+
+assign day1 = TIM::get_day (date:d);
+assign month1 = TIM::get_month(date:d);
+assign year1 = TIM::get_year (date:d);
+assign hour1 = TIM::get_hour (date:d);
+assign minutes1 = TIM::get_minute (date:d);
+assign seconds1 = TIM::get_second (date:d);
+
+assign dummyDate1 = TIM::create_date(year: year1, month: month1, day: day1 + 365, hour: hour1, minute: minutes1, second: seconds1);
+
+if(dummyDate1 <= param.timespan.startDate)
+	LOG::LogInfo(message: "Can not book a year or more ahead of time");
+	return false;
+end if;
+
+return true;',
+	1,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TPARM
+	VALUES ("c07c00cf-0abf-4c95-8654-bb23e4008d09",
+	"8c0a740d-dabb-4821-92ca-829557665373",
+	'rcats',
+	"d919e5ab-5f67-4aab-9544-5fd6291e14e0",
+	0,
+	'[]',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO S_DIM
+	VALUES (0,
+	0,
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"c07c00cf-0abf-4c95-8654-bb23e4008d09",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	"da21b665-ba01-4dc8-91ab-4e2f6d6bf878",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO S_DT_PROXY
+	VALUES ("d919e5ab-5f67-4aab-9544-5fd6291e14e0",
+	"00000000-0000-0000-0000-000000000000",
+	'RoomConfigurationAmountTuple',
+	'',
+	'',
+	'../../../../BackendDatatypes/BackendDatatypes.xtuml');
+INSERT INTO O_TPARM
+	VALUES ("80cf3e83-3c64-4069-b9f2-97daa4099a33",
+	"8c0a740d-dabb-4821-92ca-829557665373",
+	'timespan',
+	"29455544-5da7-4d59-89a1-9d1261bd2be6",
+	0,
+	'',
+	"c07c00cf-0abf-4c95-8654-bb23e4008d09",
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("29455544-5da7-4d59-89a1-9d1261bd2be6",
+	"00000000-0000-0000-0000-000000000000",
+	'TimeSpan',
+	'',
+	'',
+	'../../../../BackendDatatypes/BackendDatatypes.xtuml');
+INSERT INTO S_DT_PROXY
+	VALUES ("28114c36-aaba-4a92-b7c3-08f06e41c6a4",
+	"00000000-0000-0000-0000-000000000000",
+	'boolean',
+	'',
+	'',
+	'../../../../Datatypes/Datatypes.xtuml');
+INSERT INTO O_ID
+	VALUES (0,
+	"748b0fc5-2df2-4edb-a020-5e8cabee0da3");
+INSERT INTO O_ID
+	VALUES (1,
+	"748b0fc5-2df2-4edb-a020-5e8cabee0da3");
+INSERT INTO O_ID
+	VALUES (2,
+	"748b0fc5-2df2-4edb-a020-5e8cabee0da3");
+INSERT INTO S_SS_PROXY
+	VALUES ("f56566de-5321-4b5f-b659-95d5c01e1baa",
+	'Backend',
+	'',
+	'',
+	0,
+	"02903c54-443d-4a88-aa81-181997e1d9f4",
+	"00000000-0000-0000-0000-000000000000",
+	'../Backend.xtuml');
